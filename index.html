@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa Socioeconomia: </title>
+
+    <link rel='stylesheet' href="style/index.css" />
+
+</head>
+
+<body>
+    <header class='header'>
+        <img src="img/cabecalho-fatec.png" alt="Logo Fatec" class="header__img">
+        <div class="header__title"> Perfil Socioeconômico </div>
+        <img src="img/cabecalho-cps.png" alt="Logo cps" class="header__img2">
+    </header>
+
+    <main class="main">
+        <h1 class="main__title"> Cursos: </h1>
+
+        <div class="curso">
+            <div id='container__curso'>
+                <canvas id="curso"></canvas>
+            </div>
+            <div id='container__periodo'>
+                <canvas id="periodo"></canvas>
+            </div>
+        </div>
+
+        <h2 class="main__subtitle"> Moradias: </h2>
+
+        <div class="moradia">
+            <div id='container__estado'>
+                <canvas id="estado"></canvas>
+            </div>
+            <div id='container__cidade'>
+                <canvas id="cidade"></canvas>
+            </div>
+        </div>
+
+
+        <h2 class="main__dadosPessoais"> Dados Pessoais: </h2>
+        
+        <div class="Dados_Pessoais">
+            <div id='container__genero'>
+                <canvas id="genero"></canvas>
+            </div>
+            <div id='container__Estado_Civil'>
+                <canvas id="estado_civil"></canvas>
+            </div>
+            <div id='container__Portador_de_Necessidade'>
+                <canvas id="Portador_de_Necessidade"></canvas>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="script/chart.js"></script>
+
+</body>
+
+</html>
