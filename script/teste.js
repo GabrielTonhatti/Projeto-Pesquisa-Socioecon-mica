@@ -9,9 +9,9 @@ async function generateChart() {
     let Separado = 0;
     let Viuvo = 0;
     let i = 0;
-
+    let tempoMoradia = [];
     for (quest of forms) {
-        if (forms[i]["8. Qual é o seu estado civil?"] == 'Solteiro(a)') {
+        /*if (forms[i]["8. Qual é o seu estado civil?"] == 'Solteiro(a)') {
             Solteiro++
         } else if (forms[i]["8. Qual é o seu estado civil?"] == "Casado(a) ou União Estável") {
             Casado++
@@ -19,15 +19,22 @@ async function generateChart() {
             Separado++
         } else if (forms[i]["8. Qual é o seu estado civil?"] == "Viúvo(a)") {
             Viuvo++
-        }
+        }*/
+
+        tempoMoradia[i] = forms[i]['15. Tempo de moradia neste domicílio (Em anos)']
+
+        console.log(tempoMoradia[i])
+
 
         i++
     }
 
-    console.log(Solteiro)
+    /*/console.log(Solteiro)
     console.log(Casado)
     console.log(Separado)
-    console.log(Viuvo)
+    console.log(Viuvo)*/
+
+
 }
 
 generateChart()

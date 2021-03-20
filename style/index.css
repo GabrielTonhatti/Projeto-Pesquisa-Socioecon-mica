@@ -44,14 +44,16 @@ body {
 
 .main__subtitle {
     margin-top: 60px;
+    font-size: 28px;
     color: #BFBFBF;
     border-left: 7px solid #961227;
     padding-left: 15px;
 }
 
-.main__dadosPessoais{
+.main__dadosPessoais {
     margin-top: 60px;
     color: #BFBFBF;
+    font-size: 28px;
     border-left: 7px solid #961227;
     padding-left: 15px;
 }
@@ -82,16 +84,17 @@ body {
 }
 
 .moradia {
+    display: flex;
     align-items: center;
     padding: 20px;
     margin-top: auto;
 }
 
 #container__estado {
-    margin-top: 60px;
     margin-left: -20px;
-    width: 1500px;
-    height: 740px;
+    margin-top: 60px;
+    width: 850px;
+    height: 450px;
     background-color: #24262D;
     justify-content: space-between;
     padding: 20px;
@@ -99,19 +102,13 @@ body {
 }
 
 #container__cidade {
-    margin-left: -20px;
+    margin-left: 60px;
     margin-top: 60px;
-    width: 1500px;
-    height: 740px;
+    width: 850px;
+    height: 450px;
     background-color: #24262D;
     padding: 20px;
     border-radius: 40px;
-}
-
-.Genero {
-    align-items: center;
-    padding: 20px;
-    margin-top: auto;
 }
 
 #container__genero {
@@ -143,6 +140,102 @@ body {
     margin-left: 60px;
     margin-top: 60px;
     width: 600px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
+
+.Dados_Pessoais2 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__convive_com_portador {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
+
+#container__qtd_de_filhos {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
+
+#container__moram_com {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
+
+.Dados_Pessoais3 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__QTD_de_pessoas_moram_junto {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
+
+#container__situacao_domicilio {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
+
+#container__salario_min {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
+
+.Dados_Pessoais4 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__tempo_moradia {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 850px;
+    height: 450px;
+    background-color: #24262D;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 40px;
+}
+
+
+#container__qtd_geladeira {
+    margin-left: 0px;
+    margin-top: 20px;
+    width: 570px;
     height: 450px;
     background-color: #24262D;
     border-radius: 40px;
