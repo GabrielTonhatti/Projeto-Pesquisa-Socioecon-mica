@@ -4,116 +4,53 @@ async function generateChart() {
     const json = await file.json()
     const forms = json.forms
 
-    let ADS = 0;
-    let GPI = 0;
-    let GRH = 0;
-    let DSM = 0;
-    let Matutino = 0;
-    let Noturno = 0;
+    /* Cursos
+    ADS, GPI, GRH, DSM*/
+    let Cursos = [0, 0, 0, 0];
+
+    /* Periodos
+    Matutino, Noturno*/
+    let Periodo = [0, 0];
+
     let i = 0;
 
     // Matutino
 
     // Estados
-    let MatutinoAC = 0;
-    let MatutinoAL = 0;
-    let MatutinoAP = 0;
-    let MatutinoAM = 0;
-    let MatutinoBA = 0;
-    let MatutinoCE = 0;
-    let MatutinoDF = 0;
-    let MatutinoES = 0;
-    let MatutinoGO = 0;
-    let MatutinoMA = 0;
-    let MatutinoMT = 0;
-    let MatutinoMS = 0;
-    let MatutinoMG = 0;
-    let MatutinoPR = 0;
-    let MatutinoPB = 0;
-    let MatutinoPA = 0;
-    let MatutinoPE = 0;
-    let MatutinoPI = 0;
-    let MatutinoRJ = 0;
-    let MatutinoRN = 0;
-    let MatutinoRS = 0;
-    let MatutinoRO = 0;
-    let MatutinoRR = 0;
-    let MatutinoSC = 0;
-    let MatutinoSE = 0;
-    let MatutinoSP = 0;
-    let MatutinoTO = 0;
+    /* Em ordem respectiva
+    Acre (AC), Alagoas (AL), Amapá (AP), Amazonas (AM), Bahia (BA), Ceará (CE), Distrito Federal (DF), Espírito Santo (ES), Goiás (G), OMaranhão (MA), Mato Grosso (MT), 
+    Mato Grosso do Sul (MS), Minas Gerais (MG), Paraná (PR), Paraíba (PB), Pará (PA), Pernambuco (PE), Piauí (PI), Rio de Janeiro (RJ), Rio Grande do Norte (RN), 
+    Rio Grande do Sul (RS), Rondônia (RO), Roraima (RR), Santa Catarina (SC), Sergipe (SE), São Paulo (SP), Tocantins (TO) */
+    MatutinoEstado = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
 
     // Cidades
-    let MatutinoCBA = 0;
-    let MatutinoCBU = 0;
-    let MatutinoCCPT = 0;
-    let MatutinoCCA = 0;
-    let MatutinoCCL = 0;
-    let MatutinoCCP = 0;
-    let MatutinoCDF = 0;
-    let MatutinoCET = 0;
-    let MatutinoCFR = 0;
-    let MatutinoCGU = 0;
-    let MatutinoCGR = 0;
-    let MatutinoCIBI = 0;
-    let MatutinoCIG = 0;
-    let MatutinoCIP = 0;
-    let MatutinoCIT = 0;
-    let MatutinoCITU = 0;
-    let MatutinoCJR = 0;
-    let MatutinoCMG = 0;
-    let MatutinoCMA = 0;
-    let MatutinoCNU = 0;
-    let MatutinoCO = 0;
-    let MatutinoCPA = 0;
-    let MatutinoCPP = 0;
-    let MatutinoCPE = 0;
-    let MatutinoCPEI = 0;
-    let MatutinoCPRA = 0;
-    let MatutinoCRE = 0;
-    let MatutinoCRC = 0;
-    let MatutinoCRP = 0;
-    let MatutinoCRI = 0;
-    let MatutinoCSA = 0;
-    let MatutinoCSO = 0;
-    let MatutinoCSJB = 0;
-    let MatutinoCSJBV = 0;
-    let MatutinoCSTA = 0;
+    /* Em ordem respectiva 
+     Batatais, Buritizal ,Capetinga , Cássia, Claraval, Cristais Paulista, Delfinópolis, Estreito, FRANCA, Guaíra, Guará, Ibiraci, Igarapava, Ipuã, Itirapuã, Ituverava,
+     Jeriquara, Miguelópolis, Morro Agudo, Nuporanga, Orlândia, Passos, Patrocínio Paulista, Pedregulho, Peixoto, Pratápolis, Restinga,
+     Ribeirão Corrente, Ribeirão Preto, Rifaina, Sacramento, Sales Oliveira, S. Joaquim da Barra, S. José da Bela Vista, São Tomaz de Aquino  */
+    let MatutinoCidade = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
 
     // Gênero
-    let Masculino = 0;
-    let Feminino = 0;
-    let Htrangenero = 0;
-    let Htransexual = 0;
-    let Mtrangenero = 0;
-    let Mtransexual = 0;
-    let Nseiresponder = 0;
-    let PrefiroNaodizer = 0;
-    let Outrogenero = 0;
+    /* Em ordem respectiva
+      Masculino, Feminino, Htrangenero, Htransexual, Mtrangenero, Mtransexual, Nseiresponder, PrefiroNaodizer, Outrogenero
+    */
+    let Genero = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     // Estado Civil
-    let Solteiro = 0;
-    let Casado = 0;
-    let Separado = 0;
-    let Viuvo = 0;
+    // Na respectiva ordem
+    // Solteiro, Casado, Separado, Viuvo
+    let EstadoCivil = [0, 0, 0, 0]
 
     // Portadores de necessidades especiais
-    let nenhuma = 0;
-    let visual = 0;
-    let fisica = 0;
-    let auditiva = 0;
-    let autismo = 0;
-    let deFAla = 0;
+    let Port = [0, 0, 0, 0, 0, 0];
+
+    //Por 0 = nenhum / 1 = visual / 2 = fisica / 3 = auditiva/ 4 = autismo / 5 = de Fala
 
     // Convive com Portadores de necessidades especiais
-    let ConviveAutismo = 0;
-    let ConviveDown = 0;
-    let ConviveDeficiencia = 0;
-    let ConviveAuditiva = 0;
-    let ConviveVisual = 0
-    let ConviveDeFala = 0;
-    let ConviveFisica = 0;
-    let NaoConvive = 0;
+    /*Autismo, Down, Deficiencia, Auditiva, Visual, De Fala, Fisica, Nao Convive */
+    let ConviveComPortador = [0, 0, 0, 0, 0, 0, 0, 0];
 
     // Quantidades de filhos
     let NenhumFilho = 0;
@@ -122,12 +59,14 @@ async function generateChart() {
     let tresFilhos = 0;
     let quatrofilhos = 0;
     let maisDeQuatroFilhos = 0;
+    let QtdFilhos = [0, 0, 0, 0, 0, 0];
 
     // Mora com
     let moraComPai = 0;
     let moraComEsposa = 0;
     let moraComAmigos = 0;
     let moraSozinho = 0;
+    let MoraCom = [0, 0, 0, 0];
 
     // Quantidade de pessoas que moram com cada
     let moraUm = 0;
@@ -138,6 +77,7 @@ async function generateChart() {
     let moraSeis = 0;
     let moraSete = 0;
     let moraMaisQueSete = 0;
+    let QtdDeMoradores = [0, 0, 0, 0, 0, 0, 0, 0];
 
     // Situação do domicilio
     let proprio = 0;
@@ -146,6 +86,7 @@ async function generateChart() {
     let financiado = 0;
     let arrendado = 0;
     let mensalista = 0;
+    let SituacaoDomicilio = [0, 0, 0, 0, 0, 0];
 
     // Tempo de moradia
     let ateDezAnos = 0;
@@ -154,7 +95,8 @@ async function generateChart() {
     let ateQuarentaAnos = 0;
     let ateCinquentaAnos = 0;
     let ateSessentaAnos = 0;
-    let tempoMoradia = [];
+    let Moradia = [];
+    let tempoMoradia = [0, 0, 0, 0, 0, 0];
 
     // Faixa de renda mensal
     let DoisSalarios = 0;
@@ -163,6 +105,7 @@ async function generateChart() {
     let VinteSalarios = 0;
     let MaisDeVinteSalarios = 0;
     let PrefiroNaoResponder = 0;
+    let RendaMensal = [0, 0, 0, 0, 0, 0]
 
     // Quantidade de geladeiras
     let UmaGeladeira = 0;
@@ -170,6 +113,7 @@ async function generateChart() {
     let TresGeladeira = 0;
     let QuatroGeladeira = 0;
     let MaisQueQuatroGeladeira = 0;
+    let QtdGeladeira = [0, 0, 0, 0, 0]
 
     // Quantidade de celulares comuns
     let NenhumCelular = 0;
@@ -178,537 +122,630 @@ async function generateChart() {
     let TresCelular = 0;
     let QuatroCelular = 0;
     let MaisQueQuatroCelular = 0;
+    let QtdCelular = [0, 0, 0, 0, 0, 0]
 
     // Noturno
 
     // Estados
-    let NoturnoAC = 0;
-    let NoturnoAL = 0;
-    let NoturnoAP = 0;
-    let NoturnoAM = 0;
-    let NoturnoBA = 0;
-    let NoturnoCE = 0;
-    let NoturnoDF = 0;
-    let NoturnoES = 0;
-    let NoturnoGO = 0;
-    let NoturnoMA = 0;
-    let NoturnoMT = 0;
-    let NoturnoMS = 0;
-    let NoturnoMG = 0;
-    let NoturnoPR = 0;
-    let NoturnoPB = 0;
-    let NoturnoPA = 0;
-    let NoturnoPE = 0;
-    let NoturnoPI = 0;
-    let NoturnoRJ = 0;
-    let NoturnoRN = 0;
-    let NoturnoRS = 0;
-    let NoturnoRO = 0;
-    let NoturnoRR = 0;
-    let NoturnoSC = 0;
-    let NoturnoSE = 0;
-    let NoturnoSP = 0;
-    let NoturnoTO = 0;
+    /* Em ordem respectiva
+    Acre (AC), Alagoas (AL), Amapá (AP), Amazonas (AM), Bahia (BA), Ceará (CE), Distrito Federal (DF), Espírito Santo (ES), Goiás (G), OMaranhão (MA), Mato Grosso (MT), 
+    Mato Grosso do Sul (MS), Minas Gerais (MG), Paraná (PR), Paraíba (PB), Pará (PA), Pernambuco (PE), Piauí (PI), Rio de Janeiro (RJ), Rio Grande do Norte (RN), 
+    Rio Grande do Sul (RS), Rondônia (RO), Roraima (RR), Santa Catarina (SC), Sergipe (SE), São Paulo (SP), Tocantins (TO) */
+    NoturnoEstado = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     // Cidades
-    let NoturnoCBA = 0;
-    let NoturnoCBU = 0;
-    let NoturnoCCPT = 0;
-    let NoturnoCCA = 0;
-    let NoturnoCCL = 0;
-    let NoturnoCCP = 0;
-    let NoturnoCDF = 0;
-    let NoturnoCET = 0;
-    let NoturnoCFR = 0;
-    let NoturnoCGU = 0;
-    let NoturnoCGR = 0;
-    let NoturnoCIBI = 0;
-    let NoturnoCIG = 0;
-    let NoturnoCIP = 0;
-    let NoturnoCIT = 0;
-    let NoturnoCITU = 0;
-    let NoturnoCJR = 0;
-    let NoturnoCMG = 0;
-    let NoturnoCMA = 0;
-    let NoturnoCNU = 0;
-    let NoturnoCO = 0;
-    let NoturnoCPA = 0;
-    let NoturnoCPP = 0;
-    let NoturnoCPE = 0;
-    let NoturnoCPEI = 0;
-    let NoturnoCPRA = 0;
-    let NoturnoCRE = 0;
-    let NoturnoCRC = 0;
-    let NoturnoCRP = 0;
-    let NoturnoCRI = 0;
-    let NoturnoCSA = 0;
-    let NoturnoCSO = 0;
-    let NoturnoCSJB = 0;
-    let NoturnoCSJBV = 0;
-    let NoturnoCSTA = 0;
+    /* Em ordem respectiva 
+     Batatais, Buritizal ,Capetinga , Cássia, Claraval, Cristais Paulista, Delfinópolis, Estreito, FRANCA, Guaíra, Guará, Ibiraci, Igarapava, Ipuã, Itirapuã, Ituverava,
+     Jeriquara, Miguelópolis, Morro Agudo, Nuporanga, Orlândia, Passos, Patrocínio Paulista, Pedregulho, Peixoto, Pratápolis, Restinga,
+     Ribeirão Corrente, Ribeirão Preto, Rifaina, Sacramento, Sales Oliveira, S. Joaquim da Barra, S. José da Bela Vista, São Tomaz de Aquino  */
+    let NoturnoCidade = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+    let vet = ['Um', 'Dois', 'Três', 'Quatro', 'Mais que quatro']
+    let vet1 = [1, 20, 3, 4, 5]
+
+    function ChartPie(id, tipo, labels, datas, title) {
+        var ctx = document.getElementById(id).getContext('2d');
+    var chart = new Chart(ctx, {
+
+        type: tipo,
+
+        data: {
+            labels: labels,
+            datasets: [{
+                label: '',
+                backgroundColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335'],
+                borderColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335'],
+                data: datas,
+            }]
+        },
+
+        options: {
+
+            title: {
+                display: true,
+                fontColor: '#BFBFBF',
+                fontSize: 30,
+                text: title
+            },
+            legend: {
+                position: 'left',
+                display: true,
+                labels: {
+                    fontColor: '#BFBFBF'
+                }
+            }
+        }
+    });
+    }
+
+    function ChartBar(id, tipo, labels, datas, datas2, title) {
+        var ctx = document.getElementById(id).getContext('2d');
+        var chart = new Chart(ctx, {
+
+            type: tipo,
+
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Matutino',
+                    backgroundColor: '#118DFF',
+                    borderColor: '#118DFF',
+                    data: datas,
+                },
+                {
+                    label: 'Noturno',
+                    backgroundColor: '#E044A7',
+                    borderColor: '#E044A7',
+                    data: datas2,
+                }]
+            },
+
+            options: {
+
+                title: {
+                    display: true,
+                    fontColor: '#BFBFBF',
+                    fontSize: 40,
+                    text: title
+                },
+                legend: {
+                    display: true,
+                    labels: {
+                        fontColor: '#BFBFBF'
+                    }
+                },
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        stacked: false,
+                        gridLines: {
+                            display: true,
+                            color: "#8B8B8C"
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            display: true,
+                            color: '#8B8B8C',
+                        }
+                    }]
+                }
+            },
+        });
+    }
+
 
     for (quest of forms) {
 
         // Curso
         if (forms[i]["1. Qual o seu curso?"] == 'Análise e Desenvolvimento de Sistemas (ADS)') {
-            ADS++
+            Cursos[0]++
         } else if (forms[i]["1. Qual o seu curso?"] == 'Gestão da Produção Industrial (GPI)') {
-            GPI++
+            Cursos[1]++
         } else if (forms[i]["1. Qual o seu curso?"] == 'Gestão de Recursos Humanos') {
-            GRH++
+            Cursos[2]++
         } else if (forms[i]["1. Qual o seu curso?"] == 'Desenvolvimento de Software Multiplataforma') {
-            DSM++
+            Cursos[3]++
         }
 
         if (forms[i]["2. Qual o período que cursa?"] == 'Matutino') {
             // Periodo
-            Matutino++
+            Periodo[0]++
 
             //Estado
             if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Acre (AC)') {
-                MatutinoAC++
+                MatutinoEstado[0]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Alagoas (AL)') {
-                MatutinoAL++
+                MatutinoEstado[1]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Amapá (AP)') {
-                MatutinoAP++
+                MatutinoEstado[2]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Amazonas (AM)') {
-                MatutinoAM++
+                MatutinoEstado[3]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Bahia (BA)') {
-                MatutinoBA++
+                MatutinoEstado[4]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Ceará (CE)') {
-                MatutinoCE++
+                MatutinoEstado[5]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Distrito Federal (DF)') {
-                MatutinoDF++
+                MatutinoEstado[6]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Espírito Santo (ES)') {
-                MatutinoES++
+                MatutinoEstado[7]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Goiás (GO)') {
-                MatutinoGO++
+                MatutinoEstado[8]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Maranhão (MA)') {
-                MatutinoMA++
+                MatutinoEstado[9]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Mato Grosso (MT)') {
-                MatutinoMT++
+                MatutinoEstado[10]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Mato Grosso do Sul (MS)') {
-                MatutinoMS++
+                MatutinoEstado[11]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Minas Gerais (MG)') {
-                MatutinoMG++
+                MatutinoEstado[12]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Paraná (PR)') {
-                MatutinoPR++
+                MatutinoEstado[13]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Paraíba (PB)') {
-                MatutinoPB++
+                MatutinoEstado[14]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Pará (PA)') {
-                MatutinoPA++
+                MatutinoEstado[15]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Pernambuco (PE)') {
-                MatutinoPE++
+                MatutinoEstado[16]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Piauí (PI)') {
-                MatutinoPI++
+                MatutinoEstado[17]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Rio de Janeiro (RJ)') {
-                MatutinoRJ++
+                MatutinoEstado[18]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Rio Grande do Norte (RN)') {
-                MatutinoRN++
+                MatutinoEstado[19]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Rio Grande do Sul (RS)') {
-                MatutinoRS++
+                MatutinoEstado[20]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Rondônia (RO)') {
-                MatutinoRO++
+                MatutinoEstado[21]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Roraima (RR)') {
-                MatutinoRR++
+                MatutinoEstado[22]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Santa Catarina (SC)') {
-                MatutinoSC++
+                MatutinoEstado[23]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Sergipe (SE)') {
-                MatutinoSE++
+                MatutinoEstado[24]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'São Paulo (SP)') {
-                MatutinoSP++
+                MatutinoEstado[25]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Tocantins (TO)') {
-                MatutinoTO++
+                MatutinoEstado[26]++
             }
 
             // Cidade
             if (forms[i]["5. Qual sua cidade de residência?"] == 'Batatais') {
-                MatutinoCBA++
+                MatutinoCidade[0]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Buritizal') {
-                MatutinoCBU++
+                MatutinoCidade[1]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Capetinga') {
-                MatutinoCCPT++
+                MatutinoCidade[2]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Cássia') {
-                MatutinoCCA++
+                MatutinoCidade[3]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Claraval') {
-                MatutinoCCL++
+                MatutinoCidade[4]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Cristais Paulista') {
-                MatutinoCCP++
+                MatutinoCidade[5]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Delfinópolis') {
-                MatutinoCDF++
+                MatutinoCidade[6]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Estreito') {
-                MatutinoCET++
+                MatutinoCidade[7]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Franca') {
-                MatutinoCFR++
+                MatutinoCidade[8]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Guaíra') {
-                MatutinoCGU++
+                MatutinoCidade[9]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Guará') {
-                MatutinoCGR++
+                MatutinoCidade[10]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Ibiraci') {
-                MatutinoCIBI++
+                MatutinoCidade[11]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Igarapava') {
-                MatutinoCIG++
+                MatutinoCidade[12]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Ipuã') {
-                MatutinoCIP++
+                MatutinoCidade[13]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Itirapuã') {
-                MatutinoCIT++
+                MatutinoCidade[14]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Ituverava') {
-                MatutinoCITU++
+                MatutinoCidade[15]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Jeriquara') {
-                MatutinoCJR++
+                MatutinoCidade[16]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Miguelópolis') {
-                MatutinoCMG++
+                MatutinoCidade[17]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Morro Agudo') {
-                MatutinoCMA++
+                MatutinoCidade[18]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Nuporanga') {
-                MatutinoCNU++
+                MatutinoCidade[19]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Orlândia') {
-                MatutinoCO++
+                MatutinoCidade[20]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Passos') {
-                MatutinoCPA++
+                MatutinoCidade[21]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Patrocínio Paulista') {
-                MatutinoCPP++
+                MatutinoCidade[22]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Pedregulho') {
-                MatutinoCPE++
+                MatutinoCidade[23]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Peixoto') {
-                MatutinoCPEI++
+                MatutinoCidade[24]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Pratápolis') {
-                MatutinoCPRA++
+                MatutinoCidade[25]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Restinga') {
-                MatutinoCRE++
+                MatutinoCidade[26]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Ribeirão Corrente') {
-                MatutinoCRC++
+                MatutinoCidade[27]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Ribeirão Preto') {
-                MatutinoCRP++
+                MatutinoCidade[28]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Rifaina') {
-                MatutinoCRI++
+                MatutinoCidade[29]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Sacramento') {
-                MatutinoCSA++
+                MatutinoCidade[30]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Sales Oliveira') {
-                MatutinoCSO++
+                MatutinoCidade[31]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'S. Joaquim da Barra)') {
-                MatutinoCSJB++
+                MatutinoCidade[32]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'S. José da Bela Vista') {
-                MatutinoCSJBV++
+                MatutinoCidade[33]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'São Tomaz de Aquino') {
-                MatutinoCSTA++
+                MatutinoCidade[34]++
             }
 
 
 
         } else if (forms[i]["2. Qual o período que cursa?"] == 'Noturno') {
             // Periodo
-            Noturno++
+            Periodo[1]++
 
             // Estado
             if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Acre (AC)') {
-                NoturnoAC++
+                NoturnoEstado[0]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Alagoas (AL)') {
-                NoturnoAL++
+                NoturnoEstado[1]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Amapá (AP)') {
-                NoturnoAP++
+                NoturnoEstado[2]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Amazonas (AM)') {
-                NoturnoAM++
+                NoturnoEstado[3]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Bahia (BA)') {
-                NoturnoBA++
+                NoturnoEstado[4]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Ceará (CE)') {
-                NoturnoCE++
+                NoturnoEstado[5]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Distrito Federal (DF)') {
-                NoturnoDF++
+                NoturnoEstado[6]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Espírito Santo (ES)') {
-                NoturnoES++
+                NoturnoEstado[7]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Goiás (GO)') {
-                NoturnoGO++
+                NoturnoEstado[8]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Maranhão (MA)') {
-                NoturnoMA++
+                NoturnoEstado[9]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Mato Grosso (MT)') {
-                NoturnoMT++
+                NoturnoEstado[10]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Mato Grosso do Sul (MS)') {
-                NoturnoMS++
+                NoturnoEstado[11]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Minas Gerais (MG)') {
-                NoturnoMG++
+                NoturnoEstado[12]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Paraná (PR)') {
-                NoturnoPR++
+                NoturnoEstado[13]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Paraíba (PB)') {
-                NoturnoPB++
+                NoturnoEstado[14]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Pará (PA)') {
-                NoturnoPA++
+                NoturnoEstado[15]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Pernambuco (PE)') {
-                NoturnoPE++
+                NoturnoEstado[16]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Piauí (PI)') {
-                NoturnoPI++
+                NoturnoEstado[17]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Rio de Janeiro (RJ)') {
-                NoturnoRJ++
+                NoturnoEstado[18]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Rio Grande do Norte (RN)') {
-                NoturnoRN++
+                NoturnoEstado[19]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Rio Grande do Sul (RS)') {
-                NoturnoRS++
+                NoturnoEstado[20]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Rondônia (RO)') {
-                NoturnoRO++
+                NoturnoEstado[21]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Roraima (RR)') {
-                NoturnoRR++
+                NoturnoEstado[22]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Santa Catarina (SC)') {
-                NoturnoSC++
+                NoturnoEstado[23]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Sergipe (SE)') {
-                NoturnoSE++
+                NoturnoEstado[24]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'São Paulo (SP)') {
-                NoturnoSP++
+                NoturnoEstado[25]++
             } else if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Tocantins (TO)') {
-                NoturnoTO++
+                NoturnoEstado[26]++
             }
 
             // Cidade
             if (forms[i]["5. Qual sua cidade de residência?"] == 'Batatais') {
-                NoturnoCBA++
+                NoturnoCidade[0]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Buritizal') {
-                NoturnoCBU++
+                NoturnoCidade[1]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Capetinga') {
-                NoturnoCCPT++
+                NoturnoCidade[2]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Cássia') {
-                NoturnoCCA++
+                NoturnoCidade[3]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Claraval') {
-                NoturnoCCL++
+                NoturnoCidade[4]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Cristais Paulista') {
-                NoturnoCCP++
+                NoturnoCidade[5]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Delfinópolis') {
-                NoturnoCDF++
+                NoturnoCidade[6]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Estreito') {
-                NoturnoCET++
+                NoturnoCidade[7]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Franca') {
-                NoturnoCFR++
+                NoturnoCidade[8]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Guaíra') {
-                NoturnoCGU++
+                NoturnoCidade[9]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Guará') {
-                NoturnoCGR++
+                NoturnoCidade[10]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Ibiraci') {
-                NoturnoCIBI++
+                NoturnoCidade[11]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Igarapava') {
-                NoturnoCIG++
+                NoturnoCidade[12]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Ipuã') {
-                NoturnoCIP++
+                NoturnoCidade[13]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Itirapuã') {
-                NoturnoCIT++
+                NoturnoCidade[14]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Ituverava') {
-                NoturnoCITU++
+                NoturnoCidade[15]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Jeriquara') {
-                NoturnoCJR++
+                NoturnoCidade[16]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Miguelópolis') {
-                NoturnoCMG++
+                NoturnoCidade[17]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Morro Agudo') {
-                NoturnoCMA++
+                NoturnoCidade[18]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Nuporanga') {
-                NoturnoCNU++
+                NoturnoCidade[19]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Orlândia') {
-                NoturnoCO++
+                NoturnoCidade[20]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Passos') {
-                NoturnoCPA++
+                NoturnoCidade[21]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Patrocínio Paulista') {
-                NoturnoCPP++
+                NoturnoCidade[22]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Pedregulho') {
-                NoturnoCPE++
+                NoturnoCidade[23]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Peixoto') {
-                NoturnoCPEI++
+                NoturnoCidade[24]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Pratápolis') {
-                NoturnoCPRA++
+                NoturnoCidade[25]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Restinga') {
-                NoturnoCRE++
+                NoturnoCidade[26]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Ribeirão Corrente') {
-                NoturnoCRC++
+                NoturnoCidade[27]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Ribeirão Preto') {
-                NoturnoCRP++
+                NoturnoCidade[28]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Rifaina') {
-                NoturnoCRI++
+                NoturnoCidade[29]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Sacramento') {
-                NoturnoCSA++
+                NoturnoCidade[30]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'Sales Oliveira') {
-                NoturnoCSO++
+                NoturnoCidade[31]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'S. Joaquim da Barra)') {
-                NoturnoCSJB++
+                NoturnoCidade[32]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'S. José da Bela Vista') {
-                NoturnoCSJBV++
+                NoturnoCidade[33]++
             } else if (forms[i]["5. Qual sua cidade de residência?"] == 'São Tomaz de Aquino') {
-                NoturnoCSTA++
+                NoturnoCidade[34]++
             }
+
         }
 
         // Gênero
         if (forms[i]["6. Qual o seu gênero?"] == "Masculino") {
-            Masculino++
+            Genero[0]++
         } else if (forms[i]["6. Qual o seu gênero?"] == "Feminino") {
-            Feminino++
+            Genero[1]++
         } else if (forms[i]["6. Qual o seu gênero?"] == "Homem transgênero") {
-            Htrangenero++
+            Genero[2]++
         } else if (forms[i]["6. Qual o seu gênero?"] == "Mulher Transgênero") {
-            Mtrangenero++
+            Genero[3]++
         } else if (forms[i]["6. Qual o seu gênero?"] == "Homem Transexual") {
-            Htransexual++
+            Genero[4]++
         } else if (forms[i]["6. Qual o seu gênero?"] == "Homem Transexual") {
-            Mtransexual++
+            Genero[5]++
         } else if (forms[i]["6. Qual o seu gênero?"] == "Não sei responder") {
-            Nseiresponder++
+            Genero[6]++
         } else if (forms[i]["6. Qual o seu gênero?"] == "Prefiro não responder") {
-            PrefiroNaodizer++
+            Genero[7]++
         } else {
-            Outrogenero++
+            Genero[8]++
         }
 
         // Estado Civil
         if (forms[i]["8. Qual é o seu estado civil?"] == 'Solteiro(a)') {
-            Solteiro++
+            EstadoCivil[0]++
         } else if (forms[i]["8. Qual é o seu estado civil?"] == "Casado(a) ou União Estável") {
-            Casado++
+            EstadoCivil[1]++
         } else if (forms[i]["8. Qual é o seu estado civil?"] == "Separado(a), desquitado(a), divorciado(a)") {
-            Separado++
+            EstadoCivil[2]++
         } else if (forms[i]["8. Qual é o seu estado civil?"] == "Viúvo(a)") {
-            Viuvo++
+            EstadoCivil[3]++
         }
 
         // Portadores de Necessidades especiais
         if (forms[i]["9. Você é portador de alguma necessidade especial?(Pode selecionar mais de uma, se for o caso)"] == 'Nenhuma') {
-            nenhuma++
+            Port[0]++
         } else if (forms[i]["9. Você é portador de alguma necessidade especial?(Pode selecionar mais de uma, se for o caso)"] == "Visual") {
-            visual++
+            Port[1]++
         } else if (forms[i]["9. Você é portador de alguma necessidade especial?(Pode selecionar mais de uma, se for o caso)"] == "Física") {
-            fisica++
+            Port[2]++
         } else if (forms[i]["9. Você é portador de alguma necessidade especial?(Pode selecionar mais de uma, se for o caso)"] == "Auditiva") {
-            auditiva++
+            Port[3]++
         } else if (forms[i]["9. Você é portador de alguma necessidade especial?(Pode selecionar mais de uma, se for o caso)"] == "Autismo") {
-            autismo++
+            Port[4]++
         } else if (forms[i]["9. Você é portador de alguma necessidade especial?(Pode selecionar mais de uma, se for o caso)"] == "De fala") {
-            deFAla++
+            Port[5]++
         }
 
 
         // Convive com Portadores de Necessidades especiais
         if (forms[i]["10. Você convive ou mora com alguma pessoa com deficiência?"] == 'Autismo') {
-            ConviveAutismo++
+            ConviveComPortador[0]++
         } else if (forms[i]["10. Você convive ou mora com alguma pessoa com deficiência?"] == "Síndrome de Down") {
-            ConviveDown++
+            ConviveComPortador[1]++
         } else if (forms[i]["10. Você convive ou mora com alguma pessoa com deficiência?"] == "Deficiência") {
-            ConviveDeficiencia++
+            ConviveComPortador[2]++
         } else if (forms[i]["10. Você convive ou mora com alguma pessoa com deficiência?"] == "Auditiva") {
-            ConviveAuditiva++
+            ConviveComPortador[3]++
         } else if (forms[i]["10. Você convive ou mora com alguma pessoa com deficiência?"] == "Visual") {
-            ConviveVisual++
+            ConviveComPortador[4]++
         } else if (forms[i]["10. Você convive ou mora com alguma pessoa com deficiência?"] == "De fala") {
-            ConviveDeFAla++
+            ConviveComPortador[5]++
         } else if (forms[i]["10. Você convive ou mora com alguma pessoa com deficiência?"] == "Física") {
-            ConviveFisica++
+            ConviveComPortador[6]++
         } else if (forms[i]["10. Você convive ou mora com alguma pessoa com deficiência?"] == "Não convivo ou não moro com alguém com deficiência") {
-            NaoConvive++
+            ConviveComPortador[7]++
         }
 
         // Quantidade de filhos
         if (forms[i]['11. Quantos filhos você tem?'] == 'Nenhum') {
             NenhumFilho++
+            QtdFilhos[0]++
         } else if (forms[i]['11. Quantos filhos você tem?'] == "Um") {
+            QtdFilhos[1]++
             umFilho++
         } else if (forms[i]['11. Quantos filhos você tem?'] == "Dois") {
+            QtdFilhos[2]++
             doisFilhos++
         } else if (forms[i]['11. Quantos filhos você tem?'] == "Três") {
+            QtdFilhos[3]++
             tresFilhos++
         } else if (forms[i]['11. Quantos filhos você tem?'] == "Quatro") {
+            QtdFilhos[4]++
             quatrofilhos++
         } else if (forms[i]['11. Quantos filhos você tem?'] == "Mais de quatro") {
+            QtdFilhos[5]++
             maisDeQuatroFilhos++
         }
 
         // Moram com
         if (forms[i]['12. Com quem você mora atualmente?'] == 'Com pais e(ou) parentes') {
             moraComPai++
+            MoraCom[0]++
         } else if (forms[i]['12. Com quem você mora atualmente?'] == "Com esposa(o) e(ou) filho(s)") {
+            MoraCom[1]++
             moraComEsposa++
         } else if (forms[i]['12. Com quem você mora atualmente?'] == "Com amigos (compartilhando despesas) ou de favor") {
+            MoraCom[2]++
             moraComAmigos++
         } else if (forms[i]['12. Com quem você mora atualmente?'] == "Sozinho") {
+            MoraCom[3]++
             moraSozinho++
         }
 
+        // Quantidade de moradores
         if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == '1') {
             moraUm++
+            QtdDeMoradores[0]++
         } else if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == "2") {
+            QtdDeMoradores[1]++
             moraDois++
         } else if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == "3") {
+            QtdDeMoradores[2]++
             moraTres++
         } else if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == "4") {
+            QtdDeMoradores[3]++
             moraQuatro++
         } else if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == "5") {
+            QtdDeMoradores[4]++
             moraCinco++
         } else if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == "6") {
+            QtdDeMoradores[5]++
             moraSeis++
         } else if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == "7") {
+            QtdDeMoradores[6]++
             moraSete++
         } else {
+            QtdDeMoradores[7]++
             moraMaisQueSete++
         }
 
         // Situação do domicilio
         if (forms[i]['14. Qual a situação do domicílio onde mora?'] == 'Próprio') {
             proprio++
+            SituacaoDomicilio[0]++
         } else if (forms[i]['14. Qual a situação do domicílio onde mora?'] == "Alugado") {
+            SituacaoDomicilio[1]++
             alugado++
         } else if (forms[i]['14. Qual a situação do domicílio onde mora?'] == "Cedido") {
+            SituacaoDomicilio[2]++
             cedido++
         } else if (forms[i]['14. Qual a situação do domicílio onde mora?'] == "Financiado") {
+            SituacaoDomicilio[3]++
             financiado++
         } else if (forms[i]['14. Qual a situação do domicílio onde mora?'] == "Arrendado") {
+            SituacaoDomicilio[4]++
             arrendado++
         } else if (forms[i]['14. Qual a situação do domicílio onde mora?'] == "Mensalista") {
+            SituacaoDomicilio[5]++
             mensalista++
         }
 
         // Tempo de moradia
-        tempoMoradia[i] = forms[i]['15. Tempo de moradia neste domicílio (Em anos)']
-        if (tempoMoradia[i] >= '1' && tempoMoradia[i] <= '10') {
-            ateDezAnos++
-        } else if (tempoMoradia[i] >= '11' && tempoMoradia[i] <= '20') {
+        Moradia[i] = forms[i]['15. Tempo de moradia neste domicílio (Em anos)']
+        if (Moradia[i] >= '1' && Moradia[i] <= '10') {
+            tempoMoradia[0]++
+        } else if (Moradia[i] >= '11' && Moradia[i] <= '20') {
+            tempoMoradia[1]++
             ateVinteAnos++
-        } else if (tempoMoradia[i] >= '21' && tempoMoradia[i] <= '30') {
+        } else if (Moradia[i] >= '21' && Moradia[i] <= '30') {
+            tempoMoradia[2]++
             ateTrintaAnos++
-        } else if (tempoMoradia[i] >= '31' && tempoMoradia[i] <= '40') {
+        } else if (Moradia[i] >= '31' && Moradia[i] <= '40') {
+            tempoMoradia[3]++
             ateQuarentaAnos++
-        } else if (tempoMoradia[i] >= '41' && tempoMoradia[i] <= '50') {
+        } else if (Moradia[i] >= '41' && Moradia[i] <= '50') {
+            tempoMoradia[4]++
             ateCinquentaAnos++
-        } else if (tempoMoradia[i] >= '51' && tempoMoradia[i] <= '60') {
+        } else if (Moradia[i] >= '51' && Moradia[i] <= '60') {
+            tempoMoradia[5]++
             ateSessentaAnos++
         }
-
+    
+        // Renda mensal
         if (forms[i]['16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)'] == 'Até dois salários mínimos') {
             DoisSalarios++
+            RendaMensal[0]++
         } else if (forms[i]['16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)'] == 'Mais de dois até cinco salários mínimos') {
+            RendaMensal[1]++
             CincoSalarios++
         } else if (forms[i]['16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)'] == 'Mais de cinco até dez salários mínimos') {
+            RendaMensal[2]++
             DezSalarios++
         } else if (forms[i]['16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)'] == 'Mais de dez até vinte salários mínimos') {
+            RendaMensal[3]++
             VinteSalarios++
         } else if (forms[i]['16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)'] == 'Mais de vinte salários mínimos') {
+            RendaMensal[4]++
             MaisDeVinteSalarios++
         } else if (forms[i]['16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)'] == 'Prefiro não responder') {
+            RendaMensal[5]++
             PrefiroNaoResponder++
         }
 
         if (forms[i]['17.1. Quantas geladeiras há em seu domicílio.'] == '1') {
             UmaGeladeira++
+            QtdGeladeira[0]++
         } else if (forms[i]['17.1. Quantas geladeiras há em seu domicílio.'] == '2') {
+            QtdGeladeira[1]++
             DuasGeladeira++
         } else if (forms[i]['17.1. Quantas geladeiras há em seu domicílio.'] == '3') {
+            QtdGeladeira[2]++
             TresGeladeira++
         } else if (forms[i]['17.1. Quantas geladeiras há em seu domicílio.'] == '4') {
+            QtdGeladeira[3]++
             QuatroGeladeira++
         } else {
+            QtdGeladeira[4]++
             MaisQueQuatroGeladeira++
         }
         if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '0') {
             NenhumCelular++
+            QtdCelular[0]++
         } else if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '1') {
+            QtdCelular[1]++
             UmCelular++
         } else if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '2') {
+            QtdCelular[2]++
             DoisCelular++
         } else if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '3') {
+            QtdCelular[3]++
             TresCelular++
         } else if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '4') {
+            QtdCelular[4]++
             QuatroCelular++
         } else {
+            QtdCelular[5]++
             MaisQueQuatroCelular++
         }
 
@@ -717,218 +754,34 @@ async function generateChart() {
     }
 
     // 1 - Grafico Cursos
-    var ctx = document.getElementById('curso').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'pie',
-
-        data: {
-            labels: ['ADS', 'GPI', 'GHR', 'DSM'],
-            datasets: [{
-                label: "Cursos",
-                backgroundColor: ['#003AAA', 'rgb(31, 255, 69)', '#AA0000', '#F0660C'],
-                borderColor: ['#003AAA', 'rgb(31, 255, 69)', '#AA0000', '#F0660C'],
-                data: [ADS, GPI, GRH, DSM]
-            }]
-        },
-
-        options: {
-            title: {
-                display: true,
-                fontColor: '#BFBFBF',
-                fontSize: 40,
-                text: "Cursos"
-            },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            }
-        }
-    });
+    let info = ['ADS', 'GPI', 'GHR', 'DSM']
+    let dados = [Cursos[0], Cursos[1], Cursos[2], Cursos[3]]
+    ChartPie('curso', 'pie', info, dados, "Cursos")
 
     // 2 - Grafico Periodos
-    var ctx = document.getElementById('periodo').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'pie',
-
-        data: {
-            labels: ['Matutino', 'Noturno'],
-            datasets: [{
-                label: 'Periodo',
-                backgroundColor: ['#003AAA', '#001A56'],
-                borderColor: ['#003AAA', '#001A56'],
-                data: [Matutino, Noturno]
-            }]
-        },
-
-        options: {
-            title: {
-                display: true,
-                fontColor: '#BFBFBF',
-                fontSize: 40,
-                text: "Período"
-            },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            }
-        }
-    });
-
-
-
+    info = ['Matutino', 'Noturno']
+    dados = [Periodo[0], Periodo[1]]
+    ChartPie('periodo', 'pie', info, dados, "Periodo")
+    
     // 4 - Grafico Estados
-    var ctx = document.getElementById('estado').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'bar',
-
-        data: {
-            labels: ['Acre (AC)', 'Alagoas (AL)', 'Amapá (AP)', 'Amazonas (AM)', 'Bahia (BA)', 'Ceará (CE)', 'Distrito Federal (DF)', 'Espírito Santo (ES)', 'Goiás (GO)', 'Maranhão (MA)', 'Mato Grosso (MT)', 'Mato Grosso do Sul (MS)', 'Minas Gerais (MG)', 'Paraná (PR)', 'Paraíba (PB)', 'Pará (PA)', 'Pernambuco (PE)', 'Piauí (PI)', 'Rio de Janeiro (RJ)', 'Rio Grande do Norte (RN)', 'Rio Grande do Sul (RS)', 'Rondônia (RO)', 'Roraima (RR)', 'Santa Catarina (SC)', 'Sergipe (SE)', 'São Paulo (SP)', 'Tocantins (TO)'],
-            datasets: [{
-                label: 'Matutino',
-                backgroundColor: '#118DFF',
-                borderColor: '#118DFF',
-                data: [MatutinoAC, MatutinoAL, MatutinoAP, MatutinoAM, MatutinoBA, MatutinoCE, MatutinoDF, MatutinoES, MatutinoGO, MatutinoMA, MatutinoMT, MatutinoMS, MatutinoMG, MatutinoPR, MatutinoPB, MatutinoPA, MatutinoPE, MatutinoPI, MatutinoRJ, MatutinoRN, MatutinoRS, MatutinoRO, MatutinoRR, MatutinoSC, MatutinoSE, MatutinoSP, MatutinoTO],
-            },
-            {
-                label: 'Noturno',
-                backgroundColor: '#E044A7',
-                borderColor: '#E044A7',
-                data: [NoturnoAC, NoturnoAL, NoturnoAP, NoturnoAM, NoturnoBA, NoturnoCE, NoturnoDF, NoturnoES, NoturnoGO, NoturnoMA, NoturnoMT, NoturnoMS, NoturnoMG, NoturnoPR, NoturnoPB, NoturnoPA, NoturnoPE, NoturnoPI, NoturnoRJ, NoturnoRN, NoturnoRS, NoturnoRO, NoturnoRR, NoturnoSC, NoturnoSE, NoturnoSP, NoturnoTO],
-            }]
-        },
-
-        options: {
-
-            title: {
-                display: true,
-                fontColor: '#BFBFBF',
-                fontSize: 40,
-                text: "Estados"
-            },
-            legend: {
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            },
-            maintainAspectRatio: false,
-            scales: {
-                yAxes: [{
-                    stacked: false,
-                    gridLines: {
-                        display: true,
-                        color: "#8B8B8C"
-                    }
-                }],
-                xAxes: [{
-                    gridLines: {
-                        display: true,
-                        color: '#8B8B8C',
-                    }
-                }]
-            }
-        },
-    });
-
+    info = ['Acre (AC)', 'Alagoas (AL)', 'Amapá (AP)', 'Amazonas (AM)', 'Bahia (BA)', 'Ceará (CE)', 'Distrito Federal (DF)', 'Espírito Santo (ES)', 'Goiás (GO)', 'Maranhão (MA)', 'Mato Grosso (MT)', 'Mato Grosso do Sul (MS)', 'Minas Gerais (MG)', 'Paraná (PR)', 'Paraíba (PB)', 'Pará (PA)', 'Pernambuco (PE)', 'Piauí (PI)', 'Rio de Janeiro (RJ)', 'Rio Grande do Norte (RN)', 'Rio Grande do Sul (RS)', 'Rondônia (RO)', 'Roraima (RR)', 'Santa Catarina (SC)', 'Sergipe (SE)', 'São Paulo (SP)', 'Tocantins (TO)'];
+    let dadosM = [MatutinoEstado[0], MatutinoEstado[1], MatutinoEstado[2], MatutinoEstado[3], MatutinoEstado[4], MatutinoEstado[5], MatutinoEstado[6], MatutinoEstado[7], MatutinoEstado[8], MatutinoEstado[9], MatutinoEstado[10], MatutinoEstado[11], MatutinoEstado[12], MatutinoEstado[13], MatutinoEstado[14], MatutinoEstado[15], MatutinoEstado[16], MatutinoEstado[17], MatutinoEstado[18], MatutinoEstado[19], MatutinoEstado[20], MatutinoEstado[21], MatutinoEstado[22], MatutinoEstado[23], MatutinoEstado[24], MatutinoEstado[25], MatutinoEstado[26]];
+    let dadosN = [NoturnoEstado[0], NoturnoEstado[1], NoturnoEstado[2], NoturnoEstado[3], NoturnoEstado[4], NoturnoEstado[5], NoturnoEstado[6], NoturnoEstado[7], NoturnoEstado[8], NoturnoEstado[9], NoturnoEstado[10], NoturnoEstado[11], NoturnoEstado[12], NoturnoEstado[13], NoturnoEstado[14], NoturnoEstado[15], NoturnoEstado[16], NoturnoEstado[17], NoturnoEstado[18], NoturnoEstado[19], NoturnoEstado[20], NoturnoEstado[21], NoturnoEstado[22], NoturnoEstado[23], NoturnoEstado[24], NoturnoEstado[25], NoturnoEstado[26]];
+    ChartBar('estado', 'bar', info, dadosM, dadosN,"Estados")
+    
     // 5 - Grafico Cidades
-    var ctx = document.getElementById('cidade').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'bar',
-
-        data: {
-            labels: ['Batatais', 'Buritizal', 'Capetinga', 'Cássia', 'Claraval', 'Cristais Paulista', 'Delfinópolis', 'Estreito', 'Franca', 'Guaíra', 'Guará', 'Ibiraci', 'Igarapava', 'Ipuã', 'Itirapuã', 'Ituverava', 'Jeriquara', 'Miguelópolis', 'Morro Agudo', 'Nuporanga', 'Orlândia', 'Passos', 'Patrocínio Paulista', 'Pedregulho', 'Peixoto', 'Pratápolis', 'Restinga', 'Ribeirão Corrente', 'Ribeirão Preto', 'Rifaina', 'Sacramento', 'Sales Oliveira', 'S. Joaquim da Barra', 'S. José da Bela Vista', 'São Tomaz de Aquino',],
-            datasets: [{
-                label: 'Matutino',
-                backgroundColor: '#118DFF',
-                borderColor: '#118DFF',
-                data: [MatutinoCBA, MatutinoCBU, MatutinoCCPT, MatutinoCCA, MatutinoCCL, MatutinoCCP, MatutinoCDF, MatutinoCET, MatutinoCFR, MatutinoCGU, MatutinoCGR, MatutinoCIBI, MatutinoCIG, MatutinoCIP, MatutinoCIT, MatutinoCITU, MatutinoCJR, MatutinoCMG, MatutinoCMA, MatutinoCNU, MatutinoCO, MatutinoCPA, MatutinoCPP, MatutinoCPE, MatutinoCPEI, MatutinoCPRA, MatutinoCRE, MatutinoCRC, MatutinoCRP, MatutinoCRI, MatutinoCSA, MatutinoCSO, MatutinoCSJB, MatutinoCSJBV, MatutinoCSTA]
-            },
-            {
-                label: 'Noturno',
-                backgroundColor: '#E044A7',
-                borderColor: '#E044A7',
-                data: [NoturnoCBA, NoturnoCBU, NoturnoCCPT, NoturnoCCA, NoturnoCCL, NoturnoCCP, NoturnoCDF, NoturnoCET, NoturnoCFR, NoturnoCGU, NoturnoCGR, NoturnoCIBI, NoturnoCIG, NoturnoCIP, NoturnoCIT, NoturnoCITU, NoturnoCJR, NoturnoCMG, NoturnoCMA, NoturnoCNU, NoturnoCO, NoturnoCPA, NoturnoCPP, NoturnoCPE, NoturnoCPEI, NoturnoCPRA, NoturnoCRE, NoturnoCRC, NoturnoCRP, NoturnoCRI, NoturnoCSA, NoturnoCSO, NoturnoCSJB, NoturnoCSJBV, NoturnoCSTA]
-            }]
-        },
-
-        options: {
-            title: {
-                display: true,
-                fontSize: 40,
-                fontColor: '#BFBFBF',
-                text: "Cidades"
-            },
-            legend: {
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF',
-                }
-            },
-            maintainAspectRatio: false,
-            scales: {
-                yAxes: [{
-                    stacked: false,
-                    gridLines: {
-                        display: true,
-                        color: "#8B8B8C"
-                    }
-                }],
-                xAxes: [{
-                    gridLines: {
-                        display: true,
-                        color: '#8B8B8C',
-                    }
-                }]
-            }
-        },
-    });
+    info = ['Batatais', 'Buritizal', 'Capetinga', 'Cássia', 'Claraval', 'Cristais Paulista', 'Delfinópolis', 'Estreito', 'Franca', 'Guaíra', 'Guará', 'Ibiraci', 'Igarapava', 'Ipuã', 'Itirapuã', 'Ituverava', 'Jeriquara', 'Miguelópolis', 'Morro Agudo', 'Nuporanga', 'Orlândia', 'Passos', 'Patrocínio Paulista', 'Pedregulho', 'Peixoto', 'Pratápolis', 'Restinga', 'Ribeirão Corrente', 'Ribeirão Preto', 'Rifaina', 'Sacramento', 'Sales Oliveira', 'S. Joaquim da Barra', 'S. José da Bela Vista', 'São Tomaz de Aquino']
+    dadosM = [MatutinoCidade[0], MatutinoCidade[1], MatutinoCidade[2], MatutinoCidade[3], MatutinoCidade[4], MatutinoCidade[5], MatutinoCidade[6], MatutinoCidade[7], MatutinoCidade[8], MatutinoCidade[9], MatutinoCidade[10], MatutinoCidade[11], MatutinoCidade[12], MatutinoCidade[13], MatutinoCidade[14], MatutinoCidade[15], MatutinoCidade[16], MatutinoCidade[17], MatutinoCidade[18], MatutinoCidade[19], MatutinoCidade[20], MatutinoCidade[21], MatutinoCidade[22], MatutinoCidade[23], MatutinoCidade[24], MatutinoCidade[25], MatutinoCidade[26], MatutinoCidade[27], MatutinoCidade[28], MatutinoCidade[29], MatutinoCidade[30], MatutinoCidade[31], MatutinoCidade[32], MatutinoCidade[33]]
+    dadosN = [NoturnoCidade[0], NoturnoCidade[1], NoturnoCidade[2], NoturnoCidade[3], NoturnoCidade[4], NoturnoCidade[5], NoturnoCidade[6], NoturnoCidade[7], NoturnoCidade[8], NoturnoCidade[9], NoturnoCidade[10], NoturnoCidade[11], NoturnoCidade[12], NoturnoCidade[13], NoturnoCidade[14], NoturnoCidade[15], NoturnoCidade[16], NoturnoCidade[17], NoturnoCidade[18], NoturnoCidade[19], NoturnoCidade[20], NoturnoCidade[21], NoturnoCidade[22], NoturnoCidade[23], NoturnoCidade[24], NoturnoCidade[25], NoturnoCidade[26], NoturnoCidade[27], NoturnoCidade[28], NoturnoCidade[29], NoturnoCidade[30], NoturnoCidade[31], NoturnoCidade[32], NoturnoCidade[33]]
+    ChartBar('cidade', 'bar', info, dadosM, dadosN, "Cidade")
 
     // 6 - Generos
-    var ctx = document.getElementById('genero').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'pie',
-
-        data: {
-            labels: ['Masculino', 'Feminino', 'Homem transgênero', 'Mulher Transgênero', 'Homem Transexual', 'Mulher Transexual', 'Não sei responder', 'Prefiro não responder', 'Outro'],
-            datasets: [{
-                label: "Gênero",
-                backgroundColor: ['#12239E', '#118DFF', '#6B007B', '#E044A7', '#FBBC05', '#744EC2 ', '#D9B300', '#D64550', '#3DFF64'],
-                borderColor: ['#12239E', '#118DFF', '#6B007B', '#E044A7', '#FBBC05', '#744EC2 ', '#D9B300', '#D64550', '#3DFF64'],
-                data: [Masculino, Feminino, Htrangenero, Mtrangenero, Htransexual, Mtransexual, Nseiresponder, PrefiroNaodizer, Outrogenero]
-            }]
-        },
-
-        options: {
-
-            title: {
-                boxWidth: 50,
-                display: true,
-                fontColor: '#BFBFBF',
-                fontSize: 40,
-                text: "Gênero"
-            },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            },
-        },
-    });
-
+    info = ['Masculino', 'Feminino', 'Homem transgênero', 'Mulher Transgênero', 'Homem Transexual', 'Mulher Transexual', 'Não sei responder', 'Prefiro não responder', 'Outro']
+    dados = [Genero[0], Genero[1], Genero[2], Genero[3], Genero[4], Genero[5], Genero[6], Genero[7], Genero[8],]
+    ChartPie('genero', 'pie', info, dados, "Gêneros")
+    
     // 8 - Estado Civil
+    info = ['Solteiro', 'Casado(a) ou União Estável', 'Separado(a), desquitado(a), divorciado(a)', 'Viúvo(a)']
     var ctx = document.getElementById('estado_civil').getContext('2d');
     var chart = new Chart(ctx, {
 
@@ -940,7 +793,7 @@ async function generateChart() {
                 label: "Estado Civil",
                 backgroundColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64'],
                 borderColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64'],
-                data: [Solteiro, Casado, Separado, Viuvo],
+                data: [EstadoCivil[0], EstadoCivil[1], EstadoCivil[2], EstadoCivil[3]],
             }]
         },
 
@@ -974,7 +827,7 @@ async function generateChart() {
                 label: 'Portadores de Necessidades Especiais',
                 backgroundColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335'],
                 borderColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335'],
-                data: [nenhuma, visual, fisica, auditiva, autismo, deFAla],
+                data: [Port[0], Port[1], Port[2], Port[3], Port[4], Port[5]],
             }]
         },
 
@@ -1008,7 +861,7 @@ async function generateChart() {
                 label: 'Convive com Portadores de Necessidades Especiais',
                 backgroundColor: ['#12239E', '#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335', '#6B007B'],
                 borderColor: ['#12239E', '#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335', '#6B007B'],
-                data: [ConviveAutismo, ConviveDown, ConviveDeficiencia, ConviveAuditiva, ConviveVisual, ConviveDeFala, ConviveFisica, NaoConvive]
+                data: [ConviveComPortador[0], ConviveComPortador[1], ConviveComPortador[2], ConviveComPortador[3], ConviveComPortador[4], ConviveComPortador[5], ConviveComPortador[6], ConviveComPortador[7]]
             }]
         },
 
@@ -1201,6 +1054,7 @@ async function generateChart() {
                     fontColor: '#BFBFBF',
                 }
             },
+
             maintainAspectRatio: false,
             scales: {
                 yAxes: [{
@@ -1321,6 +1175,7 @@ async function generateChart() {
     });
 
 
+    ChartPie('qtd_micro_ondas', 'pie', vet, vet1, 'Quantidade de micro-ondas')
 
 }
 

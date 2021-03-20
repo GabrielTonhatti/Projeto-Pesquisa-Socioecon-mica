@@ -255,3 +255,12 @@ body {
     background-color: #24262D;
     border-radius: 40px;
 }
+
+#container__qtd_micro_ondas {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
