@@ -231,44 +231,27 @@ body {
     border-radius: 40px;
 }
 
+.Dados_Pessoais5 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
 
 #container__qtd_geladeira {
-    margin-left: 0px;
-    margin-top: 20px;
+    margin-left: -20px;
+    margin-top: 60px;
     width: 570px;
     height: 450px;
     background-color: #24262D;
     border-radius: 40px;
 }
 
-/*.main__container {
-    color: white;
-    width: 780px;
-    height: 500px;
+#container__qtd_celular_comum {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
     background-color: #24262D;
-    border-radius: 10px;
-    overflow: auto;
-    margin-top: 50px;
+    border-radius: 40px;
 }
-
-.thead__row {
-    text-align: center;
-}
-
-thead{
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.main__container::-webkit-scrollbar-track {
-   background-color: rgb(68, 68, 68);
-}
-.main__container::-webkit-scrollbar {
-   width: 6px;
-   background-color: rgb(68, 68, 68);
-}
-.main__container::-webkit-scrollbar-thumb {
-   background-color: #961227;
-   border-radius: 5px;
-
-}*/

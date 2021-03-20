@@ -171,6 +171,14 @@ async function generateChart() {
     let QuatroGeladeira = 0;
     let MaisQueQuatroGeladeira = 0;
 
+    // Quantidade de celulares comuns
+    let NenhumCelular = 0;
+    let UmCelular = 0;
+    let DoisCelular = 0;
+    let TresCelular = 0;
+    let QuatroCelular = 0;
+    let MaisQueQuatroCelular = 0;
+
     // Noturno
 
     // Estados
@@ -678,7 +686,7 @@ async function generateChart() {
         } else if (forms[i]['16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)'] == 'Prefiro não responder') {
             PrefiroNaoResponder++
         }
-        
+
         if (forms[i]['17.1. Quantas geladeiras há em seu domicílio.'] == '1') {
             UmaGeladeira++
         } else if (forms[i]['17.1. Quantas geladeiras há em seu domicílio.'] == '2') {
@@ -690,7 +698,20 @@ async function generateChart() {
         } else {
             MaisQueQuatroGeladeira++
         }
-        
+        if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '0') {
+            NenhumCelular++
+        } else if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '1') {
+            UmCelular++
+        } else if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '2') {
+            DoisCelular++
+        } else if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '3') {
+            TresCelular++
+        } else if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '4') {
+            QuatroCelular++
+        } else {
+            MaisQueQuatroCelular++
+        }
+
 
         i++
     }
@@ -704,7 +725,7 @@ async function generateChart() {
         data: {
             labels: ['ADS', 'GPI', 'GHR', 'DSM'],
             datasets: [{
-                label: 'ADS',
+                label: "Cursos",
                 backgroundColor: ['#003AAA', 'rgb(31, 255, 69)', '#AA0000', '#F0660C'],
                 borderColor: ['#003AAA', 'rgb(31, 255, 69)', '#AA0000', '#F0660C'],
                 data: [ADS, GPI, GRH, DSM]
@@ -881,7 +902,7 @@ async function generateChart() {
         data: {
             labels: ['Masculino', 'Feminino', 'Homem transgênero', 'Mulher Transgênero', 'Homem Transexual', 'Mulher Transexual', 'Não sei responder', 'Prefiro não responder', 'Outro'],
             datasets: [{
-                label: 'Matutino',
+                label: "Gênero",
                 backgroundColor: ['#12239E', '#118DFF', '#6B007B', '#E044A7', '#FBBC05', '#744EC2 ', '#D9B300', '#D64550', '#3DFF64'],
                 borderColor: ['#12239E', '#118DFF', '#6B007B', '#E044A7', '#FBBC05', '#744EC2 ', '#D9B300', '#D64550', '#3DFF64'],
                 data: [Masculino, Feminino, Htrangenero, Mtrangenero, Htransexual, Mtransexual, Nseiresponder, PrefiroNaodizer, Outrogenero]
@@ -916,7 +937,7 @@ async function generateChart() {
         data: {
             labels: ['Solteiro', 'Casado(a) ou União Estável', 'Separado(a), desquitado(a), divorciado(a)', 'Viúvo(a)'],
             datasets: [{
-                label: 'Matutino',
+                label: "Estado Civil",
                 backgroundColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64'],
                 borderColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64'],
                 data: [Solteiro, Casado, Separado, Viuvo],
@@ -984,7 +1005,7 @@ async function generateChart() {
         data: {
             labels: ['Autismo', 'Síndrome de Down', 'Deficiência', 'Auditiva', 'Visual', 'De fala', 'Física', 'Não convive com alguém com deficiência'],
             datasets: [{
-                label: 'Portadores de Necessidades Especiais',
+                label: 'Convive com Portadores de Necessidades Especiais',
                 backgroundColor: ['#12239E', '#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335', '#6B007B'],
                 borderColor: ['#12239E', '#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335', '#6B007B'],
                 data: [ConviveAutismo, ConviveDown, ConviveDeficiencia, ConviveAuditiva, ConviveVisual, ConviveDeFala, ConviveFisica, NaoConvive]
@@ -1018,7 +1039,7 @@ async function generateChart() {
         data: {
             labels: ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais de quatro'],
             datasets: [{
-                label: 'Portadores de Necessidades Especiais',
+                label: "Quantidade de filhos de cada estudante",
                 backgroundColor: ['#12239E', '#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05'],
                 borderColor: ['#12239E', '#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05'],
                 data: [NenhumFilho, umFilho, doisFilhos, tresFilhos, quatrofilhos, maisDeQuatroFilhos]
@@ -1242,7 +1263,7 @@ async function generateChart() {
         data: {
             labels: ['Uma', 'Duas', 'Três', 'Quatro', 'Mais que quatro'],
             datasets: [{
-                label: "Faixa de renda mensal da família do estudante (em Salários Mínimos)",
+                label: "Quantidade de Geladeiras de cada aluno",
                 backgroundColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7'],
                 borderColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7'],
                 data: [UmaGeladeira, DuasGeladeira, TresGeladeira, QuatroGeladeira, MaisQueQuatroGeladeira]
@@ -1255,6 +1276,39 @@ async function generateChart() {
                 fontSize: 20,
                 fontColor: '#BFBFBF',
                 text: "Quantidade de Geladeiras de cada aluno"
+            },
+            legend: {
+                position: 'left',
+                display: true,
+                labels: {
+                    fontColor: '#BFBFBF'
+                }
+            }
+        }
+    });
+
+    // Quantidade de celulares comuns
+    var ctx = document.getElementById('qtd_celular_comum').getContext('2d');
+    var chart = new Chart(ctx, {
+
+        type: 'pie',
+
+        data: {
+            labels: ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais que quatro'],
+            datasets: [{
+                label: "Faixa de renda mensal da família do estudante (em Salários Mínimos)",
+                backgroundColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7', '#3DFF64'],
+                borderColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7', '#3DFF64'],
+                data: [NenhumCelular, UmCelular, DoisCelular, TresCelular, QuatroCelular, MaisQueQuatroCelular]
+            }]
+        },
+
+        options: {
+            title: {
+                display: true,
+                fontSize: 20,
+                fontColor: '#BFBFBF',
+                text: "Quantidade de celulares comuns de cada aluno"
             },
             legend: {
                 position: 'left',
