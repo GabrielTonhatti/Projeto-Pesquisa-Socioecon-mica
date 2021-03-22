@@ -4,6 +4,12 @@ async function generateChart() {
     const json = await file.json()
     const forms = json.forms
 
+    // variaveis para as funções
+    let info = []; // Gravar as informações dos graficos
+    let dados = []; // Gravas os valores de cada informação dos grafico
+    let dadosM = []; // Gravas os valores de cada informação dos grafico para o Mtutino para graficos de barra
+    let dadosN = []; // Gravas os valores de cada informação dos grafico para o Noturno para graficos de barra
+    
     /* Cursos
     ADS, GPI, GRH, DSM*/
     let Cursos = [0, 0, 0, 0];
@@ -78,10 +84,26 @@ async function generateChart() {
     // Quantidade de Micro-ondas
     let QtdMicro_Ondas = [0, 0, 0, 0, 0, 0];
 
-    let info = []; // Gravar as informações dos graficos
-    let dados = []; // Gravas os valores de cada informação dos grafico
-    let dadosM = []; // Gravas os valores de cada informação dos grafico para o Mtutino para graficos de barra
-    let dadosN = []; // Gravas os valores de cada informação dos grafico para o Noturno para graficos de barra
+    // Quantidade de Notebooks
+    let Qtd_Notebooks = [0, 0, 0, 0, 0, 0];
+
+    // Quantidade de maquinas de lavar roupa
+    let Qtd_Maquina_de_Lavar = [0, 0, 0, 0, 0, 0];
+
+    // Quantidade de motocicletas
+    let Qtd_motoclicletas = [0, 0, 0, 0, 0, 0];
+
+    // Quantidade de automoveis
+    let Qtd_Automoveis = [0, 0, 0, 0, 0, 0];
+
+    // Quantidade de DVDs
+    let Qtd_DVD = [0, 0, 0, 0, 0, 0];
+
+    // Quantidade de TVs
+    let Qtd_TV = [0, 0, 0, 0, 0, 0];
+
+    // Quantidade de Smartphones
+    let Qtd_Smartphones = [0, 0, 0, 0, 0, 0];
 
     function ChartPie(id, tipo, labels, datas, title) {
         var ctx = document.getElementById(id).getContext('2d');
@@ -104,7 +126,7 @@ async function generateChart() {
                 title: {
                     display: true,
                     fontColor: '#BFBFBF',
-                    fontSize: 30,
+                    fontSize: 40,
                     text: title
                 },
                 legend: {
@@ -676,7 +698,112 @@ async function generateChart() {
         } else {
             QtdMicro_Ondas[5]++
         }
+        
+        // Quantidade de notebooks
+        if (forms[i]['17.4. Quantos notebooks há em seu domicílio?'] == '0') {
+            Qtd_Notebooks[0]++
+        } else if (forms[i]['17.4. Quantos notebooks há em seu domicílio?'] == '1') {
+            Qtd_Notebooks[1]++
+        } else if (forms[i]['17.4. Quantos notebooks há em seu domicílio?'] == '2') {
+            Qtd_Notebooks[2]++
+        } else if (forms[i]['17.4. Quantos notebooks há em seu domicílio?'] == '3') {
+            Qtd_Notebooks[3]++
+        } else if (forms[i]['17.4. Quantos notebooks há em seu domicílio?'] == '4') {
+            Qtd_Notebooks[4]++
+        } else {
+            Qtd_Notebooks[5]++
+        }
 
+        // Quantidade de Maquinas de lavar
+        if (forms[i]['17.5. Quantas máquinas de lavar roupa e(ou) tanquinho há em seu domicílio?'] == '0') {
+            Qtd_Maquina_de_Lavar[0]++
+        } else if (forms[i]['17.5. Quantas máquinas de lavar roupa e(ou) tanquinho há em seu domicílio?'] == '1') {
+            Qtd_Maquina_de_Lavar[1]++
+        } else if (forms[i]['17.5. Quantas máquinas de lavar roupa e(ou) tanquinho há em seu domicílio?'] == '2') {
+            Qtd_Maquina_de_Lavar[2]++
+        } else if (forms[i]['17.5. Quantas máquinas de lavar roupa e(ou) tanquinho há em seu domicílio?'] == '3') {
+            Qtd_Maquina_de_Lavar[3]++
+        } else if (forms[i]['17.5. Quantas máquinas de lavar roupa e(ou) tanquinho há em seu domicílio?'] == '4') {
+            Qtd_Maquina_de_Lavar[4]++
+        } else {
+            Qtd_Maquina_de_Lavar[5]++
+        }
+
+        // Quantidade de motocicletas
+        if (forms[i]['17.6. Quantas motocicletas há em seu domicílio?'] == '0') {
+            Qtd_motoclicletas[0]++
+        } else if (forms[i]['17.6. Quantas motocicletas há em seu domicílio?'] == '1') {
+            Qtd_motoclicletas[1]++
+        } else if (forms[i]['17.6. Quantas motocicletas há em seu domicílio?'] == '2') {
+            Qtd_motoclicletas[2]++
+        } else if (forms[i]['17.6. Quantas motocicletas há em seu domicílio?'] == '3') {
+            Qtd_motoclicletas[3]++
+        } else if (forms[i]['17.6. Quantas motocicletas há em seu domicílio?'] == '4') {
+            Qtd_motoclicletas[4]++
+        } else {
+            Qtd_motoclicletas[5]++
+        }
+
+        // Quantidade de automoveis
+        if (forms[i]['17.7. Quantos automóveis há em seu domicílio?'] == '0') {
+            Qtd_Automoveis[0]++
+        } else if (forms[i]['17.7. Quantos automóveis há em seu domicílio?'] == '1') {
+            Qtd_Automoveis[1]++
+        } else if (forms[i]['17.7. Quantos automóveis há em seu domicílio?'] == '2') {
+            Qtd_Automoveis[2]++
+        } else if (forms[i]['17.7. Quantos automóveis há em seu domicílio?'] == '3') {
+            Qtd_Automoveis[3]++
+        } else if (forms[i]['17.7. Quantos automóveis há em seu domicílio?'] == '4') {
+            Qtd_Automoveis[4]++
+        } else {
+            Qtd_Automoveis[5]++
+        }
+
+        // Quantidade de DVDs
+        if (forms[i]['17.8. Quantos vídeos cassete e(ou) DVD players há em seu domicílio?'] == '0') {
+            Qtd_DVD[0]++
+        } else if (forms[i]['17.8. Quantos vídeos cassete e(ou) DVD players há em seu domicílio?'] == '1') {
+            Qtd_DVD[1]++
+        } else if (forms[i]['17.8. Quantos vídeos cassete e(ou) DVD players há em seu domicílio?'] == '2') {
+            Qtd_DVD[2]++
+        } else if (forms[i]['17.8. Quantos vídeos cassete e(ou) DVD players há em seu domicílio?'] == '3') {
+            Qtd_DVD[3]++
+        } else if (forms[i]['17.8. Quantos vídeos cassete e(ou) DVD players há em seu domicílio?'] == '4') {
+            Qtd_DVD[4]++
+        } else {
+            Qtd_DVD[5]++
+        }
+
+        // Quantidade de TVs
+        if (forms[i]['17.9. Quantos televisores há em seu domicílio?'] == '0') {
+            Qtd_TV[0]++
+        } else if (forms[i]['17.9. Quantos televisores há em seu domicílio?'] == '1') {
+            Qtd_TV[1]++
+        } else if (forms[i]['17.9. Quantos televisores há em seu domicílio?'] == '2') {
+            Qtd_TV[2]++
+        } else if (forms[i]['17.9. Quantos televisores há em seu domicílio?'] == '3') {
+            Qtd_TV[3]++
+        } else if (forms[i]['17.9. Quantos televisores há em seu domicílio?'] == '4') {
+            Qtd_TV[4]++
+        } else {
+            Qtd_TV[5]++
+        }
+
+        // Quantidade de Smartphones
+        if (forms[i]['17.10. Quantos smartphones há em seu domicílio?'] == '0') {
+            Qtd_Smartphones[0]++
+        } else if (forms[i]['17.10. Quantos smartphones há em seu domicílio?'] == '1') {
+            Qtd_Smartphones[1]++
+        } else if (forms[i]['17.10. Quantos smartphones há em seu domicílio?'] == '2') {
+            Qtd_Smartphones[2]++
+        } else if (forms[i]['17.10. Quantos smartphones há em seu domicílio?'] == '3') {
+            Qtd_Smartphones[3]++
+        } else if (forms[i]['17.10. Quantos smartphones há em seu domicílio?'] == '4') {
+            Qtd_Smartphones[4]++
+        } else {
+            Qtd_Smartphones[5]++
+        }
+        
         i++
     }
 
@@ -718,7 +845,7 @@ async function generateChart() {
     ChartPie('Portador_de_Necessidade', 'pie', info, dados, "Portadores de Necessidades Especiais");
 
     // 10 - Convive Portadores de Necessidades Especiais
-    info = ['Autismo', 'Síndrome de Down', 'Deficiência', 'Auditiva', 'Visual', 'De fala', 'Física'];
+    info = ['Autismo', 'Síndrome de Down', 'Deficiência', 'Auditiva', 'Visual', 'De fala', 'Física', 'Não convivo ou não moro com alguém com deficiência'];
     dados = [ConviveComPortador[0], ConviveComPortador[1], ConviveComPortador[2], ConviveComPortador[3], ConviveComPortador[4], ConviveComPortador[5], ConviveComPortador[6], ConviveComPortador[7]]
     ChartPie('convive_com_portador', 'pie', info, dados, "Convive com Portadores de Necessidades Especiais");
 
@@ -726,7 +853,6 @@ async function generateChart() {
     info = ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais de quatro'];
     dados = [QtdFilhos[0], QtdFilhos[1], QtdFilhos[2], QtdFilhos[3], QtdFilhos[4], QtdFilhos[5], QtdFilhos[6], QtdFilhos[7]]
     ChartPie('qtd_de_filhos', 'pie', info, dados, "Quantidade de filhos de cada estudante");
-
 
     // 12 - com quem moram
     info = ['Com pais e(ou) parentes', 'Com esposa(o) e(ou) filho(s)', 'Com amigos (compartilhando despesas) ou de favor', 'Sozinho'];
@@ -749,7 +875,6 @@ async function generateChart() {
     dadosN = [NoturnoTempoMoradia[0], NoturnoTempoMoradia[1], NoturnoTempoMoradia[2], NoturnoTempoMoradia[3], NoturnoTempoMoradia[4], NoturnoTempoMoradia[5]];
     ChartBar('tempo_moradia', 'bar', info, dadosM, dadosN, "Tempo de moradia no domicílio(Em anos)");
 
-
     // 16 - Renda Mensal
     info = ['Até dois salários mínimos', 'Mais de dois até cinco salários mínimos', 'Mais de cinco até dez salários mínimos', 'Mais de dez até vinte salários mínimos', 'Mais de vinte salários mínimos', 'Prefiro não responder'];
     dados = [RendaMensal[0], RendaMensal[1], RendaMensal[2], RendaMensal[3], RendaMensal[4], RendaMensal[5]];
@@ -761,14 +886,49 @@ async function generateChart() {
     ChartPie('qtd_geladeira', 'pie', info, dados, "Quantidade de Geladeiras de cada aluno");
 
     //17.2 Quantidade de celulares comuns
-    info = ['Nenhum', 'Uma', 'Duas', 'Três', 'Quatro', 'Mais que quatro'];
+    info = ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais que quatro'];
     dados = [QtdCelular[0], QtdCelular[1], QtdCelular[2], QtdCelular[3], QtdCelular[4], QtdCelular[5]];
     ChartPie('qtd_celular_comum', 'pie', info, dados, "Quantidade de celulares comuns de cada aluno");
 
     //17.3 Quantiade de micro-ondas
-    info = ['Nenhum', 'Uma', 'Duas', 'Três', 'Quatro', 'Mais que quatro'];
+    info = ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais que quatro'];
     dados = [QtdMicro_Ondas[0], QtdMicro_Ondas[1], QtdMicro_Ondas[2], QtdMicro_Ondas[3], QtdMicro_Ondas[4], QtdMicro_Ondas[5]];
-    ChartPie('qtd_micro_ondas', 'pie', info, dados, 'Quantidade de micro-ondas');
+    ChartPie('qtd_micro_ondas', 'pie', info, dados, 'Quantidade de micro-ondas de cada aluno');
+
+    // 17.4 Quantidade de Notebooks
+    info = ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais que quatro'];
+    dados = [Qtd_Notebooks[0], Qtd_Notebooks[1], Qtd_Notebooks[2], Qtd_Notebooks[3], Qtd_Notebooks[4], Qtd_Notebooks[5]];
+    ChartPie('qtd_notebooks', 'pie', info, dados, 'Quantidade de Notebooks de cada aluno');
+
+    // 17.5 Quantidade de maquinas de lavar
+    info = ['Nenhum', 'Uma', 'Duas', 'Três', 'Quatro', 'Mais que quatro'];
+    dados = [Qtd_Maquina_de_Lavar[0], Qtd_Maquina_de_Lavar[1], Qtd_Maquina_de_Lavar[2], Qtd_Maquina_de_Lavar[3], Qtd_Maquina_de_Lavar[4], Qtd_Maquina_de_Lavar[5]];
+    ChartPie('qtd_Maquina_de_Lavar', 'pie', info, dados, 'Quantidade de Máquinas de lavar roupa de cada aluno');
+
+    // 17.6 Quantidade de motocicletas
+    info = ['Nenhum', 'Uma', 'Duas', 'Três', 'Quatro', 'Mais que quatro'];
+    dados = [Qtd_motoclicletas[0], Qtd_motoclicletas[1], Qtd_motoclicletas[2], Qtd_motoclicletas[3], Qtd_motoclicletas[4], Qtd_motoclicletas[5]];
+    ChartPie('qtd_motocicletas', 'pie', info, dados, 'Quantidade de Motocicletas de cada aluno');
+
+    // 17.7 Quantidade de automoveis
+    info = ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais que quatro'];
+    dados = [Qtd_Automoveis[0], Qtd_Automoveis[1], Qtd_Automoveis[2], Qtd_Automoveis[3], Qtd_Automoveis[4], Qtd_Automoveis[5]];
+    ChartPie('qtd_Automoveis', 'pie', info, dados, 'Quantidade de Automóveis de cada aluno');
+
+    // 17.8 Quantidade DVD players
+    info = ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais que quatro'];
+    dados = [Qtd_DVD[0], Qtd_DVD[1], Qtd_DVD[2], Qtd_DVD[3], Qtd_DVD[4], Qtd_DVD[5]];
+    ChartPie('qtd_DVD', 'pie', info, dados, 'Quantidade de DVD players');
+
+    // 17.9 Quantidade de TVs
+    info = ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais que quatro'];
+    dados = [Qtd_TV[0], Qtd_TV[1], Qtd_TV[2], Qtd_TV[3], Qtd_TV[4], Qtd_TV[5]];
+    ChartPie('qtd_TV', 'pie', info, dados, 'Quantidade de TVs de cada aluno');
+
+    // 17.10 Quantidade de smartphones
+    info = ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais que quatro'];
+    dados = [Qtd_Smartphones[0], Qtd_Smartphones[1], Qtd_Smartphones[2], Qtd_Smartphones[3], Qtd_Smartphones[4], Qtd_Smartphones[5]];
+    ChartPie('qtd_Smartphones', 'pie', info, dados, 'Quantidade de Smartphones de cada aluno');
 
 }
 
