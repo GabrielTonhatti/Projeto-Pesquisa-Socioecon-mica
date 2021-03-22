@@ -14,168 +14,108 @@ async function generateChart() {
 
     let i = 0;
 
-    // Matutino
-
     // Estados
     /* Em ordem respectiva
     Acre (AC), Alagoas (AL), Amapá (AP), Amazonas (AM), Bahia (BA), Ceará (CE), Distrito Federal (DF), Espírito Santo (ES), Goiás (G), OMaranhão (MA), Mato Grosso (MT), 
     Mato Grosso do Sul (MS), Minas Gerais (MG), Paraná (PR), Paraíba (PB), Pará (PA), Pernambuco (PE), Piauí (PI), Rio de Janeiro (RJ), Rio Grande do Norte (RN), 
     Rio Grande do Sul (RS), Rondônia (RO), Roraima (RR), Santa Catarina (SC), Sergipe (SE), São Paulo (SP), Tocantins (TO) */
-    MatutinoEstado = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
+    let MatutinoEstado = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let NoturnoEstado = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     // Cidades
     /* Em ordem respectiva 
      Batatais, Buritizal ,Capetinga , Cássia, Claraval, Cristais Paulista, Delfinópolis, Estreito, FRANCA, Guaíra, Guará, Ibiraci, Igarapava, Ipuã, Itirapuã, Ituverava,
      Jeriquara, Miguelópolis, Morro Agudo, Nuporanga, Orlândia, Passos, Patrocínio Paulista, Pedregulho, Peixoto, Pratápolis, Restinga,
      Ribeirão Corrente, Ribeirão Preto, Rifaina, Sacramento, Sales Oliveira, S. Joaquim da Barra, S. José da Bela Vista, São Tomaz de Aquino  */
-    let MatutinoCidade = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    let MatutinoCidade = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let NoturnoCidade = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
+    /* Gênero
+      Em ordem respectiva
+      Masculino, Feminino, Htrangenero, Htransexual, Mtrangenero, Mtransexual, Nseiresponder, PrefiroNaodizer, Outrogenero*/
+    let Genero = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-    // Gênero
-    /* Em ordem respectiva
-      Masculino, Feminino, Htrangenero, Htransexual, Mtrangenero, Mtransexual, Nseiresponder, PrefiroNaodizer, Outrogenero
-    */
-    let Genero = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-    // Estado Civil
-    // Na respectiva ordem
-    // Solteiro, Casado, Separado, Viuvo
-    let EstadoCivil = [0, 0, 0, 0]
+    /* Estado Civil
+     Na respectiva ordem
+     Solteiro, Casado, Separado, Viuvo */
+    let EstadoCivil = [0, 0, 0, 0];
 
     // Portadores de necessidades especiais
     let Port = [0, 0, 0, 0, 0, 0];
 
     //Por 0 = nenhum / 1 = visual / 2 = fisica / 3 = auditiva/ 4 = autismo / 5 = de Fala
 
-    // Convive com Portadores de necessidades especiais
-    /*Autismo, Down, Deficiencia, Auditiva, Visual, De Fala, Fisica, Nao Convive */
+    /* Convive com Portadores de necessidades especiais
+    Autismo, Down, Deficiencia, Auditiva, Visual, De Fala, Fisica, Nao Convive */
     let ConviveComPortador = [0, 0, 0, 0, 0, 0, 0, 0];
 
     // Quantidades de filhos
-    let NenhumFilho = 0;
-    let umFilho = 0;
-    let doisFilhos = 0;
-    let tresFilhos = 0;
-    let quatrofilhos = 0;
-    let maisDeQuatroFilhos = 0;
     let QtdFilhos = [0, 0, 0, 0, 0, 0];
 
     // Mora com
-    let moraComPai = 0;
-    let moraComEsposa = 0;
-    let moraComAmigos = 0;
-    let moraSozinho = 0;
     let MoraCom = [0, 0, 0, 0];
 
     // Quantidade de pessoas que moram com cada
-    let moraUm = 0;
-    let moraDois = 0;
-    let moraTres = 0;
-    let moraQuatro = 0;
-    let moraCinco = 0;
-    let moraSeis = 0;
-    let moraSete = 0;
-    let moraMaisQueSete = 0;
     let QtdDeMoradores = [0, 0, 0, 0, 0, 0, 0, 0];
 
     // Situação do domicilio
-    let proprio = 0;
-    let alugado = 0;
-    let cedido = 0;
-    let financiado = 0;
-    let arrendado = 0;
-    let mensalista = 0;
     let SituacaoDomicilio = [0, 0, 0, 0, 0, 0];
 
     // Tempo de moradia
-    let ateDezAnos = 0;
-    let ateVinteAnos = 0;
-    let ateTrintaAnos = 0;
-    let ateQuarentaAnos = 0;
-    let ateCinquentaAnos = 0;
-    let ateSessentaAnos = 0;
     let Moradia = [];
-    let tempoMoradia = [0, 0, 0, 0, 0, 0];
+    let MatutinoTempoMoradia = [0, 0, 0, 0, 0, 0];
+    let NoturnoTempoMoradia = [0, 0, 0, 0, 0, 0];
 
     // Faixa de renda mensal
-    let DoisSalarios = 0;
-    let CincoSalarios = 0;
-    let DezSalarios = 0;
-    let VinteSalarios = 0;
-    let MaisDeVinteSalarios = 0;
-    let PrefiroNaoResponder = 0;
-    let RendaMensal = [0, 0, 0, 0, 0, 0]
+    let RendaMensal = [0, 0, 0, 0, 0, 0];
 
     // Quantidade de geladeiras
-    let UmaGeladeira = 0;
-    let DuasGeladeira = 0;
-    let TresGeladeira = 0;
-    let QuatroGeladeira = 0;
-    let MaisQueQuatroGeladeira = 0;
-    let QtdGeladeira = [0, 0, 0, 0, 0]
+    let QtdGeladeira = [0, 0, 0, 0, 0];
 
     // Quantidade de celulares comuns
-    let NenhumCelular = 0;
-    let UmCelular = 0;
-    let DoisCelular = 0;
-    let TresCelular = 0;
-    let QuatroCelular = 0;
-    let MaisQueQuatroCelular = 0;
-    let QtdCelular = [0, 0, 0, 0, 0, 0]
+    let QtdCelular = [0, 0, 0, 0, 0, 0];
 
-    // Noturno
+    // Quantidade de Micro-ondas
+    let QtdMicro_Ondas = [0, 0, 0, 0, 0, 0];
 
-    // Estados
-    /* Em ordem respectiva
-    Acre (AC), Alagoas (AL), Amapá (AP), Amazonas (AM), Bahia (BA), Ceará (CE), Distrito Federal (DF), Espírito Santo (ES), Goiás (G), OMaranhão (MA), Mato Grosso (MT), 
-    Mato Grosso do Sul (MS), Minas Gerais (MG), Paraná (PR), Paraíba (PB), Pará (PA), Pernambuco (PE), Piauí (PI), Rio de Janeiro (RJ), Rio Grande do Norte (RN), 
-    Rio Grande do Sul (RS), Rondônia (RO), Roraima (RR), Santa Catarina (SC), Sergipe (SE), São Paulo (SP), Tocantins (TO) */
-    NoturnoEstado = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-    // Cidades
-    /* Em ordem respectiva 
-     Batatais, Buritizal ,Capetinga , Cássia, Claraval, Cristais Paulista, Delfinópolis, Estreito, FRANCA, Guaíra, Guará, Ibiraci, Igarapava, Ipuã, Itirapuã, Ituverava,
-     Jeriquara, Miguelópolis, Morro Agudo, Nuporanga, Orlândia, Passos, Patrocínio Paulista, Pedregulho, Peixoto, Pratápolis, Restinga,
-     Ribeirão Corrente, Ribeirão Preto, Rifaina, Sacramento, Sales Oliveira, S. Joaquim da Barra, S. José da Bela Vista, São Tomaz de Aquino  */
-    let NoturnoCidade = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-    let vet = ['Um', 'Dois', 'Três', 'Quatro', 'Mais que quatro']
-    let vet1 = [1, 20, 3, 4, 5]
+    let info = []; // Gravar as informações dos graficos
+    let dados = []; // Gravas os valores de cada informação dos grafico
+    let dadosM = []; // Gravas os valores de cada informação dos grafico para o Mtutino para graficos de barra
+    let dadosN = []; // Gravas os valores de cada informação dos grafico para o Noturno para graficos de barra
 
     function ChartPie(id, tipo, labels, datas, title) {
         var ctx = document.getElementById(id).getContext('2d');
-    var chart = new Chart(ctx, {
+        var chart = new Chart(ctx, {
 
-        type: tipo,
+            type: tipo,
 
-        data: {
-            labels: labels,
-            datasets: [{
-                label: '',
-                backgroundColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335'],
-                borderColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335'],
-                data: datas,
-            }]
-        },
-
-        options: {
-
-            title: {
-                display: true,
-                fontColor: '#BFBFBF',
-                fontSize: 30,
-                text: title
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '',
+                    backgroundColor: ['#12239E', '#FF0005', '#EA4335', '#1D96CC', '#3DFF64', '#FBBC05', '#9657FF', '#6B007B', '#FFF28C'],
+                    borderColor: ['#12239E', '#FF0005', '#EA4335', '#1D96CC', '#3DFF64', '#FBBC05', '#9657FF', '#6B007B', '#FFF28C'],
+                    data: datas,
+                }]
             },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
+
+            options: {
+
+                title: {
+                    display: true,
+                    fontColor: '#BFBFBF',
+                    fontSize: 30,
+                    text: title
+                },
+                legend: {
+                    position: 'left',
+                    display: true,
+                    labels: {
+                        fontColor: '#BFBFBF'
+                    }
                 }
             }
-        }
-    });
+        });
     }
 
     function ChartBar(id, tipo, labels, datas, datas2, title) {
@@ -237,6 +177,8 @@ async function generateChart() {
 
     for (quest of forms) {
 
+        Moradia[i] = forms[i]['15. Tempo de moradia neste domicílio (Em anos)']
+
         // Curso
         if (forms[i]["1. Qual o seu curso?"] == 'Análise e Desenvolvimento de Sistemas (ADS)') {
             Cursos[0]++
@@ -251,6 +193,7 @@ async function generateChart() {
         if (forms[i]["2. Qual o período que cursa?"] == 'Matutino') {
             // Periodo
             Periodo[0]++
+
 
             //Estado
             if (forms[i]["4. Qual o estado do Brasil que você nasceu?"] == 'Acre (AC)') {
@@ -382,6 +325,20 @@ async function generateChart() {
                 MatutinoCidade[34]++
             }
 
+            // Tempo de moradia
+            if (Moradia[i] >= '1' && Moradia[i] <= '10') {
+                MatutinoTempoMoradia[0]++
+            } else if (Moradia[i] >= '11' && Moradia[i] <= '20') {
+                MatutinoTempoMoradia[1]++
+            } else if (Moradia[i] >= '21' && Moradia[i] <= '30') {
+                MatutinoTempoMoradia[2]++
+            } else if (Moradia[i] >= '31' && Moradia[i] <= '40') {
+                MatutinoTempoMoradia[3]++
+            } else if (Moradia[i] >= '41' && Moradia[i] <= '50') {
+                MatutinoTempoMoradia[4]++
+            } else if (Moradia[i] >= '51' && Moradia[i] <= '60') {
+                MatutinoTempoMoradia[5]++
+            }
 
 
         } else if (forms[i]["2. Qual o período que cursa?"] == 'Noturno') {
@@ -518,6 +475,20 @@ async function generateChart() {
                 NoturnoCidade[34]++
             }
 
+            // Tempo de moradia
+            if (Moradia[i] >= '1' && Moradia[i] <= '10') {
+                NoturnoTempoMoradia[0]++
+            } else if (Moradia[i] >= '11' && Moradia[i] <= '20') {
+                NoturnoTempoMoradia[1]++
+            } else if (Moradia[i] >= '21' && Moradia[i] <= '30') {
+                NoturnoTempoMoradia[2]++
+            } else if (Moradia[i] >= '31' && Moradia[i] <= '40') {
+                NoturnoTempoMoradia[3]++
+            } else if (Moradia[i] >= '41' && Moradia[i] <= '50') {
+                NoturnoTempoMoradia[4]++
+            } else if (Moradia[i] >= '51' && Moradia[i] <= '60') {
+                NoturnoTempoMoradia[5]++
+            }
         }
 
         // Gênero
@@ -589,593 +560,215 @@ async function generateChart() {
 
         // Quantidade de filhos
         if (forms[i]['11. Quantos filhos você tem?'] == 'Nenhum') {
-            NenhumFilho++
             QtdFilhos[0]++
         } else if (forms[i]['11. Quantos filhos você tem?'] == "Um") {
             QtdFilhos[1]++
-            umFilho++
         } else if (forms[i]['11. Quantos filhos você tem?'] == "Dois") {
             QtdFilhos[2]++
-            doisFilhos++
         } else if (forms[i]['11. Quantos filhos você tem?'] == "Três") {
             QtdFilhos[3]++
-            tresFilhos++
         } else if (forms[i]['11. Quantos filhos você tem?'] == "Quatro") {
             QtdFilhos[4]++
-            quatrofilhos++
         } else if (forms[i]['11. Quantos filhos você tem?'] == "Mais de quatro") {
             QtdFilhos[5]++
-            maisDeQuatroFilhos++
         }
 
         // Moram com
         if (forms[i]['12. Com quem você mora atualmente?'] == 'Com pais e(ou) parentes') {
-            moraComPai++
             MoraCom[0]++
         } else if (forms[i]['12. Com quem você mora atualmente?'] == "Com esposa(o) e(ou) filho(s)") {
             MoraCom[1]++
-            moraComEsposa++
         } else if (forms[i]['12. Com quem você mora atualmente?'] == "Com amigos (compartilhando despesas) ou de favor") {
             MoraCom[2]++
-            moraComAmigos++
         } else if (forms[i]['12. Com quem você mora atualmente?'] == "Sozinho") {
             MoraCom[3]++
-            moraSozinho++
         }
 
         // Quantidade de moradores
         if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == '1') {
-            moraUm++
             QtdDeMoradores[0]++
         } else if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == "2") {
             QtdDeMoradores[1]++
-            moraDois++
         } else if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == "3") {
             QtdDeMoradores[2]++
-            moraTres++
         } else if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == "4") {
             QtdDeMoradores[3]++
-            moraQuatro++
         } else if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == "5") {
             QtdDeMoradores[4]++
-            moraCinco++
         } else if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == "6") {
             QtdDeMoradores[5]++
-            moraSeis++
         } else if (forms[i]["13. Quantas pessoas, incluindo você, moram no seu domicílio?"] == "7") {
             QtdDeMoradores[6]++
-            moraSete++
         } else {
             QtdDeMoradores[7]++
-            moraMaisQueSete++
         }
 
         // Situação do domicilio
         if (forms[i]['14. Qual a situação do domicílio onde mora?'] == 'Próprio') {
-            proprio++
             SituacaoDomicilio[0]++
         } else if (forms[i]['14. Qual a situação do domicílio onde mora?'] == "Alugado") {
             SituacaoDomicilio[1]++
-            alugado++
         } else if (forms[i]['14. Qual a situação do domicílio onde mora?'] == "Cedido") {
             SituacaoDomicilio[2]++
-            cedido++
         } else if (forms[i]['14. Qual a situação do domicílio onde mora?'] == "Financiado") {
             SituacaoDomicilio[3]++
-            financiado++
         } else if (forms[i]['14. Qual a situação do domicílio onde mora?'] == "Arrendado") {
             SituacaoDomicilio[4]++
-            arrendado++
         } else if (forms[i]['14. Qual a situação do domicílio onde mora?'] == "Mensalista") {
             SituacaoDomicilio[5]++
-            mensalista++
         }
 
-        // Tempo de moradia
-        Moradia[i] = forms[i]['15. Tempo de moradia neste domicílio (Em anos)']
-        if (Moradia[i] >= '1' && Moradia[i] <= '10') {
-            tempoMoradia[0]++
-        } else if (Moradia[i] >= '11' && Moradia[i] <= '20') {
-            tempoMoradia[1]++
-            ateVinteAnos++
-        } else if (Moradia[i] >= '21' && Moradia[i] <= '30') {
-            tempoMoradia[2]++
-            ateTrintaAnos++
-        } else if (Moradia[i] >= '31' && Moradia[i] <= '40') {
-            tempoMoradia[3]++
-            ateQuarentaAnos++
-        } else if (Moradia[i] >= '41' && Moradia[i] <= '50') {
-            tempoMoradia[4]++
-            ateCinquentaAnos++
-        } else if (Moradia[i] >= '51' && Moradia[i] <= '60') {
-            tempoMoradia[5]++
-            ateSessentaAnos++
-        }
-    
+
         // Renda mensal
         if (forms[i]['16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)'] == 'Até dois salários mínimos') {
-            DoisSalarios++
             RendaMensal[0]++
         } else if (forms[i]['16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)'] == 'Mais de dois até cinco salários mínimos') {
             RendaMensal[1]++
-            CincoSalarios++
         } else if (forms[i]['16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)'] == 'Mais de cinco até dez salários mínimos') {
             RendaMensal[2]++
-            DezSalarios++
         } else if (forms[i]['16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)'] == 'Mais de dez até vinte salários mínimos') {
             RendaMensal[3]++
-            VinteSalarios++
         } else if (forms[i]['16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)'] == 'Mais de vinte salários mínimos') {
             RendaMensal[4]++
-            MaisDeVinteSalarios++
         } else if (forms[i]['16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)'] == 'Prefiro não responder') {
             RendaMensal[5]++
-            PrefiroNaoResponder++
         }
 
+        // Quantidade de geladeiras
         if (forms[i]['17.1. Quantas geladeiras há em seu domicílio.'] == '1') {
-            UmaGeladeira++
             QtdGeladeira[0]++
         } else if (forms[i]['17.1. Quantas geladeiras há em seu domicílio.'] == '2') {
             QtdGeladeira[1]++
-            DuasGeladeira++
         } else if (forms[i]['17.1. Quantas geladeiras há em seu domicílio.'] == '3') {
             QtdGeladeira[2]++
-            TresGeladeira++
         } else if (forms[i]['17.1. Quantas geladeiras há em seu domicílio.'] == '4') {
             QtdGeladeira[3]++
-            QuatroGeladeira++
         } else {
             QtdGeladeira[4]++
-            MaisQueQuatroGeladeira++
         }
+
+        // Quantidade de Celulares comuns
         if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '0') {
-            NenhumCelular++
             QtdCelular[0]++
         } else if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '1') {
             QtdCelular[1]++
-            UmCelular++
         } else if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '2') {
             QtdCelular[2]++
-            DoisCelular++
         } else if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '3') {
             QtdCelular[3]++
-            TresCelular++
         } else if (forms[i]['17.2. Quantos celulares comuns há em seu domicílio?'] == '4') {
             QtdCelular[4]++
-            QuatroCelular++
         } else {
             QtdCelular[5]++
-            MaisQueQuatroCelular++
         }
 
+        // Quantidade de Micro ondas
+        if (forms[i]['17.3. Quantos micro-ondas há em seu domicílio?'] == '0') {
+            QtdMicro_Ondas[0]++
+        } else if (forms[i]['17.3. Quantos micro-ondas há em seu domicílio?'] == '1') {
+            QtdMicro_Ondas[1]++
+        } else if (forms[i]['17.3. Quantos micro-ondas há em seu domicílio?'] == '2') {
+            QtdMicro_Ondas[2]++
+        } else if (forms[i]['17.3. Quantos micro-ondas há em seu domicílio?'] == '3') {
+            QtdMicro_Ondas[3]++
+        } else if (forms[i]['17.3. Quantos micro-ondas há em seu domicílio?'] == '4') {
+            QtdMicro_Ondas[4]++
+        } else {
+            QtdMicro_Ondas[5]++
+        }
 
         i++
     }
 
     // 1 - Grafico Cursos
-    let info = ['ADS', 'GPI', 'GHR', 'DSM']
-    let dados = [Cursos[0], Cursos[1], Cursos[2], Cursos[3]]
+    info = ['ADS', 'GPI', 'GHR', 'DSM']
+    dados = [Cursos[0], Cursos[1], Cursos[2], Cursos[3]]
     ChartPie('curso', 'pie', info, dados, "Cursos")
 
     // 2 - Grafico Periodos
     info = ['Matutino', 'Noturno']
     dados = [Periodo[0], Periodo[1]]
     ChartPie('periodo', 'pie', info, dados, "Periodo")
-    
+
     // 4 - Grafico Estados
     info = ['Acre (AC)', 'Alagoas (AL)', 'Amapá (AP)', 'Amazonas (AM)', 'Bahia (BA)', 'Ceará (CE)', 'Distrito Federal (DF)', 'Espírito Santo (ES)', 'Goiás (GO)', 'Maranhão (MA)', 'Mato Grosso (MT)', 'Mato Grosso do Sul (MS)', 'Minas Gerais (MG)', 'Paraná (PR)', 'Paraíba (PB)', 'Pará (PA)', 'Pernambuco (PE)', 'Piauí (PI)', 'Rio de Janeiro (RJ)', 'Rio Grande do Norte (RN)', 'Rio Grande do Sul (RS)', 'Rondônia (RO)', 'Roraima (RR)', 'Santa Catarina (SC)', 'Sergipe (SE)', 'São Paulo (SP)', 'Tocantins (TO)'];
-    let dadosM = [MatutinoEstado[0], MatutinoEstado[1], MatutinoEstado[2], MatutinoEstado[3], MatutinoEstado[4], MatutinoEstado[5], MatutinoEstado[6], MatutinoEstado[7], MatutinoEstado[8], MatutinoEstado[9], MatutinoEstado[10], MatutinoEstado[11], MatutinoEstado[12], MatutinoEstado[13], MatutinoEstado[14], MatutinoEstado[15], MatutinoEstado[16], MatutinoEstado[17], MatutinoEstado[18], MatutinoEstado[19], MatutinoEstado[20], MatutinoEstado[21], MatutinoEstado[22], MatutinoEstado[23], MatutinoEstado[24], MatutinoEstado[25], MatutinoEstado[26]];
-    let dadosN = [NoturnoEstado[0], NoturnoEstado[1], NoturnoEstado[2], NoturnoEstado[3], NoturnoEstado[4], NoturnoEstado[5], NoturnoEstado[6], NoturnoEstado[7], NoturnoEstado[8], NoturnoEstado[9], NoturnoEstado[10], NoturnoEstado[11], NoturnoEstado[12], NoturnoEstado[13], NoturnoEstado[14], NoturnoEstado[15], NoturnoEstado[16], NoturnoEstado[17], NoturnoEstado[18], NoturnoEstado[19], NoturnoEstado[20], NoturnoEstado[21], NoturnoEstado[22], NoturnoEstado[23], NoturnoEstado[24], NoturnoEstado[25], NoturnoEstado[26]];
-    ChartBar('estado', 'bar', info, dadosM, dadosN,"Estados")
-    
+    dadosM = [MatutinoEstado[0], MatutinoEstado[1], MatutinoEstado[2], MatutinoEstado[3], MatutinoEstado[4], MatutinoEstado[5], MatutinoEstado[6], MatutinoEstado[7], MatutinoEstado[8], MatutinoEstado[9], MatutinoEstado[10], MatutinoEstado[11], MatutinoEstado[12], MatutinoEstado[13], MatutinoEstado[14], MatutinoEstado[15], MatutinoEstado[16], MatutinoEstado[17], MatutinoEstado[18], MatutinoEstado[19], MatutinoEstado[20], MatutinoEstado[21], MatutinoEstado[22], MatutinoEstado[23], MatutinoEstado[24], MatutinoEstado[25], MatutinoEstado[26]];
+    dadosN = [NoturnoEstado[0], NoturnoEstado[1], NoturnoEstado[2], NoturnoEstado[3], NoturnoEstado[4], NoturnoEstado[5], NoturnoEstado[6], NoturnoEstado[7], NoturnoEstado[8], NoturnoEstado[9], NoturnoEstado[10], NoturnoEstado[11], NoturnoEstado[12], NoturnoEstado[13], NoturnoEstado[14], NoturnoEstado[15], NoturnoEstado[16], NoturnoEstado[17], NoturnoEstado[18], NoturnoEstado[19], NoturnoEstado[20], NoturnoEstado[21], NoturnoEstado[22], NoturnoEstado[23], NoturnoEstado[24], NoturnoEstado[25], NoturnoEstado[26]];
+    ChartBar('estado', 'bar', info, dadosM, dadosN, "Estados")
+
     // 5 - Grafico Cidades
-    info = ['Batatais', 'Buritizal', 'Capetinga', 'Cássia', 'Claraval', 'Cristais Paulista', 'Delfinópolis', 'Estreito', 'Franca', 'Guaíra', 'Guará', 'Ibiraci', 'Igarapava', 'Ipuã', 'Itirapuã', 'Ituverava', 'Jeriquara', 'Miguelópolis', 'Morro Agudo', 'Nuporanga', 'Orlândia', 'Passos', 'Patrocínio Paulista', 'Pedregulho', 'Peixoto', 'Pratápolis', 'Restinga', 'Ribeirão Corrente', 'Ribeirão Preto', 'Rifaina', 'Sacramento', 'Sales Oliveira', 'S. Joaquim da Barra', 'S. José da Bela Vista', 'São Tomaz de Aquino']
-    dadosM = [MatutinoCidade[0], MatutinoCidade[1], MatutinoCidade[2], MatutinoCidade[3], MatutinoCidade[4], MatutinoCidade[5], MatutinoCidade[6], MatutinoCidade[7], MatutinoCidade[8], MatutinoCidade[9], MatutinoCidade[10], MatutinoCidade[11], MatutinoCidade[12], MatutinoCidade[13], MatutinoCidade[14], MatutinoCidade[15], MatutinoCidade[16], MatutinoCidade[17], MatutinoCidade[18], MatutinoCidade[19], MatutinoCidade[20], MatutinoCidade[21], MatutinoCidade[22], MatutinoCidade[23], MatutinoCidade[24], MatutinoCidade[25], MatutinoCidade[26], MatutinoCidade[27], MatutinoCidade[28], MatutinoCidade[29], MatutinoCidade[30], MatutinoCidade[31], MatutinoCidade[32], MatutinoCidade[33]]
-    dadosN = [NoturnoCidade[0], NoturnoCidade[1], NoturnoCidade[2], NoturnoCidade[3], NoturnoCidade[4], NoturnoCidade[5], NoturnoCidade[6], NoturnoCidade[7], NoturnoCidade[8], NoturnoCidade[9], NoturnoCidade[10], NoturnoCidade[11], NoturnoCidade[12], NoturnoCidade[13], NoturnoCidade[14], NoturnoCidade[15], NoturnoCidade[16], NoturnoCidade[17], NoturnoCidade[18], NoturnoCidade[19], NoturnoCidade[20], NoturnoCidade[21], NoturnoCidade[22], NoturnoCidade[23], NoturnoCidade[24], NoturnoCidade[25], NoturnoCidade[26], NoturnoCidade[27], NoturnoCidade[28], NoturnoCidade[29], NoturnoCidade[30], NoturnoCidade[31], NoturnoCidade[32], NoturnoCidade[33]]
+    info = ['Batatais', 'Buritizal', 'Capetinga', 'Cássia', 'Claraval', 'Cristais Paulista', 'Delfinópolis', 'Estreito', 'Franca', 'Guaíra', 'Guará', 'Ibiraci', 'Igarapava', 'Ipuã', 'Itirapuã', 'Ituverava', 'Jeriquara', 'Miguelópolis', 'Morro Agudo', 'Nuporanga', 'Orlândia', 'Passos', 'Patrocínio Paulista', 'Pedregulho', 'Peixoto', 'Pratápolis', 'Restinga', 'Ribeirão Corrente', 'Ribeirão Preto', 'Rifaina', 'Sacramento', 'Sales Oliveira', 'S. Joaquim da Barra', 'S. José da Bela Vista', 'São Tomaz de Aquino'];
+    dadosM = [MatutinoCidade[0], MatutinoCidade[1], MatutinoCidade[2], MatutinoCidade[3], MatutinoCidade[4], MatutinoCidade[5], MatutinoCidade[6], MatutinoCidade[7], MatutinoCidade[8], MatutinoCidade[9], MatutinoCidade[10], MatutinoCidade[11], MatutinoCidade[12], MatutinoCidade[13], MatutinoCidade[14], MatutinoCidade[15], MatutinoCidade[16], MatutinoCidade[17], MatutinoCidade[18], MatutinoCidade[19], MatutinoCidade[20], MatutinoCidade[21], MatutinoCidade[22], MatutinoCidade[23], MatutinoCidade[24], MatutinoCidade[25], MatutinoCidade[26], MatutinoCidade[27], MatutinoCidade[28], MatutinoCidade[29], MatutinoCidade[30], MatutinoCidade[31], MatutinoCidade[32], MatutinoCidade[33]];
+    dadosN = [NoturnoCidade[0], NoturnoCidade[1], NoturnoCidade[2], NoturnoCidade[3], NoturnoCidade[4], NoturnoCidade[5], NoturnoCidade[6], NoturnoCidade[7], NoturnoCidade[8], NoturnoCidade[9], NoturnoCidade[10], NoturnoCidade[11], NoturnoCidade[12], NoturnoCidade[13], NoturnoCidade[14], NoturnoCidade[15], NoturnoCidade[16], NoturnoCidade[17], NoturnoCidade[18], NoturnoCidade[19], NoturnoCidade[20], NoturnoCidade[21], NoturnoCidade[22], NoturnoCidade[23], NoturnoCidade[24], NoturnoCidade[25], NoturnoCidade[26], NoturnoCidade[27], NoturnoCidade[28], NoturnoCidade[29], NoturnoCidade[30], NoturnoCidade[31], NoturnoCidade[32], NoturnoCidade[33]];
     ChartBar('cidade', 'bar', info, dadosM, dadosN, "Cidade")
 
     // 6 - Generos
-    info = ['Masculino', 'Feminino', 'Homem transgênero', 'Mulher Transgênero', 'Homem Transexual', 'Mulher Transexual', 'Não sei responder', 'Prefiro não responder', 'Outro']
-    dados = [Genero[0], Genero[1], Genero[2], Genero[3], Genero[4], Genero[5], Genero[6], Genero[7], Genero[8],]
-    ChartPie('genero', 'pie', info, dados, "Gêneros")
-    
+    info = ['Masculino', 'Feminino', 'Homem transgênero', 'Mulher Transgênero', 'Homem Transexual', 'Mulher Transexual', 'Não sei responder', 'Prefiro não responder', 'Outro'];
+    dados = [Genero[0], Genero[1], Genero[2], Genero[3], Genero[4], Genero[5], Genero[6], Genero[7], Genero[8]];
+    ChartPie('genero', 'pie', info, dados, "Gêneros");
+
     // 8 - Estado Civil
-    info = ['Solteiro', 'Casado(a) ou União Estável', 'Separado(a), desquitado(a), divorciado(a)', 'Viúvo(a)']
-    var ctx = document.getElementById('estado_civil').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'pie',
-
-        data: {
-            labels: ['Solteiro', 'Casado(a) ou União Estável', 'Separado(a), desquitado(a), divorciado(a)', 'Viúvo(a)'],
-            datasets: [{
-                label: "Estado Civil",
-                backgroundColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64'],
-                borderColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64'],
-                data: [EstadoCivil[0], EstadoCivil[1], EstadoCivil[2], EstadoCivil[3]],
-            }]
-        },
-
-        options: {
-
-            title: {
-                display: true,
-                fontColor: '#BFBFBF',
-                fontSize: 40,
-                text: "Estado Civil"
-            },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            }
-        }
-    });
+    info = ['Solteiro', 'Casado(a) ou União Estável', 'Separado(a), desquitado(a), divorciado(a)', 'Viúvo(a)'];
+    dados = [EstadoCivil[0], EstadoCivil[1], EstadoCivil[2], EstadoCivil[3]];
+    ChartPie('estado_civil', 'pie', info, dados, "Estado Civil");
 
     // 9 - Portadores de Necessidades Especiais
-    var ctx = document.getElementById('Portador_de_Necessidade').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'pie',
-
-        data: {
-            labels: ['Nenhuma', 'Visual', 'Física', 'Auditiva', 'Autismo', 'De fala'],
-            datasets: [{
-                label: 'Portadores de Necessidades Especiais',
-                backgroundColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335'],
-                borderColor: ['#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335'],
-                data: [Port[0], Port[1], Port[2], Port[3], Port[4], Port[5]],
-            }]
-        },
-
-        options: {
-
-            title: {
-                display: true,
-                fontColor: '#BFBFBF',
-                fontSize: 30,
-                text: "Portadores de Necessidades Especiais"
-            },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            }
-        }
-    });
+    info = ['Nenhuma', 'Visual', 'Física', 'Auditiva', 'Autismo', 'De fala'];
+    dados = [Port[0], Port[1], Port[2], Port[3], Port[4], Port[5]];
+    ChartPie('Portador_de_Necessidade', 'pie', info, dados, "Portadores de Necessidades Especiais");
 
     // 10 - Convive Portadores de Necessidades Especiais
-    var ctx = document.getElementById('convive_com_portador').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'pie',
-
-        data: {
-            labels: ['Autismo', 'Síndrome de Down', 'Deficiência', 'Auditiva', 'Visual', 'De fala', 'Física', 'Não convive com alguém com deficiência'],
-            datasets: [{
-                label: 'Convive com Portadores de Necessidades Especiais',
-                backgroundColor: ['#12239E', '#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335', '#6B007B'],
-                borderColor: ['#12239E', '#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05', '#EA4335', '#6B007B'],
-                data: [ConviveComPortador[0], ConviveComPortador[1], ConviveComPortador[2], ConviveComPortador[3], ConviveComPortador[4], ConviveComPortador[5], ConviveComPortador[6], ConviveComPortador[7]]
-            }]
-        },
-
-        options: {
-
-            title: {
-                display: true,
-                fontColor: '#BFBFBF',
-                fontSize: 20,
-                text: "Convive com Portadores de Necessidades Especiais"
-            },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            }
-        }
-    });
+    info = ['Autismo', 'Síndrome de Down', 'Deficiência', 'Auditiva', 'Visual', 'De fala', 'Física'];
+    dados = [ConviveComPortador[0], ConviveComPortador[1], ConviveComPortador[2], ConviveComPortador[3], ConviveComPortador[4], ConviveComPortador[5], ConviveComPortador[6], ConviveComPortador[7]]
+    ChartPie('convive_com_portador', 'pie', info, dados, "Convive com Portadores de Necessidades Especiais");
 
     // 11 - Quantidade de Filhos
-    var ctx = document.getElementById('qtd_de_filhos').getContext('2d');
-    var chart = new Chart(ctx, {
+    info = ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais de quatro'];
+    dados = [QtdFilhos[0], QtdFilhos[1], QtdFilhos[2], QtdFilhos[3], QtdFilhos[4], QtdFilhos[5], QtdFilhos[6], QtdFilhos[7]]
+    ChartPie('qtd_de_filhos', 'pie', info, dados, "Quantidade de filhos de cada estudante");
 
-        type: 'pie',
-
-        data: {
-            labels: ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais de quatro'],
-            datasets: [{
-                label: "Quantidade de filhos de cada estudante",
-                backgroundColor: ['#12239E', '#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05'],
-                borderColor: ['#12239E', '#FF3D5A', '#9657FF', '#1D96CC', '#3DFF64', '#FBBC05'],
-                data: [NenhumFilho, umFilho, doisFilhos, tresFilhos, quatrofilhos, maisDeQuatroFilhos]
-            }]
-        },
-
-        options: {
-
-            title: {
-                display: true,
-                fontColor: '#BFBFBF',
-                fontSize: 25,
-                text: "Quantidade de filhos de cada estudante"
-            },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            }
-        }
-    });
 
     // 12 - com quem moram
-    var ctx = document.getElementById('moram_com').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'pie',
-
-        data: {
-            labels: ['Com pais e(ou) parentes', 'Com esposa(o) e(ou) filho(s)', 'Com amigos (compartilhando despesas) ou de favor', 'Sozinho'],
-            datasets: [{
-                label: 'Com quem cada estudante mora',
-                backgroundColor: ['#12239E', '#FF3D5A', '#9657FF', '#1D96CC'],
-                borderColor: ['#12239E', '#FF3D5A', '#9657FF', '#1D96CC'],
-                data: [moraComPai, moraComEsposa, moraComAmigos, moraSozinho]
-            }]
-        },
-
-        options: {
-
-            title: {
-                display: true,
-                fontColor: '#BFBFBF',
-                fontSize: 25,
-                text: "Com quem cada estudante mora"
-            },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            }
-        }
-    });
+    info = ['Com pais e(ou) parentes', 'Com esposa(o) e(ou) filho(s)', 'Com amigos (compartilhando despesas) ou de favor', 'Sozinho'];
+    dados = [MoraCom[0], MoraCom[1], MoraCom[2], MoraCom[3]]
+    ChartPie('moram_com', 'pie', info, dados, "Com quem cada estudante mora");
 
     // 13 - Quantidade de pessoas que moram junto
-    var ctx = document.getElementById('QTD_de_pessoas_moram_junto').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'pie',
-
-        data: {
-            labels: ['Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Mais que Sete'],
-            datasets: [{
-                label: "Quantidade de pessoas que moram com cada aluno",
-                backgroundColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7', '#744EC2', '#D9B300', '#3DFF64'],
-                borderColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7', '#744EC2', '#D9B300', '#3DFF64'],
-                data: [moraUm, moraDois, moraTres, moraQuatro, moraCinco, moraSeis, moraSete, moraMaisQueSete]
-            }]
-        },
-
-        options: {
-
-            title: {
-                display: true,
-                fontColor: '#BFBFBF',
-                fontSize: 20,
-                text: "Quantidade de pessoas que moram com cada aluno"
-            },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            }
-        }
-    });
+    info = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Mais que Sete'];
+    dados = [QtdDeMoradores[0], QtdDeMoradores[1], QtdDeMoradores[2], QtdDeMoradores[3], QtdDeMoradores[4], QtdDeMoradores[5], QtdDeMoradores[6], QtdDeMoradores[7]];
+    ChartPie('QTD_de_pessoas_moram_junto', 'pie', info, dados, "Quantidade de pessoas que moram com cada aluno");
 
     // 14 - Situação Domicilio
-    var ctx = document.getElementById('situacao_domicilio').getContext('2d');
-    var chart = new Chart(ctx, {
+    info = ['Próprio', 'Alugado', 'Cedido', 'Financiado', 'Arrendado', 'Mensalista'];
+    dados = [SituacaoDomicilio[0], SituacaoDomicilio[1], SituacaoDomicilio[2], SituacaoDomicilio[3], SituacaoDomicilio[4], SituacaoDomicilio[5]];
+    ChartPie('situacao_domicilio', 'pie', info, dados, "Situação do Domicílio");
 
-        type: 'pie',
-
-        data: {
-            labels: ['Próprio', 'Alugado', 'Cedido', 'Financiado', 'Arrendado', 'Mensalista'],
-            datasets: [{
-                label: "Situação do Domicílio",
-                backgroundColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7', '#744EC2', '#D9B300', '#3DFF64'],
-                borderColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7', '#744EC2', '#D9B300', '#3DFF64'],
-                data: [proprio, alugado, cedido, financiado, arrendado, mensalista]
-            }]
-        },
-
-        options: {
-
-            title: {
-                display: true,
-                fontColor: '#BFBFBF',
-                fontSize: 40,
-                text: "Situação do Domicílio"
-            },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            }
-        }
-    });
-
-    // Tempo de moradia
-    var ctx = document.getElementById('tempo_moradia').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'horizontalBar',
-
-        data: {
-            labels: ['1 a 10', '11 a 20', '21 a 30', '31 a 40', '41 a 50', '51 a 60'],
-            datasets: [{
-                label: 'Matutino',
-                backgroundColor: '#003AAA',
-                borderColor: '#003AAA',
-                data: [ateDezAnos, ateVinteAnos, ateTrintaAnos, ateQuarentaAnos, ateCinquentaAnos, ateSessentaAnos]
-            },
-            {
-                label: 'Noturno',
-                backgroundColor: '#E044A7',
-                borderColor: '#E044A7',
-                data: [ateDezAnos, ateVinteAnos, ateTrintaAnos, ateQuarentaAnos, ateCinquentaAnos, ateSessentaAnos]
-            }]
-        },
-
-        options: {
-            title: {
-                display: true,
-                fontSize: 40,
-                fontColor: '#BFBFBF',
-                text: "Tempo de moradia no domicílio(Em anos)"
-            },
-            legend: {
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF',
-                }
-            },
-
-            maintainAspectRatio: false,
-            scales: {
-                yAxes: [{
-                    stacked: false,
-                    gridLines: {
-                        display: true,
-                        color: "#8B8B8C"
-                    }
-                }],
-                xAxes: [{
-                    gridLines: {
-                        display: true,
-                        color: '#8B8B8C',
-                    }
-                }]
-            }
-        },
-    });
-
-    // Renda Mensal
-    var ctx = document.getElementById('salario_min').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'pie',
-
-        data: {
-            labels: ['Até dois salários mínimos', 'Mais de dois até cinco salários mínimos', 'Mais de cinco até dez salários mínimos', 'Mais de dez até vinte salários mínimos', 'Mais de vinte salários mínimos', 'Prefiro não responder'],
-            datasets: [{
-                label: "Faixa de renda mensal da família do estudante (em Salários Mínimos)",
-                backgroundColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7', '#744EC2', '#D9B300', '#3DFF64'],
-                borderColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7', '#744EC2', '#D9B300', '#3DFF64'],
-                data: [DoisSalarios, CincoSalarios, DezSalarios, VinteSalarios, MaisDeVinteSalarios, PrefiroNaoResponder]
-            }]
-        },
-
-        options: {
-
-            title: {
-                display: true,
-                fontColor: '#BFBFBF',
-                fontSize: 15,
-                text: "Faixa de renda mensal da família do estudante (em Salários Mínimos)"
-            },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            }
-        }
-    });
-
-    // Quantidade de geladeiras
-    var ctx = document.getElementById('qtd_geladeira').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'pie',
-
-        data: {
-            labels: ['Uma', 'Duas', 'Três', 'Quatro', 'Mais que quatro'],
-            datasets: [{
-                label: "Quantidade de Geladeiras de cada aluno",
-                backgroundColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7'],
-                borderColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7'],
-                data: [UmaGeladeira, DuasGeladeira, TresGeladeira, QuatroGeladeira, MaisQueQuatroGeladeira]
-            }]
-        },
-
-        options: {
-            title: {
-                display: true,
-                fontSize: 20,
-                fontColor: '#BFBFBF',
-                text: "Quantidade de Geladeiras de cada aluno"
-            },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            }
-        }
-    });
-
-    // Quantidade de celulares comuns
-    var ctx = document.getElementById('qtd_celular_comum').getContext('2d');
-    var chart = new Chart(ctx, {
-
-        type: 'pie',
-
-        data: {
-            labels: ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais que quatro'],
-            datasets: [{
-                label: "Faixa de renda mensal da família do estudante (em Salários Mínimos)",
-                backgroundColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7', '#3DFF64'],
-                borderColor: ['#118DFF', '#12239E', '#E66C37', '#6B007B', '#E044A7', '#3DFF64'],
-                data: [NenhumCelular, UmCelular, DoisCelular, TresCelular, QuatroCelular, MaisQueQuatroCelular]
-            }]
-        },
-
-        options: {
-            title: {
-                display: true,
-                fontSize: 20,
-                fontColor: '#BFBFBF',
-                text: "Quantidade de celulares comuns de cada aluno"
-            },
-            legend: {
-                position: 'left',
-                display: true,
-                labels: {
-                    fontColor: '#BFBFBF'
-                }
-            }
-        }
-    });
+    // 15 - Tempo de moradia
+    info = ['1 a 10', '11 a 20', '21 a 30', '31 a 40', '41 a 50', '51 a 60'];
+    dadosM = [MatutinoTempoMoradia[0], MatutinoTempoMoradia[1], MatutinoTempoMoradia[2], MatutinoTempoMoradia[3], MatutinoTempoMoradia[4], MatutinoTempoMoradia[5]];
+    dadosN = [NoturnoTempoMoradia[0], NoturnoTempoMoradia[1], NoturnoTempoMoradia[2], NoturnoTempoMoradia[3], NoturnoTempoMoradia[4], NoturnoTempoMoradia[5]];
+    ChartBar('tempo_moradia', 'bar', info, dadosM, dadosN, "Tempo de moradia no domicílio(Em anos)");
 
 
-    ChartPie('qtd_micro_ondas', 'pie', vet, vet1, 'Quantidade de micro-ondas')
+    // 16 - Renda Mensal
+    info = ['Até dois salários mínimos', 'Mais de dois até cinco salários mínimos', 'Mais de cinco até dez salários mínimos', 'Mais de dez até vinte salários mínimos', 'Mais de vinte salários mínimos', 'Prefiro não responder'];
+    dados = [RendaMensal[0], RendaMensal[1], RendaMensal[2], RendaMensal[3], RendaMensal[4], RendaMensal[5]];
+    ChartPie('salario_min', 'pie', info, dados, "Faixa de renda mensal da família do estudante (em Salários Mínimos)");
+
+    //17.1 Quantidade de geladeiras
+    info = ['Uma', 'Duas', 'Três', 'Quatro', 'Mais que quatro'];
+    dados = [QtdGeladeira[0], QtdGeladeira[1], QtdGeladeira[2], QtdGeladeira[3], QtdGeladeira[4]];
+    ChartPie('qtd_geladeira', 'pie', info, dados, "Quantidade de Geladeiras de cada aluno");
+
+    //17.2 Quantidade de celulares comuns
+    info = ['Nenhum', 'Uma', 'Duas', 'Três', 'Quatro', 'Mais que quatro'];
+    dados = [QtdCelular[0], QtdCelular[1], QtdCelular[2], QtdCelular[3], QtdCelular[4], QtdCelular[5]];
+    ChartPie('qtd_celular_comum', 'pie', info, dados, "Quantidade de celulares comuns de cada aluno");
+
+    //17.3 Quantiade de micro-ondas
+    info = ['Nenhum', 'Uma', 'Duas', 'Três', 'Quatro', 'Mais que quatro'];
+    dados = [QtdMicro_Ondas[0], QtdMicro_Ondas[1], QtdMicro_Ondas[2], QtdMicro_Ondas[3], QtdMicro_Ondas[4], QtdMicro_Ondas[5]];
+    ChartPie('qtd_micro_ondas', 'pie', info, dados, 'Quantidade de micro-ondas');
 
 }
 
