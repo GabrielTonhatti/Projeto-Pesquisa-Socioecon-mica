@@ -33,8 +33,7 @@ async function generateChart() {
     console.log(Casado)
     console.log(Separado)
     console.log(Viuvo)*/
-
-
+    
 }
 
 generateChart()
