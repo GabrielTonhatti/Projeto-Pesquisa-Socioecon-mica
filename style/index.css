@@ -36,24 +36,42 @@ body {
     min-height: 100vh;
 }
 
+button {
+    padding: 15px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    color: #BFBFBF;
+    background-color: #24262D;
+    text-align: right;
+    margin-right: 0 auto;
+}
+
+button:hover {
+    transform: scale(1.10);
+    background-color: #1e1f24;
+}
+
 .main__title {
+    margin-top: 60px;
     color: #BFBFBF;
     border-left: 7px solid #961227;
     padding-left: 15px;
+    font-size: 40px;
 }
 
 .main__subtitle {
     margin-top: 60px;
-    font-size: 28px;
     color: #BFBFBF;
     border-left: 7px solid #961227;
     padding-left: 15px;
+    font-size: 40px;
 }
 
 .main__dadosPessoais {
     margin-top: 60px;
     color: #BFBFBF;
-    font-size: 28px;
+    font-size: 40px;
     border-left: 7px solid #961227;
     padding-left: 15px;
 }
@@ -111,15 +129,6 @@ body {
     border-radius: 40px;
 }
 
-#container__genero {
-    margin-left: -20px;
-    margin-top: 60px;
-    width: 600px;
-    height: 450px;
-    background-color: #24262D;
-    border-radius: 40px;
-}
-
 .Dados_Pessoais {
     display: flex;
     align-items: center;
@@ -127,9 +136,18 @@ body {
     margin-top: -60px;
 }
 
+#container__genero {
+    margin-left: -20px;
+    margin-top: 120px;
+    width: 600px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
+
 #container__Estado_Civil {
     margin-left: 60px;
-    margin-top: 60px;
+    margin-top: 120px;
     width: 600px;
     height: 450px;
     background-color: #24262D;
@@ -138,7 +156,7 @@ body {
 
 #container__Portador_de_Necessidade {
     margin-left: 60px;
-    margin-top: 60px;
+    margin-top: 120px;
     width: 600px;
     height: 450px;
     background-color: #24262D;
@@ -284,8 +302,8 @@ body {
 }
 
 #container__qtd_notebooks {
-    margin-left: 10px;
-    margin-top: 30px;
+    margin-left: -20px;
+    margin-top: 60px;
     width: 570px;
     height: 450px;
     background-color: #24262D;
@@ -294,7 +312,7 @@ body {
 
 #container__qtd_Maquina_de_Lavar {
     margin-left: 60px;
-    margin-top: 30px;
+    margin-top: 60px;
     width: 570px;
     height: 450px;
     background-color: #24262D;
@@ -303,7 +321,7 @@ body {
 
 #container__qtd_motocicletas {
     margin-left: 60px;
-    margin-top: 30px;
+    margin-top: 60px;
     width: 570px;
     height: 450px;
     background-color: #24262D;
@@ -318,7 +336,7 @@ body {
 }
 
 #container__qtd_Automoveis {
-    margin-left: 10px;
+    margin-left: -20px;
     margin-top: 60px;
     width: 570px;
     height: 450px;
@@ -352,7 +370,7 @@ body {
 }
 
 #container__qtd_Smartphones {
-    margin-left: 10px;
+    margin-left: -20px;
     margin-top: 60px;
     width: 570px;
     height: 450px;
@@ -372,7 +390,98 @@ body {
 .main__trabalho {
     margin-top: 60px;
     color: #BFBFBF;
-    font-size: 28px;
+    font-size: 40px;
     border-left: 7px solid #961227;
     padding-left: 15px;
+}
+
+.Trabalho {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Trabalho {
+    margin-left: -20px;
+    margin-top: 120px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
+
+#container__Vinculo_Emprego {
+    margin-left: 60px;
+    margin-top: 120px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
+
+#container__Area_trabalho {
+    margin-left: 60px;
+    margin-top: 120px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
+
+.Trabalho2 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Horario_Trabalho {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
+
+#container__Plano_Saude {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 40px;
+}
+
+.main__container {
+    color: #BFBFBF;
+    width: 500px;
+    height: 500px;
+    background-color: #24262D;
+    border-radius: 10px;
+    overflow: auto;
+    margin-top: 50px;
+}
+
+.thead__row {
+    text-align: center;
+}
+
+thead{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.main__container::-webkit-scrollbar-track {
+   background-color: rgb(68, 68, 68);
+}
+.main__container::-webkit-scrollbar {
+   width: 6px;
+   background-color: rgb(68, 68, 68);
+}
+.main__container::-webkit-scrollbar-thumb {
+   background-color: #961227;
+   border-radius: 5px;
+
 }

@@ -3,7 +3,7 @@ async function generateChart() {
 
     const json = await file.json()
     const forms = json.forms
-
+    
     let i = 0;
     let questoes
 
@@ -99,6 +99,7 @@ async function generateChart() {
     let opcEstudoNaEscola = ['Sim', 'Não'];
     let opcCursoTecnico = ['Não fiz', 'Sim, em uma ETEC', 'Sim, no SENAC', 'Sim, no SENAI', 'Sim, em outra instituição']
     let opcTransporte = ['Caminhando', 'Carona', 'Bicicleta', 'Moto', 'Carro', 'Ônibus', 'Transporte escolar']
+
 
     // Criar Grafico de Pizza
     function ChartPie(id, labels, datas, title) {
@@ -350,7 +351,7 @@ async function generateChart() {
     let DadosGenero = [];
     let labelsGenero = [];
 
-    GerarGraficoPie(genero, respostas, 7, DadosGenero, opcGenero, opcGenero, 'genero', 'Genero')
+    GerarGraficoPie(genero, respostas, 7, DadosGenero, opcGenero, opcGenero, 'genero', 'Gênero')
 
     // 7 - Data Nascimento
 
@@ -473,11 +474,80 @@ async function generateChart() {
     GerarGraficoPie(Qtd_Smartphones, respostas, 27, DadosSmatphones, opc17QtdeCadaCoisa, opc17QtdeCadaCoisa, 'qtd_Smartphones', 'Quantidade de Smartphones de cada aluno')
 
     // 18. No seu domicílio tem? questão com mais de uma alternativa, n esta terminada
-    let DomicilioTem = [];
+    /*let DomicilioTem = [];
     let DadosDomicilioTem = [];
 
     GerarGraficoPie(DomicilioTem, respostas, 28, DadosDomicilioTem, opcTemNoDomicilio, opcTemNoDomicilio, 'Oque_tem_No_Domicilio', 'Na casa de cada estudante tem')
+*/
+    let info = [];
+    let resposta18 = [0, 0, 0, 0, 0];
+    for (info of respostas[28]) {
+        info = info.split(',')
+        for (i = 0; i < info.length; i++) {
+            if (info[i] === 'Telefone fixo') {
+                resposta18[0]++
+            } else if (info[i] === 'Internet') {
+                resposta18[1]++
+            } else if (info[i] === 'Tv por assinatura') {
+                resposta18[2]++
+            } else if (info[i] === 'Empregada mensalista') {
+                resposta18[3]++
+            } else if (info[i] === 'Nenhuma das opções acima') {
+                resposta18[4]++
+            }
+        }
+    }
 
+    console.log(respostas[28])
+    ChartPie('Oque_tem_No_Domicilio', opcTemNoDomicilio, resposta18, 'Na casa de cada estudante tem')
+
+    // 19.1. Você trabalha?
+    let trabalha = [];
+    let DadosTrabalho = [];
+
+    GerarGraficoPie(trabalha, respostas, 29, DadosTrabalho, opcTrabalha, opcTrabalha, 'Trabalho', 'Você trabalha?')
+
+    //19.2. Qual o seu vínculo com o emprego?
+    let VinculoEmprego = [];
+    let DadosVinculo = [];
+
+    GerarGraficoPie(VinculoEmprego, respostas, 30, DadosVinculo, opcVinculoEmprego, opcVinculoEmprego, 'Vinculo_Emprego', "Vinculo com o emprego")
+
+    // 19.3. Qual a área do seu trabalho?
+    let AreaTrabalho = [];
+    let DadosAreaTrabalho = [];
+
+    GerarGraficoPie(AreaTrabalho, respostas, 31, DadosAreaTrabalho, opcAreaTrabalho, opcAreaTrabalho, 'Area_trabalho', "Qual a área do seu trabalho?")
+
+    // 19.4. Qual seu horário de trabalho?
+    let HorarioTrabalho = [];
+    let DadosHorario = [];
+
+    GerarGraficoPie(HorarioTrabalho, respostas, 32, DadosHorario, opcHorarioTrabalho, opcHorarioTrabalho, 'Horario_Trabalho', "Horários de Trabalho")
+
+    // 19.5. Qual a empresa que você está contratado agora
+    let CabecalhoTabela = '';
+    let DadosTabela = '';
+    let Empresa = [];
+
+    CabecalhoTabela = '<tr class = "thead__row"> <td class = "thead__data"> Empresas: </td> </tr>'
+    document.getElementById('thead').innerHTML = CabecalhoTabela;
+
+    for (quest of forms) {
+        Empresa[i] = quest["19.5. Qual a empresa que você está contratado agora?"]
+
+        DadosTabela = DadosTabela + `<tr "tbody__row"> <td "tbody__data"> ${Empresa[i]} </td> </tr>`
+        
+        i++
+    }
+
+    document.getElementById('tbody').innerHTML = DadosTabela;
+
+    // 20. Você tem plano de saúde privado?
+    let PlanoSaude = [];
+    let DadosPlanoSaude = [];
+
+    GerarGraficoPie(PlanoSaude, respostas, 34, DadosPlanoSaude, opcPlanoDeSaude, opcPlanoDeSaude, 'Plano_Saude', 'Planos de Saúde')
 
 }
 

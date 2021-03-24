@@ -19,6 +19,9 @@
     </header>
 
     <main class="main">
+
+        <button type = 'button' onclick="NewPlanin()"> Adicionar Planilha: </button>
+
         <h1 class="main__title"> Cursos: </h1>
 
         <div class="curso">
@@ -83,8 +86,8 @@
             <div id='container__tempo_moradia'>
                 <canvas id='tempo_moradia'></canvas>
             </div>
-            <div id = 'container__DataNascimento'>
-                <canvas id = 'DataNascimento'></canvas>
+            <div id='container__DataNascimento'>
+                <canvas id='DataNascimento'></canvas>
             </div>
         </div>
 
@@ -99,45 +102,75 @@
                 <canvas id='qtd_micro_ondas'></canvas>
             </div>
         </div>
+
+        <div class="Dados_Pessoais6">
+            <div id='container__qtd_notebooks'>
+                <canvas id='qtd_notebooks'></canvas>
+            </div>
+            <div id='container__qtd_Maquina_de_Lavar'>
+                <canvas id='qtd_Maquina_de_Lavar'></canvas>
+            </div>
+            <div id='container__qtd_motocicletas'>
+                <canvas id='qtd_motocicletas'></canvas>
+            </div>
+        </div>
+
+        <div class="Dados_Pessoais7">
+            <div id='container__qtd_Automoveis'>
+                <canvas id='qtd_Automoveis'></canvas>
+            </div>
+            <div id='container__qtd_DVD'>
+                <canvas id='qtd_DVD'></canvas>
+            </div>
+            <div id='container__qtd_TV'>
+                <canvas id='qtd_TV'></canvas>
+            </div>
+        </div>
+
+        <div class="Dados_Pessoais8">
+            <div id='container__qtd_Smartphones'>
+                <canvas id='qtd_Smartphones'></canvas>
+            </div>
+            <div id='container__Oque_tem_No_Domicilio'>
+                <canvas id='Oque_tem_No_Domicilio'></canvas>
+            </div>
+        </div>
+
+        <h2 class="main__trabalho"> Trabalho: </h2>
+
+        <div class="Trabalho">
+            <div id='container__Trabalho'>
+                <canvas id='Trabalho'></canvas>
+            </div>
+            <div id='container__Vinculo_Emprego'>
+                <canvas id='Vinculo_Emprego'></canvas>
+            </div>
+            <div id='container__Area_trabalho'>
+                <canvas id='Area_trabalho'></canvas>
+            </div>
+        </div>
+
+        <div class="Trabalho2">
+            <div id='container__Horario_Trabalho'>
+                <canvas id='Horario_Trabalho'></canvas>
+            </div>
+            <div id='container__Plano_Saude'>
+                <canvas id='Plano_Saude'></canvas>
+            </div>
+        </div>
+
+        <div class="main__container">
+            <table class="table">
+                <thead id="thead"></thead>
+                <tbody id="tbody"></tbody>
+            </table>
+        </div>
+
     </main>
-
-    <div class="Dados_Pessoais6">
-        <div id='container__qtd_notebooks'>
-            <canvas id='qtd_notebooks'></canvas>
-        </div>
-        <div id='container__qtd_Maquina_de_Lavar'>
-            <canvas id='qtd_Maquina_de_Lavar'></canvas>
-        </div>
-        <div id='container__qtd_motocicletas'>
-            <canvas id='qtd_motocicletas'></canvas>
-        </div>
-    </div>
-
-    <div class="Dados_Pessoais7">
-        <div id='container__qtd_Automoveis'>
-            <canvas id='qtd_Automoveis'></canvas>
-        </div>
-        <div id='container__qtd_DVD'>
-            <canvas id='qtd_DVD'></canvas>
-        </div>
-        <div id='container__qtd_TV'>
-            <canvas id='qtd_TV'></canvas>
-        </div>
-    </div>
-
-    <div class="Dados_Pessoais8">
-        <div id='container__qtd_Smartphones'>
-            <canvas id='qtd_Smartphones'></canvas>
-        </div>
-        <div id='container__Oque_tem_No_Domicilio'>
-            <canvas id='Oque_tem_No_Domicilio'></canvas>
-        </div>
-    </div>
-
-    <h2 class="main__trabalho"> Trabalho: </h2>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="script/chart.js"></script>
+    <script src = "script/NewPlanin.js"></script>
 
 </body>
 
