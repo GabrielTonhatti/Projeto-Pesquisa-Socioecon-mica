@@ -129,6 +129,58 @@ button:hover {
     border-radius: 20px;
 }
 
+.moradia2 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+#container__moram_com {
+    margin-left: -20px;
+    margin-top: 0px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+#container__QTD_de_pessoas_moram_junto {
+    margin-left: 60px;
+    margin-top: 0px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+#container__situacao_domicilio {
+    margin-left: 60px;
+    margin-top: 0px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.moradia3 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+#container__tempo_moradia {
+    margin-left: -20px;
+    margin-top: 0px;
+    width: 850px;
+    height: 450px;
+    background-color: #24262D;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 20px;
+}
+
 .Dados_Pessoais {
     display: flex;
     align-items: center;
@@ -188,7 +240,7 @@ button:hover {
     border-radius: 20px;
 }
 
-#container__moram_com {
+#container__salario_min {
     margin-left: 60px;
     margin-top: 60px;
     width: 570px;
@@ -204,63 +256,27 @@ button:hover {
     margin-top: -60px;
 }
 
-#container__QTD_de_pessoas_moram_junto {
+#container__DataNascimento {
     margin-left: -20px;
     margin-top: 60px;
-    width: 570px;
+    width: 850px;
     height: 450px;
     background-color: #24262D;
+    justify-content: space-between;
+    padding: 20px;
     border-radius: 20px;
 }
 
-#container__situacao_domicilio {
-    margin-left: 60px;
+#container__Oque_tem_No_Domicilio {
+    margin-left: 80px;
     margin-top: 60px;
-    width: 570px;
-    height: 450px;
-    background-color: #24262D;
-    border-radius: 20px;
-}
-
-#container__salario_min {
-    margin-left: 60px;
-    margin-top: 60px;
-    width: 570px;
-    height: 450px;
+    width: 900px;
+    height: 500px;
     background-color: #24262D;
     border-radius: 20px;
 }
 
 .Dados_Pessoais4 {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    margin-top: -60px;
-}
-
-#container__tempo_moradia {
-    margin-left: -20px;
-    margin-top: 60px;
-    width: 850px;
-    height: 450px;
-    background-color: #24262D;
-    justify-content: space-between;
-    padding: 20px;
-    border-radius: 20px;
-}
-
-#container__DataNascimento {
-    margin-left: 60px;
-    margin-top: 60px;
-    width: 850px;
-    height: 450px;
-    background-color: #24262D;
-    justify-content: space-between;
-    padding: 20px;
-    border-radius: 20px;
-}
-
-.Dados_Pessoais5 {
     display: flex;
     align-items: center;
     padding: 20px;
@@ -294,7 +310,7 @@ button:hover {
     border-radius: 20px;
 }
 
-.Dados_Pessoais6 {
+.Dados_Pessoais5 {
     display: flex;
     align-items: center;
     padding: 20px;
@@ -328,7 +344,7 @@ button:hover {
     border-radius: 20px;
 }
 
-.Dados_Pessoais7 {
+.Dados_Pessoais6 {
     display: flex;
     align-items: center;
     padding: 20px;
@@ -362,7 +378,7 @@ button:hover {
     border-radius: 20px;
 }
 
-.Dados_Pessoais8 {
+.Dados_Pessoais7 {
     display: flex;
     align-items: center;
     padding: 20px;
@@ -378,17 +394,19 @@ button:hover {
     border-radius: 20px;
 }
 
-.Dados_Pessoais8 {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    margin-top: -60px;
+#container__Plano_Saude {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
 }
 
-#container__Oque_tem_No_Domicilio {
-    margin-left: 0px;
+#container__Religiao{
+    margin-left: 60px;
     margin-top: 60px;
-    width: 1400px;
+    width: 570px;
     height: 450px;
     background-color: #24262D;
     border-radius: 20px;
@@ -445,24 +463,6 @@ button:hover {
 
 #container__Horario_Trabalho {
     margin-left: -20px;
-    margin-top: 60px;
-    width: 570px;
-    height: 450px;
-    background-color: #24262D;
-    border-radius: 20px;
-}
-
-#container__Plano_Saude {
-    margin-left: 60px;
-    margin-top: 60px;
-    width: 570px;
-    height: 450px;
-    background-color: #24262D;
-    border-radius: 20px;
-}
-
-#container__Religiao{
-    margin-left: 60px;
     margin-top: 60px;
     width: 570px;
     height: 450px;
@@ -650,6 +650,182 @@ thead {
     margin-top: 60px;
     width: 1900px;
     height: 600px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.Informatica3 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Conhecimento_Informatica {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+#container__Conhecimento_Windows {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+#container__Conhecimento_Linux {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.Informatica4 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Conhecimento_Word {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+#container__Conhecimento_Excel {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+#container__Conhecimento_PowerPoint {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.Informatica5 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Conhecimento_GestaoEmpresarial {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.main__Leitura {
+    margin-top: 60px;
+    color: #BFBFBF;
+    border-left: 7px solid #961227;
+    padding-left: 15px;
+    font-size: 40px;
+}
+
+.Leitura {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Televisores {
+    margin-left: -20px;
+    margin-top: 120px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+#container__Internet {
+    margin-left: 60px;
+    margin-top: 120px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+#container__Revistas {
+    margin-left: 60px;
+    margin-top: 120px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.Leitura2 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Jornais {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+#container__Radio {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+#container__Redes_socias {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.Leitura3 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Conversas_com_Amigos {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
     background-color: #24262D;
     border-radius: 20px;
 }

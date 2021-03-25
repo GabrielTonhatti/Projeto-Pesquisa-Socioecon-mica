@@ -55,12 +55,11 @@ async function generateChart() {
     }
 
     let opcCurso = ["Análise e Desenvolvimento de Sistemas (ADS)", "Gestão da Produção Industrial (GPI)", "Gestão de Recursos Humanos", "Desenvolvimento de Software Multiplataforma"]
-    let SiglaCurso = ['ADS', 'GPI', 'GRH', 'DSM'];
     let opcPeriodo = ['Matutino', 'Noturno'];
     let opcEstado = ['Acre (AC)', 'Alagoas (AL)', 'Amapá (AP)', 'Amazonas (AM)', 'Bahia (BA)', 'Ceará (CE)', 'Distrito Federal (DF)', 'Espírito Santo (ES)', 'Goiás (GO)', 'Maranhão (MA)', 'Mato Grosso (MT)', 'Mato Grosso do Sul (MS)', 'Minas Gerais (MG)', 'Paraná (PR)', 'Paraíba (PB)', 'Pará (PA)', 'Pernambuco (PE)', 'Piauí (PI)', 'Rio de Janeiro (RJ)', 'Rio Grande do Norte (RN)', 'Rio Grande do Sul (RS)', 'Rondônia (RO)', 'Roraima (RR)', 'Santa Catarina (SC)', 'Sergipe (SE)', 'São Paulo (SP)', 'Tocantins (TO)'];
     let opcCidade = ['Batatais', 'Buritizal', 'Capetinga', 'Cássia', 'Claraval', 'Cristais Paulista', 'Delfinópolis', 'Estreito', 'Franca', 'Guaíra', 'Guará', 'Ibiraci', 'Igarapava', 'Ipuã', 'Itirapuã', 'Ituverava', 'Jeriquara', 'Miguelópolis', 'Morro Agudo', 'Nuporanga', 'Orlândia', 'Passos', 'Patrocínio Paulista', 'Pedregulho', 'Peixoto', 'Pratápolis', 'Restinga', 'Ribeirão Corrente', 'Ribeirão Preto', 'Rifaina', 'Sacramento', 'Sales Oliveira', 'S. Joaquim da Barra', 'S. José da Bela Vista', 'São Tomaz de Aquino'];
     let opcGenero = ['Masculino', 'Feminino', 'Homem transgênero', 'Mulher Transgênero', 'Homem Transexual', 'Mulher Transexual', 'Não sei responder', 'Prefiro não responder', 'Outro'];
-    let opcDataNascimento
+    let opcDataNascimento = [];
     let opcEstadoCivil = ['Solteiro(a)', 'Casado(a) ou União Estável', 'Separado(a), desquitado(a), divorciado(a)', 'Viúvo(a)'];
     let opcPortador = ['Nenhuma', 'Visual', 'Física', 'Auditiva', 'Autismo', 'De fala'];
     let opcConvivePort = ['Autismo', 'Síndrome de Down', 'Deficiência', 'Auditiva', 'Visual', 'De fala', 'Física', 'Não convivo ou não moro com alguém com deficiência'];
@@ -79,11 +78,12 @@ async function generateChart() {
     let opcPlanoDeSaude = ['Não tenho, uso o SUS', 'Tenho e é pago integralmente pela empresa', 'Tenho e é pago parcialmente pela empresa', 'Tenho e é um plano familiar', 'Tenho e é um plano individual'];
     let opcEscolaridade = ['Nenhuma escolaridade', 'Ensino fundamental I (1º ao 5º anos)', 'Ensino fundamental II (6º ao 9º anos)', 'Ensino Médio', 'Ensino Superior', 'Pós-graduação', 'Prefiro não responder'];
     let opcEstudou = ['Sempre em escola pública', 'A maior parte em escola pública', 'Sempre em escola particular paga pela família', 'Sempre em escola particular com bolsa', 'A maior parte em escola particular paga pela família', 'A maior parte em escola particular com bolsa'];
-    let opcUsaMicroComp = ['Nunca', 'Pouco', 'Ás vezes', 'Muito', 'Sempre']; // para questão 23.1 e 27
+    let opcUsaMicroComp = ['Nunca', 'Pouco', 'Ás vezes', 'Muito', 'Sempre'];
     let opcOndeUsaMicroComp = ['Em casa', 'No trabalho', 'Na escola', 'Em outros lugares', 'Em casa, No trabalho', 'Em casa, Na escola', 'Em casa, Na escola, Em outros lugares', 'Em casa, Em outros lugares', 'Em casa, No trabalho, Na escola', 'Em casa, No trabalho, Em outros lugares', 'Em casa, No trabalho, Na escola, Em outros lugares', 'No trabalho, Na escola', 'No trabalho, Em outros lugares', 'No trabalho, Na escola, Em outros lugares', 'Na escola, Em outros lugares'];
     let opcFinalizadeUsaMicroComp = ['Para trabalhos profissionais', 'Para trabalhos escolares', 'Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para comunicação por e-mail', 'Para operações bancárias', 'Para compras eletrônicas', ' Para trabalhos profissionais, Para trabalhos escolares', 'Para trabalhos profissionais, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos profissionais, Para comunicação por e-mail', 'Para trabalhos profissionais, Para operações bancárias', 'Para trabalhos profissionais, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos profissionais, Para trabalhos escolares, Para comunicação por e-mail', 'Para trabalhos profissionais, Para trabalhos escolares, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para compras eletrônicas', 'Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos escolares, Para comunicação por e-mail', 'Para trabalhos escolares, Para operações bancárias', 'Para trabalhos escolares, Para compras eletrônicas', 'Para comunicação por e-mail, Para operações bancárias', 'Para comunicação por e-mail, Para compras eletrônicas', 'Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para operações bancárias, Para compras eletrônicas', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para operações bancárias', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para compras eletrônicas', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para compras eletrônicas', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos profissionais, Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos escolares, Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos escolares, Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos escolares, Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para compras eletrônicas', 'Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para compras eletrônicas'];
     let opcConhecimentoInformatica = ['Nenhum', 'Pouco', 'Intermediário', 'Muito Avançado'];
     let opcConhecimentoLinguas = ['Leio, escrevo e falo bem', 'Leio, escrevo e falo razoavelmente', 'Leio e escrevo mas não falo', 'Leio mas não escrevo nem falo', 'Praticamente nula'];
+    let opcBuscaInformação = ['Nunca', 'Pouco', 'Às vezes', 'Muito', 'Sempre']
     let opcLeJornal = ['Diariamente', 'Algumas vezes por semana', 'Somente aos domingos', 'Raramente', 'Não leio'];
     let opcAssuntosJornal = ['Não leio jornal', 'Todos os assuntos', 'Notícia locais', 'Notícias nacionais', 'Notícias internacionais', 'Esporte', 'Lazer, arte e cultura', 'Notícias policiais', 'Classificados', 'Moda', 'Sociais'];
     let opcQtdLivros = ['Nenhum', 'Até 2', 'De 3 até 6', 'De 7 até 10', 'Mais de 10'];
@@ -285,6 +285,7 @@ async function generateChart() {
 
     GerarGraficoPie(curso, opcCurso, respostas, 2, labelsCurso, DadosCurso, 'curso', 'Cursos')
 
+
     // 2. Qual o período que cursa?
     let DadosPeriodo = [];
     let labelsPeriodo = [];
@@ -326,6 +327,25 @@ async function generateChart() {
     GerarGraficoPie(genero, opcGenero, respostas, 7, labelsGenero, DadosGenero, 'genero', 'Gênero');
 
     // 7 - Data Nascimento
+    /*let k = 3
+    let data = ""
+    console.log(respostas[8][k])
+    for (let j = 0; j < 2; j++) {
+        //data += respostas[8][k][respostas[8][k].length - 2] + respostas[8][k][respostas[8][k].length - 1]
+        data += respostas[8][k][respostas[8][k].length - 2 + j]
+
+    }
+    if (data[0] === "0") {
+        console.log("20" + data)
+    } else {
+        console.log(Number("19" + data))
+    }
+
+    let DataNascimento = [];
+    let DadosDataNasciemnto = [];
+    let labelsDataNascimento = [];
+
+    GerarGraficoBar(DataNascimento, opcDataNascimento, respostas, 8, labelsDataNascimento, DadosDataNasciemnto, 'DataNascimento', 'Datas de Nascimento(Em Anos)')*/
 
     // 8 - Estado Civil
     let estadoCivil = [];
@@ -515,6 +535,7 @@ async function generateChart() {
 
     document.getElementById('tbody').innerHTML = DadosTabela;
 
+
     // 20. Você tem plano de saúde privado?
     let PlanoSaude = [];
     let DadosPlanoSaude = [];
@@ -541,14 +562,14 @@ async function generateChart() {
     let DadosEstudouEm = [];
     let labelsEstudouEm = [];
 
-    GerarGraficoPie(EstudouEm, opcEstudou, respostas, 37, labelsEstudouEm, DadosEstudouEm, 'Estudou_Em', "Na sua vida escolar você estudou")
+    GerarGraficoPie(EstudouEm, opcEstudou, respostas, 37, labelsEstudouEm, DadosEstudouEm, 'Estudou_Em', "Na sua vida escolar você estudou");
 
     // 23.1. Com que frequência você utiliza microcomputadores?
     let FrequenciaMicrocomputadores = [];
     let DadosFrequenciaComp = [];
     let labelsFrequenciaComp = [];
 
-    GerarGraficoPie(FrequenciaMicrocomputadores, opcUsaMicroComp, respostas, 38, labelsFrequenciaComp, DadosFrequenciaComp, 'Frequencia_Microcomputadores', 'Com que frequência você utiliza microcomputadores?')
+    GerarGraficoPie(FrequenciaMicrocomputadores, opcUsaMicroComp, respostas, 38, labelsFrequenciaComp, DadosFrequenciaComp, 'Frequencia_Microcomputadores', 'Com que frequência você utiliza microcomputadores?');
 
 
     // 23.2. Onde você utiliza microcomputadores?
@@ -556,56 +577,153 @@ async function generateChart() {
     let DadosOndeUtilizaMicro = [];
     let labelsUtilizaMicro = [];
 
-    GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, respostas, 39, labelsUtilizaMicro, DadosOndeUtilizaMicro, 'Onde_Microcomputadores', 'horizontalBar', 'Onde você utiliza microcomputadores?')
+    GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, respostas, 39, labelsUtilizaMicro, DadosOndeUtilizaMicro, 'Onde_Microcomputadores', 'horizontalBar', 'Onde você utiliza microcomputadores?');
 
     // 23.3. Com qual finalidade você utiliza microcomputadores?
     let FinalidadeUtiliMicro = [];
     let DadosFinalidadeUtiliMicro = [];
     let labelsFinalidadeUtiliza = [];
 
-    GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respostas, 40, labelsFinalidadeUtiliza, DadosFinalidadeUtiliMicro, 'Finalidade_Microcomputadores', 'horizontalBar', 'Com qual finalidade você utiliza microcomputadores?')
+    GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respostas, 40, labelsFinalidadeUtiliza, DadosFinalidadeUtiliMicro, 'Finalidade_Microcomputadores', 'horizontalBar', 'Com qual finalidade você utiliza microcomputadores?');
+
+    // 24. Como você classifica seu conhecimento em informática
+    let ConhecimentoInformatica = [];
+    let DadosConhecimentoInformatica = [];
+    let labelsInformatica = [];
+
+    GerarGraficoPie(ConhecimentoInformatica, opcConhecimentoInformatica, respostas, 41, labelsInformatica, DadosConhecimentoInformatica, 'Conhecimento_Informatica', 'Conhecimento em Informática');
+
+    // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Windows]
+    let ConhecimentoWindows = [];
+    let DadosWindows = [];
+    let labelsWindows = [];
+
+    GerarGraficoPie(ConhecimentoWindows, opcConhecimentoInformatica, respostas, 42, labelsWindows, DadosWindows, 'Conhecimento_Windows', 'Conhecimento no Windows');
+
+
+    // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Linux]
+    let ConhecimentoLinux = [];
+    let DadosLinux = [];
+    let labelsLinux = [];
+
+    GerarGraficoPie(ConhecimentoLinux, opcConhecimentoInformatica, respostas, 43, labelsLinux, DadosLinux, 'Conhecimento_Linux', 'Conhecimento no Linux');
+
+    // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Editores de textos (Word, Writer, etc.)]
+    let ConhecimentoWord = [];
+    let DadosWord = [];
+    let labelsWord = [];
+
+    GerarGraficoPie(ConhecimentoWord, opcConhecimentoInformatica, respostas, 44, labelsWord, DadosWord, 'Conhecimento_Word', 'Conhecimento em Editores de textos (Word, Writer, etc.)');
+
+    // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Planilhas eletrônicas (Excel, Calc, etc.)]
+    let ConhecimentoExcel = [];
+    let DadosExcel = [];
+    let labelsExcel = [];
+
+    GerarGraficoPie(ConhecimentoExcel, opcConhecimentoInformatica, respostas, 45, labelsExcel, DadosExcel, 'Conhecimento_Excel', 'Conhecimento em Planilhas eletrônicas (Excel, Calc, etc.)');
+
+
+    // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Apresentadores (Powerpoint, Impress, Prezzi, etc.)]
+    let ConhecimentoPowerPoint = [];
+    let DadosPowerPoint = [];
+    let labelsPowerPoint = [];
+
+    GerarGraficoPie(ConhecimentoPowerPoint, opcConhecimentoInformatica, respostas, 46, labelsPowerPoint, DadosPowerPoint, 'Conhecimento_PowerPoint', 'Conhecimento em Apresentadores (Powerpoint, Impress, Prezzi, etc.)');
+
+
+    // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Sistemas de Gestão Empresaria]
+    let ConhecimentoGestaoEmpresarial = [];
+    let DadosGestaoEmpresarial = [];
+    let labelsGestaoEmpresarial = [];
+
+    GerarGraficoPie(ConhecimentoGestaoEmpresarial, opcConhecimentoInformatica, respostas, 47, labelsGestaoEmpresarial, DadosGestaoEmpresarial, 'Conhecimento_GestaoEmpresarial', 'Conhecimento em Sistemas de Gestão Empresaria');
 
     //26. Agora, considere seu conhecimento sobre idiomas [Inglês]
     let conhecimentoIngles = [];
     let DadosIngles = [];
     let labelsInlges = [];
 
-    GerarGraficoPie(conhecimentoIngles, opcConhecimentoLinguas, respostas, 48, labelsInlges, DadosIngles, 'Ingles', 'Conhecimento em inglês')
+    GerarGraficoPie(conhecimentoIngles, opcConhecimentoLinguas, respostas, 48, labelsInlges, DadosIngles, 'Ingles', 'Conhecimento em inglês');
 
     // 26. Agora, considere seu conhecimento sobre idiomas [Espanhol]
     let conhecimentoEspanhol = [];
     let DadosEspanhol = [];
     let labelsEspanhol = [];
 
-    GerarGraficoPie(conhecimentoEspanhol, opcConhecimentoLinguas, respostas, 49, labelsEspanhol, DadosEspanhol, 'Espanhol', 'Conhecimento em Espanhol')
+    GerarGraficoPie(conhecimentoEspanhol, opcConhecimentoLinguas, respostas, 49, labelsEspanhol, DadosEspanhol, 'Espanhol', 'Conhecimento em Espanhol');
 
     // 26. Agora, considere seu conhecimento sobre idiomas [Outros]
     let conhecimentoIdioma = [];
     let DadosIdioma = [];
     let labelsIdioma = [];
 
-    GerarGraficoPie(conhecimentoIdioma, opcConhecimentoLinguas, respostas, 49, labelsIdioma, DadosIdioma, 'Outros', 'Conhecimento em outros idiomas')
+    GerarGraficoPie(conhecimentoIdioma, opcConhecimentoLinguas, respostas, 50, labelsIdioma, DadosIdioma, 'Outros', 'Conhecimento em outros idiomas');
+
+    // 27. Considere a busca por informação nos seguintes meios de comunicação [Televisores]
+    let Televisores = [];
+    let DadosTelevisores = [];
+    let labelsTelevisores = [];
+
+    GerarGraficoPie(Televisores, opcBuscaInformação, respostas, 51, labelsTelevisores, DadosTelevisores, 'Televisores', 'Busca por informação no seguinte meio de comunicação(Televisores)');
+
+    // 27. Considere a busca por informação nos seguintes meios de comunicação [Internet]
+    let internet = [];
+    let DadosInternet = [];
+    let labelsInternet = [];
+
+    GerarGraficoPie(internet, opcBuscaInformação, respostas, 52, labelsInternet, DadosInternet, 'Internet', 'Busca por informação no seguinte meio de comunicação(Internet)');
+
+    // 27. Considere a busca por informação nos seguintes meios de comunicação [Revistas]
+    let revistas = [];
+    let DadosRevistas = [];
+    let labelsRevistas = [];
+
+    GerarGraficoPie(revistas, opcBuscaInformação, respostas, 53, labelsRevistas, DadosRevistas, 'Revistas', 'Busca por informação no seguinte meio de comunicação(Revistas)');
+
+    // 27. Considere a busca por informação nos seguintes meios de comunicação [Jornais]
+    let jornais = [];
+    let DadosJornais = [];
+    let labelsJornais = [];
+
+    GerarGraficoPie(jornais, opcBuscaInformação, respostas, 54, labelsJornais, DadosJornais, 'Jornais', 'Busca por informação no seguinte meio de comunicação(Jornais)');
+
+    // 27. Considere a busca por informação nos seguintes meios de comunicação [Rádio]
+    let Radio = [];
+    let DadosRadio = [];
+    let labelsRadio = [];
+
+    GerarGraficoPie(Radio, opcBuscaInformação, respostas, 55, labelsRadio, DadosRadio, 'Radio', 'Busca por informação no seguinte meio de comunicação(Rádio)');
+
+
+    // 27. Considere a busca por informação nos seguintes meios de comunicação [Redes socias]
+    let RedesSociais = [];
+    let DadosRedesSociais = [];
+    let labelsRedesSociais = [];
+
+    GerarGraficoPie(RedesSociais, opcBuscaInformação, respostas, 56, labelsRedesSociais, DadosRedesSociais, 'Redes_Sociais', 'Busca por informação no seguinte meio de comunicação(Redes Sociais)');
+
+    // 27. Considere a busca por informação nos seguintes meios de comunicação [Conversas com Amigos]
 
     //33. Qual religião você professa?": "Evangélica"
     let religiao = [];
     let DadosReligiao = [];
     let lablesReligiao = [];
 
-    GerarGraficoPie(religiao,opcReligiao, respostas, 63,lablesReligiao, DadosReligiao, 'Religiao', 'Religião')
+    GerarGraficoPie(religiao, opcReligiao, respostas, 63, lablesReligiao, DadosReligiao, 'Religiao', 'Religião');
 
     //39. Você já estudou nesta escola?
     let estudouNaFatec = [];
     let DadosEstudouFatec = [];
     let labelsEstudouFatec = [];
 
-    GerarGraficoPie(estudouNaFatec,opcEstudoNaEscola, respostas, 69, labelsEstudouFatec, DadosEstudouFatec, 'Estudou_Fatec', 'Você já estudou nesta escola?')
+    GerarGraficoPie(estudouNaFatec, opcEstudoNaEscola, respostas, 69, labelsEstudouFatec, DadosEstudouFatec, 'Estudou_Fatec', 'Você já estudou nesta escola?');
 
     //40. Você fez algum curso técnico?
     let cursoTecnico = [];
     let DadosCursoTecnico = [];
     let labelsCursoTecnico = [];
 
-    GerarGraficoPie(cursoTecnico,opcCursoTecnico, respostas, 70,labelsCursoTecnico, DadosCursoTecnico, 'Curso_Tecnico', 'Você fez algum curso técnico?')
+    GerarGraficoPie(cursoTecnico, opcCursoTecnico, respostas, 70, labelsCursoTecnico, DadosCursoTecnico, 'Curso_Tecnico', 'Você fez algum curso técnico?');
 
 }
 

@@ -17,12 +17,13 @@
         <div class="header__title"> Perfil Socioeconômico </div>
         <img src="img/cabecalho-cps.png" alt="Logo cps" class="header__img2">
     </header>
-
     <main class="main">
 
         <button type='button' onclick="NewPlanin()"> Adicionar Planilha: </button>
 
-        <button id = 'Matutino' type = 'button' onclick = "Matutino()"> Matutino </button>
+        <button type = 'button' id = "Manha" onclick = "Matutino()"> Matutino </button>
+
+        <button type = 'button' onclick = "Noturno()"> Noturno </button>
 
         <h1 class="main__title"> Cursos: </h1>
 
@@ -46,6 +47,23 @@
             </div>
         </div>
 
+        <div class="moradia2">
+            <div id='container__moram_com'>
+                <canvas id="moram_com"></canvas>
+            </div>
+            <div id='container__QTD_de_pessoas_moram_junto'>
+                <canvas id='QTD_de_pessoas_moram_junto'></canvas>
+            </div>
+            <div id='container__situacao_domicilio'>
+                <canvas id='situacao_domicilio'></canvas>
+            </div>
+        </div>
+
+        <div class="moradia3">
+            <div id='container__tempo_moradia'>
+                <canvas id='tempo_moradia'></canvas>
+            </div>
+        </div>
 
         <h2 class="main__dadosPessoais"> Dados Pessoais: </h2>
 
@@ -60,6 +78,7 @@
                 <canvas id="Portador_de_Necessidade"></canvas>
             </div>
         </div>
+
         <div class="Dados_Pessoais2">
             <div id='container__convive_com_portador'>
                 <canvas id="convive_com_portador"></canvas>
@@ -67,33 +86,21 @@
             <div id='container__qtd_de_filhos'>
                 <canvas id="qtd_de_filhos"></canvas>
             </div>
-            <div id='container__moram_com'>
-                <canvas id="moram_com"></canvas>
-            </div>
-
-        </div>
-        <div class="Dados_Pessoais3">
-            <div id='container__QTD_de_pessoas_moram_junto'>
-                <canvas id='QTD_de_pessoas_moram_junto'></canvas>
-            </div>
-            <div id='container__situacao_domicilio'>
-                <canvas id='situacao_domicilio'></canvas>
-            </div>
             <div id='container__salario_min'>
                 <canvas id='salario_min'></canvas>
             </div>
         </div>
 
-        <div class="Dados_Pessoais4">
-            <div id='container__tempo_moradia'>
-                <canvas id='tempo_moradia'></canvas>
-            </div>
+        <div class="Dados_Pessoais3">
             <div id='container__DataNascimento'>
                 <canvas id='DataNascimento'></canvas>
             </div>
+            <div id='container__Oque_tem_No_Domicilio'>
+                <canvas id='Oque_tem_No_Domicilio'></canvas>
+            </div>
         </div>
 
-        <div class="Dados_Pessoais5">
+        <div class="Dados_Pessoais4">
             <div id='container__qtd_geladeira'>
                 <canvas id='qtd_geladeira'></canvas>
             </div>
@@ -105,7 +112,7 @@
             </div>
         </div>
 
-        <div class="Dados_Pessoais6">
+        <div class="Dados_Pessoais5">
             <div id='container__qtd_notebooks'>
                 <canvas id='qtd_notebooks'></canvas>
             </div>
@@ -117,7 +124,7 @@
             </div>
         </div>
 
-        <div class="Dados_Pessoais7">
+        <div class="Dados_Pessoais6">
             <div id='container__qtd_Automoveis'>
                 <canvas id='qtd_Automoveis'></canvas>
             </div>
@@ -129,7 +136,7 @@
             </div>
         </div>
 
-        <div class="Dados_Pessoais8">
+        <div class="Dados_Pessoais7">
             <div id='container__qtd_Smartphones'>
                 <canvas id='qtd_Smartphones'></canvas>
             </div>
@@ -138,12 +145,6 @@
             </div>
             <div id='container__Religiao'>
                 <canvas id='Religiao'></canvas>
-            </div>
-        </div>
-
-        <div class="Dados_Pessoais9">
-            <div id='container__Oque_tem_No_Domicilio'>
-                <canvas id='Oque_tem_No_Domicilio'></canvas>
             </div>
         </div>
 
@@ -224,11 +225,75 @@
                 <canvas id='Finalidade_Microcomputadores'></canvas>
             </div>
         </div>
+        <div class="Informatica3">
+            <div id='container__Conhecimento_Informatica'>
+                <canvas id='Conhecimento_Informatica'></canvas>
+            </div>
+            <div id='container__Conhecimento_Windows'>
+                <canvas id='Conhecimento_Windows'></canvas>
+            </div>
+            <div id='container__Conhecimento_Linux'>
+                <canvas id='Conhecimento_Linux'></canvas>
+            </div>
+        </div>
+
+        <div class="Informatica4">
+            <div id='container__Conhecimento_Word'>
+                <canvas id='Conhecimento_Word'></canvas>
+            </div>
+            <div id='container__Conhecimento_Excel'>
+                <canvas id='Conhecimento_Excel'></canvas>
+            </div>
+            <div id='container__Conhecimento_PowerPoint'>
+                <canvas id='Conhecimento_PowerPoint'></canvas>
+            </div>
+        </div>
+
+        <div class="Informatica5">
+            <div id='container__Conhecimento_GestaoEmpresarial'>
+                <canvas id='Conhecimento_GestaoEmpresarial'></canvas>
+            </div>
+        </div>
+
+        <h2 class="main__Leitura"> Leitura: </h2>
+
+        <div class="Leitura">
+            <div id='container__Televisores'>
+                <canvas id='Televisores'></canvas>
+            </div>
+            <div id='container__Internet'>
+                <canvas id='Internet'></canvas>
+            </div>
+            <div id='container__Revistas'>
+                <canvas id='Revistas'></canvas>
+            </div>
+        </div>
+
+        <div class="Leitura2">
+            <div id='container__Jornais'>
+                <canvas id='Jornais'></canvas>
+            </div>
+            <div id='container__Radio'>
+                <canvas id='Radio'></canvas>
+            </div>
+            <div id='container__Redes_socias'>
+                <canvas id='Redes_Sociais'></canvas>
+            </div>
+        </div>
+
+        <div class="Leitura3">
+            <div id='container__Conversas_com_Amigos'>
+                <canvas id='Conversas_com_Amigos'></canvas>
+            </div>
+        </div>
+
 
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="script/chart.js"></script>
+    <script src="script/Matutino.js"></script>
+    <script src="script/Noturno.js"></script>
     <script src="script/NewPlanin.js"></script>
 
 </body>
