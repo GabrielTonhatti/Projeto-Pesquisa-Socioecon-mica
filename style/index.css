@@ -36,7 +36,7 @@ body {
     min-height: 100vh;
 }
 
-button {
+/*button {
     padding: 15px;
     border-radius: 20px;
     outline: none;
@@ -50,6 +50,61 @@ button {
 button:hover {
     transform: scale(1.10);
     background-color: #1e1f24;
+}*/
+
+.filter{
+    font-size: 20px;
+    color: #BFBFBF;
+    padding: 15px;
+    align-items: center;
+}
+
+#container_filter {
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    width: 200px;
+    height: 200px;
+    background-color: #0d1118;
+}
+
+#Manha {
+    padding: 15px;
+    border-radius: 18px;
+    outline: none;
+    border: none;
+    color: #BFBFBF;
+    background-color: #24262D;
+    margin-left: -45px;
+}
+
+#Noite {
+    padding: 15px;
+    border-radius: 18px;
+    outline: none;
+    border: none;
+    color: #BFBFBF;
+    background-color: #24262D;
+}
+
+#geral {
+    padding: 15px;
+    border-radius: 18px;
+    outline: none;
+    border: none;
+    color: #BFBFBF;
+    background-color: #24262D;
+    margin-left: -45px;
+}
+
+#Nova_Planilha {
+    padding: 15px;
+    border-radius: 18px;
+    outline: none;
+    border: none;
+    color: #BFBFBF;
+    background-color: #24262D;
+
 }
 
 .main__title {
@@ -826,6 +881,56 @@ thead {
     margin-top: 60px;
     width: 570px;
     height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+#container__Le_Jornal {
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+#container__Qtd_Livros{
+    margin-left: 60px;
+    margin-top: 60px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.Leitura4 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Assuntos_que_Le {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 1200px;
+    height: 500px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.Leitura5 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Le_Livros{
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 1200px;
+    height: 600px;
     background-color: #24262D;
     border-radius: 20px;
 }

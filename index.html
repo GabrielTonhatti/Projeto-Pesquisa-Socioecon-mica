@@ -19,11 +19,16 @@
     </header>
     <main class="main">
 
-        <button type='button' onclick="NewPlanin()"> Adicionar Planilha: </button>
+        <div class="filter">
+            <div id="container_filter">
+                <p> Filtros: </p>
+                <button type='button' id="Manha" onclick="Matutino()"> Matutino </button>
+                <button type='button' id="Noite" onclick="Noturno()"> Noturno </button>
+                <button type='button' id="geral" onclick="Geral()"> Todas as turmas </button>
+            </div>
+        </div>
 
-        <button type = 'button' id = "Manha" onclick = "Matutino()"> Matutino </button>
-
-        <button type = 'button' onclick = "Noturno()"> Noturno </button>
+        <button type='button' id="Nova_Planilha" onclick="NewPlanin()"> Adicionar Planilha: </button>
 
         <h1 class="main__title"> Cursos: </h1>
 
@@ -284,6 +289,23 @@
         <div class="Leitura3">
             <div id='container__Conversas_com_Amigos'>
                 <canvas id='Conversas_com_Amigos'></canvas>
+            </div>
+            <div id='container__Le_Jornal'>
+                <canvas id='Le_Jornal'></canvas>
+            </div>
+            <div id='container__Qtd_Livros'>
+                <canvas id='Qtd_Livros'></canvas>
+            </div>
+        </div>
+
+        <div class="Leitura4">
+            <div id='container__Assuntos_que_Le'>
+                <canvas id='Assuntos_que_Le'></canvas>
+            </div>
+        </div>
+        <div class="Leitura5">
+            <div id='container__Le_Livros'>
+                <canvas id='Le_Livros'></canvas>
             </div>
         </div>
 

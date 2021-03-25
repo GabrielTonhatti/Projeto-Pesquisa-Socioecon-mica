@@ -85,9 +85,9 @@ async function generateChart() {
     let opcConhecimentoLinguas = ['Leio, escrevo e falo bem', 'Leio, escrevo e falo razoavelmente', 'Leio e escrevo mas não falo', 'Leio mas não escrevo nem falo', 'Praticamente nula'];
     let opcBuscaInformação = ['Nunca', 'Pouco', 'Às vezes', 'Muito', 'Sempre']
     let opcLeJornal = ['Diariamente', 'Algumas vezes por semana', 'Somente aos domingos', 'Raramente', 'Não leio'];
-    let opcAssuntosJornal = ['Não leio jornal', 'Todos os assuntos', 'Notícia locais', 'Notícias nacionais', 'Notícias internacionais', 'Esporte', 'Lazer, arte e cultura', 'Notícias policiais', 'Classificados', 'Moda', 'Sociais'];
+    let opcAssuntosJornal = ['Não leio jornal', 'Todos os assuntos', 'Notícia locais', 'Notícias nacionais', 'Notícias internacionais', 'Esporte', 'Lazer, arte e cultura', 'Notícias policiais', 'Classificados', 'Moda', 'Sociais', "Notícia locais, Notícias nacionais, Notícias internacionais, Lazer, arte e cultura, Classificados, Moda, Sociais", "Notícia locais, Notícias nacionais, Notícias internacionais, Notícias policiais, Moda", "Notícia locais, Esporte, Notícias policiais", "Notícias internacionais, Esporte, Lazer, arte e cultura, Classificados", "Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Sociais", "Notícia locais, Notícias nacionais, Notícias internacionais, Sociais", "Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Notícias policiais, Sociais", "Notícias nacionais, Notícias internacionais, Classificados", "Esporte, Lazer, arte e cultura", "Notícias nacionais, Notícias internacionais, Notícias policiais", "Notícia locais, Notícias nacionais, Notícias internacionais, Lazer, arte e cultura, Notícias policiais, Sociais", "Notícia locais, Notícias nacionais, Notícias internacionais", "Notícia locais, Notícias nacionais, Lazer, arte e cultura, Notícias policiais", "Todos os assuntos, Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura", "Notícia locais, Notícias nacionais, Notícias internacionais, Notícias policiais", "Todos os assuntos, Notícias internacionais, Esporte, Lazer, arte e cultura", "Notícia locais, Notícias nacionais, Notícias internacionais, Lazer, arte e cultura, Notícias policiais, Classificados", 'Esporte, Notícias policiais', 'Esporte, Classificados', 'Esporte, Moda', 'Esporte, Sociais', 'Lazer, arte e cultura, Notícias policiais', 'Lazer, arte e cultura, Classificados', 'Lazer, arte e cultura, Moda', 'Lazer, arte e cultura, Sociais', 'Notícias policiais, Classificados', 'Notícias policiais, Moda', 'Notícias policiais, Sociais', 'Classificados, Moda', 'Classificados, Sociais', 'Moda, Sociais', 'Notícia locais, Notícias nacionais', 'Notícia locais, Notícias internacionais', 'Notícia locais, Esporte', 'Notícia locais, Lazer, arte e cultura', 'Notícia locais, Notícias policiais', 'Notícia locais, Classificados', 'Notícia locais, Moda', 'Notícia locais, Sociais', 'Notícia locais, Notícias nacionais, Esporte', 'Notícia locais, Notícias nacionais, Lazer, arte e cultura', 'Notícia locais, Notícias nacionais, Notícias policiais', 'Notícia locais, Notícias nacionais, Classificados', 'Notícia locais, Notícias nacionais, Moda', 'Notícia locais, Notícias nacionais, Sociais', 'Notícias nacionais, Notícias internacionais', 'Notícias nacionais, Esporte', 'Notícias nacionais, Lazer, arte e cultura', 'Notícias nacionais, Notícias policiais', 'Notícias nacionais, Classificados', 'Notícias nacionais, Moda', 'Notícias nacionais, Sociais', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte', 'Notícia locais, Notícias nacionais, Notícias internacionais, Lazer, arte e cultura', 'Notícia locais, Notícias nacionais, Notícias internacionais, Classificados', 'Notícia locais, Notícias nacionais, Notícias internacionais, Moda', 'Notícias nacionais, Notícias internacionais, Esporte', 'Notícias nacionais, Notícias internacionais, Lazer, arte e cultura', 'Notícias nacionais, Notícias internacionais, Moda', 'Notícias nacionais, Notícias internacionais, Sociais', 'Notícias internacionais, Esporte', 'Notícias internacionais, Lazer, arte e cultura', 'Notícias internacionais, Notícias policiais', 'Notícias internacionais, Classificados', 'Notícias internacionais, Moda', 'Notícias internacionais, Sociais', 'Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Notícias policiais, Classificados', 'Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Notícias policiais, Moda', 'Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Notícias policiais, Sociais', 'Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Notícias policiais, Classificados, Moda', 'Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Notícias policiais, Classificados, Sociais', 'Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Notícias policiais', 'Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Classificados', 'Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Moda', 'Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Sociais', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Notícias policiais', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Classificados', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Moda', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Sociais', 'Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura', 'Notícias nacionais, Notícias internacionais, Esporte, Notícias policiais', 'Notícias nacionais, Notícias internacionais, Esporte, Classificados', 'Notícias nacionais, Notícias internacionais, Esporte, Moda', 'Notícias nacionais, Notícias internacionais, Esporte, Sociais', 'Notícias internacionais, Esporte, Lazer, arte e cultura', 'Notícias internacionais, Esporte, Notícias policiais', 'Notícias internacionais, Esporte, Classificados', 'Notícias internacionais, Esporte, Moda', 'Notícias internacionais, Esporte, Sociais', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Notícias policiais', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Classificados', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Moda', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Notícias policiais, Classificados', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Notícias policiais, Moda', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Notícias policiais, Sociais', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Notícias policiais, Classificados, Moda', 'Notícia locais, Notícias nacionais, Notícias internacionais, Esporte, Lazer, arte e cultura, Notícias policiais, Classificados, Sociais'];
     let opcQtdLivros = ['Nenhum', 'Até 2', 'De 3 até 6', 'De 7 até 10', 'Mais de 10'];
-    let opcLeLivros = ['Não leio', 'Romance', 'Ficção', 'Policial', 'Biográfico', 'Aventura', 'Autoajuda', 'Outros'];
+    let opcLeLivros = ['Não leio', 'Romance', 'Ficção', 'Policial', 'Biográfico', 'Aventura', 'Autoajuda', 'Outros', 'Romance, Ficção', 'Romance, Policial', 'Romance, Biográfico', 'Romance, Aventura', 'Romance, Autoajuda', 'Romance, Outros', 'Ficção, Policial', 'Ficção, Biográfico', 'Ficção, Aventura', 'Ficção, Autoajuda', 'Ficção, Outros', 'Policial, Biográfico', 'Policial, Aventura', 'Policial, Autoajuda', 'Policial, Outros', 'Biográfico, Aventura', 'Biográfico, Autoajuda', 'Biográfico, Outros', 'Aventura, Autoajuda', 'Aventura, Outros', 'Autoajuda, Outros', 'Romance, Ficção, Policial', 'Romance, Ficção, Biográfico', 'Romance, Ficção, Aventura', 'Romance, Ficção, Autoajuda', 'Romance, Ficção, Outros', 'Romance, Ficção, Policial, Biográfico', 'Romance, Ficção, Policial, Aventura', 'Romance, Ficção, Policial, Autoajuda', 'Romance, Ficção, Policial, Outros', 'Ficção, Policial, Biográfico', 'Ficção, Policial, Aventura', 'Ficção, Policial, Autoajuda', 'Ficção, Policial, Outros', 'Ficção, Policial, Aventura, Autoajuda', 'Ficção, Policial, Aventura, Autoajuda, Outros', 'Ficção, Policial, Aventura, Outros', 'Ficção, Policial, Autoajuda, Outros', 'Romance, Ficção, Policial, Aventura, Autoajuda', 'Romance, Ficção, Policial, Aventura, Autoajuda, Outros', 'Romance, Ficção, Policial, Aventura, Outros', 'Romance, Ficção, Policial, Autoajuda', 'Romance, Ficção, Policial, Autoajuda, Outros', 'Romance, Ficção, Aventura, Autoajuda', 'Romance, Ficção, Aventura, Autoajuda, Outros', 'Romance, Ficção, Aventura, Outros', 'Romance, Ficção, Autoajuda, Outros', 'Romance, Ficção, Policial, Biográfico, Autoajuda', 'Romance, Ficção, Policial, Biográfico, Autoajuda, Outros', 'Romance, Ficção, Policial, Biográfico, Aventura', 'Romance, Ficção, Policial, Biográfico, Aventura, Autoajuda', 'Romance, Ficção, Policial, Biográfico, Aventura, Autoajuda, Outros', "Ficção, Biográfico, Aventura", "Ficção, Aventura, Outros", "Ficção, Policial, Biográfico, Aventura, Autoajuda", 'Romance, Ficção, Biográfico, Aventura', "Ficção, Policial, Biográfico", 'Romance, Policial, Biográfico, Autoajuda', 'Biográfico, Autoajuda, Outros', 'Ficção, Autoajuda, Outros', 'Ficção, Biográfico, Autoajuda', 'Ficção, Aventura, Autoajuda'];
     let opcAtividadeVolun = ['Sim', 'Não'];
     let opcReligiao = ['Nenhuma', 'Católica', 'Espírita', 'Evangélica', 'Protestante', 'Outra'];
     let opcEntretenimento = ['Cinema', 'Exposições de arte', 'Filmes na internet', 'Literatura', 'Museus', 'Música', 'Teatro', 'TV', 'Viagens', 'Nenhuma'];
@@ -115,13 +115,21 @@ async function generateChart() {
                         '#1D96CC', '#3DFF64', '#FBBC05',
                         '#9657FF', '#6B007B', '#FFF28C',
                         '#F59AF2', '#5BE8F5', '#F50F51',
-                        '#9ED3E4'],
+                        '#9ED3E4', '#EE7AE9', '#FFBBFF',
+                        '#912CEE', '#008B8B', '#00008B',
+                        '#90EE90', '#CD2626', '#EE7621',
+                        '#00008B', '#20B2AA', '#1E90FF'
+                    ],
                     borderColor: [
                         '#12239E', '#FF0005', '#EA4335',
                         '#1D96CC', '#3DFF64', '#FBBC05',
                         '#9657FF', '#6B007B', '#FFF28C',
                         '#F59AF2', '#5BE8F5', '#F50F51',
-                        '#9ED3E4'],
+                        '#9ED3E4', '#EE7AE9', '#FFBBFF',
+                        '#912CEE', '#008B8B', '#00008B',
+                        '#90EE90', '#CD2626', '#EE7621',
+                        '#00008B', '#20B2AA', '#1E90FF'
+                    ],
                     data: dados,
                 }]
             },
@@ -157,33 +165,19 @@ async function generateChart() {
                 datasets: [{
                     label: 'Geral',
                     backgroundColor: [
-                        '#12239E',
-                        '#FF0005',
-                        '#EA4335',
-                        '#1D96CC',
-                        '#3DFF64',
-                        '#FBBC05',
-                        '#9657FF',
-                        '#6B007B',
-                        '#FFF28C',
-                        '#F59AF2',
-                        '#5BE8F5',
-                        '#F50F51',
-                        '#9ED3E4',
-                        '#00F6A0',
-                        '#CEF6A0',
-                        '#FF91A0',
-                        '#FF0046',
-                        '#4A0046',
-                        '#BA00B1',
-                        '#22BDD4',
-                        '#2300BA',
-                        '#FFF766',
-                        '#FFF713',
-                        '#10B92C',
-                        '#EB0D0D',
-                        '#FF700F',
-                        '#FFB7F3',
+                        '#12239E','#FF0005','#EA4335',
+                        '#1D96CC','#3DFF64','#FBBC05',
+                        '#9657FF', '#6B007B','#1E90FF',
+                        '#FFF28C','#F59AF2','#5BE8F5',
+                        '#F50F51','#9ED3E4', '#00F6A0',
+                        '#CEF6A0','#FF91A0','#FF0046',
+                        '#4A0046','#BA00B1','#22BDD4',
+                        '#2300BA','#FFF766','#FFF713',
+                        '#10B92C','#EB0D0D','#FF700F',
+                        '#FFB7F3','#EE7AE9', '#FFBBFF',
+                        '#912CEE', '#008B8B', '#00008B',
+                        '#90EE90', '#CD2626', '#EE7621',
+                        '#00008B', '#20B2AA', 
                     ],
                     borderColor: ['#12239E'],
                     data: dados,
@@ -527,7 +521,6 @@ async function generateChart() {
 
         Empresa[i] = quest["19.5. Qual a empresa que você está contratado agora?"]
 
-
         DadosTabela = DadosTabela + `<tr "tbody__row"> <td "tbody__data"> ${Empresa[i]} </td> </tr>`
 
         i++
@@ -703,6 +696,39 @@ async function generateChart() {
     GerarGraficoPie(RedesSociais, opcBuscaInformação, respostas, 56, labelsRedesSociais, DadosRedesSociais, 'Redes_Sociais', 'Busca por informação no seguinte meio de comunicação(Redes Sociais)');
 
     // 27. Considere a busca por informação nos seguintes meios de comunicação [Conversas com Amigos]
+    let ConversaComAmigos = [];
+    let DadosConversaComAmigos = [];
+    let labelsConversaComAmigos = [];
+
+    GerarGraficoPie(ConversaComAmigos, opcBuscaInformação, respostas, 57, labelsConversaComAmigos, DadosConversaComAmigos, 'Conversas_com_Amigos', 'Busca por informação no seguinte meio de comunicação(Conversas com Amigos)');
+
+    // 28. Se você lê jornal, qual a frequência?
+    let LeJornal = [];
+    let DadosLeJornal = [];
+    let labelsLeJornal = [];
+
+    GerarGraficoPie(LeJornal, opcLeJornal, respostas, 58, labelsLeJornal, DadosLeJornal, 'Le_Jornal', ' Frequência que leem jornal');
+
+    // 29. Se você lê jornal, quais os assuntos que mais lê?
+    let assuntosQueLeem = [];
+    let DadosAssuntosQueLeem = [];
+    let labelsAssuntosQueLeem = [];
+
+    GerarGraficoBar(assuntosQueLeem, opcAssuntosJornal, respostas, 59, labelsAssuntosQueLeem, DadosAssuntosQueLeem, 'Assuntos_que_Le', 'horizontalBar', 'Assuntos que mais leem');
+
+    // 30. Não considerando os livros escolares, quantos livros você lê por ano (em média)
+    let QtdLivros = [];
+    let DadosQtdLivros = [];
+    let labelsQtdLivros = [];
+
+    GerarGraficoPie(QtdLivros, opcQtdLivros, respostas, 60, labelsQtdLivros, DadosQtdLivros, 'Qtd_Livros', 'Quantos livros cada aluno lê por ano (em média)')
+
+    // 31. Se você lê livros literários, qual/quais o(s) gênero(s) preferido(s)?
+    let leLivros = [];
+    let DadosLeLivros = [];
+    let labelsLeLivros = [];
+
+    GerarGraficoBar(leLivros, opcLeLivros, respostas, 61, labelsLeLivros, DadosLeLivros, 'Le_Livros', 'horizontalBar', "Gêneros de livros preferidos de cada aluno")
 
     //33. Qual religião você professa?": "Evangélica"
     let religiao = [];
@@ -724,6 +750,8 @@ async function generateChart() {
     let labelsCursoTecnico = [];
 
     GerarGraficoPie(cursoTecnico, opcCursoTecnico, respostas, 70, labelsCursoTecnico, DadosCursoTecnico, 'Curso_Tecnico', 'Você fez algum curso técnico?');
+
+    console.log(respNoturno[61])
 
 }
 
