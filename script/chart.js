@@ -68,9 +68,9 @@ async function generateChart() {
     let opcMoraCom = ['Com pais e(ou) parentes', 'Com esposa(o) e(ou) filho(s)', 'Com amigos (compartilhando despesas) ou de favor', 'Sozinho'];
     let opcQtdMoradores = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
     let opcSituacaoDomi = ['Próprio', 'Alugado', 'Cedido', 'Financiado', 'Arrendado', 'Mensalista'];
-    let opcTempoMoradia = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45']
+    let opcTempoMoradia = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '55', '55', '56', '57', '58', '59', '60', '61', '62', '63', '66', '65', '66', '67', '68', '69', '70']
     let opcRendaMensal = ['Até dois salários mínimos', 'Mais de dois até cinco salários mínimos', 'Mais de cinco até dez salários mínimos', 'Mais de dez até vinte salários mínimos', 'Mais de vinte salários mínimos', 'Prefiro não responder'];
-    let opc17QtdeCadaCoisa = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']; // Para todas as questões dentro da questão 17
+    let opc17QtdeCadaCoisa = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']; // Para todas as questões dentro da questão 17
     let opcTemNoDomicilio = ['Telefone fixo', 'Internet', 'Tv por assinatura', 'Empregada mensalista', 'Nenhuma das opções acima', 'Telefone fixo, Internet', 'Telefone fixo, Internet, Tv por assinatura', 'Telefone fixo, Internet, Tv por assinatura, Empregada mensalista', 'Internet, Tv por assinatura, Empregada mensalista', 'Internet, Tv por assinatura', 'Internet, Empregada mensalista', 'Telefone fixo, Tv por assinatura', 'Telefone fixo, Empregada mensalista'];
     let opcTrabalha = ['Sim', 'Não'];
     let opcVinculoEmprego = ['Não trabalho', 'Sou registrado em indústria (calçados/confecções/outras)', 'Sou registrado no comércio', 'Sou registrado em empresa prestadora de serviços', 'Sou registrado em empresa pública (federal/estadual/municipal)', 'Sou autônomo', 'Sou empresário', 'Sou estagiário'];
@@ -81,7 +81,7 @@ async function generateChart() {
     let opcEstudou = ['Sempre em escola pública', 'A maior parte em escola pública', 'Sempre em escola particular paga pela família', 'Sempre em escola particular com bolsa', 'A maior parte em escola particular paga pela família', 'A maior parte em escola particular com bolsa'];
     let opcUsaMicroComp = ['Nunca', 'Pouco', 'Ás vezes', 'Muito', 'Sempre']; // para questão 23.1 e 27
     let opcOndeUsaMicroComp = ['Em casa', 'No trabalho', 'Na escola', 'Em outros lugares', 'Em casa, No trabalho', 'Em casa, Na escola', 'Em casa, Na escola, Em outros lugares', 'Em casa, Em outros lugares', 'Em casa, No trabalho, Na escola', 'Em casa, No trabalho, Em outros lugares', 'Em casa, No trabalho, Na escola, Em outros lugares', 'No trabalho, Na escola', 'No trabalho, Em outros lugares', 'No trabalho, Na escola, Em outros lugares', 'Na escola, Em outros lugares'];
-    let opcFinalizadeUsaMicroComp = ['Para trabalhos profissionais', 'Para trabalhos escolares', 'Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para comunicação por e-mail', 'Para operações bancárias', 'Para compras eletrônicas', ' Para trabalhos profissionais, Para trabalhos escolares', 'Para trabalhos profissionais, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos profissionais, Para comunicação por e-mail', 'Para trabalhos profissionais, Para operações bancárias', 'Para trabalhos profissionais, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos profissionais, Para trabalhos escolares, Para comunicação por e-mail', 'Para trabalhos profissionais, Para trabalhos escolares, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para compras eletrônicas', 'Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos escolares, Para comunicação por e-mail', 'Para trabalhos escolares, Para operações bancárias', 'Para trabalhos escolares, Para compras eletrônicas', 'Para comunicação por e-mail, Para operações bancárias', 'Para comunicação por e-mail, Para compras eletrônicas', 'Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para operações bancárias, Para compras eletrônicas', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para operações bancárias', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para compras eletrônicas', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para compras eletrônicas', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos profissionais, Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para operações bancárias, Para compras eletrônicas','Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas'];
+    let opcFinalizadeUsaMicroComp = ['Para trabalhos profissionais', 'Para trabalhos escolares', 'Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para comunicação por e-mail', 'Para operações bancárias', 'Para compras eletrônicas', ' Para trabalhos profissionais, Para trabalhos escolares', 'Para trabalhos profissionais, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos profissionais, Para comunicação por e-mail', 'Para trabalhos profissionais, Para operações bancárias', 'Para trabalhos profissionais, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos profissionais, Para trabalhos escolares, Para comunicação por e-mail', 'Para trabalhos profissionais, Para trabalhos escolares, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para compras eletrônicas', 'Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos escolares, Para comunicação por e-mail', 'Para trabalhos escolares, Para operações bancárias', 'Para trabalhos escolares, Para compras eletrônicas', 'Para comunicação por e-mail, Para operações bancárias', 'Para comunicação por e-mail, Para compras eletrônicas', 'Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para operações bancárias, Para compras eletrônicas', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para operações bancárias', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para compras eletrônicas', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para compras eletrônicas', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos profissionais, Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos escolares, Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos escolares, Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos escolares, Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para compras eletrônicas', 'Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para compras eletrônicas'];
     let opcConhecimentoInformatica = ['Nenhum', 'Pouco', 'Intermediário', 'Muito Avançado'];
     let opcConhecimentoLinguas = ['Leio, escrevo e falo bem', 'Leio, escrevo e falo razoavelmente', 'Leio e escrevo mas não falo', 'Leio mas não escrevo nem falo', 'Praticamente nula'];
     let opcLeJornal = ['Diariamente', 'Algumas vezes por semana', 'Somente aos domingos', 'Raramente', 'Não leio'];
@@ -99,9 +99,8 @@ async function generateChart() {
     let opcCursoTecnico = ['Não fiz', 'Sim, em uma ETEC', 'Sim, no SENAC', 'Sim, no SENAI', 'Sim, em outra instituição']
     let opcTransporte = ['Caminhando', 'Carona', 'Bicicleta', 'Moto', 'Carro', 'Ônibus', 'Transporte escolar']
 
-
     // Criar Grafico de Pizza
-    function ChartPie(id, labels, datas, title) {
+    function ChartPie(id, labels, dados, title) {
         var ctx = document.getElementById(id).getContext('2d');
         var chart = new Chart(ctx, {
 
@@ -111,18 +110,19 @@ async function generateChart() {
                 labels: labels,
                 datasets: [{
                     label: '',
-                    backgroundColor:
-                        ['#12239E', '#FF0005', '#EA4335',
-                            '#1D96CC', '#3DFF64', '#FBBC05',
-                            '#9657FF', '#6B007B', '#FFF28C',
-                            '#F59AF2', '#5BE8F5', '#F50F51',
-                            '#9ED3E4'],
-                    borderColor: ['#12239E', '#FF0005', '#EA4335',
+                    backgroundColor: [
+                        '#12239E', '#FF0005', '#EA4335',
                         '#1D96CC', '#3DFF64', '#FBBC05',
                         '#9657FF', '#6B007B', '#FFF28C',
                         '#F59AF2', '#5BE8F5', '#F50F51',
                         '#9ED3E4'],
-                    data: datas,
+                    borderColor: [
+                        '#12239E', '#FF0005', '#EA4335',
+                        '#1D96CC', '#3DFF64', '#FBBC05',
+                        '#9657FF', '#6B007B', '#FFF28C',
+                        '#F59AF2', '#5BE8F5', '#F50F51',
+                        '#9ED3E4'],
+                    data: dados,
                 }]
             },
 
@@ -146,7 +146,7 @@ async function generateChart() {
     }
 
     // Criar grafico de barras
-    function ChartBar(id, tipo, labels, datas, datas2, title) {
+    function ChartBar(id, tipo, labels, dados, title) {
         var ctx = document.getElementById(id).getContext('2d');
         var chart = new Chart(ctx, {
 
@@ -155,16 +155,38 @@ async function generateChart() {
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Matutino',
-                    backgroundColor: '#118DFF',
-                    borderColor: '#118DFF',
-                    data: datas[0],
-                },
-                {
-                    label: 'Noturno',
-                    backgroundColor: '#E044A7',
-                    borderColor: '#E044A7',
-                    data: datas2[1],
+                    label: 'Geral',
+                    backgroundColor: [
+                        '#12239E',
+                        '#FF0005',
+                        '#EA4335',
+                        '#1D96CC',
+                        '#3DFF64',
+                        '#FBBC05',
+                        '#9657FF',
+                        '#6B007B',
+                        '#FFF28C',
+                        '#F59AF2',
+                        '#5BE8F5',
+                        '#F50F51',
+                        '#9ED3E4',
+                        '#00F6A0',
+                        '#CEF6A0',
+                        '#FF91A0',
+                        '#FF0046',
+                        '#4A0046',
+                        '#BA00B1',
+                        '#22BDD4',
+                        '#2300BA',
+                        '#FFF766',
+                        '#FFF713',
+                        '#10B92C',
+                        '#EB0D0D',
+                        '#FF700F',
+                        '#FFB7F3',
+                    ],
+                    borderColor: ['#12239E'],
+                    data: dados,
                 }]
             },
 
@@ -174,7 +196,7 @@ async function generateChart() {
                     display: true,
                     fontColor: '#BFBFBF',
                     fontSize: 40,
-                    text: title
+                    text: title,
                 },
                 legend: {
                     display: true,
@@ -202,113 +224,68 @@ async function generateChart() {
         });
     }
 
-    // Função para criar matriz
-    function Matriz(variavel, tamanho) {
-        variavel = new Array(opcPeriodo.length)
-        for (j = 0; j < opcPeriodo.length; j++) {
-            variavel[j] = new Array()
-            for (k = 0; k < tamanho.length; k++) {
-                variavel[j][k] = new Array()
-            }
-        }
-        return variavel
-    }
-
-    // Gera os dados por periodo Matutino
-    function TeamMatutino(RespostaPer, dados, opcoes) {
-        RespostaPer.forEach(function (resposta) {
-            for (j = 0; j < 1; j++) {
-                for (k = 0; k < opcoes.length; k++) {
-                    if (resposta === opcoes[k]) {
-                        dados[j][k].push(resposta)
-                    }
-                }
-            }
-        })
-    }
-
-    // Gera os dados por periodo Noturno
-    function TeamNoturno(RespostaPer, dados, opcoes) {
-        RespostaPer.forEach(function (resposta) {
-            for (j = 1; j < 2; j++) {
-                for (k = 0; k < opcoes.length; k++) {
-                    if (resposta === opcoes[k]) {
-                        dados[j][k].push(resposta)
-                    }
-                }
-            }
-        })
-    }
-
-    // Adicionar os valores e mostrar apenas os textos que tem valor(grafico de pizza)
-    function AdicionarValorPie(variavel, tamanho, num, dados, labels, opcao) {
+    function GerarGraficoPie(variavel, opcao, Resp, num, labels, Dados, id, title) {
         for (let i = 0; i < opcao.length; i++) {
             variavel[i] = new Array()
         }
 
         for (j = 0; j < opcao.length; j++) {
-            for (k = 0; k < tamanho[num].length; k++) {
-                if (tamanho[num][k] === opcao[j]) {
-                    variavel[j].push(tamanho[num][k])
+            for (k = 0; k < Resp[num].length; k++) {
+                if (Resp[num][k] === opcao[j]) {
+                    variavel[j].push(Resp[num][k])
                 }
             }
-            if (variavel[j].length >= 0) {
-                dados.push(variavel[j].length)
-            }
-            if (dados[j] >= 0) {
-                labels[j] = opcao[j]
+            if (variavel[j].length > 0) {
+                Dados.push(variavel[j].length)
             }
         }
-    }
 
-    // Adicionar os valores e mostrar apenas os textos que tem valor(grafico de barra)
-    function AdicionarValorBar(tamanho, variavel, Dados, opcao, labels) {
-        for (j = 0; j < 2; j++) {
-            for (k = 0; k < tamanho.length; k++) {
-                // Adicionar os valores em cada informação
-                if (variavel[j][k].length > 0) {
-                    Dados[j][k].push(variavel[j][k].length)
-                }
-                // Mostrar a informação apenas quando tiver valor naquela posição
-                if (Dados[0][k] > 0 || Dados[1][k] > 0) {
-                    labels[k] = opcao[k]
+        for (j = 0; j < 1; j++) {
+            for (k = 0; k < opcao.length; k++) {
+                if (variavel[k][j] != undefined) {
+                    labels.push(variavel[k][j])
                 }
             }
         }
+
+        ChartPie(id, labels, Dados, title)
     }
 
-    // Função que puxa a função TeamNoturno, TeamMatutino, Matriz, AdicionarValor e Grafico de Barras
-    function GerarGraficoBar(variavel, opcQuest, num, dados, labels, opcao, id, tipo, title) {
+    function GerarGraficoBar(variavel, opcao, Resp, num, labels, Dados, id, tipo, title) {
+        for (let i = 0; i < opcao.length; i++) {
+            variavel[i] = new Array()
+        }
 
-        variavel = Matriz(variavel, opcQuest)
-        TeamMatutino(respMatutino[num], variavel, opcQuest)
-        TeamNoturno(respNoturno[num], variavel, opcQuest)
+        for (j = 0; j < opcao.length; j++) {
+            for (k = 0; k < Resp[num].length; k++) {
+                if (Resp[num][k] === opcao[j]) {
+                    variavel[j].push(Resp[num][k])
+                }
+            }
+            if (variavel[j].length > 0) {
+                Dados.push(variavel[j].length)
+            }
+        }
 
-        dados = Matriz(dados, opcQuest);
+        for (j = 0; j < 1; j++) {
+            for (k = 0; k < opcao.length; k++) {
+                if (variavel[k][j] != undefined) {
+                    labels.push(variavel[k][j])
+                }
+            }
+        }
 
-        AdicionarValorBar(opcQuest, variavel, dados, labels, opcao)
-
-        ChartBar(id, tipo, labels, dados, dados, title)
-
+        ChartBar(id, tipo, labels, Dados, title)
     }
 
-    // Função que puxa a função AdicionarValorPie e Grafico de Pizza
-    function GerarGraficoPie(variavel, tamanho, num, dados, opcao, labels, id, title) {
-
-        AdicionarValorPie(variavel, tamanho, num, dados, opcao, labels)
-
-        ChartPie(id, labels, dados, title)
-
-    }
-
-    // 1 - Grafico Cursos
+    // 1. Qual o seu curso?
     let curso = [];
     let DadosCurso = [];
     let labelsCurso = [];
 
-    GerarGraficoPie(curso, respostas, 2, DadosCurso, SiglaCurso, opcCurso, 'curso', 'Curso')
+    GerarGraficoPie(curso, opcCurso, respostas, 2, labelsCurso, DadosCurso, 'curso', 'Cursos')
 
-    // 2 - Periodo
+    // 2. Qual o período que cursa?
     let DadosPeriodo = [];
     let labelsPeriodo = [];
 
@@ -327,26 +304,26 @@ async function generateChart() {
 
     ChartPie('periodo', labelsPeriodo, DadosPeriodo, "Periodo");
 
-    // 4 - Estados
-    let estado
-    let DadosEstado
+    // 4. Qual o estado do Brasil que você nasceu?
+    let estado = [];
+    let DadosEstados = [];
     let labelsEstado = [];
 
-    GerarGraficoBar(estado, opcEstado, 5, DadosEstado, opcEstado, opcEstado, 'estado', 'bar', 'Estados')
+    GerarGraficoBar(estado, opcEstado, respostas, 5, labelsEstado, DadosEstados, 'estado', 'bar', 'Estados');
 
     // 5 - Cidades
-    let cidade
-    let DadosCidade
+    let cidade = [];
+    let DadosCidade = [];
     let labelsCidade = [];
 
-    GerarGraficoBar(cidade, opcCidade, 6, DadosCidade, opcCidade, opcCidade, 'cidade', 'bar', 'Cidades')
+    GerarGraficoBar(cidade, opcCidade, respostas, 6, labelsCidade, DadosCidade, 'cidade', 'bar', 'Cidades');
 
     // 6 - Genero
     let genero = [];
     let DadosGenero = [];
     let labelsGenero = [];
 
-    GerarGraficoPie(genero, respostas, 7, DadosGenero, opcGenero, opcGenero, 'genero', 'Gênero')
+    GerarGraficoPie(genero, opcGenero, respostas, 7, labelsGenero, DadosGenero, 'genero', 'Gênero');
 
     // 7 - Data Nascimento
 
@@ -355,148 +332,168 @@ async function generateChart() {
     let DadosEstadoCivil = [];
     let labelsEstadoCivil = [];
 
-    GerarGraficoPie(estadoCivil, respostas, 9, DadosEstadoCivil, opcEstadoCivil, opcEstadoCivil, 'estado_civil', 'Estado Civil')
+    GerarGraficoPie(estadoCivil, opcEstadoCivil, respostas, 9, labelsEstadoCivil, DadosEstadoCivil, 'estado_civil', 'Estado Civil');
 
     // 9 - Portadores de Necessidades especiais
     let portadores = [];
     let DadosPortadores = [];
     let labelsPortadores = [];
 
-    GerarGraficoPie(portadores, respostas, 10, DadosPortadores, opcPortador, opcPortador, 'Portador_de_Necessidade', 'Portadores de Necessidades Especiais')
+    GerarGraficoPie(portadores, opcPortador, respostas, 10, labelsPortadores, DadosPortadores, 'Portador_de_Necessidade', 'Portadores de Necessidades Especiais');
 
     // 10 - Convive com Portadores de Necessidades especiais
     let ConvivePort = [];
     let DadosConvivePort = [];
+    let labelsConvivePort = [];
 
-    GerarGraficoPie(ConvivePort, respostas, 11, DadosConvivePort, opcConvivePort, opcConvivePort, 'convive_com_portador', 'Convive com Portadores de Necessidades Especiais')
+    GerarGraficoPie(ConvivePort, opcConvivePort, respostas, 11, labelsConvivePort, DadosConvivePort, 'convive_com_portador', 'Convive com Portadores de Necessidades Especiais');
 
     // 11 - Quantidade de filhos
     let QtdFilhos = [];
     let DadosQtdFilhos = [];
+    let labelsQtdFilhos = [];
 
-    GerarGraficoPie(QtdFilhos, respostas, 12, DadosQtdFilhos, opcQtdFilhos, opcQtdFilhos, 'qtd_de_filhos', "Quantidade de filhos de cada estudante")
+    GerarGraficoPie(QtdFilhos, opcQtdFilhos, respostas, 12, labelsQtdFilhos, DadosQtdFilhos, 'qtd_de_filhos', "Quantidade de filhos de cada estudante");
 
     // 12. Com quem você mora atualmente?
     let moraCom = [];
     let DadosMoraCom = [];
+    let labelsMoraCom = [];
 
-    GerarGraficoPie(moraCom, respostas, 13, DadosMoraCom, opcMoraCom, opcMoraCom, 'moram_com', "Com quem cada estudante mora")
+    GerarGraficoPie(moraCom, opcMoraCom, respostas, 13, labelsMoraCom, DadosMoraCom, 'moram_com', "Com quem cada estudante mora");
 
     //13. Quantas pessoas, incluindo você, moram no seu domicílio?
     let QtdMoradores = [];
     let DadosQtdMoradores = [];
+    let labelsQtdMoradores = [];
 
-    GerarGraficoPie(QtdMoradores, respostas, 14, DadosQtdMoradores, opcQtdMoradores, opcQtdMoradores, 'QTD_de_pessoas_moram_junto', "Quantidade de pessoas que moram com cada aluno")
+    GerarGraficoPie(QtdMoradores, opcQtdMoradores, respostas, 14, labelsQtdMoradores, DadosQtdMoradores, 'QTD_de_pessoas_moram_junto', "Quantidade de pessoas que moram com cada aluno");
 
     // 14. Qual a situação do domicílio onde mora?
     let SituacaoDomicilio = [];
     let DadosSituacaoDomi = [];
+    let labelsSituacaoDomi = [];
 
-    GerarGraficoPie(SituacaoDomicilio, respostas, 15, DadosSituacaoDomi, opcSituacaoDomi, opcSituacaoDomi, 'situacao_domicilio', "Situação do Domicílio")
+    GerarGraficoPie(SituacaoDomicilio, opcSituacaoDomi, respostas, 15, labelsSituacaoDomi, DadosSituacaoDomi, 'situacao_domicilio', "Situação do Domicílio")
 
     // 15. Tempo de moradia neste domicílio (Em anos)
-    let TempoMoradia
-    let DadosTempoMoradia
+    let TempoMoradia = [];
+    let DadosTempoMoradia = [];
     let labelsTempoMoradia = [];
 
-    GerarGraficoBar(TempoMoradia, opcTempoMoradia, 16, DadosTempoMoradia, opcTempoMoradia, opcTempoMoradia, 'tempo_moradia', 'bar', 'Tempo de moradia no domicílio(Em anos)')
+    GerarGraficoBar(TempoMoradia, opcTempoMoradia, respostas, 16, labelsTempoMoradia, DadosTempoMoradia, 'tempo_moradia', 'bar', 'Tempo de moradia no domicílio(Em anos)');
 
     // 16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)
     let RendaMensal = [];
     let DadosRendaMensal = [];
+    let labelsRendaMensal = [];
 
-    GerarGraficoPie(RendaMensal, respostas, 17, DadosRendaMensal, opcRendaMensal, opcRendaMensal, 'salario_min', "Faixa de renda mensal da família do estudante (em Salários Mínimos)")
+    GerarGraficoPie(RendaMensal, opcRendaMensal, respostas, 17, labelsRendaMensal, DadosRendaMensal, 'salario_min', "Faixa de renda mensal da família do estudante (em Salários Mínimos)");
 
     //17.1. Quantas geladeiras há em seu domicílio
     let QtdGeladeira = [];
     let DadosQtdGeladeira = [];
+    let labelsQtdGeladeira = [];
 
-    GerarGraficoPie(QtdGeladeira, respostas, 18, DadosQtdGeladeira, opc17QtdeCadaCoisa, opc17QtdeCadaCoisa, 'qtd_geladeira', "Quantidade de Geladeiras de cada aluno")
+    GerarGraficoPie(QtdGeladeira, opc17QtdeCadaCoisa, respostas, 18, labelsQtdGeladeira, DadosQtdGeladeira, 'qtd_geladeira', "Quantidade de Geladeiras de cada aluno");
 
     // 17.2. Quantos celulares comuns há em seu domicílio?
     let QtdCelular = [];
     let DadosQtdCelular = [];
+    let labelsQtdCelular = [];
 
-    GerarGraficoPie(QtdCelular, respostas, 19, DadosQtdCelular, opc17QtdeCadaCoisa, opc17QtdeCadaCoisa, 'qtd_celular_comum', "Quantidade de celulares comuns de cada aluno")
+    GerarGraficoPie(QtdCelular, opc17QtdeCadaCoisa, respostas, 19, labelsQtdCelular, DadosQtdCelular, 'qtd_celular_comum', "Quantidade de celulares comuns de cada aluno");
 
     // 17.3. Quantos micro-ondas há em seu domicílio?
     let QtdMicroOndas = [];
     let DadosQtdMicroOndas = [];
+    let labelsQtdMicroOndas = [];
 
-    GerarGraficoPie(QtdMicroOndas, respostas, 20, DadosQtdMicroOndas, opc17QtdeCadaCoisa, opc17QtdeCadaCoisa, 'qtd_micro_ondas', 'Quantidade de micro-ondas de cada aluno')
+    GerarGraficoPie(QtdMicroOndas, opc17QtdeCadaCoisa, respostas, 20, labelsQtdMicroOndas, DadosQtdMicroOndas, 'qtd_micro_ondas', 'Quantidade de micro-ondas de cada aluno');
 
     // 17.4. Quantos notebooks há em seu domicílio?
     let QtdNotebooks = [];
     let DadosQtdNotebooks = [];
+    let labelsQtdNotebook = [];
 
-    GerarGraficoPie(QtdNotebooks, respostas, 21, DadosQtdNotebooks, opc17QtdeCadaCoisa, opc17QtdeCadaCoisa, 'qtd_notebooks', 'Quantidade de Notebooks de cada aluno')
+    GerarGraficoPie(QtdNotebooks, opc17QtdeCadaCoisa, respostas, 21, labelsQtdNotebook, DadosQtdNotebooks, 'qtd_notebooks', 'Quantidade de Notebooks de cada aluno');
 
     // 17.5. Quantas máquinas de lavar roupa e(ou) tanquinho há em seu domicílio?
     let Qtd_Maquina_de_Lavar = [];
     let DadosMaquinaLavar = [];
+    let labelsMaquinaLavar = [];
 
-    GerarGraficoPie(Qtd_Maquina_de_Lavar, respostas, 22, DadosMaquinaLavar, opc17QtdeCadaCoisa, opc17QtdeCadaCoisa, 'qtd_Maquina_de_Lavar', 'Quantidade de Máquinas de lavar roupa de cada aluno')
+    GerarGraficoPie(Qtd_Maquina_de_Lavar, opc17QtdeCadaCoisa, respostas, 22, labelsMaquinaLavar, DadosMaquinaLavar, 'qtd_Maquina_de_Lavar', 'Quantidade de Máquinas de lavar roupa de cada aluno');
 
     // 17.6. Quantas motocicletas há em seu domicílio?
     let Qtd_motoclicletas = [];
     let DadosMotocicletas = [];
     let labelsMotocicletas = [];
 
-    GerarGraficoPie(Qtd_motoclicletas, respostas, 23, DadosMotocicletas, opc17QtdeCadaCoisa, opc17QtdeCadaCoisa, 'qtd_motocicletas', 'Quantidade de Motocicletas de cada aluno')
+    GerarGraficoPie(Qtd_motoclicletas, opc17QtdeCadaCoisa, respostas, 23, labelsMotocicletas, DadosMotocicletas, 'qtd_motocicletas', 'Quantidade de Motocicletas de cada aluno');
 
     // 17.7. Quantos automóveis há em seu domicílio?
     let QtdAutomoveis = [];
     let DadosAutomoveis = [];
+    let labelsAutomoveis = [];
 
-    GerarGraficoPie(QtdAutomoveis, respostas, 24, DadosAutomoveis, opc17QtdeCadaCoisa, opc17QtdeCadaCoisa, 'qtd_Automoveis', 'Quantidade de Automóveis de cada aluno')
+    GerarGraficoPie(QtdAutomoveis, opc17QtdeCadaCoisa, respostas, 24, labelsAutomoveis, DadosAutomoveis, 'qtd_Automoveis', 'Quantidade de Automóveis de cada aluno');
 
     // 17.8. Quantos vídeos cassete e(ou) DVD players há em seu domicílio?
     let QtdDVD = [];
     let DadosDVD = [];
+    let labelsDvd = [];
 
-    GerarGraficoPie(QtdDVD, respostas, 25, DadosDVD, opc17QtdeCadaCoisa, opc17QtdeCadaCoisa, 'qtd_DVD', 'Quantidade de DVD players')
+    GerarGraficoPie(QtdDVD, opc17QtdeCadaCoisa, respostas, 25, labelsDvd, DadosDVD, 'qtd_DVD', 'Quantidade de DVD players');
 
     // 17.9. Quantos televisores há em seu domicílio?
     let QtdTV = [];
     let DadosTV = [];
+    let labelsQtdTV = [];
 
-    GerarGraficoPie(QtdTV, respostas, 26, DadosTV, opc17QtdeCadaCoisa, opc17QtdeCadaCoisa, 'qtd_TV', 'Quantidade de TVs de cada aluno')
+    GerarGraficoPie(QtdTV, opc17QtdeCadaCoisa, respostas, 26, labelsQtdTV, DadosTV, 'qtd_TV', 'Quantidade de TVs de cada aluno');
 
     // 17.10. Quantos smartphones há em seu domicílio?
     let Qtd_Smartphones = [];
     let DadosSmatphones = [];
+    let labelsQtdSmartphone = [];
 
-    GerarGraficoPie(Qtd_Smartphones, respostas, 27, DadosSmatphones, opc17QtdeCadaCoisa, opc17QtdeCadaCoisa, 'qtd_Smartphones', 'Quantidade de Smartphones de cada aluno')
+    GerarGraficoPie(Qtd_Smartphones, opc17QtdeCadaCoisa, respostas, 27, labelsQtdSmartphone, DadosSmatphones, 'qtd_Smartphones', 'Quantidade de Smartphones de cada aluno');
 
     // 18. No seu domicílio tem? questão com mais de uma alternativa, n esta terminada
-    let DomicilioTem
-    let DadosDomicilioTem
+    let DomicilioTem = [];
+    let DadosDomicilioTem = [];
+    let labelsDomicilioTem = [];
 
-    GerarGraficoBar(DomicilioTem, opcTemNoDomicilio, 28, DadosDomicilioTem, opcTemNoDomicilio, opcTemNoDomicilio, 'Oque_tem_No_Domicilio', 'horizontalBar', 'Na casa de cada estudante tem')
+    GerarGraficoBar(DomicilioTem, opcTemNoDomicilio, respostas, 28, labelsDomicilioTem, DadosDomicilioTem, 'Oque_tem_No_Domicilio', 'horizontalBar', 'Na casa de cada estudante tem');
 
     // 19.1. Você trabalha?
     let trabalha = [];
     let DadosTrabalho = [];
+    let labelsTrabalho = [];
 
-    GerarGraficoPie(trabalha, respostas, 29, DadosTrabalho, opcTrabalha, opcTrabalha, 'Trabalho', 'Você trabalha?')
+    GerarGraficoPie(trabalha, opcTrabalha, respostas, 29, labelsTrabalho, DadosTrabalho, 'Trabalho', 'Você trabalha?');
 
     //19.2. Qual o seu vínculo com o emprego?
     let VinculoEmprego = [];
     let DadosVinculo = [];
+    let labelsVinculo = [];
 
-    GerarGraficoPie(VinculoEmprego, respostas, 30, DadosVinculo, opcVinculoEmprego, opcVinculoEmprego, 'Vinculo_Emprego', "Vinculo com o emprego")
+    GerarGraficoPie(VinculoEmprego, opcVinculoEmprego, respostas, 30, labelsVinculo, DadosVinculo, 'Vinculo_Emprego', "Vinculo com o emprego");
 
     // 19.3. Qual a área do seu trabalho?
     let AreaTrabalho = [];
     let DadosAreaTrabalho = [];
+    let labelsAreaTrabalho = [];
 
-    GerarGraficoPie(AreaTrabalho, respostas, 31, DadosAreaTrabalho, opcAreaTrabalho, opcAreaTrabalho, 'Area_trabalho', "Qual a área do seu trabalho?")
+    GerarGraficoPie(AreaTrabalho, opcAreaTrabalho, respostas, 31, labelsAreaTrabalho, DadosAreaTrabalho, 'Area_trabalho', "Qual a área do seu trabalho?");
 
     // 19.4. Qual seu horário de trabalho?
     let HorarioTrabalho = [];
     let DadosHorario = [];
+    let labelsHorario = [];
 
-    GerarGraficoPie(HorarioTrabalho, respostas, 32, DadosHorario, opcHorarioTrabalho, opcHorarioTrabalho, 'Horario_Trabalho', "Horários de Trabalho")
+    GerarGraficoPie(HorarioTrabalho, opcHorarioTrabalho, respostas, 32, labelsHorario, DadosHorario, 'Horario_Trabalho', "Horários de Trabalho");
 
     // 19.5. Qual a empresa que você está contratado agora
     let CabecalhoTabela = '';
@@ -507,9 +504,9 @@ async function generateChart() {
     document.getElementById('thead').innerHTML = CabecalhoTabela;
 
     for (quest of forms) {
-        if (quest["19.5. Qual a empresa que você está contratado agora?"] !== undefined) {
-            Empresa[i] = quest["19.5. Qual a empresa que você está contratado agora?"]
-        }
+
+        Empresa[i] = quest["19.5. Qual a empresa que você está contratado agora?"]
+
 
         DadosTabela = DadosTabela + `<tr "tbody__row"> <td "tbody__data"> ${Empresa[i]} </td> </tr>`
 
@@ -521,83 +518,94 @@ async function generateChart() {
     // 20. Você tem plano de saúde privado?
     let PlanoSaude = [];
     let DadosPlanoSaude = [];
+    let labelsPlanoSaude = [];
 
-    GerarGraficoPie(PlanoSaude, respostas, 34, DadosPlanoSaude, opcPlanoDeSaude, opcPlanoDeSaude, 'Plano_Saude', 'Planos de Saúde')
+    GerarGraficoPie(PlanoSaude, opcPlanoDeSaude, respostas, 34, labelsPlanoSaude, DadosPlanoSaude, 'Plano_Saude', 'Planos de Saúde');
 
     // 21.1. Qual o grau de escolaridade do seu pai?
     let EscolaridadePai = [];
     let DadosEscolaridadePai = [];
+    let LabelsEscolaPai = [];
 
-    GerarGraficoPie(EscolaridadePai, respostas, 35, DadosEscolaridadePai, opcEscolaridade, opcEscolaridade, 'Escolaridade_Pai', 'Grau de Escolaridade do Pai dos Alunos')
+    GerarGraficoPie(EscolaridadePai, opcEscolaridade, respostas, 35, LabelsEscolaPai, DadosEscolaridadePai, 'Escolaridade_Pai', 'Grau de Escolaridade do Pai dos Alunos');
 
     // 21.2. Qual o grau de escolaridade da sua mãe?
     let EscolaridadeMae = [];
     let DadosEscolaridadeMae = [];
+    let LabelsEscolaMae = [];
 
-    GerarGraficoPie(EscolaridadeMae, respostas, 36, DadosEscolaridadeMae, opcEscolaridade, opcEscolaridade, 'Escolaridade_Mae', 'Grau de Escolaridade da Mãe dos Alunos')
+    GerarGraficoPie(EscolaridadeMae, opcEscolaridade, respostas, 36, LabelsEscolaMae, DadosEscolaridadeMae, 'Escolaridade_Mae', 'Grau de Escolaridade da Mãe dos Alunos');
 
     // 22. Na sua vida escolar você estudou
     let EstudouEm = [];
     let DadosEstudouEm = [];
+    let labelsEstudouEm = [];
 
-    GerarGraficoPie(EstudouEm, respostas, 37, DadosEstudouEm, opcEstudou, opcEstudou, 'Estudou_Em', "Na sua vida escolar você estudou")
+    GerarGraficoPie(EstudouEm, opcEstudou, respostas, 37, labelsEstudouEm, DadosEstudouEm, 'Estudou_Em', "Na sua vida escolar você estudou")
 
     // 23.1. Com que frequência você utiliza microcomputadores?
     let FrequenciaMicrocomputadores = [];
     let DadosFrequenciaComp = [];
+    let labelsFrequenciaComp = [];
 
-    GerarGraficoPie(FrequenciaMicrocomputadores, respostas, 38, DadosFrequenciaComp, opcUsaMicroComp, opcUsaMicroComp, 'Frequencia_Microcomputadores', 'Com que frequência você utiliza microcomputadores?')
+    GerarGraficoPie(FrequenciaMicrocomputadores, opcUsaMicroComp, respostas, 38, labelsFrequenciaComp, DadosFrequenciaComp, 'Frequencia_Microcomputadores', 'Com que frequência você utiliza microcomputadores?')
 
 
     // 23.2. Onde você utiliza microcomputadores?
     let OndeUtilizaMicro = [];
-    let DadosOndeUtilizaMicro = []; // ARRUMAR FDP
+    let DadosOndeUtilizaMicro = [];
+    let labelsUtilizaMicro = [];
 
-    GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, 39, DadosOndeUtilizaMicro, opcOndeUsaMicroComp, opcOndeUsaMicroComp, 'Onde_Microcomputadores', 'horizontalBar', 'Onde você utiliza microcomputadores?')
+    GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, respostas, 39, labelsUtilizaMicro, DadosOndeUtilizaMicro, 'Onde_Microcomputadores', 'horizontalBar', 'Onde você utiliza microcomputadores?')
 
     // 23.3. Com qual finalidade você utiliza microcomputadores?
-    let FinalidadeUtiliMicro
-    let DadosFinalidadeUtiliMicro
+    let FinalidadeUtiliMicro = [];
+    let DadosFinalidadeUtiliMicro = [];
+    let labelsFinalidadeUtiliza = [];
 
-    GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, 40, DadosFinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, opcFinalizadeUsaMicroComp, 'Finalidade_Microcomputadores', 'horizontalBar', 'Com qual finalidade você utiliza microcomputadores?')
+    GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respostas, 40, labelsFinalidadeUtiliza, DadosFinalidadeUtiliMicro, 'Finalidade_Microcomputadores', 'horizontalBar', 'Com qual finalidade você utiliza microcomputadores?')
 
     //26. Agora, considere seu conhecimento sobre idiomas [Inglês]
     let conhecimentoIngles = [];
     let DadosIngles = [];
+    let labelsInlges = [];
 
-    GerarGraficoPie(conhecimentoIngles, respostas, 48, DadosIngles, opcConhecimentoLinguas, opcConhecimentoLinguas, 'Ingles', 'Conhecimento em inglês')
+    GerarGraficoPie(conhecimentoIngles, opcConhecimentoLinguas, respostas, 48, labelsInlges, DadosIngles, 'Ingles', 'Conhecimento em inglês')
 
     // 26. Agora, considere seu conhecimento sobre idiomas [Espanhol]
     let conhecimentoEspanhol = [];
     let DadosEspanhol = [];
+    let labelsEspanhol = [];
 
-    GerarGraficoPie(conhecimentoEspanhol, respostas, 49, DadosEspanhol, opcConhecimentoLinguas, opcConhecimentoLinguas, 'Espanhol', 'Conhecimento em Espanhol')
+    GerarGraficoPie(conhecimentoEspanhol, opcConhecimentoLinguas, respostas, 49, labelsEspanhol, DadosEspanhol, 'Espanhol', 'Conhecimento em Espanhol')
 
     // 26. Agora, considere seu conhecimento sobre idiomas [Outros]
     let conhecimentoIdioma = [];
     let DadosIdioma = [];
+    let labelsIdioma = [];
 
-    GerarGraficoPie(conhecimentoIdioma, respostas, 49, DadosIdioma, opcConhecimentoLinguas, opcConhecimentoLinguas, 'Outros', 'Conhecimento em outros idiomas')
+    GerarGraficoPie(conhecimentoIdioma, opcConhecimentoLinguas, respostas, 49, labelsIdioma, DadosIdioma, 'Outros', 'Conhecimento em outros idiomas')
 
     //33. Qual religião você professa?": "Evangélica"
     let religiao = [];
     let DadosReligiao = [];
+    let lablesReligiao = [];
 
-    GerarGraficoPie(religiao, respostas, 63, DadosReligiao, opcReligiao, opcReligiao, 'Religiao', 'Religião')
+    GerarGraficoPie(religiao,opcReligiao, respostas, 63,lablesReligiao, DadosReligiao, 'Religiao', 'Religião')
 
     //39. Você já estudou nesta escola?
     let estudouNaFatec = [];
     let DadosEstudouFatec = [];
+    let labelsEstudouFatec = [];
 
-    GerarGraficoPie(estudouNaFatec, respostas, 69, DadosEstudouFatec, opcEstudoNaEscola, opcEstudoNaEscola, 'Estudou_Fatec', 'Você já estudou nesta escola?')
+    GerarGraficoPie(estudouNaFatec,opcEstudoNaEscola, respostas, 69, labelsEstudouFatec, DadosEstudouFatec, 'Estudou_Fatec', 'Você já estudou nesta escola?')
 
     //40. Você fez algum curso técnico?
     let cursoTecnico = [];
     let DadosCursoTecnico = [];
+    let labelsCursoTecnico = [];
 
-    GerarGraficoPie(cursoTecnico, respostas, 70, DadosCursoTecnico, opcCursoTecnico, opcCursoTecnico, 'Curso_Tecnico', 'Você fez algum curso técnico?')
-
-    console.log(DadosFinalidadeUtiliMicro)
+    GerarGraficoPie(cursoTecnico,opcCursoTecnico, respostas, 70,labelsCursoTecnico, DadosCursoTecnico, 'Curso_Tecnico', 'Você fez algum curso técnico?')
 
 }
 
