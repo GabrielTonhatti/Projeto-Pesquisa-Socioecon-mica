@@ -20,7 +20,7 @@
 
     <main class="main">
 
-        <button type = 'button' onclick="NewPlanin()"> Adicionar Planilha: </button>
+        <button type='button' onclick="NewPlanin()"> Adicionar Planilha: </button>
 
         <h1 class="main__title"> Cursos: </h1>
 
@@ -131,6 +131,15 @@
             <div id='container__qtd_Smartphones'>
                 <canvas id='qtd_Smartphones'></canvas>
             </div>
+            <div id='container__Plano_Saude'>
+                <canvas id='Plano_Saude'></canvas>
+            </div>
+            <div id='container__Religiao'>
+                <canvas id='Religiao'></canvas>
+            </div>
+        </div>
+
+        <div class="Dados_Pessoais9">
             <div id='container__Oque_tem_No_Domicilio'>
                 <canvas id='Oque_tem_No_Domicilio'></canvas>
             </div>
@@ -154,23 +163,71 @@
             <div id='container__Horario_Trabalho'>
                 <canvas id='Horario_Trabalho'></canvas>
             </div>
-            <div id='container__Plano_Saude'>
-                <canvas id='Plano_Saude'></canvas>
+            <div class="main__container">
+                <table class="table">
+                    <thead id="thead"></thead>
+                    <tbody id="tbody"></tbody>
+                </table>
             </div>
         </div>
 
-        <div class="main__container">
-            <table class="table">
-                <thead id="thead"></thead>
-                <tbody id="tbody"></tbody>
-            </table>
+        <h2 class="main__Estudos"> Estudos: </h2>
+
+        <div class="Escolaridade">
+            <div id='container__Escolaridade_Pai'>
+                <canvas id='Escolaridade_Pai'></canvas>
+            </div>
+            <div id='container__Escolaridade_Mae'>
+                <canvas id='Escolaridade_Mae'></canvas>
+            </div>
+            <div id='container__Estudou_Em'>
+                <canvas id='Estudou_Em'></canvas>
+            </div>
+        </div>
+
+        <div class="Escolaridade2">
+            <div id='container__Ingles'>
+                <canvas id='Ingles'></canvas>
+            </div>
+            <div id='container__Espanhol'>
+                <canvas id='Espanhol'></canvas>
+            </div>
+            <div id='container__Outros'>
+                <canvas id='Outros'></canvas>
+            </div>
+        </div>
+
+        <div class="Escolaridade3">
+            <div id='container__Estudou_Fatec'>
+                <canvas id='Estudou_Fatec'></canvas>
+            </div>
+            <div id='container__Curso_Tecnico'>
+                <canvas id='Curso_Tecnico'></canvas>
+            </div>
+        </div>
+
+        <h3 class="main__Informatica"> Informática: </h3>
+
+        <div class="Informatica">
+            <div id='container__Frequencia_Microcomputadores'>
+                <canvas id='Frequencia_Microcomputadores'></canvas>
+            </div>
+            <div id='container__Onde_Microcomputadores'>
+                <canvas id='Onde_Microcomputadores'></canvas>
+            </div>
+        </div>
+
+        <div class="Informatica2">
+            <div id='container__Finalidade_Microcomputadores'>
+                <canvas id='Finalidade_Microcomputadores'></canvas>
+            </div>
         </div>
 
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="script/chart.js"></script>
-    <script src = "script/NewPlanin.js"></script>
+    <script src="script/NewPlanin.js"></script>
 
 </body>
 

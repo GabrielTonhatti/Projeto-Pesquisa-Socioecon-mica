@@ -3,7 +3,7 @@ async function generateChart() {
 
     const json = await file.json()
     const forms = json.forms
-    
+
     let i = 0;
     let questoes
 
@@ -71,18 +71,17 @@ async function generateChart() {
     let opcTempoMoradia = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45']
     let opcRendaMensal = ['Até dois salários mínimos', 'Mais de dois até cinco salários mínimos', 'Mais de cinco até dez salários mínimos', 'Mais de dez até vinte salários mínimos', 'Mais de vinte salários mínimos', 'Prefiro não responder'];
     let opc17QtdeCadaCoisa = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']; // Para todas as questões dentro da questão 17
-    let opcTemNoDomicilio = ['Telefone fixo', 'Internet', 'Tv por assinatura', 'Empregada mensalista', 'Nenhuma das opções acima'];
+    let opcTemNoDomicilio = ['Telefone fixo', 'Internet', 'Tv por assinatura', 'Empregada mensalista', 'Nenhuma das opções acima', 'Telefone fixo, Internet', 'Telefone fixo, Internet, Tv por assinatura', 'Telefone fixo, Internet, Tv por assinatura, Empregada mensalista', 'Internet, Tv por assinatura, Empregada mensalista', 'Internet, Tv por assinatura', 'Internet, Empregada mensalista', 'Telefone fixo, Tv por assinatura', 'Telefone fixo, Empregada mensalista'];
     let opcTrabalha = ['Sim', 'Não'];
     let opcVinculoEmprego = ['Não trabalho', 'Sou registrado em indústria (calçados/confecções/outras)', 'Sou registrado no comércio', 'Sou registrado em empresa prestadora de serviços', 'Sou registrado em empresa pública (federal/estadual/municipal)', 'Sou autônomo', 'Sou empresário', 'Sou estagiário'];
     let opcAreaTrabalho = ['Não trabalho', 'Trabalho na área do curso', 'Trabalho fora da área do curso'];
     let opcHorarioTrabalho = ['Não trabalho', 'Manhã', 'Tarde', 'Noite', 'Manhã e tarde', 'Manhã e noite', 'Tarde e noite', 'Regime de turnos'];
-    let opcEmpresa = [];
     let opcPlanoDeSaude = ['Não tenho, uso o SUS', 'Tenho e é pago integralmente pela empresa', 'Tenho e é pago parcialmente pela empresa', 'Tenho e é um plano familiar', 'Tenho e é um plano individual'];
     let opcEscolaridade = ['Nenhuma escolaridade', 'Ensino fundamental I (1º ao 5º anos)', 'Ensino fundamental II (6º ao 9º anos)', 'Ensino Médio', 'Ensino Superior', 'Pós-graduação', 'Prefiro não responder'];
     let opcEstudou = ['Sempre em escola pública', 'A maior parte em escola pública', 'Sempre em escola particular paga pela família', 'Sempre em escola particular com bolsa', 'A maior parte em escola particular paga pela família', 'A maior parte em escola particular com bolsa'];
     let opcUsaMicroComp = ['Nunca', 'Pouco', 'Ás vezes', 'Muito', 'Sempre']; // para questão 23.1 e 27
-    let opcOndeUsaMicroComp = ['Em casa', 'No trabalho', 'Na escola', 'Em outros lugares'];
-    let opcFinalizadeUsaMicroComp = ['Para trabalhos profissionais', 'Para trabalhos escolares', 'Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para comunicação por e-mail', 'Para operações bancárias', 'Para compras eletrônicas'];
+    let opcOndeUsaMicroComp = ['Em casa', 'No trabalho', 'Na escola', 'Em outros lugares', 'Em casa, No trabalho', 'Em casa, Na escola', 'Em casa, Na escola, Em outros lugares', 'Em casa, Em outros lugares', 'Em casa, No trabalho, Na escola', 'Em casa, No trabalho, Em outros lugares', 'Em casa, No trabalho, Na escola, Em outros lugares', 'No trabalho, Na escola', 'No trabalho, Em outros lugares', 'No trabalho, Na escola, Em outros lugares', 'Na escola, Em outros lugares'];
+    let opcFinalizadeUsaMicroComp = ['Para trabalhos profissionais', 'Para trabalhos escolares', 'Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para comunicação por e-mail', 'Para operações bancárias', 'Para compras eletrônicas', ' Para trabalhos profissionais, Para trabalhos escolares', 'Para trabalhos profissionais, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos profissionais, Para comunicação por e-mail', 'Para trabalhos profissionais, Para operações bancárias', 'Para trabalhos profissionais, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos profissionais, Para trabalhos escolares, Para comunicação por e-mail', 'Para trabalhos profissionais, Para trabalhos escolares, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para compras eletrônicas', 'Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc)', 'Para trabalhos escolares, Para comunicação por e-mail', 'Para trabalhos escolares, Para operações bancárias', 'Para trabalhos escolares, Para compras eletrônicas', 'Para comunicação por e-mail, Para operações bancárias', 'Para comunicação por e-mail, Para compras eletrônicas', 'Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para operações bancárias, Para compras eletrônicas', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para operações bancárias', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para compras eletrônicas', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para compras eletrônicas', 'Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para trabalhos escolares, Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos profissionais, Para trabalhos escolares, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para comunicação por e-mail, Para operações bancárias', 'Para trabalhos profissionais, Para comunicação por e-mail, Para compras eletrônicas', 'Para trabalhos profissionais, Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas', 'Para trabalhos profissionais, Para operações bancárias, Para compras eletrônicas','Para trabalhos profissionais, Para trabalhos escolares, Para entretenimento (músicas, vídeos, redes sociais, etc), Para comunicação por e-mail, Para operações bancárias, Para compras eletrônicas'];
     let opcConhecimentoInformatica = ['Nenhum', 'Pouco', 'Intermediário', 'Muito Avançado'];
     let opcConhecimentoLinguas = ['Leio, escrevo e falo bem', 'Leio, escrevo e falo razoavelmente', 'Leio e escrevo mas não falo', 'Leio mas não escrevo nem falo', 'Praticamente nula'];
     let opcLeJornal = ['Diariamente', 'Algumas vezes por semana', 'Somente aos domingos', 'Raramente', 'Não leio'];
@@ -302,10 +301,6 @@ async function generateChart() {
 
     }
 
-    for (i = 0; i < respostas[33].length; i++) {
-        opcEmpresa[i] = respostas[33][i]
-    }
-
     // 1 - Grafico Cursos
     let curso = [];
     let DadosCurso = [];
@@ -474,32 +469,10 @@ async function generateChart() {
     GerarGraficoPie(Qtd_Smartphones, respostas, 27, DadosSmatphones, opc17QtdeCadaCoisa, opc17QtdeCadaCoisa, 'qtd_Smartphones', 'Quantidade de Smartphones de cada aluno')
 
     // 18. No seu domicílio tem? questão com mais de uma alternativa, n esta terminada
-    /*let DomicilioTem = [];
-    let DadosDomicilioTem = [];
+    let DomicilioTem
+    let DadosDomicilioTem
 
-    GerarGraficoPie(DomicilioTem, respostas, 28, DadosDomicilioTem, opcTemNoDomicilio, opcTemNoDomicilio, 'Oque_tem_No_Domicilio', 'Na casa de cada estudante tem')
-*/
-    let info = [];
-    let resposta18 = [0, 0, 0, 0, 0];
-    for (info of respostas[28]) {
-        info = info.split(',')
-        for (i = 0; i < info.length; i++) {
-            if (info[i] === 'Telefone fixo') {
-                resposta18[0]++
-            } else if (info[i] === 'Internet') {
-                resposta18[1]++
-            } else if (info[i] === 'Tv por assinatura') {
-                resposta18[2]++
-            } else if (info[i] === 'Empregada mensalista') {
-                resposta18[3]++
-            } else if (info[i] === 'Nenhuma das opções acima') {
-                resposta18[4]++
-            }
-        }
-    }
-
-    console.log(respostas[28])
-    ChartPie('Oque_tem_No_Domicilio', opcTemNoDomicilio, resposta18, 'Na casa de cada estudante tem')
+    GerarGraficoBar(DomicilioTem, opcTemNoDomicilio, 28, DadosDomicilioTem, opcTemNoDomicilio, opcTemNoDomicilio, 'Oque_tem_No_Domicilio', 'horizontalBar', 'Na casa de cada estudante tem')
 
     // 19.1. Você trabalha?
     let trabalha = [];
@@ -534,10 +507,12 @@ async function generateChart() {
     document.getElementById('thead').innerHTML = CabecalhoTabela;
 
     for (quest of forms) {
-        Empresa[i] = quest["19.5. Qual a empresa que você está contratado agora?"]
+        if (quest["19.5. Qual a empresa que você está contratado agora?"] !== undefined) {
+            Empresa[i] = quest["19.5. Qual a empresa que você está contratado agora?"]
+        }
 
         DadosTabela = DadosTabela + `<tr "tbody__row"> <td "tbody__data"> ${Empresa[i]} </td> </tr>`
-        
+
         i++
     }
 
@@ -548,6 +523,81 @@ async function generateChart() {
     let DadosPlanoSaude = [];
 
     GerarGraficoPie(PlanoSaude, respostas, 34, DadosPlanoSaude, opcPlanoDeSaude, opcPlanoDeSaude, 'Plano_Saude', 'Planos de Saúde')
+
+    // 21.1. Qual o grau de escolaridade do seu pai?
+    let EscolaridadePai = [];
+    let DadosEscolaridadePai = [];
+
+    GerarGraficoPie(EscolaridadePai, respostas, 35, DadosEscolaridadePai, opcEscolaridade, opcEscolaridade, 'Escolaridade_Pai', 'Grau de Escolaridade do Pai dos Alunos')
+
+    // 21.2. Qual o grau de escolaridade da sua mãe?
+    let EscolaridadeMae = [];
+    let DadosEscolaridadeMae = [];
+
+    GerarGraficoPie(EscolaridadeMae, respostas, 36, DadosEscolaridadeMae, opcEscolaridade, opcEscolaridade, 'Escolaridade_Mae', 'Grau de Escolaridade da Mãe dos Alunos')
+
+    // 22. Na sua vida escolar você estudou
+    let EstudouEm = [];
+    let DadosEstudouEm = [];
+
+    GerarGraficoPie(EstudouEm, respostas, 37, DadosEstudouEm, opcEstudou, opcEstudou, 'Estudou_Em', "Na sua vida escolar você estudou")
+
+    // 23.1. Com que frequência você utiliza microcomputadores?
+    let FrequenciaMicrocomputadores = [];
+    let DadosFrequenciaComp = [];
+
+    GerarGraficoPie(FrequenciaMicrocomputadores, respostas, 38, DadosFrequenciaComp, opcUsaMicroComp, opcUsaMicroComp, 'Frequencia_Microcomputadores', 'Com que frequência você utiliza microcomputadores?')
+
+
+    // 23.2. Onde você utiliza microcomputadores?
+    let OndeUtilizaMicro = [];
+    let DadosOndeUtilizaMicro = []; // ARRUMAR FDP
+
+    GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, 39, DadosOndeUtilizaMicro, opcOndeUsaMicroComp, opcOndeUsaMicroComp, 'Onde_Microcomputadores', 'horizontalBar', 'Onde você utiliza microcomputadores?')
+
+    // 23.3. Com qual finalidade você utiliza microcomputadores?
+    let FinalidadeUtiliMicro
+    let DadosFinalidadeUtiliMicro
+
+    GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, 40, DadosFinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, opcFinalizadeUsaMicroComp, 'Finalidade_Microcomputadores', 'horizontalBar', 'Com qual finalidade você utiliza microcomputadores?')
+
+    //26. Agora, considere seu conhecimento sobre idiomas [Inglês]
+    let conhecimentoIngles = [];
+    let DadosIngles = [];
+
+    GerarGraficoPie(conhecimentoIngles, respostas, 48, DadosIngles, opcConhecimentoLinguas, opcConhecimentoLinguas, 'Ingles', 'Conhecimento em inglês')
+
+    // 26. Agora, considere seu conhecimento sobre idiomas [Espanhol]
+    let conhecimentoEspanhol = [];
+    let DadosEspanhol = [];
+
+    GerarGraficoPie(conhecimentoEspanhol, respostas, 49, DadosEspanhol, opcConhecimentoLinguas, opcConhecimentoLinguas, 'Espanhol', 'Conhecimento em Espanhol')
+
+    // 26. Agora, considere seu conhecimento sobre idiomas [Outros]
+    let conhecimentoIdioma = [];
+    let DadosIdioma = [];
+
+    GerarGraficoPie(conhecimentoIdioma, respostas, 49, DadosIdioma, opcConhecimentoLinguas, opcConhecimentoLinguas, 'Outros', 'Conhecimento em outros idiomas')
+
+    //33. Qual religião você professa?": "Evangélica"
+    let religiao = [];
+    let DadosReligiao = [];
+
+    GerarGraficoPie(religiao, respostas, 63, DadosReligiao, opcReligiao, opcReligiao, 'Religiao', 'Religião')
+
+    //39. Você já estudou nesta escola?
+    let estudouNaFatec = [];
+    let DadosEstudouFatec = [];
+
+    GerarGraficoPie(estudouNaFatec, respostas, 69, DadosEstudouFatec, opcEstudoNaEscola, opcEstudoNaEscola, 'Estudou_Fatec', 'Você já estudou nesta escola?')
+
+    //40. Você fez algum curso técnico?
+    let cursoTecnico = [];
+    let DadosCursoTecnico = [];
+
+    GerarGraficoPie(cursoTecnico, respostas, 70, DadosCursoTecnico, opcCursoTecnico, opcCursoTecnico, 'Curso_Tecnico', 'Você fez algum curso técnico?')
+
+    console.log(DadosFinalidadeUtiliMicro)
 
 }
 
