@@ -36,22 +36,6 @@ body {
     min-height: 100vh;
 }
 
-/*button {
-    padding: 15px;
-    border-radius: 20px;
-    outline: none;
-    border: none;
-    color: #BFBFBF;
-    background-color: #24262D;
-    text-align: right;
-    margin-right: 0 auto;
-}
-
-button:hover {
-    transform: scale(1.10);
-    background-color: #1e1f24;
-}*/
-
 .filter{
     font-size: 20px;
     color: #BFBFBF;
@@ -913,7 +897,7 @@ thead {
 #container__Assuntos_que_Le {
     margin-left: -20px;
     margin-top: 60px;
-    width: 1200px;
+    width: 1900px;
     height: 500px;
     background-color: #24262D;
     border-radius: 20px;
@@ -929,8 +913,121 @@ thead {
 #container__Le_Livros{
     margin-left: -20px;
     margin-top: 60px;
-    width: 1200px;
-    height: 600px;
+    width: 1900px;
+    height: 700px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.Leitura6 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Fontes_Entretenimento {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 1900px;
+    height: 700px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.main__Informacoes_Extras {
+    margin-top: 60px;
+    color: #BFBFBF;
+    border-left: 7px solid #961227;
+    padding-left: 15px;
+    font-size: 40px;
+}
+
+.Informacoes_Extras {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Atividade_Voluntaria {
+    margin-left: -20px;
+    margin-top: 120px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+#container__Transporte  {
+    margin-left: 60px;
+    margin-top: 120px;
+    width: 570px;
+    height: 450px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.Informacoes_Extras2 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Conheceu_Fatec {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 1900px;
+    height: 700px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.Informacoes_Extras3 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Escolheu_Curso {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 1900px;
+    height: 700px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.Informacoes_Extras4 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Expectativa_Curso {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 1900px;
+    height: 700px;
+    background-color: #24262D;
+    border-radius: 20px;
+}
+
+.Informacoes_Extras5 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+#container__Expectativa_Formar {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 1900px;
+    height: 500px;
     background-color: #24262D;
     border-radius: 20px;
 }
