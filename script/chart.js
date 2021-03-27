@@ -43,6 +43,10 @@ let opcEstudoNaEscola = ['Sim', 'Não'];
 let opcCursoTecnico = ['Não fiz', 'Sim, em uma ETEC', 'Sim, no SENAC', 'Sim, no SENAI', 'Sim, em outra instituição']
 let opcTransporte = ['Caminhando', 'Carona', 'Bicicleta', 'Moto', 'Carro', 'Ônibus', 'Transporte escolar']
 
+let DivGeral = ["curso", "periodo", "estado", "cidade", "moram_com", "QTD_de_pessoas_moram_junto", "situacao_domicilio", "tempo_moradia", "tempo_moradia", "genero", "estado_civil", "Portador_de_Necessidade", "convive_com_portador", "qtd_de_filhos", "salario_min", "DataNascimento", "Oque_tem_No_Domicilio", "qtd_geladeira", "qtd_celular_comum", "qtd_micro_ondas", "qtd_notebooks", "qtd_Maquina_de_Lavar", "qtd_motocicletas", "qtd_Automoveis", "qtd_DVD", "qtd_TV", "qtd_Smartphones", "Plano_Saude", "Religiao", "Trabalho", "Vinculo_Emprego", "Area_trabalho", "Horario_Trabalho", "Escolaridade_Pai", "Escolaridade_Mae", "Estudou_Em", "Ingles", "Espanhol", "Outros", "Estudou_Fatec", "Curso_Tecnico", "Frequencia_Microcomputadores", "Onde_Microcomputadores", "Finalidade_Microcomputadores", "Conhecimento_Informatica", "Conhecimento_Windows", "Conhecimento_Linux", "Conhecimento_Word", "Conhecimento_Excel", "Conhecimento_PowerPoint", "Conhecimento_GestaoEmpresarial", "Televisores", "Internet", "Revistas", "Jornais", "Radio", "Redes_Sociais", "Conversas_com_Amigos", "Le_Jornal", "Qtd_Livros", "Assuntos_que_Le", "Le_Livros", "Fontes_Entretenimento", "Atividade_Voluntaria", "Transporte", "Conheceu_Fatec", "Escolheu_Curso", "Expectativa_Curso", "Expectativa_Formar"];
+let DivNoturno = ["Noturno_curso", "Noturno_Periodo", "Noturno_Estado", "Noturno_Cidade", "Noturno_Moram_com", "Noturno_QTD_de_pessoas_moram_junto", "Noturno_Situacao_domicilio", "Noturno_Tempo_moradia", "Noturno_Genero", "Noturno_Estado_civil", "Noturno_Portador_de_Necessidade", "Noturno_Convive_com_portador", "Noturno_Qtd_de_filhos", "Noturno_Salario_min", "Noturno_DataNascimento", "Noturno_Oque_tem_No_Domicilio", "Noturno_Qtd_geladeira", "Noturno_Qtd_celular_comum", "Noturno_Qtd_micro_ondas", "Noturno_Qtd_notebooks", "Noturno_Qtd_Maquina_de_Lavar", "Noturno_Qtd_motocicletas", "Noturno_Qtd_Automoveis", "Noturno_Qtd_DVD", "Noturno_Qtd_TV", "Noturno_Qtd_Smartphones", "Noturno_Plano_Saude", "Noturno_Religiao", "Noturno_Trabalho", "Noturno_Vinculo_Emprego", "Noturno_Area_trabalho", "Noturno_Horario_Trabalho", "Noturno_Escolaridade_Pai", "Noturno_Escolaridade_Mae", "Noturno_Estudou_Em", "Noturno_Ingles", "Noturno_Espanhol", "Noturno_Outros", "Noturno_Estudou_Fatec", "Noturno_Curso_Tecnico", "Noturno_Frequencia_Microcomputadores", "Noturno_Onde_Microcomputadores", "Noturno_Finalidade_Microcomputadores", "Noturno_Conhecimento_Informatica", "Noturno_Conhecimento_Windows", "Noturno_Conhecimento_Linux", "Noturno_Conhecimento_Word", "Noturno_Conhecimento_Excel", "Noturno_Conhecimento_PowerPoint", "Noturno_Conhecimento_GestaoEmpresarial", "Noturno_Televisores", "Noturno_Internet", "Noturno_Revistas", "Noturno_Jornais", "Noturno_Radio", "Noturno_Redes_Sociais", "Noturno_Conversas_com_Amigos", "Noturno_Le_Jornal", "Noturno_Qtd_Livros", "Noturno_Assuntos_que_Le", "Noturno_Le_Livros", "Noturno_Fontes_Entretenimento", "Noturno_Atividade_Voluntaria", "Noturno_Transporte", "Noturno_Conheceu_Fatec", "Noturno_Escolheu_Curso", "Noturno_Expectativa_Curso", "Noturno_Expectativa_Formar"];
+let DivMatutino = ["Matutino_curso", "Matutino_Periodo", "Matutino_Estado", "Matutino_Cidade", "Matutino_Moram_com", "Matutino_QTD_de_pessoas_moram_junto", "Matutino_Situacao_domicilio", "Matutino_Tempo_moradia", "Matutino_Genero", "Matutino_Estado_civil", "Matutino_Portador_de_Necessidade", "Matutino_Convive_com_portador", "Matutino_Qtd_de_filhos", "Matutino_Salario_min", "Matutino_DataNascimento", "Matutino_Oque_tem_No_Domicilio", "Matutino_Qtd_geladeira", "Matutino_Qtd_celular_comum", "Matutino_Qtd_micro_ondas", "Matutino_Qtd_notebooks", "Matutino_Qtd_Maquina_de_Lavar", "Matutino_Qtd_motocicletas", "Matutino_Qtd_Automoveis", "Matutino_Qtd_DVD", "Matutino_Qtd_TV", "Matutino_Qtd_Smartphones", "Matutino_Plano_Saude", "Matutino_Religiao", "Matutino_Trabalho", "Matutino_Vinculo_Emprego", "Matutino_Area_trabalho", "Matutino_Horario_Trabalho", "Matutino_Escolaridade_Pai", "Matutino_Escolaridade_Mae", "Matutino_Estudou_Em", "Matutino_Ingles", "Matutino_Espanhol", "Matutino_Outros", "Matutino_Estudou_Fatec", "Matutino_Curso_Tecnico", "Matutino_Frequencia_Microcomputadores", "Matutino_Onde_Microcomputadores", "Matutino_Finalidade_Microcomputadores", "Matutino_Conhecimento_Informatica", "Matutino_Conhecimento_Windows", "Matutino_Conhecimento_Linux", "Matutino_Conhecimento_Word", "Matutino_Conhecimento_Excel", "Matutino_Conhecimento_PowerPoint", "Matutino_Conhecimento_GestaoEmpresarial", "Matutino_Televisores", "Matutino_Internet", "Matutino_Revistas", "Matutino_Jornais", "Matutino_Radio", "Matutino_Redes_Sociais", "Matutino_Conversas_com_Amigos", "Matutino_Le_Jornal", "Matutino_Qtd_Livros", "Matutino_Assuntos_que_Le", "Matutino_Le_Livros", "Matutino_Fontes_Entretenimento", "Matutino_Atividade_Voluntaria", "Matutino_Transporte", "Matutino_Conheceu_Fatec", "Matutino_Escolheu_Curso", "Matutino_Expectativa_Curso", "Matutino_Expectativa_Formar"];
+
 // Criar Grafico de Pizza
 function ChartPie(id, labels, dados, title) {
     var ctx = document.getElementById(id).getContext('2d');
@@ -340,7 +344,7 @@ async function generateChart() {
     let DadosCidade = [];
     let labelsCidade = [];
 
-    GerarGraficoBar(cidade, opcCidade, respostas, 6, labelsCidade, DadosCidade, 'cidade', 'bar', 'Geral','Cidades');
+    GerarGraficoBar(cidade, opcCidade, respostas, 6, labelsCidade, DadosCidade, 'cidade', 'bar', 'Geral', 'Cidades');
 
     // 6 - Genero
     let genero = [];
@@ -424,7 +428,7 @@ async function generateChart() {
     let DadosTempoMoradia = [];
     let labelsTempoMoradia = [];
 
-    GerarGraficoBar(TempoMoradia, opcTempoMoradia, respostas, 16, labelsTempoMoradia, DadosTempoMoradia, 'tempo_moradia', 'bar', 'Geral','Tempo de moradia no domicílio(Em anos)');
+    GerarGraficoBar(TempoMoradia, opcTempoMoradia, respostas, 16, labelsTempoMoradia, DadosTempoMoradia, 'tempo_moradia', 'bar', 'Geral', 'Tempo de moradia no domicílio(Em anos)');
 
     // 16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)
     let RendaMensal = [];
@@ -508,7 +512,7 @@ async function generateChart() {
     let DadosDomicilioTem = [];
     let labelsDomicilioTem = [];
 
-    GerarGraficoBar(DomicilioTem, opcTemNoDomicilio, respostas, 28, labelsDomicilioTem, DadosDomicilioTem, 'Oque_tem_No_Domicilio', 'horizontalBar', 'Geral','Na casa de cada estudante tem');
+    GerarGraficoBar(DomicilioTem, opcTemNoDomicilio, respostas, 28, labelsDomicilioTem, DadosDomicilioTem, 'Oque_tem_No_Domicilio', 'horizontalBar', 'Geral', 'Na casa de cada estudante tem');
 
     // 19.1. Você trabalha?
     let trabalha = [];
@@ -599,14 +603,14 @@ async function generateChart() {
     let DadosOndeUtilizaMicro = [];
     let labelsUtilizaMicro = [];
 
-    GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, respostas, 39, labelsUtilizaMicro, DadosOndeUtilizaMicro, 'Onde_Microcomputadores', 'horizontalBar', 'Geral','Onde você utiliza microcomputadores?');
+    GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, respostas, 39, labelsUtilizaMicro, DadosOndeUtilizaMicro, 'Onde_Microcomputadores', 'horizontalBar', 'Geral', 'Onde você utiliza microcomputadores?');
 
     // 23.3. Com qual finalidade você utiliza microcomputadores?
     let FinalidadeUtiliMicro = [];
     let DadosFinalidadeUtiliMicro = [];
     let labelsFinalidadeUtiliza = [];
 
-    GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respostas, 40, labelsFinalidadeUtiliza, DadosFinalidadeUtiliMicro, 'Finalidade_Microcomputadores', 'horizontalBar', 'Geral','Com qual finalidade você utiliza microcomputadores?');
+    GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respostas, 40, labelsFinalidadeUtiliza, DadosFinalidadeUtiliMicro, 'Finalidade_Microcomputadores', 'horizontalBar', 'Geral', 'Com qual finalidade você utiliza microcomputadores?');
 
     // 24. Como você classifica seu conhecimento em informática
     let ConhecimentoInformatica = [];
@@ -743,7 +747,7 @@ async function generateChart() {
     let DadosAssuntosQueLeem = [];
     let labelsAssuntosQueLeem = [];
 
-    GerarGraficoBar(assuntosQueLeem, opcAssuntosJornal, respostas, 59, labelsAssuntosQueLeem, DadosAssuntosQueLeem, 'Assuntos_que_Le', 'horizontalBar', 'Geral','Assuntos que mais leem');
+    GerarGraficoBar(assuntosQueLeem, opcAssuntosJornal, respostas, 59, labelsAssuntosQueLeem, DadosAssuntosQueLeem, 'Assuntos_que_Le', 'horizontalBar', 'Geral', 'Assuntos que mais leem');
 
     // 30. Não considerando os livros escolares, quantos livros você lê por ano (em média)
     let QtdLivros = [];
@@ -757,7 +761,7 @@ async function generateChart() {
     let DadosLeLivros = [];
     let labelsLeLivros = [];
 
-    GerarGraficoBar(leLivros, opcLeLivros, respostas, 61, labelsLeLivros, DadosLeLivros, 'Le_Livros', 'horizontalBar', 'Geral',"Gêneros de livros preferidos de cada aluno");
+    GerarGraficoBar(leLivros, opcLeLivros, respostas, 61, labelsLeLivros, DadosLeLivros, 'Le_Livros', 'horizontalBar', 'Geral', "Gêneros de livros preferidos de cada aluno");
 
     // 32. Você dedica parte do seu tempo para atividades voluntárias?
     let atividadesVolutaria = [];
@@ -778,35 +782,35 @@ async function generateChart() {
     let DadosFontesEntretenimento = [];
     let labelsFontesEntretenimento = [];
 
-    GerarGraficoBar(FontesEntretenimento, opcEntretenimento, respostas, 64, labelsFontesEntretenimento, DadosFontesEntretenimento, "Fontes_Entretenimento", 'horizontalBar','Geral', 'Fontes de Entretenimento');
+    GerarGraficoBar(FontesEntretenimento, opcEntretenimento, respostas, 64, labelsFontesEntretenimento, DadosFontesEntretenimento, "Fontes_Entretenimento", 'horizontalBar', 'Geral', 'Fontes de Entretenimento');
 
     //35. Estamos quase acabando... Como conheceu a FATEC Franca?
     let ConheceuFatec = [];
     let DadosConheceuFatec = [];
     let labelsConheceuFatec = [];
 
-    GerarGraficoBar(ConheceuFatec, opcConheceuFatec, respostas, 65, labelsConheceuFatec, DadosConheceuFatec, 'Conheceu_Fatec', 'horizontalBar', 'Geral','Como conheceu a FATEC Franca?')
+    GerarGraficoBar(ConheceuFatec, opcConheceuFatec, respostas, 65, labelsConheceuFatec, DadosConheceuFatec, 'Conheceu_Fatec', 'horizontalBar', 'Geral', 'Como conheceu a FATEC Franca?')
 
     // 36. Porque você escolheu este curso?
     let EscolheuCurso = [];
     let DadosEscolheuCurso = [];
     let labelsEscolheuCurso = [];
 
-    GerarGraficoBar(EscolheuCurso, opcEscolheuCurso, respostas, 66, labelsEscolheuCurso, DadosEscolheuCurso, 'Escolheu_Curso', 'horizontalBar','Geral', 'Porque você escolheu este curso?')
+    GerarGraficoBar(EscolheuCurso, opcEscolheuCurso, respostas, 66, labelsEscolheuCurso, DadosEscolheuCurso, 'Escolheu_Curso', 'horizontalBar', 'Geral', 'Porque você escolheu este curso?')
 
     // 37. Qual sua maior expectativa quanto ao curso?
     let ExpectativaCurso = [];
     let DadosExpectativaCurso = [];
     let labelsExpectativaCurso = [];
 
-    GerarGraficoBar(ExpectativaCurso, opcExpectativa, respostas, 67, labelsExpectativaCurso, DadosExpectativaCurso, 'Expectativa_Curso', 'horizontalBar','Geral', 'Qual sua maior expectativa quanto ao curso?')
+    GerarGraficoBar(ExpectativaCurso, opcExpectativa, respostas, 67, labelsExpectativaCurso, DadosExpectativaCurso, 'Expectativa_Curso', 'horizontalBar', 'Geral', 'Qual sua maior expectativa quanto ao curso?')
 
     // 38. Qual sua expectativa após se formar?
     let ExpectativaFormar = [];
     let DadosExpectativaFormar = [];
     let labelsExpectativaFormar = [];
 
-    GerarGraficoBar(ExpectativaFormar, opcFormar, respostas, 68, labelsExpectativaFormar, DadosExpectativaFormar, 'Expectativa_Formar', 'horizontalBar', 'Geral','Qual sua expectativa após se formar?')
+    GerarGraficoBar(ExpectativaFormar, opcFormar, respostas, 68, labelsExpectativaFormar, DadosExpectativaFormar, 'Expectativa_Formar', 'horizontalBar', 'Geral', 'Qual sua expectativa após se formar?')
 
     //39. Você já estudou nesta escola?
     let estudouNaFatec = [];
@@ -922,14 +926,14 @@ function Matutino() {
         let DadosEstados = [];
         let labelsEstado = [];
 
-        GerarGraficoBar(estado, opcEstado, respMatutino, 5, labelsEstado, DadosEstados, 'Matutino_Estado', 'bar', 'Matutino','Estados');
+        GerarGraficoBar(estado, opcEstado, respMatutino, 5, labelsEstado, DadosEstados, 'Matutino_Estado', 'bar', 'Matutino', 'Estados');
 
         // 5 - Cidades
         let cidade = [];
         let DadosCidade = [];
         let labelsCidade = [];
 
-        GerarGraficoBar(cidade, opcCidade, respMatutino, 6, labelsCidade, DadosCidade, 'Matutino_Cidade', 'bar', 'Matutino','Cidades');
+        GerarGraficoBar(cidade, opcCidade, respMatutino, 6, labelsCidade, DadosCidade, 'Matutino_Cidade', 'bar', 'Matutino', 'Cidades');
 
         // 6 - Genero
         let genero = [];
@@ -1013,7 +1017,7 @@ function Matutino() {
         let DadosTempoMoradia = [];
         let labelsTempoMoradia = [];
 
-        GerarGraficoBar(TempoMoradia, opcTempoMoradia, respMatutino, 16, labelsTempoMoradia, DadosTempoMoradia, 'Matutino_Tempo_moradia', 'bar', 'Matutino','Tempo de moradia no domicílio(Em anos)');
+        GerarGraficoBar(TempoMoradia, opcTempoMoradia, respMatutino, 16, labelsTempoMoradia, DadosTempoMoradia, 'Matutino_Tempo_moradia', 'bar', 'Matutino', 'Tempo de moradia no domicílio(Em anos)');
 
         // 16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)
         let RendaMensal = [];
@@ -1097,7 +1101,7 @@ function Matutino() {
         let DadosDomicilioTem = [];
         let labelsDomicilioTem = [];
 
-        GerarGraficoBar(DomicilioTem, opcTemNoDomicilio, respMatutino, 28, labelsDomicilioTem, DadosDomicilioTem, 'Matutino_Oque_tem_No_Domicilio', 'horizontalBar','Matutino', 'Na casa de cada estudante tem');
+        GerarGraficoBar(DomicilioTem, opcTemNoDomicilio, respMatutino, 28, labelsDomicilioTem, DadosDomicilioTem, 'Matutino_Oque_tem_No_Domicilio', 'horizontalBar', 'Matutino', 'Na casa de cada estudante tem');
 
         // 19.1. Você trabalha?
         let trabalha = [];
@@ -1188,14 +1192,14 @@ function Matutino() {
         let DadosOndeUtilizaMicro = [];
         let labelsUtilizaMicro = [];
 
-        GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, respMatutino, 39, labelsUtilizaMicro, DadosOndeUtilizaMicro, 'Matutino_Onde_Microcomputadores', 'horizontalBar','Matutino', 'Onde você utiliza microcomputadores?');
+        GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, respMatutino, 39, labelsUtilizaMicro, DadosOndeUtilizaMicro, 'Matutino_Onde_Microcomputadores', 'horizontalBar', 'Matutino', 'Onde você utiliza microcomputadores?');
 
         // 23.3. Com qual finalidade você utiliza microcomputadores?
         let FinalidadeUtiliMicro = [];
         let DadosFinalidadeUtiliMicro = [];
         let labelsFinalidadeUtiliza = [];
 
-        GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respMatutino, 40, labelsFinalidadeUtiliza, DadosFinalidadeUtiliMicro, 'Matutino_Finalidade_Microcomputadores', 'horizontalBar', 'Matutino','Com qual finalidade você utiliza microcomputadores?');
+        GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respMatutino, 40, labelsFinalidadeUtiliza, DadosFinalidadeUtiliMicro, 'Matutino_Finalidade_Microcomputadores', 'horizontalBar', 'Matutino', 'Com qual finalidade você utiliza microcomputadores?');
 
         // 24. Como você classifica seu conhecimento em informática
         let ConhecimentoInformatica = [];
@@ -1332,7 +1336,7 @@ function Matutino() {
         let DadosAssuntosQueLeem = [];
         let labelsAssuntosQueLeem = [];
 
-        GerarGraficoBar(assuntosQueLeem, opcAssuntosJornal, respMatutino, 59, labelsAssuntosQueLeem, DadosAssuntosQueLeem, 'Matutino_Assuntos_que_Le', 'horizontalBar', 'Matutino','Assuntos que mais leem');
+        GerarGraficoBar(assuntosQueLeem, opcAssuntosJornal, respMatutino, 59, labelsAssuntosQueLeem, DadosAssuntosQueLeem, 'Matutino_Assuntos_que_Le', 'horizontalBar', 'Matutino', 'Assuntos que mais leem');
 
         // 30. Não considerando os livros escolares, quantos livros você lê por ano (em média)
         let QtdLivros = [];
@@ -1346,7 +1350,7 @@ function Matutino() {
         let DadosLeLivros = [];
         let labelsLeLivros = [];
 
-        GerarGraficoBar(leLivros, opcLeLivros, respMatutino, 61, labelsLeLivros, DadosLeLivros, 'Matutino_Le_Livros', 'horizontalBar', 'Matutino',"Gêneros de livros preferidos de cada aluno");
+        GerarGraficoBar(leLivros, opcLeLivros, respMatutino, 61, labelsLeLivros, DadosLeLivros, 'Matutino_Le_Livros', 'horizontalBar', 'Matutino', "Gêneros de livros preferidos de cada aluno");
 
         // 32. Você dedica parte do seu tempo para atividades voluntárias?
         let atividadesVolutaria = [];
@@ -1367,35 +1371,35 @@ function Matutino() {
         let DadosFontesEntretenimento = [];
         let labelsFontesEntretenimento = [];
 
-        GerarGraficoBar(FontesEntretenimento, opcEntretenimento, respMatutino, 64, labelsFontesEntretenimento, DadosFontesEntretenimento, "Matutino_Fontes_Entretenimento", 'horizontalBar','Matutino', 'Fontes de Entretenimento');
+        GerarGraficoBar(FontesEntretenimento, opcEntretenimento, respMatutino, 64, labelsFontesEntretenimento, DadosFontesEntretenimento, "Matutino_Fontes_Entretenimento", 'horizontalBar', 'Matutino', 'Fontes de Entretenimento');
 
         //35. Estamos quase acabando... Como conheceu a FATEC Franca?
         let ConheceuFatec = [];
         let DadosConheceuFatec = [];
         let labelsConheceuFatec = [];
 
-        GerarGraficoBar(ConheceuFatec, opcConheceuFatec, respMatutino, 65, labelsConheceuFatec, DadosConheceuFatec, 'Matutino_Conheceu_Fatec', 'horizontalBar', 'Matutino','Como conheceu a FATEC Franca?')
+        GerarGraficoBar(ConheceuFatec, opcConheceuFatec, respMatutino, 65, labelsConheceuFatec, DadosConheceuFatec, 'Matutino_Conheceu_Fatec', 'horizontalBar', 'Matutino', 'Como conheceu a FATEC Franca?')
 
         // 36. Porque você escolheu este curso?
         let EscolheuCurso = [];
         let DadosEscolheuCurso = [];
         let labelsEscolheuCurso = [];
 
-        GerarGraficoBar(EscolheuCurso, opcEscolheuCurso, respMatutino, 66, labelsEscolheuCurso, DadosEscolheuCurso, 'Matutino_Escolheu_Curso', 'horizontalBar', 'Matutino','Porque você escolheu este curso?')
+        GerarGraficoBar(EscolheuCurso, opcEscolheuCurso, respMatutino, 66, labelsEscolheuCurso, DadosEscolheuCurso, 'Matutino_Escolheu_Curso', 'horizontalBar', 'Matutino', 'Porque você escolheu este curso?')
 
         // 37. Qual sua maior expectativa quanto ao curso?
         let ExpectativaCurso = [];
         let DadosExpectativaCurso = [];
         let labelsExpectativaCurso = [];
 
-        GerarGraficoBar(ExpectativaCurso, opcExpectativa, respMatutino, 67, labelsExpectativaCurso, DadosExpectativaCurso, 'Matutino_Expectativa_Curso', 'horizontalBar', 'Matutino','Qual sua maior expectativa quanto ao curso?')
+        GerarGraficoBar(ExpectativaCurso, opcExpectativa, respMatutino, 67, labelsExpectativaCurso, DadosExpectativaCurso, 'Matutino_Expectativa_Curso', 'horizontalBar', 'Matutino', 'Qual sua maior expectativa quanto ao curso?')
 
         // 38. Qual sua expectativa após se formar?
         let ExpectativaFormar = [];
         let DadosExpectativaFormar = [];
         let labelsExpectativaFormar = [];
 
-        GerarGraficoBar(ExpectativaFormar, opcFormar, respMatutino, 68, labelsExpectativaFormar, DadosExpectativaFormar, 'Matutino_Expectativa_Formar', 'horizontalBar','Matutino', 'Qual sua expectativa após se formar?')
+        GerarGraficoBar(ExpectativaFormar, opcFormar, respMatutino, 68, labelsExpectativaFormar, DadosExpectativaFormar, 'Matutino_Expectativa_Formar', 'horizontalBar', 'Matutino', 'Qual sua expectativa após se formar?')
 
         //39. Você já estudou nesta escola?
         let estudouNaFatec = [];
@@ -1419,9 +1423,17 @@ function Matutino() {
         GerarGraficoPie(transporte, opcTransporte, respMatutino, 71, labelsTransporte, DadosTransporte, 'Matutino_Transporte', 'Meios de transportes');
 
     }
+    for (let c = 0; c <= DivGeral.length; c++) {
+        // Esconder respostas Geral
+        document.getElementById(DivGeral[c]).style.display = "none";
+        // Esconder respostas do do Matutino
+        document.getElementById(DivMatutino[c]).style.display = "block";
+        //Mostrar respostas do Noturno
+        document.getElementById(DivNoturno[c]).style.display = "none";
+    }
 
     // Esconder respostas Geral
-    document.getElementById("curso").style.display = "none";
+ /*   document.getElementById("curso").style.display = "none";
     document.getElementById("periodo").style.display = "none";
     document.getElementById("estado").style.display = "none";
     document.getElementById("cidade").style.display = "none";
@@ -1629,12 +1641,21 @@ function Matutino() {
     document.getElementById("Noturno_Escolheu_Curso").style.display = "none";
     document.getElementById("Noturno_Expectativa_Curso").style.display = "none";
     document.getElementById("Noturno_Expectativa_Formar").style.display = "none";
-
+*/
     generateChart()
 
 }
 
 function Noturno() {
+    for (let c = 0; c <= DivGeral.length; c++) {
+        //Mostrar respostas do Noturno
+        document.getElementById(DivNoturno[c]).style.display = "block";
+        // Esconder respostas Geral
+        document.getElementById(DivGeral[c]).style.display = "none";
+        // Esconder respostas do do Matutino
+        document.getElementById(DivMatutino[c]).style.display = "none";
+        
+    }
     async function generateChart() {
         const file = await fetch('script/json/forms.json')
 
@@ -1710,11 +1731,7 @@ function Noturno() {
             DadosPeriodo.push(respNoturno[2].length)
         }
 
-        for (j = 0; j < 2; j++) {
-            if (DadosPeriodo[j] >= 0) {
-                labelsPeriodo.push(opcPeriodo[j])
-            }
-        }
+        labelsPeriodo.push(opcPeriodo[1])
 
         ChartPie('Noturno_Periodo', labelsPeriodo, DadosPeriodo, "Periodo");
 
@@ -1723,14 +1740,14 @@ function Noturno() {
         let DadosEstados = [];
         let labelsEstado = [];
 
-        GerarGraficoBar(estado, opcEstado, respNoturno, 5, labelsEstado, DadosEstados, 'Noturno_Estado', 'bar','Noturno', 'Estados');
+        GerarGraficoBar(estado, opcEstado, respNoturno, 5, labelsEstado, DadosEstados, 'Noturno_Estado', 'bar', 'Noturno', 'Estados');
 
         // 5 - Cidades
         let cidade = [];
         let DadosCidade = [];
         let labelsCidade = [];
 
-        GerarGraficoBar(cidade, opcCidade, respNoturno, 6, labelsCidade, DadosCidade, 'Noturno_Cidade', 'bar','Noturno', 'Cidades');
+        GerarGraficoBar(cidade, opcCidade, respNoturno, 6, labelsCidade, DadosCidade, 'Noturno_Cidade', 'bar', 'Noturno', 'Cidades');
 
         // 6 - Genero
         let genero = [];
@@ -1814,7 +1831,7 @@ function Noturno() {
         let DadosTempoMoradia = [];
         let labelsTempoMoradia = [];
 
-        GerarGraficoBar(TempoMoradia, opcTempoMoradia, respNoturno, 16, labelsTempoMoradia, DadosTempoMoradia, 'Noturno_Tempo_moradia', 'bar','Noturno', 'Tempo de moradia no domicílio(Em anos)');
+        GerarGraficoBar(TempoMoradia, opcTempoMoradia, respNoturno, 16, labelsTempoMoradia, DadosTempoMoradia, 'Noturno_Tempo_moradia', 'bar', 'Noturno', 'Tempo de moradia no domicílio(Em anos)');
 
         // 16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)
         let RendaMensal = [];
@@ -1898,7 +1915,7 @@ function Noturno() {
         let DadosDomicilioTem = [];
         let labelsDomicilioTem = [];
 
-        GerarGraficoBar(DomicilioTem, opcTemNoDomicilio, respNoturno, 28, labelsDomicilioTem, DadosDomicilioTem, 'Noturno_Oque_tem_No_Domicilio', 'horizontalBar','Noturno', 'Na casa de cada estudante tem');
+        GerarGraficoBar(DomicilioTem, opcTemNoDomicilio, respNoturno, 28, labelsDomicilioTem, DadosDomicilioTem, 'Noturno_Oque_tem_No_Domicilio', 'horizontalBar', 'Noturno', 'Na casa de cada estudante tem');
 
         // 19.1. Você trabalha?
         let trabalha = [];
@@ -1989,14 +2006,14 @@ function Noturno() {
         let DadosOndeUtilizaMicro = [];
         let labelsUtilizaMicro = [];
 
-        GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, respNoturno, 39, labelsUtilizaMicro, DadosOndeUtilizaMicro, 'Noturno_Onde_Microcomputadores', 'horizontalBar', 'Noturno','Onde você utiliza microcomputadores?');
+        GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, respNoturno, 39, labelsUtilizaMicro, DadosOndeUtilizaMicro, 'Noturno_Onde_Microcomputadores', 'horizontalBar', 'Noturno', 'Onde você utiliza microcomputadores?');
 
         // 23.3. Com qual finalidade você utiliza microcomputadores?
         let FinalidadeUtiliMicro = [];
         let DadosFinalidadeUtiliMicro = [];
         let labelsFinalidadeUtiliza = [];
 
-        GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respNoturno, 40, labelsFinalidadeUtiliza, DadosFinalidadeUtiliMicro, 'Noturno_Finalidade_Microcomputadores', 'horizontalBar','Noturno', 'Com qual finalidade você utiliza microcomputadores?');
+        GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respNoturno, 40, labelsFinalidadeUtiliza, DadosFinalidadeUtiliMicro, 'Noturno_Finalidade_Microcomputadores', 'horizontalBar', 'Noturno', 'Com qual finalidade você utiliza microcomputadores?');
 
         // 24. Como você classifica seu conhecimento em informática
         let ConhecimentoInformatica = [];
@@ -2133,7 +2150,7 @@ function Noturno() {
         let DadosAssuntosQueLeem = [];
         let labelsAssuntosQueLeem = [];
 
-        GerarGraficoBar(assuntosQueLeem, opcAssuntosJornal, respNoturno, 59, labelsAssuntosQueLeem, DadosAssuntosQueLeem, 'Noturno_Assuntos_que_Le', 'horizontalBar','Noturno', 'Assuntos que mais leem');
+        GerarGraficoBar(assuntosQueLeem, opcAssuntosJornal, respNoturno, 59, labelsAssuntosQueLeem, DadosAssuntosQueLeem, 'Noturno_Assuntos_que_Le', 'horizontalBar', 'Noturno', 'Assuntos que mais leem');
 
         // 30. Não considerando os livros escolares, quantos livros você lê por ano (em média)
         let QtdLivros = [];
@@ -2147,7 +2164,7 @@ function Noturno() {
         let DadosLeLivros = [];
         let labelsLeLivros = [];
 
-        GerarGraficoBar(leLivros, opcLeLivros, respNoturno, 61, labelsLeLivros, DadosLeLivros, 'Noturno_Le_Livros', 'horizontalBar','Noturno', "Gêneros de livros preferidos de cada aluno");
+        GerarGraficoBar(leLivros, opcLeLivros, respNoturno, 61, labelsLeLivros, DadosLeLivros, 'Noturno_Le_Livros', 'horizontalBar', 'Noturno', "Gêneros de livros preferidos de cada aluno");
 
         // 32. Você dedica parte do seu tempo para atividades voluntárias?
         let atividadesVolutaria = [];
@@ -2168,35 +2185,35 @@ function Noturno() {
         let DadosFontesEntretenimento = [];
         let labelsFontesEntretenimento = [];
 
-        GerarGraficoBar(FontesEntretenimento, opcEntretenimento, respNoturno, 64, labelsFontesEntretenimento, DadosFontesEntretenimento, "Noturno_Fontes_Entretenimento", 'horizontalBar','Noturno', 'Fontes de Entretenimento');
+        GerarGraficoBar(FontesEntretenimento, opcEntretenimento, respNoturno, 64, labelsFontesEntretenimento, DadosFontesEntretenimento, "Noturno_Fontes_Entretenimento", 'horizontalBar', 'Noturno', 'Fontes de Entretenimento');
 
         //35. Estamos quase acabando... Como conheceu a FATEC Franca?
         let ConheceuFatec = [];
         let DadosConheceuFatec = [];
         let labelsConheceuFatec = [];
 
-        GerarGraficoBar(ConheceuFatec, opcConheceuFatec, respNoturno, 65, labelsConheceuFatec, DadosConheceuFatec, 'Noturno_Conheceu_Fatec', 'horizontalBar', 'Noturno','Como conheceu a FATEC Franca?')
+        GerarGraficoBar(ConheceuFatec, opcConheceuFatec, respNoturno, 65, labelsConheceuFatec, DadosConheceuFatec, 'Noturno_Conheceu_Fatec', 'horizontalBar', 'Noturno', 'Como conheceu a FATEC Franca?')
 
         // 36. Porque você escolheu este curso?
         let EscolheuCurso = [];
         let DadosEscolheuCurso = [];
         let labelsEscolheuCurso = [];
 
-        GerarGraficoBar(EscolheuCurso, opcEscolheuCurso, respNoturno, 66, labelsEscolheuCurso, DadosEscolheuCurso, 'Noturno_Escolheu_Curso', 'horizontalBar','Noturno', 'Porque você escolheu este curso?')
+        GerarGraficoBar(EscolheuCurso, opcEscolheuCurso, respNoturno, 66, labelsEscolheuCurso, DadosEscolheuCurso, 'Noturno_Escolheu_Curso', 'horizontalBar', 'Noturno', 'Porque você escolheu este curso?')
 
         // 37. Qual sua maior expectativa quanto ao curso?
         let ExpectativaCurso = [];
         let DadosExpectativaCurso = [];
         let labelsExpectativaCurso = [];
 
-        GerarGraficoBar(ExpectativaCurso, opcExpectativa, respNoturno, 67, labelsExpectativaCurso, DadosExpectativaCurso, 'Noturno_Expectativa_Curso', 'horizontalBar','Noturno', 'Qual sua maior expectativa quanto ao curso?')
+        GerarGraficoBar(ExpectativaCurso, opcExpectativa, respNoturno, 67, labelsExpectativaCurso, DadosExpectativaCurso, 'Noturno_Expectativa_Curso', 'horizontalBar', 'Noturno', 'Qual sua maior expectativa quanto ao curso?')
 
         // 38. Qual sua expectativa após se formar?
         let ExpectativaFormar = [];
         let DadosExpectativaFormar = [];
         let labelsExpectativaFormar = [];
 
-        GerarGraficoBar(ExpectativaFormar, opcFormar, respNoturno, 68, labelsExpectativaFormar, DadosExpectativaFormar, 'Noturno_Expectativa_Formar', 'horizontalBar','Noturno', 'Qual sua expectativa após se formar?')
+        GerarGraficoBar(ExpectativaFormar, opcFormar, respNoturno, 68, labelsExpectativaFormar, DadosExpectativaFormar, 'Noturno_Expectativa_Formar', 'horizontalBar', 'Noturno', 'Qual sua expectativa após se formar?')
 
         //39. Você já estudou nesta escola?
         let estudouNaFatec = [];
@@ -2221,222 +2238,23 @@ function Noturno() {
 
     }
 
-    // Esconder respostas Geral
-    document.getElementById("curso").style.display = "none";
-    document.getElementById("periodo").style.display = "none";
-    document.getElementById("estado").style.display = "none";
-    document.getElementById("cidade").style.display = "none";
-    document.getElementById("moram_com").style.display = "none";
-    document.getElementById("QTD_de_pessoas_moram_junto").style.display = "none";
-    document.getElementById("situacao_domicilio").style.display = "none";
-    document.getElementById("tempo_moradia").style.display = "none";
-    document.getElementById("genero").style.display = "none";
-    document.getElementById("estado_civil").style.display = "none";
-    document.getElementById("Portador_de_Necessidade").style.display = "none";
-    document.getElementById("convive_com_portador").style.display = "none";
-    document.getElementById("qtd_de_filhos").style.display = "none";
-    document.getElementById("salario_min").style.display = "none";
-    document.getElementById("DataNascimento").style.display = "none";
-    document.getElementById("Oque_tem_No_Domicilio").style.display = "none";
-    document.getElementById("qtd_geladeira").style.display = "none";
-    document.getElementById("qtd_celular_comum").style.display = "none";
-    document.getElementById("qtd_micro_ondas").style.display = "none";
-    document.getElementById("qtd_notebooks").style.display = "none";
-    document.getElementById("qtd_Maquina_de_Lavar").style.display = "none";
-    document.getElementById("qtd_motocicletas").style.display = "none";
-    document.getElementById("qtd_Automoveis").style.display = "none";
-    document.getElementById("qtd_DVD").style.display = "none";
-    document.getElementById("qtd_TV").style.display = "none";
-    document.getElementById("qtd_Smartphones").style.display = "none";
-    document.getElementById("Plano_Saude").style.display = "none";
-    document.getElementById("Religiao").style.display = "none";
-    document.getElementById("Trabalho").style.display = "none";
-    document.getElementById("Vinculo_Emprego").style.display = "none";
-    document.getElementById("Area_trabalho").style.display = "none";
-    document.getElementById("Horario_Trabalho").style.display = "none";
-    document.getElementById("Escolaridade_Pai").style.display = "none";
-    document.getElementById("Escolaridade_Mae").style.display = "none";
-    document.getElementById("Estudou_Em").style.display = "none";
-    document.getElementById("Ingles").style.display = "none";
-    document.getElementById("Espanhol").style.display = "none";
-    document.getElementById("Outros").style.display = "none";
-    document.getElementById("Estudou_Fatec").style.display = "none";
-    document.getElementById("Curso_Tecnico").style.display = "none";
-    document.getElementById("Frequencia_Microcomputadores").style.display = "none";
-    document.getElementById("Onde_Microcomputadores").style.display = "none";
-    document.getElementById("Finalidade_Microcomputadores").style.display = "none";
-    document.getElementById("Conhecimento_Informatica").style.display = "none";
-    document.getElementById("Conhecimento_Windows").style.display = "none";
-    document.getElementById("Conhecimento_Linux").style.display = "none";
-    document.getElementById("Conhecimento_Word").style.display = "none";
-    document.getElementById("Conhecimento_Excel").style.display = "none";
-    document.getElementById("Conhecimento_PowerPoint").style.display = "none";
-    document.getElementById("Conhecimento_GestaoEmpresarial").style.display = "none";
-    document.getElementById("Televisores").style.display = "none";
-    document.getElementById("Internet").style.display = "none";
-    document.getElementById("Revistas").style.display = "none";
-    document.getElementById("Jornais").style.display = "none";
-    document.getElementById("Radio").style.display = "none";
-    document.getElementById("Redes_Sociais").style.display = "none";
-    document.getElementById("Conversas_com_Amigos").style.display = "none";
-    document.getElementById("Le_Jornal").style.display = "none";
-    document.getElementById("Qtd_Livros").style.display = "none";
-    document.getElementById("Assuntos_que_Le").style.display = "none";
-    document.getElementById("Le_Livros").style.display = "none";
-    document.getElementById("Fontes_Entretenimento").style.display = "none";
-    document.getElementById("Atividade_Voluntaria").style.display = "none";
-    document.getElementById("Transporte").style.display = "none";
-    document.getElementById("Conheceu_Fatec").style.display = "none";
-    document.getElementById("Escolheu_Curso").style.display = "none";
-    document.getElementById("Expectativa_Curso").style.display = "none";
-    document.getElementById("Expectativa_Formar").style.display = "none";
-
-    // Esconder respostas do do Matutino
-    document.getElementById("Matutino_curso").style.display = "none";
-    document.getElementById("Matutino_Periodo").style.display = "none";
-    document.getElementById("Matutino_Estado").style.display = "none";
-    document.getElementById("Matutino_Cidade").style.display = "none";
-    document.getElementById("Matutino_Moram_com").style.display = "none";
-    document.getElementById("Matutino_QTD_de_pessoas_moram_junto").style.display = "none";
-    document.getElementById("Matutino_Situacao_domicilio").style.display = "none";
-    document.getElementById("Matutino_Tempo_moradia").style.display = "none";
-    document.getElementById("Matutino_Genero").style.display = "none";
-    document.getElementById("Matutino_Estado_civil").style.display = "none";
-    document.getElementById("Matutino_Portador_de_Necessidade").style.display = "none";
-    document.getElementById("Matutino_Convive_com_portador").style.display = "none";
-    document.getElementById("Matutino_Qtd_de_filhos").style.display = "none";
-    document.getElementById("Matutino_Salario_min").style.display = "none";
-    document.getElementById("Matutino_DataNascimento").style.display = "none";
-    document.getElementById("Matutino_Oque_tem_No_Domicilio").style.display = "none";
-    document.getElementById("Matutino_Qtd_geladeira").style.display = "none";
-    document.getElementById("Matutino_Qtd_celular_comum").style.display = "none";
-    document.getElementById("Matutino_Qtd_micro_ondas").style.display = "none";
-    document.getElementById("Matutino_Qtd_notebooks").style.display = "none";
-    document.getElementById("Matutino_Qtd_Maquina_de_Lavar").style.display = "none";
-    document.getElementById("Matutino_Qtd_motocicletas").style.display = "none";
-    document.getElementById("Matutino_Qtd_Automoveis").style.display = "none";
-    document.getElementById("Matutino_Qtd_DVD").style.display = "none";
-    document.getElementById("Matutino_Qtd_TV").style.display = "none";
-    document.getElementById("Matutino_Qtd_Smartphones").style.display = "none";
-    document.getElementById("Matutino_Plano_Saude").style.display = "none";
-    document.getElementById("Matutino_Religiao").style.display = "none";
-    document.getElementById("Matutino_Trabalho").style.display = "none";
-    document.getElementById("Matutino_Vinculo_Emprego").style.display = "none";
-    document.getElementById("Matutino_Area_trabalho").style.display = "none";
-    document.getElementById("Matutino_Horario_Trabalho").style.display = "none";
-    document.getElementById("Matutino_Escolaridade_Pai").style.display = "none";
-    document.getElementById("Matutino_Escolaridade_Mae").style.display = "none";
-    document.getElementById("Matutino_Estudou_Em").style.display = "none";
-    document.getElementById("Matutino_Ingles").style.display = "none";
-    document.getElementById("Matutino_Espanhol").style.display = "none";
-    document.getElementById("Matutino_Outros").style.display = "none";
-    document.getElementById("Matutino_Estudou_Fatec").style.display = "none";
-    document.getElementById("Matutino_Curso_Tecnico").style.display = "none";
-    document.getElementById("Matutino_Frequencia_Microcomputadores").style.display = "none";
-    document.getElementById("Matutino_Onde_Microcomputadores").style.display = "none";
-    document.getElementById("Matutino_Finalidade_Microcomputadores").style.display = "none";
-    document.getElementById("Matutino_Conhecimento_Informatica").style.display = "none";
-    document.getElementById("Matutino_Conhecimento_Windows").style.display = "none";
-    document.getElementById("Matutino_Conhecimento_Linux").style.display = "none";
-    document.getElementById("Matutino_Conhecimento_Word").style.display = "none";
-    document.getElementById("Matutino_Conhecimento_Excel").style.display = "none";
-    document.getElementById("Matutino_Conhecimento_PowerPoint").style.display = "none";
-    document.getElementById("Matutino_Conhecimento_GestaoEmpresarial").style.display = "none";
-    document.getElementById("Matutino_Televisores").style.display = "none";
-    document.getElementById("Matutino_Internet").style.display = "none";
-    document.getElementById("Matutino_Revistas").style.display = "none";
-    document.getElementById("Matutino_Jornais").style.display = "none";
-    document.getElementById("Matutino_Radio").style.display = "none";
-    document.getElementById("Matutino_Redes_Sociais").style.display = "none";
-    document.getElementById("Matutino_Conversas_com_Amigos").style.display = "none";
-    document.getElementById("Matutino_Le_Jornal").style.display = "none";
-    document.getElementById("Matutino_Qtd_Livros").style.display = "none";
-    document.getElementById("Matutino_Assuntos_que_Le").style.display = "none";
-    document.getElementById("Matutino_Le_Livros").style.display = "none";
-    document.getElementById("Matutino_Fontes_Entretenimento").style.display = "none";
-    document.getElementById("Matutino_Atividade_Voluntaria").style.display = "none";
-    document.getElementById("Matutino_Transporte").style.display = "none";
-    document.getElementById("Matutino_Conheceu_Fatec").style.display = "none";
-    document.getElementById("Matutino_Escolheu_Curso").style.display = "none";
-    document.getElementById("Matutino_Expectativa_Curso").style.display = "none";
-    document.getElementById("Matutino_Expectativa_Formar").style.display = "none";
-
-    //Mostrar respostas do Noturno
-    document.getElementById("Noturno_curso").style.display = "block";
-    document.getElementById("Noturno_Periodo").style.display = "block";
-    document.getElementById("Noturno_Estado").style.display = "block";
-    document.getElementById("Noturno_Cidade").style.display = "block";
-    document.getElementById("Noturno_Moram_com").style.display = "block";
-    document.getElementById("Noturno_QTD_de_pessoas_moram_junto").style.display = "block";
-    document.getElementById("Noturno_Situacao_domicilio").style.display = "block";
-    document.getElementById("Noturno_Tempo_moradia").style.display = "block";
-    document.getElementById("Noturno_Genero").style.display = "block";
-    document.getElementById("Noturno_Estado_civil").style.display = "block";
-    document.getElementById("Noturno_Portador_de_Necessidade").style.display = "block";
-    document.getElementById("Noturno_Convive_com_portador").style.display = "block";
-    document.getElementById("Noturno_Qtd_de_filhos").style.display = "block";
-    document.getElementById("Noturno_Salario_min").style.display = "block";
-    document.getElementById("Noturno_DataNascimento").style.display = "block";
-    document.getElementById("Noturno_Oque_tem_No_Domicilio").style.display = "block";
-    document.getElementById("Noturno_Qtd_geladeira").style.display = "block";
-    document.getElementById("Noturno_Qtd_celular_comum").style.display = "block";
-    document.getElementById("Noturno_Qtd_micro_ondas").style.display = "block";
-    document.getElementById("Noturno_Qtd_notebooks").style.display = "block";
-    document.getElementById("Noturno_Qtd_Maquina_de_Lavar").style.display = "block";
-    document.getElementById("Noturno_Qtd_motocicletas").style.display = "block";
-    document.getElementById("Noturno_Qtd_Automoveis").style.display = "block";
-    document.getElementById("Noturno_Qtd_DVD").style.display = "block";
-    document.getElementById("Noturno_Qtd_TV").style.display = "block";
-    document.getElementById("Noturno_Qtd_Smartphones").style.display = "block";
-    document.getElementById("Noturno_Plano_Saude").style.display = "block";
-    document.getElementById("Noturno_Religiao").style.display = "block";
-    document.getElementById("Noturno_Trabalho").style.display = "block";
-    document.getElementById("Noturno_Vinculo_Emprego").style.display = "block";
-    document.getElementById("Noturno_Area_trabalho").style.display = "block";
-    document.getElementById("Noturno_Horario_Trabalho").style.display = "block";
-    document.getElementById("Noturno_Escolaridade_Pai").style.display = "block";
-    document.getElementById("Noturno_Escolaridade_Mae").style.display = "block";
-    document.getElementById("Noturno_Estudou_Em").style.display = "block";
-    document.getElementById("Noturno_Ingles").style.display = "block";
-    document.getElementById("Noturno_Espanhol").style.display = "block";
-    document.getElementById("Noturno_Outros").style.display = "block";
-    document.getElementById("Noturno_Estudou_Fatec").style.display = "block";
-    document.getElementById("Noturno_Curso_Tecnico").style.display = "block";
-    document.getElementById("Noturno_Frequencia_Microcomputadores").style.display = "block";
-    document.getElementById("Noturno_Onde_Microcomputadores").style.display = "block";
-    document.getElementById("Noturno_Finalidade_Microcomputadores").style.display = "block";
-    document.getElementById("Noturno_Conhecimento_Informatica").style.display = "block";
-    document.getElementById("Noturno_Conhecimento_Windows").style.display = "block";
-    document.getElementById("Noturno_Conhecimento_Linux").style.display = "block";
-    document.getElementById("Noturno_Conhecimento_Word").style.display = "block";
-    document.getElementById("Noturno_Conhecimento_Excel").style.display = "block";
-    document.getElementById("Noturno_Conhecimento_PowerPoint").style.display = "block";
-    document.getElementById("Noturno_Conhecimento_GestaoEmpresarial").style.display = "block";
-    document.getElementById("Noturno_Televisores").style.display = "block";
-    document.getElementById("Noturno_Internet").style.display = "block";
-    document.getElementById("Noturno_Revistas").style.display = "block";
-    document.getElementById("Noturno_Jornais").style.display = "block";
-    document.getElementById("Noturno_Radio").style.display = "block";
-    document.getElementById("Noturno_Redes_Sociais").style.display = "block";
-    document.getElementById("Noturno_Conversas_com_Amigos").style.display = "block";
-    document.getElementById("Noturno_Le_Jornal").style.display = "block";
-    document.getElementById("Noturno_Qtd_Livros").style.display = "block";
-    document.getElementById("Noturno_Assuntos_que_Le").style.display = "block";
-    document.getElementById("Noturno_Le_Livros").style.display = "block";
-    document.getElementById("Noturno_Fontes_Entretenimento").style.display = "block";
-    document.getElementById("Noturno_Atividade_Voluntaria").style.display = "block";
-    document.getElementById("Noturno_Transporte").style.display = "block";
-    document.getElementById("Noturno_Conheceu_Fatec").style.display = "block";
-    document.getElementById("Noturno_Escolheu_Curso").style.display = "block";
-    document.getElementById("Noturno_Expectativa_Curso").style.display = "block";
-    document.getElementById("Noturno_Expectativa_Formar").style.display = "block";
+    console.log(DivNoturno)
 
     generateChart()
 }
 
 function Geral() {
+    for (let c = 0; c <= DivGeral.length; c++) {
+        // Esconder respostas Geral
+        document.getElementById(DivGeral[c]).style.display = "block";
+        // Esconder respostas do do Matutino
+        document.getElementById(DivMatutino[c]).style.display = "none";
+        //Mostrar respostas do Noturno
+        document.getElementById(DivNoturno[c]).style.display = "none";
+    }
+
     // Mostrar respostas Geral
-    document.getElementById("curso").style.display = "block";
+    /*document.getElementById("curso").style.display = "block";
     document.getElementById("periodo").style.display = "block";
     document.getElementById("estado").style.display = "block";
     document.getElementById("cidade").style.display = "block";
@@ -2644,5 +2462,5 @@ function Geral() {
     document.getElementById("Noturno_Escolheu_Curso").style.display = "none";
     document.getElementById("Noturno_Expectativa_Curso").style.display = "none";
     document.getElementById("Noturno_Expectativa_Formar").style.display = "none";
-
+*/
 }
