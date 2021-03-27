@@ -312,7 +312,7 @@ function Noturno() {
         let DadosCidade = [];
         let labelsCidade = [];
 
-        GerarGraficoBar(cidade, opcCidade, respNoturno, 6, labelsCidade, DadosCidade, 'cidade', 'bar', 'Cidades');
+        GerarGraficoBar(cidade, opcCidade, respNoturno, 6, labelsCidade, DadosCidade, 'NoturnoCidade', 'bar', 'Cidades');
 
         // 6 - Genero
         let genero = [];
@@ -759,11 +759,11 @@ function Noturno() {
 
         GerarGraficoPie(cursoTecnico, opcCursoTecnico, respNoturno, 70, labelsCursoTecnico, DadosCursoTecnico, 'Curso_Tecnico', 'Você fez algum curso técnico?');
 
-        console.log(respNoturno[61])
+        document.getElementById("NoturnoCidade").style.display = "block";
+        document.getElementById("cidade").style.display = "none";
+        document.getElementById("MatutinoCidade").style.display = "none";
 
     }
-
-
 
     generateChart()
 }

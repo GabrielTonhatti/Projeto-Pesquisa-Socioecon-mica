@@ -129,6 +129,7 @@ body {
     height: 450px;
     background-color: #24262D;
     border-radius: 20px;
+    display: block;
 }
 
 #container__periodo {
