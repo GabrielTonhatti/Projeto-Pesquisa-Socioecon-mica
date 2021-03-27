@@ -43,9 +43,14 @@ let opcEstudoNaEscola = ['Sim', 'Não'];
 let opcCursoTecnico = ['Não fiz', 'Sim, em uma ETEC', 'Sim, no SENAC', 'Sim, no SENAI', 'Sim, em outra instituição']
 let opcTransporte = ['Caminhando', 'Carona', 'Bicicleta', 'Moto', 'Carro', 'Ônibus', 'Transporte escolar']
 
-let DivGeral = ["curso", "periodo", "estado", "cidade", "moram_com", "QTD_de_pessoas_moram_junto", "situacao_domicilio", "tempo_moradia", "tempo_moradia", "genero", "estado_civil", "Portador_de_Necessidade", "convive_com_portador", "qtd_de_filhos", "salario_min", "DataNascimento", "Oque_tem_No_Domicilio", "qtd_geladeira", "qtd_celular_comum", "qtd_micro_ondas", "qtd_notebooks", "qtd_Maquina_de_Lavar", "qtd_motocicletas", "qtd_Automoveis", "qtd_DVD", "qtd_TV", "qtd_Smartphones", "Plano_Saude", "Religiao", "Trabalho", "Vinculo_Emprego", "Area_trabalho", "Horario_Trabalho", "Escolaridade_Pai", "Escolaridade_Mae", "Estudou_Em", "Ingles", "Espanhol", "Outros", "Estudou_Fatec", "Curso_Tecnico", "Frequencia_Microcomputadores", "Onde_Microcomputadores", "Finalidade_Microcomputadores", "Conhecimento_Informatica", "Conhecimento_Windows", "Conhecimento_Linux", "Conhecimento_Word", "Conhecimento_Excel", "Conhecimento_PowerPoint", "Conhecimento_GestaoEmpresarial", "Televisores", "Internet", "Revistas", "Jornais", "Radio", "Redes_Sociais", "Conversas_com_Amigos", "Le_Jornal", "Qtd_Livros", "Assuntos_que_Le", "Le_Livros", "Fontes_Entretenimento", "Atividade_Voluntaria", "Transporte", "Conheceu_Fatec", "Escolheu_Curso", "Expectativa_Curso", "Expectativa_Formar"];
+let DivGeral = ["curso", "periodo", "estado", "cidade", "moram_com", "QTD_de_pessoas_moram_junto", "situacao_domicilio", "tempo_moradia", "genero", "estado_civil", "Portador_de_Necessidade", "convive_com_portador", "qtd_de_filhos", "salario_min", "DataNascimento", "Oque_tem_No_Domicilio", "qtd_geladeira", "qtd_celular_comum", "qtd_micro_ondas", "qtd_notebooks", "qtd_Maquina_de_Lavar", "qtd_motocicletas", "qtd_Automoveis", "qtd_DVD", "qtd_TV", "qtd_Smartphones", "Plano_Saude", "Religiao", "Trabalho", "Vinculo_Emprego", "Area_trabalho", "Horario_Trabalho", "Escolaridade_Pai", "Escolaridade_Mae", "Estudou_Em", "Ingles", "Espanhol", "Outros", "Estudou_Fatec", "Curso_Tecnico", "Frequencia_Microcomputadores", "Onde_Microcomputadores", "Finalidade_Microcomputadores", "Conhecimento_Informatica", "Conhecimento_Windows", "Conhecimento_Linux", "Conhecimento_Word", "Conhecimento_Excel", "Conhecimento_PowerPoint", "Conhecimento_GestaoEmpresarial", "Televisores", "Internet", "Revistas", "Jornais", "Radio", "Redes_Sociais", "Conversas_com_Amigos", "Le_Jornal", "Qtd_Livros", "Assuntos_que_Le", "Le_Livros", "Fontes_Entretenimento", "Atividade_Voluntaria", "Transporte", "Conheceu_Fatec", "Escolheu_Curso", "Expectativa_Curso", "Expectativa_Formar"];
 let DivNoturno = ["Noturno_curso", "Noturno_Periodo", "Noturno_Estado", "Noturno_Cidade", "Noturno_Moram_com", "Noturno_QTD_de_pessoas_moram_junto", "Noturno_Situacao_domicilio", "Noturno_Tempo_moradia", "Noturno_Genero", "Noturno_Estado_civil", "Noturno_Portador_de_Necessidade", "Noturno_Convive_com_portador", "Noturno_Qtd_de_filhos", "Noturno_Salario_min", "Noturno_DataNascimento", "Noturno_Oque_tem_No_Domicilio", "Noturno_Qtd_geladeira", "Noturno_Qtd_celular_comum", "Noturno_Qtd_micro_ondas", "Noturno_Qtd_notebooks", "Noturno_Qtd_Maquina_de_Lavar", "Noturno_Qtd_motocicletas", "Noturno_Qtd_Automoveis", "Noturno_Qtd_DVD", "Noturno_Qtd_TV", "Noturno_Qtd_Smartphones", "Noturno_Plano_Saude", "Noturno_Religiao", "Noturno_Trabalho", "Noturno_Vinculo_Emprego", "Noturno_Area_trabalho", "Noturno_Horario_Trabalho", "Noturno_Escolaridade_Pai", "Noturno_Escolaridade_Mae", "Noturno_Estudou_Em", "Noturno_Ingles", "Noturno_Espanhol", "Noturno_Outros", "Noturno_Estudou_Fatec", "Noturno_Curso_Tecnico", "Noturno_Frequencia_Microcomputadores", "Noturno_Onde_Microcomputadores", "Noturno_Finalidade_Microcomputadores", "Noturno_Conhecimento_Informatica", "Noturno_Conhecimento_Windows", "Noturno_Conhecimento_Linux", "Noturno_Conhecimento_Word", "Noturno_Conhecimento_Excel", "Noturno_Conhecimento_PowerPoint", "Noturno_Conhecimento_GestaoEmpresarial", "Noturno_Televisores", "Noturno_Internet", "Noturno_Revistas", "Noturno_Jornais", "Noturno_Radio", "Noturno_Redes_Sociais", "Noturno_Conversas_com_Amigos", "Noturno_Le_Jornal", "Noturno_Qtd_Livros", "Noturno_Assuntos_que_Le", "Noturno_Le_Livros", "Noturno_Fontes_Entretenimento", "Noturno_Atividade_Voluntaria", "Noturno_Transporte", "Noturno_Conheceu_Fatec", "Noturno_Escolheu_Curso", "Noturno_Expectativa_Curso", "Noturno_Expectativa_Formar"];
 let DivMatutino = ["Matutino_curso", "Matutino_Periodo", "Matutino_Estado", "Matutino_Cidade", "Matutino_Moram_com", "Matutino_QTD_de_pessoas_moram_junto", "Matutino_Situacao_domicilio", "Matutino_Tempo_moradia", "Matutino_Genero", "Matutino_Estado_civil", "Matutino_Portador_de_Necessidade", "Matutino_Convive_com_portador", "Matutino_Qtd_de_filhos", "Matutino_Salario_min", "Matutino_DataNascimento", "Matutino_Oque_tem_No_Domicilio", "Matutino_Qtd_geladeira", "Matutino_Qtd_celular_comum", "Matutino_Qtd_micro_ondas", "Matutino_Qtd_notebooks", "Matutino_Qtd_Maquina_de_Lavar", "Matutino_Qtd_motocicletas", "Matutino_Qtd_Automoveis", "Matutino_Qtd_DVD", "Matutino_Qtd_TV", "Matutino_Qtd_Smartphones", "Matutino_Plano_Saude", "Matutino_Religiao", "Matutino_Trabalho", "Matutino_Vinculo_Emprego", "Matutino_Area_trabalho", "Matutino_Horario_Trabalho", "Matutino_Escolaridade_Pai", "Matutino_Escolaridade_Mae", "Matutino_Estudou_Em", "Matutino_Ingles", "Matutino_Espanhol", "Matutino_Outros", "Matutino_Estudou_Fatec", "Matutino_Curso_Tecnico", "Matutino_Frequencia_Microcomputadores", "Matutino_Onde_Microcomputadores", "Matutino_Finalidade_Microcomputadores", "Matutino_Conhecimento_Informatica", "Matutino_Conhecimento_Windows", "Matutino_Conhecimento_Linux", "Matutino_Conhecimento_Word", "Matutino_Conhecimento_Excel", "Matutino_Conhecimento_PowerPoint", "Matutino_Conhecimento_GestaoEmpresarial", "Matutino_Televisores", "Matutino_Internet", "Matutino_Revistas", "Matutino_Jornais", "Matutino_Radio", "Matutino_Redes_Sociais", "Matutino_Conversas_com_Amigos", "Matutino_Le_Jornal", "Matutino_Qtd_Livros", "Matutino_Assuntos_que_Le", "Matutino_Le_Livros", "Matutino_Fontes_Entretenimento", "Matutino_Atividade_Voluntaria", "Matutino_Transporte", "Matutino_Conheceu_Fatec", "Matutino_Escolheu_Curso", "Matutino_Expectativa_Curso", "Matutino_Expectativa_Formar"];
+
+console.log('DivGeral', DivGeral)
+console.log('DivMatutino', DivMatutino)
+console.log('DivNoturno', DivNoturno)
+
 
 // Criar Grafico de Pizza
 function ChartPie(id, labels, dados, title) {
@@ -835,6 +840,7 @@ async function generateChart() {
 
 }
 
+
 generateChart()
 
 function Matutino() {
@@ -1423,17 +1429,9 @@ function Matutino() {
         GerarGraficoPie(transporte, opcTransporte, respMatutino, 71, labelsTransporte, DadosTransporte, 'Matutino_Transporte', 'Meios de transportes');
 
     }
-    for (let c = 0; c <= DivGeral.length; c++) {
-        // Esconder respostas Geral
-        document.getElementById(DivGeral[c]).style.display = "none";
-        // Esconder respostas do do Matutino
-        document.getElementById(DivMatutino[c]).style.display = "block";
-        //Mostrar respostas do Noturno
-        document.getElementById(DivNoturno[c]).style.display = "none";
-    }
 
     // Esconder respostas Geral
- /*   document.getElementById("curso").style.display = "none";
+    document.getElementById("curso").style.display = "none";
     document.getElementById("periodo").style.display = "none";
     document.getElementById("estado").style.display = "none";
     document.getElementById("cidade").style.display = "none";
@@ -1572,7 +1570,7 @@ function Matutino() {
     document.getElementById("Matutino_Expectativa_Curso").style.display = "block";
     document.getElementById("Matutino_Expectativa_Formar").style.display = "block";
 
-    //Ocultar respostas do Noturno
+    // Esconder respostas do Noturno
     document.getElementById("Noturno_curso").style.display = "none";
     document.getElementById("Noturno_Periodo").style.display = "none";
     document.getElementById("Noturno_Estado").style.display = "none";
@@ -1641,21 +1639,12 @@ function Matutino() {
     document.getElementById("Noturno_Escolheu_Curso").style.display = "none";
     document.getElementById("Noturno_Expectativa_Curso").style.display = "none";
     document.getElementById("Noturno_Expectativa_Formar").style.display = "none";
-*/
+
     generateChart()
 
 }
 
 function Noturno() {
-    for (let c = 0; c <= DivGeral.length; c++) {
-        //Mostrar respostas do Noturno
-        document.getElementById(DivNoturno[c]).style.display = "block";
-        // Esconder respostas Geral
-        document.getElementById(DivGeral[c]).style.display = "none";
-        // Esconder respostas do do Matutino
-        document.getElementById(DivMatutino[c]).style.display = "none";
-        
-    }
     async function generateChart() {
         const file = await fetch('script/json/forms.json')
 
@@ -2237,24 +2226,222 @@ function Noturno() {
         GerarGraficoPie(transporte, opcTransporte, respNoturno, 71, labelsTransporte, DadosTransporte, 'Noturno_Transporte', 'Meios de transportes');
 
     }
+    // Esconder respostas Geral
+    document.getElementById("curso").style.display = "none";
+    document.getElementById("periodo").style.display = "none";
+    document.getElementById("estado").style.display = "none";
+    document.getElementById("cidade").style.display = "none";
+    document.getElementById("moram_com").style.display = "none";
+    document.getElementById("QTD_de_pessoas_moram_junto").style.display = "none";
+    document.getElementById("situacao_domicilio").style.display = "none";
+    document.getElementById("tempo_moradia").style.display = "none";
+    document.getElementById("genero").style.display = "none";
+    document.getElementById("estado_civil").style.display = "none";
+    document.getElementById("Portador_de_Necessidade").style.display = "none";
+    document.getElementById("convive_com_portador").style.display = "none";
+    document.getElementById("qtd_de_filhos").style.display = "none";
+    document.getElementById("salario_min").style.display = "none";
+    document.getElementById("DataNascimento").style.display = "none";
+    document.getElementById("Oque_tem_No_Domicilio").style.display = "none";
+    document.getElementById("qtd_geladeira").style.display = "none";
+    document.getElementById("qtd_celular_comum").style.display = "none";
+    document.getElementById("qtd_micro_ondas").style.display = "none";
+    document.getElementById("qtd_notebooks").style.display = "none";
+    document.getElementById("qtd_Maquina_de_Lavar").style.display = "none";
+    document.getElementById("qtd_motocicletas").style.display = "none";
+    document.getElementById("qtd_Automoveis").style.display = "none";
+    document.getElementById("qtd_DVD").style.display = "none";
+    document.getElementById("qtd_TV").style.display = "none";
+    document.getElementById("qtd_Smartphones").style.display = "none";
+    document.getElementById("Plano_Saude").style.display = "none";
+    document.getElementById("Religiao").style.display = "none";
+    document.getElementById("Trabalho").style.display = "none";
+    document.getElementById("Vinculo_Emprego").style.display = "none";
+    document.getElementById("Area_trabalho").style.display = "none";
+    document.getElementById("Horario_Trabalho").style.display = "none";
+    document.getElementById("Escolaridade_Pai").style.display = "none";
+    document.getElementById("Escolaridade_Mae").style.display = "none";
+    document.getElementById("Estudou_Em").style.display = "none";
+    document.getElementById("Ingles").style.display = "none";
+    document.getElementById("Espanhol").style.display = "none";
+    document.getElementById("Outros").style.display = "none";
+    document.getElementById("Estudou_Fatec").style.display = "none";
+    document.getElementById("Curso_Tecnico").style.display = "none";
+    document.getElementById("Frequencia_Microcomputadores").style.display = "none";
+    document.getElementById("Onde_Microcomputadores").style.display = "none";
+    document.getElementById("Finalidade_Microcomputadores").style.display = "none";
+    document.getElementById("Conhecimento_Informatica").style.display = "none";
+    document.getElementById("Conhecimento_Windows").style.display = "none";
+    document.getElementById("Conhecimento_Linux").style.display = "none";
+    document.getElementById("Conhecimento_Word").style.display = "none";
+    document.getElementById("Conhecimento_Excel").style.display = "none";
+    document.getElementById("Conhecimento_PowerPoint").style.display = "none";
+    document.getElementById("Conhecimento_GestaoEmpresarial").style.display = "none";
+    document.getElementById("Televisores").style.display = "none";
+    document.getElementById("Internet").style.display = "none";
+    document.getElementById("Revistas").style.display = "none";
+    document.getElementById("Jornais").style.display = "none";
+    document.getElementById("Radio").style.display = "none";
+    document.getElementById("Redes_Sociais").style.display = "none";
+    document.getElementById("Conversas_com_Amigos").style.display = "none";
+    document.getElementById("Le_Jornal").style.display = "none";
+    document.getElementById("Qtd_Livros").style.display = "none";
+    document.getElementById("Assuntos_que_Le").style.display = "none";
+    document.getElementById("Le_Livros").style.display = "none";
+    document.getElementById("Fontes_Entretenimento").style.display = "none";
+    document.getElementById("Atividade_Voluntaria").style.display = "none";
+    document.getElementById("Transporte").style.display = "none";
+    document.getElementById("Conheceu_Fatec").style.display = "none";
+    document.getElementById("Escolheu_Curso").style.display = "none";
+    document.getElementById("Expectativa_Curso").style.display = "none";
+    document.getElementById("Expectativa_Formar").style.display = "none";
 
-    console.log(DivNoturno)
+    // Esconder respostas do do Matutino
+    document.getElementById("Matutino_curso").style.display = "none";
+    document.getElementById("Matutino_Periodo").style.display = "none";
+    document.getElementById("Matutino_Estado").style.display = "none";
+    document.getElementById("Matutino_Cidade").style.display = "none";
+    document.getElementById("Matutino_Moram_com").style.display = "none";
+    document.getElementById("Matutino_QTD_de_pessoas_moram_junto").style.display = "none";
+    document.getElementById("Matutino_Situacao_domicilio").style.display = "none";
+    document.getElementById("Matutino_Tempo_moradia").style.display = "none";
+    document.getElementById("Matutino_Genero").style.display = "none";
+    document.getElementById("Matutino_Estado_civil").style.display = "none";
+    document.getElementById("Matutino_Portador_de_Necessidade").style.display = "none";
+    document.getElementById("Matutino_Convive_com_portador").style.display = "none";
+    document.getElementById("Matutino_Qtd_de_filhos").style.display = "none";
+    document.getElementById("Matutino_Salario_min").style.display = "none";
+    document.getElementById("Matutino_DataNascimento").style.display = "none";
+    document.getElementById("Matutino_Oque_tem_No_Domicilio").style.display = "none";
+    document.getElementById("Matutino_Qtd_geladeira").style.display = "none";
+    document.getElementById("Matutino_Qtd_celular_comum").style.display = "none";
+    document.getElementById("Matutino_Qtd_micro_ondas").style.display = "none";
+    document.getElementById("Matutino_Qtd_notebooks").style.display = "none";
+    document.getElementById("Matutino_Qtd_Maquina_de_Lavar").style.display = "none";
+    document.getElementById("Matutino_Qtd_motocicletas").style.display = "none";
+    document.getElementById("Matutino_Qtd_Automoveis").style.display = "none";
+    document.getElementById("Matutino_Qtd_DVD").style.display = "none";
+    document.getElementById("Matutino_Qtd_TV").style.display = "none";
+    document.getElementById("Matutino_Qtd_Smartphones").style.display = "none";
+    document.getElementById("Matutino_Plano_Saude").style.display = "none";
+    document.getElementById("Matutino_Religiao").style.display = "none";
+    document.getElementById("Matutino_Trabalho").style.display = "none";
+    document.getElementById("Matutino_Vinculo_Emprego").style.display = "none";
+    document.getElementById("Matutino_Area_trabalho").style.display = "none";
+    document.getElementById("Matutino_Horario_Trabalho").style.display = "none";
+    document.getElementById("Matutino_Escolaridade_Pai").style.display = "none";
+    document.getElementById("Matutino_Escolaridade_Mae").style.display = "none";
+    document.getElementById("Matutino_Estudou_Em").style.display = "none";
+    document.getElementById("Matutino_Ingles").style.display = "none";
+    document.getElementById("Matutino_Espanhol").style.display = "none";
+    document.getElementById("Matutino_Outros").style.display = "none";
+    document.getElementById("Matutino_Estudou_Fatec").style.display = "none";
+    document.getElementById("Matutino_Curso_Tecnico").style.display = "none";
+    document.getElementById("Matutino_Frequencia_Microcomputadores").style.display = "none";
+    document.getElementById("Matutino_Onde_Microcomputadores").style.display = "none";
+    document.getElementById("Matutino_Finalidade_Microcomputadores").style.display = "none";
+    document.getElementById("Matutino_Conhecimento_Informatica").style.display = "none";
+    document.getElementById("Matutino_Conhecimento_Windows").style.display = "none";
+    document.getElementById("Matutino_Conhecimento_Linux").style.display = "none";
+    document.getElementById("Matutino_Conhecimento_Word").style.display = "none";
+    document.getElementById("Matutino_Conhecimento_Excel").style.display = "none";
+    document.getElementById("Matutino_Conhecimento_PowerPoint").style.display = "none";
+    document.getElementById("Matutino_Conhecimento_GestaoEmpresarial").style.display = "none";
+    document.getElementById("Matutino_Televisores").style.display = "none";
+    document.getElementById("Matutino_Internet").style.display = "none";
+    document.getElementById("Matutino_Revistas").style.display = "none";
+    document.getElementById("Matutino_Jornais").style.display = "none";
+    document.getElementById("Matutino_Radio").style.display = "none";
+    document.getElementById("Matutino_Redes_Sociais").style.display = "none";
+    document.getElementById("Matutino_Conversas_com_Amigos").style.display = "none";
+    document.getElementById("Matutino_Le_Jornal").style.display = "none";
+    document.getElementById("Matutino_Qtd_Livros").style.display = "none";
+    document.getElementById("Matutino_Assuntos_que_Le").style.display = "none";
+    document.getElementById("Matutino_Le_Livros").style.display = "none";
+    document.getElementById("Matutino_Fontes_Entretenimento").style.display = "none";
+    document.getElementById("Matutino_Atividade_Voluntaria").style.display = "none";
+    document.getElementById("Matutino_Transporte").style.display = "none";
+    document.getElementById("Matutino_Conheceu_Fatec").style.display = "none";
+    document.getElementById("Matutino_Escolheu_Curso").style.display = "none";
+    document.getElementById("Matutino_Expectativa_Curso").style.display = "none";
+    document.getElementById("Matutino_Expectativa_Formar").style.display = "none";
+
+    // Mostrar respostas do Noturno
+    document.getElementById("Noturno_curso").style.display = "block";
+    document.getElementById("Noturno_Periodo").style.display = "block";
+    document.getElementById("Noturno_Estado").style.display = "block";
+    document.getElementById("Noturno_Cidade").style.display = "block";
+    document.getElementById("Noturno_Moram_com").style.display = "block";
+    document.getElementById("Noturno_QTD_de_pessoas_moram_junto").style.display = "block";
+    document.getElementById("Noturno_Situacao_domicilio").style.display = "block";
+    document.getElementById("Noturno_Tempo_moradia").style.display = "block";
+    document.getElementById("Noturno_Genero").style.display = "block";
+    document.getElementById("Noturno_Estado_civil").style.display = "block";
+    document.getElementById("Noturno_Portador_de_Necessidade").style.display = "block";
+    document.getElementById("Noturno_Convive_com_portador").style.display = "block";
+    document.getElementById("Noturno_Qtd_de_filhos").style.display = "block";
+    document.getElementById("Noturno_Salario_min").style.display = "block";
+    document.getElementById("Noturno_DataNascimento").style.display = "block";
+    document.getElementById("Noturno_Oque_tem_No_Domicilio").style.display = "block";
+    document.getElementById("Noturno_Qtd_geladeira").style.display = "block";
+    document.getElementById("Noturno_Qtd_celular_comum").style.display = "block";
+    document.getElementById("Noturno_Qtd_micro_ondas").style.display = "block";
+    document.getElementById("Noturno_Qtd_notebooks").style.display = "block";
+    document.getElementById("Noturno_Qtd_Maquina_de_Lavar").style.display = "block";
+    document.getElementById("Noturno_Qtd_motocicletas").style.display = "block";
+    document.getElementById("Noturno_Qtd_Automoveis").style.display = "block";
+    document.getElementById("Noturno_Qtd_DVD").style.display = "block";
+    document.getElementById("Noturno_Qtd_TV").style.display = "block";
+    document.getElementById("Noturno_Qtd_Smartphones").style.display = "block";
+    document.getElementById("Noturno_Plano_Saude").style.display = "block";
+    document.getElementById("Noturno_Religiao").style.display = "block";
+    document.getElementById("Noturno_Trabalho").style.display = "block";
+    document.getElementById("Noturno_Vinculo_Emprego").style.display = "block";
+    document.getElementById("Noturno_Area_trabalho").style.display = "block";
+    document.getElementById("Noturno_Horario_Trabalho").style.display = "block";
+    document.getElementById("Noturno_Escolaridade_Pai").style.display = "block";
+    document.getElementById("Noturno_Escolaridade_Mae").style.display = "block";
+    document.getElementById("Noturno_Estudou_Em").style.display = "block";
+    document.getElementById("Noturno_Ingles").style.display = "block";
+    document.getElementById("Noturno_Espanhol").style.display = "block";
+    document.getElementById("Noturno_Outros").style.display = "block";
+    document.getElementById("Noturno_Estudou_Fatec").style.display = "block";
+    document.getElementById("Noturno_Curso_Tecnico").style.display = "block";
+    document.getElementById("Noturno_Frequencia_Microcomputadores").style.display = "block";
+    document.getElementById("Noturno_Onde_Microcomputadores").style.display = "block";
+    document.getElementById("Noturno_Finalidade_Microcomputadores").style.display = "block";
+    document.getElementById("Noturno_Conhecimento_Informatica").style.display = "block";
+    document.getElementById("Noturno_Conhecimento_Windows").style.display = "block";
+    document.getElementById("Noturno_Conhecimento_Linux").style.display = "block";
+    document.getElementById("Noturno_Conhecimento_Word").style.display = "block";
+    document.getElementById("Noturno_Conhecimento_Excel").style.display = "block";
+    document.getElementById("Noturno_Conhecimento_PowerPoint").style.display = "block";
+    document.getElementById("Noturno_Conhecimento_GestaoEmpresarial").style.display = "block";
+    document.getElementById("Noturno_Televisores").style.display = "block";
+    document.getElementById("Noturno_Internet").style.display = "block";
+    document.getElementById("Noturno_Revistas").style.display = "block";
+    document.getElementById("Noturno_Jornais").style.display = "block";
+    document.getElementById("Noturno_Radio").style.display = "block";
+    document.getElementById("Noturno_Redes_Sociais").style.display = "block";
+    document.getElementById("Noturno_Conversas_com_Amigos").style.display = "block";
+    document.getElementById("Noturno_Le_Jornal").style.display = "block";
+    document.getElementById("Noturno_Qtd_Livros").style.display = "block";
+    document.getElementById("Noturno_Assuntos_que_Le").style.display = "block";
+    document.getElementById("Noturno_Le_Livros").style.display = "block";
+    document.getElementById("Noturno_Fontes_Entretenimento").style.display = "block";
+    document.getElementById("Noturno_Atividade_Voluntaria").style.display = "block";
+    document.getElementById("Noturno_Transporte").style.display = "block";
+    document.getElementById("Noturno_Conheceu_Fatec").style.display = "block";
+    document.getElementById("Noturno_Escolheu_Curso").style.display = "block";
+    document.getElementById("Noturno_Expectativa_Curso").style.display = "block";
+    document.getElementById("Noturno_Expectativa_Formar").style.display = "block";
 
     generateChart()
 }
 
 function Geral() {
-    for (let c = 0; c <= DivGeral.length; c++) {
-        // Esconder respostas Geral
-        document.getElementById(DivGeral[c]).style.display = "block";
-        // Esconder respostas do do Matutino
-        document.getElementById(DivMatutino[c]).style.display = "none";
-        //Mostrar respostas do Noturno
-        document.getElementById(DivNoturno[c]).style.display = "none";
-    }
-
     // Mostrar respostas Geral
-    /*document.getElementById("curso").style.display = "block";
+    document.getElementById("curso").style.display = "block";
     document.getElementById("periodo").style.display = "block";
     document.getElementById("estado").style.display = "block";
     document.getElementById("cidade").style.display = "block";
@@ -2462,5 +2649,4 @@ function Geral() {
     document.getElementById("Noturno_Escolheu_Curso").style.display = "none";
     document.getElementById("Noturno_Expectativa_Curso").style.display = "none";
     document.getElementById("Noturno_Expectativa_Formar").style.display = "none";
-*/
 }
