@@ -3,7 +3,7 @@ let opcPeriodo = ['Matutino', 'Noturno'];
 let opcEstado = ['Acre (AC)', 'Alagoas (AL)', 'Amapá (AP)', 'Amazonas (AM)', 'Bahia (BA)', 'Ceará (CE)', 'Distrito Federal (DF)', 'Espírito Santo (ES)', 'Goiás (GO)', 'Maranhão (MA)', 'Mato Grosso (MT)', 'Mato Grosso do Sul (MS)', 'Minas Gerais (MG)', 'Paraná (PR)', 'Paraíba (PB)', 'Pará (PA)', 'Pernambuco (PE)', 'Piauí (PI)', 'Rio de Janeiro (RJ)', 'Rio Grande do Norte (RN)', 'Rio Grande do Sul (RS)', 'Rondônia (RO)', 'Roraima (RR)', 'Santa Catarina (SC)', 'Sergipe (SE)', 'São Paulo (SP)', 'Tocantins (TO)'];
 let opcCidade = ['Batatais', 'Buritizal', 'Capetinga', 'Cássia', 'Claraval', 'Cristais Paulista', 'Delfinópolis', 'Estreito', 'Franca', 'Guaíra', 'Guará', 'Ibiraci', 'Igarapava', 'Ipuã', 'Itirapuã', 'Ituverava', 'Jeriquara', 'Miguelópolis', 'Morro Agudo', 'Nuporanga', 'Orlândia', 'Passos', 'Patrocínio Paulista', 'Pedregulho', 'Peixoto', 'Pratápolis', 'Restinga', 'Ribeirão Corrente', 'Ribeirão Preto', 'Rifaina', 'Sacramento', 'Sales Oliveira', 'S. Joaquim da Barra', 'S. José da Bela Vista', 'São Tomaz de Aquino'];
 let opcGenero = ['Masculino', 'Feminino', 'Homem transgênero', 'Mulher Transgênero', 'Homem Transexual', 'Mulher Transexual', 'Não sei responder', 'Prefiro não responder', 'Outro'];
-let opcDataNascimento = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', '90', '91', '92', '93', '94', '95', '96', '97', '98', '99'];
+let opcDataNascimento = ['41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', '90', '91', '92', '93', '94', '95', '96', '97', '98', '99', '00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40'];
 let opcEstadoCivil = ['Solteiro(a)', 'Casado(a) ou União Estável', 'Separado(a), desquitado(a), divorciado(a)', 'Viúvo(a)'];
 let opcPortador = ['Nenhuma', 'Visual', 'Física', 'Auditiva', 'Autismo', 'De fala'];
 let opcConvivePort = ['Autismo', 'Síndrome de Down', 'Deficiência', 'Auditiva', 'Visual', 'De fala', 'Física', 'Não convivo ou não moro com alguém com deficiência'];
@@ -241,7 +241,6 @@ function GerarGraficoBar(variavel, opcao, Resp, num, labels, Dados, id, tipo, pe
     ChartBar(id, tipo, periodo, labels, Dados, title)
 }
 
-
 async function generateChart() {
     const file = await fetch('script/json/forms.json')
 
@@ -298,9 +297,6 @@ async function generateChart() {
         }
     }
 
-
-
-
     // 1. Qual o seu curso?
     let curso = [];
     let DadosCurso = [];
@@ -354,29 +350,21 @@ async function generateChart() {
     let DadosDataNascimento = [];
     let labelsDataNascimento = [];
     let AnoNascimento = [];
-    let MatutinoDataNascimento = [];
-    let NoturnoDataNascimento = [];
+    let Nascimento = [];
 
     for (let i = 0; i < respostas[8].length; i++) {
-        AnoNascimento[i] = (respostas[8][i].split('/'))
-    }
-
-    for (let i = 0; i < respMatutino[8].length; i++) {
-        MatutinoDataNascimento[i] = (respMatutino[8][i].split('/'))
-    }
-
-    for (let i = 0; i < respNoturno[8].length; i++) {
-        NoturnoDataNascimento[i] = (respNoturno[8][i].split('/'))
+        Nascimento[i] = (respostas[8][i].split('/'))
+        AnoNascimento[i] = Nascimento[i][2]
     }
 
     for (let i = 0; i < opcDataNascimento.length; i++) {
         DataNascimento[i] = new Array()
     }
 
-    for (j = 0; j < DataNascimento.length; j++) {
-        for (k = 0; k < DataNascimento.length; k++) {
-            if (AnoNascimento[j] === opcDataNascimento[j][2]) {
-                DataNascimento[j].push(opcDataNascimento[j][2])
+    for (j = 0; j < opcDataNascimento.length; j++) {
+        for (k = 0; k < Nascimento.length; k++) {
+            if (AnoNascimento[k] === opcDataNascimento[j]) {
+                DataNascimento[j].push(AnoNascimento[k])
             }
         }
         if (DataNascimento[j].length > 0) {
@@ -386,30 +374,25 @@ async function generateChart() {
 
     for (j = 0; j < 1; j++) {
         for (k = 0; k < opcDataNascimento.length; k++) {
-            if (AnoNascimento[k] != undefined) {
-                labelsDataNascimento.push(AnoNascimento[k][2])
+            if (DataNascimento[k][j] != undefined) {
+                labelsDataNascimento.push(DataNascimento[k][j])
             }
             if (labelsDataNascimento[k] >= 00 && labelsDataNascimento[k] <= 40) {
                 labelsDataNascimento[k] = '20' + labelsDataNascimento[k]
-            } else if (labelsDataNascimento[k] >= 41 && labelsDataNascimento[k] <= 99){
+            } else if (labelsDataNascimento[k] >= 41 && labelsDataNascimento[k] <= 99) {
                 labelsDataNascimento[k] = '19' + labelsDataNascimento[k]
             }
         }
     }
+
+    ChartBar('DataNascimento', 'bar', 'Geral', labelsDataNascimento, DadosDataNascimento, 'Datas de Nascimento(Em Anos)');
 
     console.log('label', labelsDataNascimento)
     console.log('Dados', DadosDataNascimento)
     console.log('Data', DataNascimento)
     console.log('opcData', opcDataNascimento)
     console.log('AnoNascimento', AnoNascimento)
-
-    ChartBar('DataNascimento', 'bar', 'Geral', labelsDataNascimento, DadosDataNascimento, 'Datas de Nascimento(Em Anos)')
-    /*console.log(opcDataNascimento)
-    console.log(opcDataNascimento[0][2])
-    console.log(opcMatutinoDataNascimento)
-    console.log(opcNoturnoDataNascimento)*/
-
-    //GerarGraficoBar(DataNascimento, opcDataNascimento, opcDataNascimento, 8, labelsDataNascimento, DadosDataNasciemnto, 'DataNascimento','bar', 'Geral', 'Datas de Nascimento(Em Anos)')
+    console.log('Nascimento', Nascimento)
 
     // 8 - Estado Civil
     let estadoCivil = [];
@@ -826,28 +809,28 @@ async function generateChart() {
     let DadosConheceuFatec = [];
     let labelsConheceuFatec = [];
 
-    GerarGraficoBar(ConheceuFatec, opcConheceuFatec, respostas, 65, labelsConheceuFatec, DadosConheceuFatec, 'Conheceu_Fatec', 'horizontalBar', 'Geral', 'Como conheceu a FATEC Franca?')
+    GerarGraficoBar(ConheceuFatec, opcConheceuFatec, respostas, 65, labelsConheceuFatec, DadosConheceuFatec, 'Conheceu_Fatec', 'horizontalBar', 'Geral', 'Como conheceu a FATEC Franca?');
 
     // 36. Porque você escolheu este curso?
     let EscolheuCurso = [];
     let DadosEscolheuCurso = [];
     let labelsEscolheuCurso = [];
 
-    GerarGraficoBar(EscolheuCurso, opcEscolheuCurso, respostas, 66, labelsEscolheuCurso, DadosEscolheuCurso, 'Escolheu_Curso', 'horizontalBar', 'Geral', 'Porque você escolheu este curso?')
+    GerarGraficoBar(EscolheuCurso, opcEscolheuCurso, respostas, 66, labelsEscolheuCurso, DadosEscolheuCurso, 'Escolheu_Curso', 'horizontalBar', 'Geral', 'Porque você escolheu este curso?');
 
     // 37. Qual sua maior expectativa quanto ao curso?
     let ExpectativaCurso = [];
     let DadosExpectativaCurso = [];
     let labelsExpectativaCurso = [];
 
-    GerarGraficoBar(ExpectativaCurso, opcExpectativa, respostas, 67, labelsExpectativaCurso, DadosExpectativaCurso, 'Expectativa_Curso', 'horizontalBar', 'Geral', 'Qual sua maior expectativa quanto ao curso?')
+    GerarGraficoBar(ExpectativaCurso, opcExpectativa, respostas, 67, labelsExpectativaCurso, DadosExpectativaCurso, 'Expectativa_Curso', 'horizontalBar', 'Geral', 'Qual sua maior expectativa quanto ao curso?');
 
     // 38. Qual sua expectativa após se formar?
     let ExpectativaFormar = [];
     let DadosExpectativaFormar = [];
     let labelsExpectativaFormar = [];
 
-    GerarGraficoBar(ExpectativaFormar, opcFormar, respostas, 68, labelsExpectativaFormar, DadosExpectativaFormar, 'Expectativa_Formar', 'horizontalBar', 'Geral', 'Qual sua expectativa após se formar?')
+    GerarGraficoBar(ExpectativaFormar, opcFormar, respostas, 68, labelsExpectativaFormar, DadosExpectativaFormar, 'Expectativa_Formar', 'horizontalBar', 'Geral', 'Qual sua expectativa após se formar?');
 
     //39. Você já estudou nesta escola?
     let estudouNaFatec = [];
@@ -987,26 +970,46 @@ function Matutino() {
         GerarGraficoPie(genero, opcGenero, respMatutino, 7, labelsGenero, DadosGenero, 'Matutino_Genero', 'Gênero');
 
         // 7 - Data Nascimento
-        /*let k = 3
-        let data = ""
-        console.log(respMatutino[8][k])
-        for (let j = 0; j < 2; j++) {
-            //data += respMatutino[8][k][respMatutino[8][k].length - 2] + respMatutino[8][k][respMatutino[8][k].length - 1]
-            data += respMatutino[8][k][respMatutino[8][k].length - 2 + j]
-    
-        }
-        if (data[0] === "0") {
-            console.log("20" + data)
-        } else {
-            console.log(Number("19" + data))
-        }
-    */
         let DataNascimento = [];
-        let DadosDataNasciemnto = [];
+        let DadosDataNascimento = [];
         let labelsDataNascimento = [];
+        let MatutinoDataNascimento = [];
+        let MatutinoAnoNascimento = [];
 
-        //*ChartBar('DataNascimento', 'bar', 'Geral', labelsDataNascimento, DadosDataNascimento, 'Datas de Nascimento(Em Anos)')
+        for (let i = 0; i < respMatutino[8].length; i++) {
+            MatutinoDataNascimento[i] = (respMatutino[8][i].split('/'))
+            MatutinoAnoNascimento[i] = MatutinoDataNascimento[i][2]
+        }
 
+        for (let i = 0; i < opcDataNascimento.length; i++) {
+            DataNascimento[i] = new Array()
+        }
+
+        for (j = 0; j < opcDataNascimento.length; j++) {
+            for (k = 0; k < MatutinoDataNascimento.length; k++) {
+                if (MatutinoAnoNascimento[k] === opcDataNascimento[j]) {
+                    DataNascimento[j].push(MatutinoAnoNascimento[k])
+                }
+            }
+            if (DataNascimento[j].length > 0) {
+                DadosDataNascimento.push(DataNascimento[j].length)
+            }
+        }
+
+        for (j = 0; j < 1; j++) {
+            for (k = 0; k < opcDataNascimento.length; k++) {
+                if (DataNascimento[k][j] != undefined) {
+                    labelsDataNascimento.push(DataNascimento[k][j])
+                }
+                if (labelsDataNascimento[k] >= 00 && labelsDataNascimento[k] <= 40) {
+                    labelsDataNascimento[k] = '20' + labelsDataNascimento[k]
+                } else if (labelsDataNascimento[k] >= 41 && labelsDataNascimento[k] <= 99) {
+                    labelsDataNascimento[k] = '19' + labelsDataNascimento[k]
+                }
+            }
+        }
+
+        ChartBar('Matutino_DataNascimento', 'bar', 'Matutino', labelsDataNascimento, DadosDataNascimento, 'Datas de Nascimento(Em Anos)');
 
         // 8 - Estado Civil
         let estadoCivil = [];
@@ -1582,25 +1585,46 @@ function Noturno() {
         GerarGraficoPie(genero, opcGenero, respNoturno, 7, labelsGenero, DadosGenero, 'Noturno_Genero', 'Gênero');
 
         // 7 - Data Nascimento
-        /*let k = 3
-        let data = ""
-        console.log(respNoturno[8][k])
-        for (let j = 0; j < 2; j++) {
-            //data += respNoturno[8][k][respNoturno[8][k].length - 2] + respNoturno[8][k][respNoturno[8][k].length - 1]
-            data += respNoturno[8][k][respNoturno[8][k].length - 2 + j]
-    
-        }
-        if (data[0] === "0") {
-            console.log("20" + data)
-        } else {
-            console.log(Number("19" + data))
-        }
-    
         let DataNascimento = [];
-        let DadosDataNasciemnto = [];
+        let DadosDataNascimento = [];
         let labelsDataNascimento = [];
-    
-        GerarGraficoBar(DataNascimento, opcDataNascimento, respNoturno, 8, labelsDataNascimento, DadosDataNasciemnto, 'DataNascimento', 'Datas de Nascimento(Em Anos)')*/
+        let NoturnoDataNascimento = [];
+        let NoturnoAnoNascimento = [];
+
+        for (let i = 0; i < respNoturno[8].length; i++) {
+            NoturnoDataNascimento[i] = (respNoturno[8][i].split('/'))
+            NoturnoAnoNascimento[i] = NoturnoDataNascimento[i][2]
+        }
+
+        for (let i = 0; i < opcDataNascimento.length; i++) {
+            DataNascimento[i] = new Array()
+        }
+
+        for (j = 0; j < opcDataNascimento.length; j++) {
+            for (k = 0; k < NoturnoDataNascimento.length; k++) {
+                if (NoturnoAnoNascimento[k] === opcDataNascimento[j]) {
+                    DataNascimento[j].push(NoturnoAnoNascimento[k])
+                }
+            }
+            if (DataNascimento[j].length > 0) {
+                DadosDataNascimento.push(DataNascimento[j].length)
+            }
+        }
+
+        for (j = 0; j < 1; j++) {
+            for (k = 0; k < opcDataNascimento.length; k++) {
+                if (DataNascimento[k][j] != undefined) {
+                    labelsDataNascimento.push(DataNascimento[k][j])
+                }
+                if (labelsDataNascimento[k] >= 00 && labelsDataNascimento[k] <= 40) {
+                    labelsDataNascimento[k] = '20' + labelsDataNascimento[k]
+                } else if (labelsDataNascimento[k] >= 41 && labelsDataNascimento[k] <= 99) {
+                    labelsDataNascimento[k] = '19' + labelsDataNascimento[k]
+                }
+            }
+        }
+
+        ChartBar('Noturno_DataNascimento', 'bar', 'Noturno', labelsDataNascimento, DadosDataNascimento, 'Datas de Nascimento(Em Anos)');
 
         // 8 - Estado Civil
         let estadoCivil = [];
