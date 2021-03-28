@@ -3,37 +3,85 @@ async function generateChart() {
 
     const json = await file.json()
     const forms = json.forms
-
-    let Solteiro = 0;
-    let Casado = 0;
-    let Separado = 0;
-    let Viuvo = 0;
     let i = 0;
-    let tempoMoradia = [];
+    let questoes
+
+    // Pegar todas as questões
     for (quest of forms) {
-        /*if (forms[i]["8. Qual é o seu estado civil?"] == 'Solteiro(a)') {
-            Solteiro++
-        } else if (forms[i]["8. Qual é o seu estado civil?"] == "Casado(a) ou União Estável") {
-            Casado++
-        } else if (forms[i]["8. Qual é o seu estado civil?"] == "Separado(a), desquitado(a), divorciado(a)") {
-            Separado++
-        } else if (forms[i]["8. Qual é o seu estado civil?"] == "Viúvo(a)") {
-            Viuvo++
-        }*/
-
-        tempoMoradia[i] = forms[i]['15. Tempo de moradia neste domicílio (Em anos)']
-
-        console.log(tempoMoradia[i])
-
-
+        questoes = Object.getOwnPropertyNames(quest)
         i++
     }
 
-    /*/console.log(Solteiro)
-    console.log(Casado)
-    console.log(Separado)
-    console.log(Viuvo)*/
-    
+    // Pegas as questões so com respostas do noturno
+    let Noturno = forms.filter(function (periodo) {
+        return periodo[questoes[3]] === 'Noturno'
+    })
+
+    // Pegas as questões so com respostas do matutino
+    let Matutino = forms.filter(function (periodo) {
+        return periodo[questoes[3]] === 'Matutino'
+    })
+
+    let respostas = new Array(questoes.length)
+    let respMatutino = new Array(Matutino.length)
+    let respNoturno = new Array(Noturno.length)
+
+    for (let j = 0; j < questoes.length; j++) {
+        respMatutino[j] = new Array(Matutino.length)
+        respNoturno[j] = new Array(Noturno.length)
+        respostas[j] = new Array(forms.length)
+    }
+
+    // Array com todas as questões
+    for (let k = 0; k < forms.length; k++) {
+        for (let j = 0; j < questoes.length; j++) {
+            respostas[j][k] = forms[k][questoes[j]]
+        }
+    }
+
+    // Array com todas as questões Matutino
+    for (let k = 0; k < Matutino.length; k++) {
+        for (let j = 0; j < questoes.length; j++) {
+            respMatutino[j][k] = Matutino[k][questoes[j]]
+        }
+    }
+
+    // Array com todas as questões Noturno
+    for (let k = 0; k < Noturno.length; k++) {
+        for (let j = 0; j < questoes.length; j++) {
+            respNoturno[j][k] = Noturno[k][questoes[j]]
+        }
+    }
+
+    let data = [];
+
+    //for (quest of forms) {
+    // 7 - Data Nascimento
+    /*let k = 3
+    let data = ""
+    console.log(respostas[8][k])
+    for (let j = 0; j < 2; j++) {
+        //data += respostas[8][k][respostas[8][k].length - 2] + respostas[8][k][respostas[8][k].length - 1]
+        data += respostas[8][k][respostas[8][k].length - 2 + j]
+
+    }
+    if (data[0] === "0") {
+        console.log("20" + data)
+    } else {
+        console.log(Number("19" + data))
+    }
+
+    let DataNascimento = [];
+    let DadosDataNasciemnto = [];
+    let labelsDataNascimento = [];*/
+    console.log(respostas[8])
+    for (let i = 0; i < respostas[8].length; i++) {
+        data[i] =(respostas[8][i].split('/'))
+    }
+    console.log('Data',data)
+    console.log('Data posção 0',data[0][2])
+
+
 }
 
 generateChart()

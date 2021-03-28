@@ -3,7 +3,7 @@ let opcPeriodo = ['Matutino', 'Noturno'];
 let opcEstado = ['Acre (AC)', 'Alagoas (AL)', 'Amapá (AP)', 'Amazonas (AM)', 'Bahia (BA)', 'Ceará (CE)', 'Distrito Federal (DF)', 'Espírito Santo (ES)', 'Goiás (GO)', 'Maranhão (MA)', 'Mato Grosso (MT)', 'Mato Grosso do Sul (MS)', 'Minas Gerais (MG)', 'Paraná (PR)', 'Paraíba (PB)', 'Pará (PA)', 'Pernambuco (PE)', 'Piauí (PI)', 'Rio de Janeiro (RJ)', 'Rio Grande do Norte (RN)', 'Rio Grande do Sul (RS)', 'Rondônia (RO)', 'Roraima (RR)', 'Santa Catarina (SC)', 'Sergipe (SE)', 'São Paulo (SP)', 'Tocantins (TO)'];
 let opcCidade = ['Batatais', 'Buritizal', 'Capetinga', 'Cássia', 'Claraval', 'Cristais Paulista', 'Delfinópolis', 'Estreito', 'Franca', 'Guaíra', 'Guará', 'Ibiraci', 'Igarapava', 'Ipuã', 'Itirapuã', 'Ituverava', 'Jeriquara', 'Miguelópolis', 'Morro Agudo', 'Nuporanga', 'Orlândia', 'Passos', 'Patrocínio Paulista', 'Pedregulho', 'Peixoto', 'Pratápolis', 'Restinga', 'Ribeirão Corrente', 'Ribeirão Preto', 'Rifaina', 'Sacramento', 'Sales Oliveira', 'S. Joaquim da Barra', 'S. José da Bela Vista', 'São Tomaz de Aquino'];
 let opcGenero = ['Masculino', 'Feminino', 'Homem transgênero', 'Mulher Transgênero', 'Homem Transexual', 'Mulher Transexual', 'Não sei responder', 'Prefiro não responder', 'Outro'];
-let opcDataNascimento = [];
+let opcDataNascimento = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', '90', '91', '92', '93', '94', '95', '96', '97', '98', '99'];
 let opcEstadoCivil = ['Solteiro(a)', 'Casado(a) ou União Estável', 'Separado(a), desquitado(a), divorciado(a)', 'Viúvo(a)'];
 let opcPortador = ['Nenhuma', 'Visual', 'Física', 'Auditiva', 'Autismo', 'De fala'];
 let opcConvivePort = ['Autismo', 'Síndrome de Down', 'Deficiência', 'Auditiva', 'Visual', 'De fala', 'Física', 'Não convivo ou não moro com alguém com deficiência'];
@@ -11,7 +11,7 @@ let opcQtdFilhos = ['Nenhum', 'Um', 'Dois', 'Três', 'Quatro', 'Mais de quatro']
 let opcMoraCom = ['Com pais e(ou) parentes', 'Com esposa(o) e(ou) filho(s)', 'Com amigos (compartilhando despesas) ou de favor', 'Sozinho'];
 let opcQtdMoradores = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
 let opcSituacaoDomi = ['Próprio', 'Alugado', 'Cedido', 'Financiado', 'Arrendado', 'Mensalista'];
-let opcTempoMoradia = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '55', '55', '56', '57', '58', '59', '60', '61', '62', '63', '66', '65', '66', '67', '68', '69', '70']
+let opcTempoMoradia = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70']
 let opcRendaMensal = ['Até dois salários mínimos', 'Mais de dois até cinco salários mínimos', 'Mais de cinco até dez salários mínimos', 'Mais de dez até vinte salários mínimos', 'Mais de vinte salários mínimos', 'Prefiro não responder'];
 let opc17QtdeCadaCoisa = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']; // Para todas as questões dentro da questão 17
 let opcTemNoDomicilio = ['Telefone fixo', 'Internet', 'Tv por assinatura', 'Empregada mensalista', 'Nenhuma das opções acima', 'Telefone fixo, Internet', 'Telefone fixo, Internet, Tv por assinatura', 'Telefone fixo, Internet, Tv por assinatura, Empregada mensalista', 'Internet, Tv por assinatura, Empregada mensalista', 'Internet, Tv por assinatura', 'Internet, Empregada mensalista', 'Telefone fixo, Tv por assinatura', 'Telefone fixo, Empregada mensalista'];
@@ -42,15 +42,6 @@ let opcFormar = ['Conquistar vaga em empresa privada', 'Prestar concurso públic
 let opcEstudoNaEscola = ['Sim', 'Não'];
 let opcCursoTecnico = ['Não fiz', 'Sim, em uma ETEC', 'Sim, no SENAC', 'Sim, no SENAI', 'Sim, em outra instituição']
 let opcTransporte = ['Caminhando', 'Carona', 'Bicicleta', 'Moto', 'Carro', 'Ônibus', 'Transporte escolar']
-
-let DivGeral = ["curso", "periodo", "estado", "cidade", "moram_com", "QTD_de_pessoas_moram_junto", "situacao_domicilio", "tempo_moradia", "genero", "estado_civil", "Portador_de_Necessidade", "convive_com_portador", "qtd_de_filhos", "salario_min", "DataNascimento", "Oque_tem_No_Domicilio", "qtd_geladeira", "qtd_celular_comum", "qtd_micro_ondas", "qtd_notebooks", "qtd_Maquina_de_Lavar", "qtd_motocicletas", "qtd_Automoveis", "qtd_DVD", "qtd_TV", "qtd_Smartphones", "Plano_Saude", "Religiao", "Trabalho", "Vinculo_Emprego", "Area_trabalho", "Horario_Trabalho", "Escolaridade_Pai", "Escolaridade_Mae", "Estudou_Em", "Ingles", "Espanhol", "Outros", "Estudou_Fatec", "Curso_Tecnico", "Frequencia_Microcomputadores", "Onde_Microcomputadores", "Finalidade_Microcomputadores", "Conhecimento_Informatica", "Conhecimento_Windows", "Conhecimento_Linux", "Conhecimento_Word", "Conhecimento_Excel", "Conhecimento_PowerPoint", "Conhecimento_GestaoEmpresarial", "Televisores", "Internet", "Revistas", "Jornais", "Radio", "Redes_Sociais", "Conversas_com_Amigos", "Le_Jornal", "Qtd_Livros", "Assuntos_que_Le", "Le_Livros", "Fontes_Entretenimento", "Atividade_Voluntaria", "Transporte", "Conheceu_Fatec", "Escolheu_Curso", "Expectativa_Curso", "Expectativa_Formar"];
-let DivNoturno = ["Noturno_curso", "Noturno_Periodo", "Noturno_Estado", "Noturno_Cidade", "Noturno_Moram_com", "Noturno_QTD_de_pessoas_moram_junto", "Noturno_Situacao_domicilio", "Noturno_Tempo_moradia", "Noturno_Genero", "Noturno_Estado_civil", "Noturno_Portador_de_Necessidade", "Noturno_Convive_com_portador", "Noturno_Qtd_de_filhos", "Noturno_Salario_min", "Noturno_DataNascimento", "Noturno_Oque_tem_No_Domicilio", "Noturno_Qtd_geladeira", "Noturno_Qtd_celular_comum", "Noturno_Qtd_micro_ondas", "Noturno_Qtd_notebooks", "Noturno_Qtd_Maquina_de_Lavar", "Noturno_Qtd_motocicletas", "Noturno_Qtd_Automoveis", "Noturno_Qtd_DVD", "Noturno_Qtd_TV", "Noturno_Qtd_Smartphones", "Noturno_Plano_Saude", "Noturno_Religiao", "Noturno_Trabalho", "Noturno_Vinculo_Emprego", "Noturno_Area_trabalho", "Noturno_Horario_Trabalho", "Noturno_Escolaridade_Pai", "Noturno_Escolaridade_Mae", "Noturno_Estudou_Em", "Noturno_Ingles", "Noturno_Espanhol", "Noturno_Outros", "Noturno_Estudou_Fatec", "Noturno_Curso_Tecnico", "Noturno_Frequencia_Microcomputadores", "Noturno_Onde_Microcomputadores", "Noturno_Finalidade_Microcomputadores", "Noturno_Conhecimento_Informatica", "Noturno_Conhecimento_Windows", "Noturno_Conhecimento_Linux", "Noturno_Conhecimento_Word", "Noturno_Conhecimento_Excel", "Noturno_Conhecimento_PowerPoint", "Noturno_Conhecimento_GestaoEmpresarial", "Noturno_Televisores", "Noturno_Internet", "Noturno_Revistas", "Noturno_Jornais", "Noturno_Radio", "Noturno_Redes_Sociais", "Noturno_Conversas_com_Amigos", "Noturno_Le_Jornal", "Noturno_Qtd_Livros", "Noturno_Assuntos_que_Le", "Noturno_Le_Livros", "Noturno_Fontes_Entretenimento", "Noturno_Atividade_Voluntaria", "Noturno_Transporte", "Noturno_Conheceu_Fatec", "Noturno_Escolheu_Curso", "Noturno_Expectativa_Curso", "Noturno_Expectativa_Formar"];
-let DivMatutino = ["Matutino_curso", "Matutino_Periodo", "Matutino_Estado", "Matutino_Cidade", "Matutino_Moram_com", "Matutino_QTD_de_pessoas_moram_junto", "Matutino_Situacao_domicilio", "Matutino_Tempo_moradia", "Matutino_Genero", "Matutino_Estado_civil", "Matutino_Portador_de_Necessidade", "Matutino_Convive_com_portador", "Matutino_Qtd_de_filhos", "Matutino_Salario_min", "Matutino_DataNascimento", "Matutino_Oque_tem_No_Domicilio", "Matutino_Qtd_geladeira", "Matutino_Qtd_celular_comum", "Matutino_Qtd_micro_ondas", "Matutino_Qtd_notebooks", "Matutino_Qtd_Maquina_de_Lavar", "Matutino_Qtd_motocicletas", "Matutino_Qtd_Automoveis", "Matutino_Qtd_DVD", "Matutino_Qtd_TV", "Matutino_Qtd_Smartphones", "Matutino_Plano_Saude", "Matutino_Religiao", "Matutino_Trabalho", "Matutino_Vinculo_Emprego", "Matutino_Area_trabalho", "Matutino_Horario_Trabalho", "Matutino_Escolaridade_Pai", "Matutino_Escolaridade_Mae", "Matutino_Estudou_Em", "Matutino_Ingles", "Matutino_Espanhol", "Matutino_Outros", "Matutino_Estudou_Fatec", "Matutino_Curso_Tecnico", "Matutino_Frequencia_Microcomputadores", "Matutino_Onde_Microcomputadores", "Matutino_Finalidade_Microcomputadores", "Matutino_Conhecimento_Informatica", "Matutino_Conhecimento_Windows", "Matutino_Conhecimento_Linux", "Matutino_Conhecimento_Word", "Matutino_Conhecimento_Excel", "Matutino_Conhecimento_PowerPoint", "Matutino_Conhecimento_GestaoEmpresarial", "Matutino_Televisores", "Matutino_Internet", "Matutino_Revistas", "Matutino_Jornais", "Matutino_Radio", "Matutino_Redes_Sociais", "Matutino_Conversas_com_Amigos", "Matutino_Le_Jornal", "Matutino_Qtd_Livros", "Matutino_Assuntos_que_Le", "Matutino_Le_Livros", "Matutino_Fontes_Entretenimento", "Matutino_Atividade_Voluntaria", "Matutino_Transporte", "Matutino_Conheceu_Fatec", "Matutino_Escolheu_Curso", "Matutino_Expectativa_Curso", "Matutino_Expectativa_Formar"];
-
-console.log('DivGeral', DivGeral)
-console.log('DivMatutino', DivMatutino)
-console.log('DivNoturno', DivNoturno)
-
 
 // Criar Grafico de Pizza
 function ChartPie(id, labels, dados, title) {
@@ -359,25 +350,66 @@ async function generateChart() {
     GerarGraficoPie(genero, opcGenero, respostas, 7, labelsGenero, DadosGenero, 'genero', 'Gênero');
 
     // 7 - Data Nascimento
-    /*let k = 3
-    let data = ""
-    console.log(respostas[8][k])
-    for (let j = 0; j < 2; j++) {
-        //data += respostas[8][k][respostas[8][k].length - 2] + respostas[8][k][respostas[8][k].length - 1]
-        data += respostas[8][k][respostas[8][k].length - 2 + j]
-
-    }
-    if (data[0] === "0") {
-        console.log("20" + data)
-    } else {
-        console.log(Number("19" + data))
-    }
-
     let DataNascimento = [];
-    let DadosDataNasciemnto = [];
+    let DadosDataNascimento = [];
     let labelsDataNascimento = [];
+    let AnoNascimento = [];
+    let MatutinoDataNascimento = [];
+    let NoturnoDataNascimento = [];
 
-    GerarGraficoBar(DataNascimento, opcDataNascimento, respostas, 8, labelsDataNascimento, DadosDataNasciemnto, 'DataNascimento', 'Datas de Nascimento(Em Anos)')*/
+    for (let i = 0; i < respostas[8].length; i++) {
+        AnoNascimento[i] = (respostas[8][i].split('/'))
+    }
+
+    for (let i = 0; i < respMatutino[8].length; i++) {
+        MatutinoDataNascimento[i] = (respMatutino[8][i].split('/'))
+    }
+
+    for (let i = 0; i < respNoturno[8].length; i++) {
+        NoturnoDataNascimento[i] = (respNoturno[8][i].split('/'))
+    }
+
+    for (let i = 0; i < opcDataNascimento.length; i++) {
+        DataNascimento[i] = new Array()
+    }
+
+    for (j = 0; j < DataNascimento.length; j++) {
+        for (k = 0; k < DataNascimento.length; k++) {
+            if (AnoNascimento[j] === opcDataNascimento[j][2]) {
+                DataNascimento[j].push(opcDataNascimento[j][2])
+            }
+        }
+        if (DataNascimento[j].length > 0) {
+            DadosDataNascimento.push(DataNascimento[j].length)
+        }
+    }
+
+    for (j = 0; j < 1; j++) {
+        for (k = 0; k < opcDataNascimento.length; k++) {
+            if (AnoNascimento[k] != undefined) {
+                labelsDataNascimento.push(AnoNascimento[k][2])
+            }
+            if (labelsDataNascimento[k] >= 00 && labelsDataNascimento[k] <= 40) {
+                labelsDataNascimento[k] = '20' + labelsDataNascimento[k]
+            } else if (labelsDataNascimento[k] >= 41 && labelsDataNascimento[k] <= 99){
+                labelsDataNascimento[k] = '19' + labelsDataNascimento[k]
+            }
+        }
+    }
+
+    console.log('label', labelsDataNascimento)
+    console.log('Dados', DadosDataNascimento)
+    console.log('Data', DataNascimento)
+    console.log('opcData', opcDataNascimento)
+    console.log('AnoNascimento', AnoNascimento)
+
+    ChartBar('DataNascimento', 'bar', 'Geral', labelsDataNascimento, DadosDataNascimento, 'Datas de Nascimento(Em Anos)')
+    /*console.log(opcDataNascimento)
+    console.log(opcDataNascimento[0][2])
+    console.log(opcMatutinoDataNascimento)
+    console.log(opcNoturnoDataNascimento)*/
+
+    //GerarGraficoBar(DataNascimento, opcDataNascimento, opcDataNascimento, 8, labelsDataNascimento, DadosDataNasciemnto, 'DataNascimento','bar', 'Geral', 'Datas de Nascimento(Em Anos)')
 
     // 8 - Estado Civil
     let estadoCivil = [];
@@ -968,12 +1000,13 @@ function Matutino() {
         } else {
             console.log(Number("19" + data))
         }
-    
+    */
         let DataNascimento = [];
         let DadosDataNasciemnto = [];
         let labelsDataNascimento = [];
-    
-        GerarGraficoBar(DataNascimento, opcDataNascimento, respMatutino, 8, labelsDataNascimento, DadosDataNasciemnto, 'DataNascimento', 'Datas de Nascimento(Em Anos)')*/
+
+        //*ChartBar('DataNascimento', 'bar', 'Geral', labelsDataNascimento, DadosDataNascimento, 'Datas de Nascimento(Em Anos)')
+
 
         // 8 - Estado Civil
         let estadoCivil = [];
@@ -1436,12 +1469,12 @@ function Matutino() {
 
     }
 
-     // Esconder respostas Geral
-     document.getElementById('Geral').style.display = "none";
-     // Esconder respostas do do Matutino
-     document.getElementById('Matutino').style.display = "block";
-     // Mostrar respostas do Noturno
-     document.getElementById('Noturno').style.display = "none";
+    // Esconder respostas Geral
+    document.getElementById('Geral').style.display = "none";
+    // Esconder respostas do do Matutino
+    document.getElementById('Matutino').style.display = "block";
+    // Mostrar respostas do Noturno
+    document.getElementById('Noturno').style.display = "none";
 
     generateChart()
 
