@@ -5,7 +5,7 @@
 
 body {
     background-color: #13171F;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: monospace;
 }
 
 .header {
@@ -36,65 +36,63 @@ body {
     min-height: 100vh;
 }
 
-.filter{
-    font-size: 20px;
-    color: #BFBFBF;
-    padding: 15px;
+#container__filter {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
-
-#container_filter {
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    width: 200px;
-    height: 200px;
-    background-color: #0d1118;
-}
-
-#Manha {
-    padding: 15px;
-    border-radius: 18px;
-    outline: none;
-    border: none;
+ 
+ .filter__title {
+    margin-bottom: 0.313rem;
+    font-size: 20px;
     color: #BFBFBF;
-    background-color: #24262D;
-    margin-left: -45px;
-}
+ }
 
-#Noite {
-    padding: 15px;
-    border-radius: 18px;
-    outline: none;
+.filter__item {
+    background-color: #24262D;
     border: none;
-    color: #BFBFBF;
-    background-color: #24262D;
-}
-
-#geral {
-    padding: 15px;
-    border-radius: 18px;
     outline: none;
-    border: none;
     color: #BFBFBF;
-    background-color: #24262D;
-    margin-left: -45px;
+    padding: 0.625rem;
+    border-radius: 0.313rem;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
-#Nova_Planilha {
-    padding: 15px;
-    border-radius: 18px;
+.filter__item:hover {
+    background-color: #34363b;
+}
+
+::-webkit-file-upload-button {
+    background-color: #24262D;
+    color: #BFBFBF;
     outline: none;
+    padding: 10px;
+    border-radius: 20px;
     border: none;
-    color: #BFBFBF;
-    background-color: #24262D;
-
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
 }
+
+.New__spreadsheet {
+    color: #BFBFBF;
+    width: 18.75rem;
+}
+.planilha__icon {
+    padding-right: 1.25rem;
+    font-size: 1rem;
+    background-color: #34363b;
+    border: none;
+    outline: none;
+    color: #BFBFBF;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 18px;
+ }
 
 .main__title {
     margin-top: 60px;
     color: #BFBFBF;
-    border-left: 7px solid #961227;
     padding-left: 15px;
     font-size: 40px;
 }
@@ -102,7 +100,6 @@ body {
 .main__subtitle {
     margin-top: 60px;
     color: #BFBFBF;
-    border-left: 7px solid #961227;
     padding-left: 15px;
     font-size: 40px;
 }
@@ -111,7 +108,6 @@ body {
     margin-top: 60px;
     color: #BFBFBF;
     font-size: 40px;
-    border-left: 7px solid #961227;
     padding-left: 15px;
 }
 
@@ -443,7 +439,7 @@ body {
     border-radius: 20px;
 }
 
-#container__Religiao{
+#container__Religiao {
     margin-left: 60px;
     margin-top: 60px;
     width: 570px;
@@ -456,7 +452,6 @@ body {
     margin-top: 60px;
     color: #BFBFBF;
     font-size: 40px;
-    border-left: 7px solid #961227;
     padding-left: 15px;
 }
 
@@ -521,34 +516,10 @@ body {
     margin-top: 50px;
 }
 
-.thead__row {
-    text-align: center;
-}
-
-thead {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.main__container::-webkit-scrollbar-track {
-    background-color: rgb(68, 68, 68);
-}
-
-.main__container::-webkit-scrollbar {
-    width: 6px;
-    background-color: rgb(68, 68, 68);
-}
-
-.main__container::-webkit-scrollbar-thumb {
-    background-color: #961227;
-    border-radius: 5px;
-}
-
 .main__Estudos {
     margin-top: 60px;
     color: #BFBFBF;
     font-size: 40px;
-    border-left: 7px solid #961227;
     padding-left: 15px;
 }
 
@@ -602,7 +573,7 @@ thead {
     border-radius: 20px;
 }
 
-#container__Espanhol{
+#container__Espanhol {
     margin-left: 60px;
     margin-top: 60px;
     width: 570px;
@@ -649,7 +620,6 @@ thead {
     margin-top: 60px;
     color: #BFBFBF;
     font-size: 40px;
-    border-left: 7px solid #961227;
     padding-left: 15px;
 }
 
@@ -781,7 +751,6 @@ thead {
 .main__Leitura {
     margin-top: 60px;
     color: #BFBFBF;
-    border-left: 7px solid #961227;
     padding-left: 15px;
     font-size: 40px;
 }
@@ -879,7 +848,7 @@ thead {
     border-radius: 20px;
 }
 
-#container__Qtd_Livros{
+#container__Qtd_Livros {
     margin-left: 60px;
     margin-top: 60px;
     width: 570px;
@@ -911,7 +880,7 @@ thead {
     margin-top: -60px;
 }
 
-#container__Le_Livros{
+#container__Le_Livros {
     margin-left: -20px;
     margin-top: 60px;
     width: 1840px;
@@ -939,7 +908,6 @@ thead {
 .main__Informacoes_Extras {
     margin-top: 60px;
     color: #BFBFBF;
-    border-left: 7px solid #961227;
     padding-left: 15px;
     font-size: 40px;
 }
@@ -960,7 +928,7 @@ thead {
     border-radius: 20px;
 }
 
-#container__Transporte  {
+#container__Transporte {
     margin-left: 60px;
     margin-top: 120px;
     width: 570px;

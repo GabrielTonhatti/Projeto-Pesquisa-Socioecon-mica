@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquisa Socioeconômica </title>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
-
     <link rel='stylesheet' href="style/index.css" />
     <link rel="icon" href="img/Logo.png" />
 
@@ -22,33 +20,25 @@
     </header>
     <main class="main">
 
-        <div class="filter">
-            <div id="container_filter">
-                <p> Filtros: </p>
-                <button id="Manha" type='button' onclick="Matutino()"> Matutino </button>
-                <button id="Noite" type='button' onclick="Noturno()"> Noturno </button>
-                <button id="geral" type='button' onclick="Geral()"> Todas as turmas </button>
+        <div id="container__filter">
+            <div class="filtro">
+                <div class="filter__title"> <i class="fas fa-sort"></i> Filtros: </div>
+                <button class="filter__item" type='button' onclick="Matutino()"> Matutino </button>
+                <button class="filter__item" type='button' onclick="Noturno()"> Noturno </button>
+                <button class="filter__item" type='button' onclick="Geral()"> Todas as turmas </button>
+            </div>
+
+            <div class="New__Planing">
+                <div class="filter__title"> <i class="fas fa-file-upload"></i> Nova Planilha XLSX: </div>
+                <form enctype="multipart/form-data">
+                    <input id="upload" class="planilha__icon" type="file" name="files[]" />
+                </form>
             </div>
         </div>
 
-        <div class="conatiner mt-5">
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-3">
-                    <input class="form-control" type="file" id="input" accept=".xls,.xlsx">
-                </div>
-                <div class="col-md-2">
-                    <button class="btn btn-primary" id="button">Convert</button>
-                </div>
-                <div class="col-md-12">
-                    <pre id="jsondata"></pre>
-                </div>
-            </div>
-        </div>
-        <button type='button' id="Nova_Planilha" onclick="NewPlanin()"> Adicionar Planilha: </button>
 
         <div id='Geral'>
-            <h1 class="main__title"> Cursos: </h1>
+            <h1 class="main__title"> <i class="fas fa-university"></i> Cursos: </h1>
             <div class="curso">
                 <div id='container__curso'>
                     <canvas id="curso"></canvas>
@@ -58,7 +48,7 @@
                 </div>
             </div>
 
-            <h2 class="main__subtitle"> Moradias: </h2>
+            <h2 class="main__subtitle"><i class="fas fa-home"></i> Moradias: </h2>
 
             <div class="moradia">
                 <div id='container__estado'>
@@ -87,7 +77,7 @@
                 </div>
             </div>
 
-            <h2 class="main__dadosPessoais"> Dados Pessoais: </h2>
+            <h2 class="main__dadosPessoais"> <i class="fas fa-address-card"></i> Dados Pessoais: </h2>
 
             <div class="Dados_Pessoais">
                 <div id='container__genero'>
@@ -170,7 +160,7 @@
                 </div>
             </div>
 
-            <h2 class="main__trabalho"> Trabalho: </h2>
+            <h2 class="main__trabalho"> <i class="fas fa-briefcase"></i> Trabalho: </h2>
 
             <div class="Trabalho">
                 <div id='container__Trabalho'>
@@ -188,15 +178,9 @@
                 <div id='container__Horario_Trabalho'>
                     <canvas id='Horario_Trabalho'></canvas>>
                 </div>
-                <div class="main__container">
-                    <table class="table">
-                        <thead id="thead"></thead>
-                        <tbody id="tbody"></tbody>
-                    </table>
-                </div>
             </div>
 
-            <h2 class="main__Estudos"> Estudos: </h2>
+            <h2 class="main__Estudos"> <i class="fas fa-book"></i> Estudos: </h2>
 
             <div class="Escolaridade">
                 <div id='container__Escolaridade_Pai'>
@@ -231,7 +215,7 @@
                 </div>
             </div>
 
-            <h3 class="main__Informatica"> Informática: </h3>
+            <h3 class="main__Informatica"> <i class="fas fa-laptop"></i> Informática: </h3>
 
             <div class="Informatica">
                 <div id='container__Frequencia_Microcomputadores'>
@@ -277,7 +261,7 @@
                 </div>
             </div>
 
-            <h2 class="main__Leitura"> Leitura: </h2>
+            <h2 class="main__Leitura"> <i class="fas fa-book-open"></i> Leitura: </h2>
 
             <div class="Leitura">
                 <div id='container__Televisores'>
@@ -331,7 +315,7 @@
                 </div>
             </div>
 
-            <h2 class="main__Informacoes_Extras"> Informacões Extras: </h2>
+            <h2 class="main__Informacoes_Extras"> <i class="fas fa-info-circle"></i> Informacões Extras: </h2>
 
             <div class="Informacoes_Extras">
                 <div id='container__Atividade_Voluntaria'>
@@ -369,7 +353,7 @@
         </div>
 
         <div id="Matutino">
-            <h1 class="main__title"> Cursos: </h1>
+            <h1 class="main__title"> <i class="fas fa-university"> </i> Cursos: </h1>
             <div class="curso">
                 <div id='container__curso'>
                     <canvas id="Matutino_curso"></canvas>
@@ -379,7 +363,7 @@
                 </div>
             </div>
 
-            <h2 class="main__subtitle"> Moradias: </h2>
+            <h2 class="main__subtitle"> <i class="fas fa-home"></i> Moradias: </h2>
 
             <div class="moradia">
                 <div id='container__estado'>
@@ -408,7 +392,7 @@
                 </div>
             </div>
 
-            <h2 class="main__dadosPessoais"> Dados Pessoais: </h2>
+            <h2 class="main__dadosPessoais"> <i class="fas fa-address-card"></i> Dados Pessoais: </h2>
 
             <div class="Dados_Pessoais">
                 <div id='container__genero'>
@@ -491,7 +475,7 @@
                 </div>
             </div>
 
-            <h2 class="main__trabalho"> Trabalho: </h2>
+            <h2 class="main__trabalho"> <i class="fas fa-briefcase"></i> Trabalho: </h2>
 
             <div class="Trabalho">
                 <div id='container__Trabalho'>
@@ -509,15 +493,9 @@
                 <div id='container__Horario_Trabalho'>
                     <canvas id='Matutino_Horario_Trabalho'></canvas>
                 </div>
-                <div class="main__container">
-                    <table class="table">
-                        <thead id="thead"></thead>
-                        <tbody id="tbody"></tbody>
-                    </table>
-                </div>
             </div>
 
-            <h2 class="main__Estudos"> Estudos: </h2>
+            <h2 class="main__Estudos"> <i class="fas fa-book"></i> Estudos: </h2>
 
             <div class="Escolaridade">
                 <div id='container__Escolaridade_Pai'>
@@ -552,7 +530,7 @@
                 </div>
             </div>
 
-            <h3 class="main__Informatica"> Informática: </h3>
+            <h3 class="main__Informatica"> <i class="fas fa-laptop"></i> Informática: </h3>
 
             <div class="Informatica">
                 <div id='container__Frequencia_Microcomputadores'>
@@ -598,7 +576,7 @@
                 </div>
             </div>
 
-            <h2 class="main__Leitura"> Leitura: </h2>
+            <h2 class="main__Leitura"> <i class="fas fa-book-open"></i> Leitura: </h2>
 
             <div class="Leitura">
                 <div id='container__Televisores'>
@@ -652,7 +630,7 @@
                 </div>
             </div>
 
-            <h2 class="main__Informacoes_Extras"> Informacões Extras: </h2>
+            <h2 class="main__Informacoes_Extras"><i class="fas fa-info-circle"></i> Informacões Extras: </h2>
 
             <div class="Informacoes_Extras">
                 <div id='container__Atividade_Voluntaria'>
@@ -690,17 +668,17 @@
         </div>
 
         <div id='Noturno'>
-            <h1 class="main__title"> Cursos: </h1>
+            <h1 class="main__title"> <i class="fas fa-university"> </i> Cursos: </h1>
             <div class="curso">
                 <div id='container__curso'>
                     <canvas id="Noturno_curso"></canvas>
                 </div>
                 <div id='container__periodo'>
-                     <canvas id="Noturno_Periodo"></canvas>
+                    <canvas id="Noturno_Periodo"></canvas>
                 </div>
             </div>
 
-            <h2 class="main__subtitle"> Moradias: </h2>
+            <h2 class="main__subtitle"> <i class="fas fa-home"></i> Moradias: </h2>
 
             <div class="moradia">
                 <div id='container__estado'>
@@ -719,7 +697,7 @@
                     <canvas id='Noturno_QTD_de_pessoas_moram_junto'></canvas>
                 </div>
                 <div id='container__situacao_domicilio'>
-                   <canvas id='Noturno_Situacao_domicilio'></canvas>
+                    <canvas id='Noturno_Situacao_domicilio'></canvas>
                 </div>
             </div>
 
@@ -729,7 +707,7 @@
                 </div>
             </div>
 
-            <h2 class="main__dadosPessoais"> Dados Pessoais: </h2>
+            <h2 class="main__dadosPessoais"> <i class="fas fa-address-card"></i> Dados Pessoais: </h2>
 
             <div class="Dados_Pessoais">
                 <div id='container__genero'>
@@ -757,7 +735,7 @@
 
             <div class="Dados_Pessoais3">
                 <div id='container__DataNascimento'>
-                     <canvas id='Noturno_DataNascimento'></canvas>
+                    <canvas id='Noturno_DataNascimento'></canvas>
                 </div>
                 <div id='container__Oque_tem_No_Domicilio'>
                     <canvas id='Noturno_Oque_tem_No_Domicilio'></canvas>
@@ -812,7 +790,7 @@
                 </div>
             </div>
 
-            <h2 class="main__trabalho"> Trabalho: </h2>
+            <h2 class="main__trabalho"> <i class="fas fa-briefcase"></i> Trabalho: </h2>
 
             <div class="Trabalho">
                 <div id='container__Trabalho'>
@@ -830,15 +808,9 @@
                 <div id='container__Horario_Trabalho'>
                     <canvas id='Noturno_Horario_Trabalho'></canvas>
                 </div>
-                <div class="main__container">
-                    <table class="table">
-                        <thead id="thead"></thead>
-                        <tbody id="tbody"></tbody>
-                    </table>
-                </div>
             </div>
 
-            <h2 class="main__Estudos"> Estudos: </h2>
+            <h2 class="main__Estudos"><i class="fas fa-book"></i> Estudos: </h2>
 
             <div class="Escolaridade">
                 <div id='container__Escolaridade_Pai'>
@@ -854,7 +826,7 @@
 
             <div class="Escolaridade2">
                 <div id='container__Ingles'>
-                   <canvas id='Noturno_Ingles'></canvas>
+                    <canvas id='Noturno_Ingles'></canvas>
                 </div>
                 <div id='container__Espanhol'>
                     <canvas id='Noturno_Espanhol'></canvas>
@@ -873,7 +845,7 @@
                 </div>
             </div>
 
-            <h3 class="main__Informatica"> Informática: </h3>
+            <h3 class="main__Informatica"> <i class="fas fa-laptop"></i> Informática: </h3>
 
             <div class="Informatica">
                 <div id='container__Frequencia_Microcomputadores'>
@@ -919,7 +891,7 @@
                 </div>
             </div>
 
-            <h2 class="main__Leitura"> Leitura: </h2>
+            <h2 class="main__Leitura"> <i class="fas fa-book-open"></i> Leitura: </h2>
 
             <div class="Leitura">
                 <div id='container__Televisores'>
@@ -973,7 +945,7 @@
                 </div>
             </div>
 
-            <h2 class="main__Informacoes_Extras"> Informacões Extras: </h2>
+            <h2 class="main__Informacoes_Extras"><i class="fas fa-info-circle"></i> Informacões Extras: </h2>
 
             <div class="Informacoes_Extras">
                 <div id='container__Atividade_Voluntaria'>
@@ -992,7 +964,7 @@
 
             <div class="Informacoes_Extras3">
                 <div id='container__Escolheu_Curso'>
-                     <canvas id='Noturno_Escolheu_Curso'></canvas>
+                    <canvas id='Noturno_Escolheu_Curso'></canvas>
                 </div>
 
             </div>
@@ -1011,10 +983,17 @@
         </div>
 
     </main>
+    <!-- links para fazer a conversão do arquivo do excel para json-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
 
+    <script src="https://kit.fontawesome.com/32b4452f5d.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="script/chart.js"></script>
-    <script src="script/NewPlanin.js"></script>
+    <script src="script/Matutino.js"></script>
+    <script src="script/Noturno.js"></script>
+    <script src="script/Filter_Geral.js"></script>
 </body>
 
 </html>

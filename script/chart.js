@@ -55,7 +55,7 @@ function ChartPie(id, labels, dados, title) {
             datasets: [{
                 label: '',
                 backgroundColor: [
-                    '#12239E', '#FF0005', '#EA4335',
+                    '#12239E', '#FF0005', '#FF700F',
                     '#1D96CC', '#3DFF64', '#FBBC05',
                     '#9657FF', '#6B007B', '#1E90FF',
                     '#FFF28C', '#F59AF2', '#5BE8F5',
@@ -63,7 +63,7 @@ function ChartPie(id, labels, dados, title) {
                     '#CEF6A0', '#FF91A0', '#FF0046',
                     '#4A0046', '#BA00B1', '#22BDD4',
                     '#2300BA', '#FFF766', '#FFF713',
-                    '#10B92C', '#EB0D0D', '#FF700F',
+                    '#10B92C', '#EB0D0D', '#E0EEEE',
                     '#FFB7F3', '#EE7AE9', '#FFBBFF',
                     '#912CEE', '#008B8B', '#00008B',
                     '#90EE90', '#CD2626', '#EE7621',
@@ -72,10 +72,10 @@ function ChartPie(id, labels, dados, title) {
                     '#90EE90', '#FFE1FF', '#8B008B',
                     '#FF82AB', '#4EEE94', '#00FFFF',
                     '#7CFC00', '#CD5C5C', '#FF6347',
-                    '#FF69B4', '#DDA0DD', '#E0EEEE',
+                    '#FF69B4', '#DDA0DD', '#EA4335',
                 ],
                 borderColor: [
-                    '#12239E', '#FF0005', '#EA4335',
+                    '#12239E', '#FF0005', '#FF700F',
                     '#1D96CC', '#3DFF64', '#FBBC05',
                     '#9657FF', '#6B007B', '#1E90FF',
                     '#FFF28C', '#F59AF2', '#5BE8F5',
@@ -83,7 +83,7 @@ function ChartPie(id, labels, dados, title) {
                     '#CEF6A0', '#FF91A0', '#FF0046',
                     '#4A0046', '#BA00B1', '#22BDD4',
                     '#2300BA', '#FFF766', '#FFF713',
-                    '#10B92C', '#EB0D0D', '#FF700F',
+                    '#10B92C', '#EB0D0D', '#E0EEEE',
                     '#FFB7F3', '#EE7AE9', '#FFBBFF',
                     '#912CEE', '#008B8B', '#00008B',
                     '#90EE90', '#CD2626', '#EE7621',
@@ -92,7 +92,7 @@ function ChartPie(id, labels, dados, title) {
                     '#90EE90', '#FFE1FF', '#8B008B',
                     '#FF82AB', '#4EEE94', '#00FFFF',
                     '#7CFC00', '#CD5C5C', '#FF6347',
-                    '#FF69B4', '#DDA0DD', '#E0EEEE',
+                    '#FF69B4', '#DDA0DD', '#EA4335',
                 ],
                 data: dados,
             }]
@@ -129,7 +129,7 @@ function ChartBar(id, tipo, periodo, labels, dados, title) {
             datasets: [{
                 label: periodo,
                 backgroundColor: [
-                    '#12239E', '#FF0005', '#EA4335',
+                    '#12239E', '#FF0005', '#FF700F',
                     '#1D96CC', '#3DFF64', '#FBBC05',
                     '#9657FF', '#6B007B', '#1E90FF',
                     '#FFF28C', '#F59AF2', '#5BE8F5',
@@ -137,7 +137,7 @@ function ChartBar(id, tipo, periodo, labels, dados, title) {
                     '#CEF6A0', '#FF91A0', '#FF0046',
                     '#4A0046', '#BA00B1', '#22BDD4',
                     '#2300BA', '#FFF766', '#FFF713',
-                    '#10B92C', '#EB0D0D', '#FF700F',
+                    '#10B92C', '#EB0D0D', '#E0EEEE',
                     '#FFB7F3', '#EE7AE9', '#FFBBFF',
                     '#912CEE', '#008B8B', '#00008B',
                     '#90EE90', '#CD2626', '#EE7621',
@@ -146,7 +146,7 @@ function ChartBar(id, tipo, periodo, labels, dados, title) {
                     '#90EE90', '#FFE1FF', '#8B008B',
                     '#FF82AB', '#4EEE94', '#00FFFF',
                     '#7CFC00', '#CD5C5C', '#FF6347',
-                    '#FF69B4', '#DDA0DD', '#E0EEEE',
+                    '#FF69B4', '#DDA0DD', '#EA4335',
                 ],
                 borderColor: ['#12239E'],
                 data: dados,
@@ -241,1861 +241,1237 @@ function GerarGraficoBar(variavel, opcao, Resp, num, labels, Dados, id, tipo, pe
     ChartBar(id, tipo, periodo, labels, Dados, title)
 }
 
-async function generateChart() {
-    const file = await fetch('script/json/forms.json')
-
-    const json = await file.json()
-    const forms = json.forms
-
-    let i = 0;
-    let questoes
-
-    // Pegar todas as questões
-    for (quest of forms) {
-        questoes = Object.getOwnPropertyNames(quest)
-        i++
-    }
-
-    // Pegas as questões so com respostas do noturno
-    let Noturno = forms.filter(function (periodo) {
-        return periodo[questoes[3]] === 'Noturno'
-    })
-
-    // Pegas as questões so com respostas do matutino
-    let Matutino = forms.filter(function (periodo) {
-        return periodo[questoes[3]] === 'Matutino'
-    })
-
-    let respostas = new Array(questoes.length)
-    let respMatutino = new Array(Matutino.length)
-    let respNoturno = new Array(Noturno.length)
-
-    for (let j = 0; j < questoes.length; j++) {
-        respMatutino[j] = new Array(Matutino.length)
-        respNoturno[j] = new Array(Noturno.length)
-        respostas[j] = new Array(forms.length)
-    }
-
-    // Array com todas as questões
-    for (let k = 0; k < forms.length; k++) {
-        for (let j = 0; j < questoes.length; j++) {
-            respostas[j][k] = forms[k][questoes[j]]
-        }
-    }
-
-    // Array com todas as questões Matutino
-    for (let k = 0; k < Matutino.length; k++) {
-        for (let j = 0; j < questoes.length; j++) {
-            respMatutino[j][k] = Matutino[k][questoes[j]]
-        }
-    }
-
-    // Array com todas as questões Noturno
-    for (let k = 0; k < Noturno.length; k++) {
-        for (let j = 0; j < questoes.length; j++) {
-            respNoturno[j][k] = Noturno[k][questoes[j]]
-        }
-    }
-
-    // 1. Qual o seu curso?
-    let curso = [];
-    let DadosCurso = [];
-    let labelsCurso = [];
-
-    GerarGraficoPie(curso, opcCurso, respostas, 2, labelsCurso, DadosCurso, 'curso', 'Cursos')
-
-
-    // 2. Qual o período que cursa?
-    let DadosPeriodo = [];
-    let labelsPeriodo = [];
-
-    if (respMatutino[2].length >= 0) {
-        DadosPeriodo.push(respMatutino[2].length)
-    }
-    if (respNoturno[2].length >= 0) {
-        DadosPeriodo.push(respNoturno[2].length)
-    }
-
-    for (j = 0; j < 2; j++) {
-        if (DadosPeriodo[j] >= 0) {
-            labelsPeriodo.push(opcPeriodo[j])
-        }
-    }
-
-    ChartPie('periodo', labelsPeriodo, DadosPeriodo, "Periodo");
-
-    // 4. Qual o estado do Brasil que você nasceu?
-    let estado = [];
-    let DadosEstados = [];
-    let labelsEstado = [];
-
-    GerarGraficoBar(estado, opcEstado, respostas, 5, labelsEstado, DadosEstados, 'estado', 'bar', 'Geral', 'Estados');
-
-    // 5 - Cidades
-    let cidade = [];
-    let DadosCidade = [];
-    let labelsCidade = [];
-
-    GerarGraficoBar(cidade, opcCidade, respostas, 6, labelsCidade, DadosCidade, 'cidade', 'bar', 'Geral', 'Cidades');
-
-    // 6 - Genero
-    let genero = [];
-    let DadosGenero = [];
-    let labelsGenero = [];
-
-    GerarGraficoPie(genero, opcGenero, respostas, 7, labelsGenero, DadosGenero, 'genero', 'Gênero');
-
-    // 7 - Data Nascimento
-    let DataNascimento = [];
-    let DadosDataNascimento = [];
-    let labelsDataNascimento = [];
-    let AnoNascimento = [];
-    let Nascimento = [];
-
-    for (let i = 0; i < respostas[8].length; i++) {
-        Nascimento[i] = (respostas[8][i].split('/'))
-        AnoNascimento[i] = Nascimento[i][2]
-    }
-
-    for (let i = 0; i < opcDataNascimento.length; i++) {
-        DataNascimento[i] = new Array()
-    }
-
-    for (j = 0; j < opcDataNascimento.length; j++) {
-        for (k = 0; k < Nascimento.length; k++) {
-            if (AnoNascimento[k] === opcDataNascimento[j]) {
-                DataNascimento[j].push(AnoNascimento[k])
-            }
-        }
-        if (DataNascimento[j].length > 0) {
-            DadosDataNascimento.push(DataNascimento[j].length)
-        }
-    }
-
-    for (j = 0; j < 1; j++) {
-        for (k = 0; k < opcDataNascimento.length; k++) {
-            if (DataNascimento[k][j] != undefined) {
-                labelsDataNascimento.push(DataNascimento[k][j])
-            }
-            if (labelsDataNascimento[k] >= 00 && labelsDataNascimento[k] <= 40) {
-                labelsDataNascimento[k] = '20' + labelsDataNascimento[k]
-            } else if (labelsDataNascimento[k] >= 41 && labelsDataNascimento[k] <= 99) {
-                labelsDataNascimento[k] = '19' + labelsDataNascimento[k]
-            }
-        }
-    }
-
-    ChartBar('DataNascimento', 'bar', 'Geral', labelsDataNascimento, DadosDataNascimento, 'Datas de Nascimento(Em Anos)');
-
-    console.log('label', labelsDataNascimento)
-    console.log('Dados', DadosDataNascimento)
-    console.log('Data', DataNascimento)
-    console.log('opcData', opcDataNascimento)
-    console.log('AnoNascimento', AnoNascimento)
-    console.log('Nascimento', Nascimento)
-
-    // 8 - Estado Civil
-    let estadoCivil = [];
-    let DadosEstadoCivil = [];
-    let labelsEstadoCivil = [];
-
-    GerarGraficoPie(estadoCivil, opcEstadoCivil, respostas, 9, labelsEstadoCivil, DadosEstadoCivil, 'estado_civil', 'Estado Civil');
-
-    // 9 - Portadores de Necessidades especiais
-    let portadores = [];
-    let DadosPortadores = [];
-    let labelsPortadores = [];
-
-    GerarGraficoPie(portadores, opcPortador, respostas, 10, labelsPortadores, DadosPortadores, 'Portador_de_Necessidade', 'Portadores de Necessidades Especiais');
-
-    // 10 - Convive com Portadores de Necessidades especiais
-    let ConvivePort = [];
-    let DadosConvivePort = [];
-    let labelsConvivePort = [];
-
-    GerarGraficoPie(ConvivePort, opcConvivePort, respostas, 11, labelsConvivePort, DadosConvivePort, 'convive_com_portador', 'Convive com Portadores de Necessidades Especiais');
-
-    // 11 - Quantidade de filhos
-    let QtdFilhos = [];
-    let DadosQtdFilhos = [];
-    let labelsQtdFilhos = [];
-
-    GerarGraficoPie(QtdFilhos, opcQtdFilhos, respostas, 12, labelsQtdFilhos, DadosQtdFilhos, 'qtd_de_filhos', "Quantidade de filhos de cada estudante");
-
-    // 12. Com quem você mora atualmente?
-    let moraCom = [];
-    let DadosMoraCom = [];
-    let labelsMoraCom = [];
-
-    GerarGraficoPie(moraCom, opcMoraCom, respostas, 13, labelsMoraCom, DadosMoraCom, 'moram_com', "Com quem cada estudante mora");
-
-    //13. Quantas pessoas, incluindo você, moram no seu domicílio?
-    let QtdMoradores = [];
-    let DadosQtdMoradores = [];
-    let labelsQtdMoradores = [];
-
-    GerarGraficoPie(QtdMoradores, opcQtdMoradores, respostas, 14, labelsQtdMoradores, DadosQtdMoradores, 'QTD_de_pessoas_moram_junto', "Quantidade de pessoas que moram com cada aluno");
-
-    // 14. Qual a situação do domicílio onde mora?
-    let SituacaoDomicilio = [];
-    let DadosSituacaoDomi = [];
-    let labelsSituacaoDomi = [];
-
-    GerarGraficoPie(SituacaoDomicilio, opcSituacaoDomi, respostas, 15, labelsSituacaoDomi, DadosSituacaoDomi, 'situacao_domicilio', "Situação do Domicílio")
-
-    // 15. Tempo de moradia neste domicílio (Em anos)
-    let TempoMoradia = [];
-    let DadosTempoMoradia = [];
-    let labelsTempoMoradia = [];
-
-    GerarGraficoBar(TempoMoradia, opcTempoMoradia, respostas, 16, labelsTempoMoradia, DadosTempoMoradia, 'tempo_moradia', 'bar', 'Geral', 'Tempo de moradia no domicílio(Em anos)');
-
-    // 16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)
-    let RendaMensal = [];
-    let DadosRendaMensal = [];
-    let labelsRendaMensal = [];
-
-    GerarGraficoPie(RendaMensal, opcRendaMensal, respostas, 17, labelsRendaMensal, DadosRendaMensal, 'salario_min', "Faixa de renda mensal da família do estudante (em Salários Mínimos)");
-
-    //17.1. Quantas geladeiras há em seu domicílio
-    let QtdGeladeira = [];
-    let DadosQtdGeladeira = [];
-    let labelsQtdGeladeira = [];
-
-    GerarGraficoPie(QtdGeladeira, opc17QtdeCadaCoisa, respostas, 18, labelsQtdGeladeira, DadosQtdGeladeira, 'qtd_geladeira', "Quantidade de Geladeiras de cada aluno");
-
-    // 17.2. Quantos celulares comuns há em seu domicílio?
-    let QtdCelular = [];
-    let DadosQtdCelular = [];
-    let labelsQtdCelular = [];
-
-    GerarGraficoPie(QtdCelular, opc17QtdeCadaCoisa, respostas, 19, labelsQtdCelular, DadosQtdCelular, 'qtd_celular_comum', "Quantidade de celulares comuns de cada aluno");
-
-    // 17.3. Quantos micro-ondas há em seu domicílio?
-    let QtdMicroOndas = [];
-    let DadosQtdMicroOndas = [];
-    let labelsQtdMicroOndas = [];
-
-    GerarGraficoPie(QtdMicroOndas, opc17QtdeCadaCoisa, respostas, 20, labelsQtdMicroOndas, DadosQtdMicroOndas, 'qtd_micro_ondas', 'Quantidade de micro-ondas de cada aluno');
-
-    // 17.4. Quantos notebooks há em seu domicílio?
-    let QtdNotebooks = [];
-    let DadosQtdNotebooks = [];
-    let labelsQtdNotebook = [];
-
-    GerarGraficoPie(QtdNotebooks, opc17QtdeCadaCoisa, respostas, 21, labelsQtdNotebook, DadosQtdNotebooks, 'qtd_notebooks', 'Quantidade de Notebooks de cada aluno');
-
-    // 17.5. Quantas máquinas de lavar roupa e(ou) tanquinho há em seu domicílio?
-    let Qtd_Maquina_de_Lavar = [];
-    let DadosMaquinaLavar = [];
-    let labelsMaquinaLavar = [];
-
-    GerarGraficoPie(Qtd_Maquina_de_Lavar, opc17QtdeCadaCoisa, respostas, 22, labelsMaquinaLavar, DadosMaquinaLavar, 'qtd_Maquina_de_Lavar', 'Quantidade de Máquinas de lavar roupa de cada aluno');
-
-    // 17.6. Quantas motocicletas há em seu domicílio?
-    let Qtd_motoclicletas = [];
-    let DadosMotocicletas = [];
-    let labelsMotocicletas = [];
-
-    GerarGraficoPie(Qtd_motoclicletas, opc17QtdeCadaCoisa, respostas, 23, labelsMotocicletas, DadosMotocicletas, 'qtd_motocicletas', 'Quantidade de Motocicletas de cada aluno');
-
-    // 17.7. Quantos automóveis há em seu domicílio?
-    let QtdAutomoveis = [];
-    let DadosAutomoveis = [];
-    let labelsAutomoveis = [];
-
-    GerarGraficoPie(QtdAutomoveis, opc17QtdeCadaCoisa, respostas, 24, labelsAutomoveis, DadosAutomoveis, 'qtd_Automoveis', 'Quantidade de Automóveis de cada aluno');
-
-    // 17.8. Quantos vídeos cassete e(ou) DVD players há em seu domicílio?
-    let QtdDVD = [];
-    let DadosDVD = [];
-    let labelsDvd = [];
-
-    GerarGraficoPie(QtdDVD, opc17QtdeCadaCoisa, respostas, 25, labelsDvd, DadosDVD, 'qtd_DVD', 'Quantidade de DVD players');
-
-    // 17.9. Quantos televisores há em seu domicílio?
-    let QtdTV = [];
-    let DadosTV = [];
-    let labelsQtdTV = [];
-
-    GerarGraficoPie(QtdTV, opc17QtdeCadaCoisa, respostas, 26, labelsQtdTV, DadosTV, 'qtd_TV', 'Quantidade de TVs de cada aluno');
-
-    // 17.10. Quantos smartphones há em seu domicílio?
-    let Qtd_Smartphones = [];
-    let DadosSmatphones = [];
-    let labelsQtdSmartphone = [];
-
-    GerarGraficoPie(Qtd_Smartphones, opc17QtdeCadaCoisa, respostas, 27, labelsQtdSmartphone, DadosSmatphones, 'qtd_Smartphones', 'Quantidade de Smartphones de cada aluno');
-
-    // 18. No seu domicílio tem? questão com mais de uma alternativa, n esta terminada
-    let DomicilioTem = [];
-    let DadosDomicilioTem = [];
-    let labelsDomicilioTem = [];
-
-    GerarGraficoBar(DomicilioTem, opcTemNoDomicilio, respostas, 28, labelsDomicilioTem, DadosDomicilioTem, 'Oque_tem_No_Domicilio', 'horizontalBar', 'Geral', 'Na casa de cada estudante tem');
-
-    // 19.1. Você trabalha?
-    let trabalha = [];
-    let DadosTrabalho = [];
-    let labelsTrabalho = [];
-
-    GerarGraficoPie(trabalha, opcTrabalha, respostas, 29, labelsTrabalho, DadosTrabalho, 'Trabalho', 'Você trabalha?');
-
-    //19.2. Qual o seu vínculo com o emprego?
-    let VinculoEmprego = [];
-    let DadosVinculo = [];
-    let labelsVinculo = [];
-
-    GerarGraficoPie(VinculoEmprego, opcVinculoEmprego, respostas, 30, labelsVinculo, DadosVinculo, 'Vinculo_Emprego', "Vinculo com o emprego");
-
-    // 19.3. Qual a área do seu trabalho?
-    let AreaTrabalho = [];
-    let DadosAreaTrabalho = [];
-    let labelsAreaTrabalho = [];
-
-    GerarGraficoPie(AreaTrabalho, opcAreaTrabalho, respostas, 31, labelsAreaTrabalho, DadosAreaTrabalho, 'Area_trabalho', "Qual a área do seu trabalho?");
-
-    // 19.4. Qual seu horário de trabalho?
-    let HorarioTrabalho = [];
-    let DadosHorario = [];
-    let labelsHorario = [];
-
-    GerarGraficoPie(HorarioTrabalho, opcHorarioTrabalho, respostas, 32, labelsHorario, DadosHorario, 'Horario_Trabalho', "Horários de Trabalho");
-
-    // 19.5. Qual a empresa que você está contratado agora
-    let CabecalhoTabela = '';
-    let DadosTabela = '';
-    let Empresa = [];
-
-    CabecalhoTabela = '<tr class = "thead__row"> <td class = "thead__data"> Empresas: </td> </tr>'
-    document.getElementById('thead').innerHTML = CabecalhoTabela;
-
-    for (quest of forms) {
-
-        Empresa[i] = quest["19.5. Qual a empresa que você está contratado agora?"]
-
-        DadosTabela = DadosTabela + `<tr "tbody__row"> <td "tbody__data"> ${Empresa[i]} </td> </tr>`
-
-        i++
-    }
-
-    document.getElementById('tbody').innerHTML = DadosTabela;
-
-
-    // 20. Você tem plano de saúde privado?
-    let PlanoSaude = [];
-    let DadosPlanoSaude = [];
-    let labelsPlanoSaude = [];
-
-    GerarGraficoPie(PlanoSaude, opcPlanoDeSaude, respostas, 34, labelsPlanoSaude, DadosPlanoSaude, 'Plano_Saude', 'Planos de Saúde');
-
-    // 21.1. Qual o grau de escolaridade do seu pai?
-    let EscolaridadePai = [];
-    let DadosEscolaridadePai = [];
-    let LabelsEscolaPai = [];
-
-    GerarGraficoPie(EscolaridadePai, opcEscolaridade, respostas, 35, LabelsEscolaPai, DadosEscolaridadePai, 'Escolaridade_Pai', 'Grau de Escolaridade do Pai dos Alunos');
-
-    // 21.2. Qual o grau de escolaridade da sua mãe?
-    let EscolaridadeMae = [];
-    let DadosEscolaridadeMae = [];
-    let LabelsEscolaMae = [];
-
-    GerarGraficoPie(EscolaridadeMae, opcEscolaridade, respostas, 36, LabelsEscolaMae, DadosEscolaridadeMae, 'Escolaridade_Mae', 'Grau de Escolaridade da Mãe dos Alunos');
-
-    // 22. Na sua vida escolar você estudou
-    let EstudouEm = [];
-    let DadosEstudouEm = [];
-    let labelsEstudouEm = [];
-
-    GerarGraficoPie(EstudouEm, opcEstudou, respostas, 37, labelsEstudouEm, DadosEstudouEm, 'Estudou_Em', "Na sua vida escolar você estudou");
-
-    // 23.1. Com que frequência você utiliza microcomputadores?
-    let FrequenciaMicrocomputadores = [];
-    let DadosFrequenciaComp = [];
-    let labelsFrequenciaComp = [];
-
-    GerarGraficoPie(FrequenciaMicrocomputadores, opcUsaMicroComp, respostas, 38, labelsFrequenciaComp, DadosFrequenciaComp, 'Frequencia_Microcomputadores', 'Com que frequência você utiliza microcomputadores?');
-
-
-    // 23.2. Onde você utiliza microcomputadores?
-    let OndeUtilizaMicro = [];
-    let DadosOndeUtilizaMicro = [];
-    let labelsUtilizaMicro = [];
-
-    GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, respostas, 39, labelsUtilizaMicro, DadosOndeUtilizaMicro, 'Onde_Microcomputadores', 'horizontalBar', 'Geral', 'Onde você utiliza microcomputadores?');
-
-    // 23.3. Com qual finalidade você utiliza microcomputadores?
-    let FinalidadeUtiliMicro = [];
-    let DadosFinalidadeUtiliMicro = [];
-    let labelsFinalidadeUtiliza = [];
-
-    GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respostas, 40, labelsFinalidadeUtiliza, DadosFinalidadeUtiliMicro, 'Finalidade_Microcomputadores', 'horizontalBar', 'Geral', 'Com qual finalidade você utiliza microcomputadores?');
-
-    // 24. Como você classifica seu conhecimento em informática
-    let ConhecimentoInformatica = [];
-    let DadosConhecimentoInformatica = [];
-    let labelsInformatica = [];
-
-    GerarGraficoPie(ConhecimentoInformatica, opcConhecimentoInformatica, respostas, 41, labelsInformatica, DadosConhecimentoInformatica, 'Conhecimento_Informatica', 'Conhecimento em Informática');
-
-    // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Windows]
-    let ConhecimentoWindows = [];
-    let DadosWindows = [];
-    let labelsWindows = [];
-
-    GerarGraficoPie(ConhecimentoWindows, opcConhecimentoInformatica, respostas, 42, labelsWindows, DadosWindows, 'Conhecimento_Windows', 'Conhecimento no Windows');
-
-
-    // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Linux]
-    let ConhecimentoLinux = [];
-    let DadosLinux = [];
-    let labelsLinux = [];
-
-    GerarGraficoPie(ConhecimentoLinux, opcConhecimentoInformatica, respostas, 43, labelsLinux, DadosLinux, 'Conhecimento_Linux', 'Conhecimento no Linux');
-
-    // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Editores de textos (Word, Writer, etc.)]
-    let ConhecimentoWord = [];
-    let DadosWord = [];
-    let labelsWord = [];
-
-    GerarGraficoPie(ConhecimentoWord, opcConhecimentoInformatica, respostas, 44, labelsWord, DadosWord, 'Conhecimento_Word', 'Conhecimento em Editores de textos (Word, Writer, etc.)');
-
-    // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Planilhas eletrônicas (Excel, Calc, etc.)]
-    let ConhecimentoExcel = [];
-    let DadosExcel = [];
-    let labelsExcel = [];
-
-    GerarGraficoPie(ConhecimentoExcel, opcConhecimentoInformatica, respostas, 45, labelsExcel, DadosExcel, 'Conhecimento_Excel', 'Conhecimento em Planilhas eletrônicas (Excel, Calc, etc.)');
-
-
-    // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Apresentadores (Powerpoint, Impress, Prezzi, etc.)]
-    let ConhecimentoPowerPoint = [];
-    let DadosPowerPoint = [];
-    let labelsPowerPoint = [];
-
-    GerarGraficoPie(ConhecimentoPowerPoint, opcConhecimentoInformatica, respostas, 46, labelsPowerPoint, DadosPowerPoint, 'Conhecimento_PowerPoint', 'Conhecimento em Apresentadores (Powerpoint, Impress, Prezzi, etc.)');
-
-
-    // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Sistemas de Gestão Empresaria]
-    let ConhecimentoGestaoEmpresarial = [];
-    let DadosGestaoEmpresarial = [];
-    let labelsGestaoEmpresarial = [];
-
-    GerarGraficoPie(ConhecimentoGestaoEmpresarial, opcConhecimentoInformatica, respostas, 47, labelsGestaoEmpresarial, DadosGestaoEmpresarial, 'Conhecimento_GestaoEmpresarial', 'Conhecimento em Sistemas de Gestão Empresaria');
-
-    //26. Agora, considere seu conhecimento sobre idiomas [Inglês]
-    let conhecimentoIngles = [];
-    let DadosIngles = [];
-    let labelsInlges = [];
-
-    GerarGraficoPie(conhecimentoIngles, opcConhecimentoLinguas, respostas, 48, labelsInlges, DadosIngles, 'Ingles', 'Conhecimento em inglês');
-
-    // 26. Agora, considere seu conhecimento sobre idiomas [Espanhol]
-    let conhecimentoEspanhol = [];
-    let DadosEspanhol = [];
-    let labelsEspanhol = [];
-
-    GerarGraficoPie(conhecimentoEspanhol, opcConhecimentoLinguas, respostas, 49, labelsEspanhol, DadosEspanhol, 'Espanhol', 'Conhecimento em Espanhol');
-
-    // 26. Agora, considere seu conhecimento sobre idiomas [Outros]
-    let conhecimentoIdioma = [];
-    let DadosIdioma = [];
-    let labelsIdioma = [];
-
-    GerarGraficoPie(conhecimentoIdioma, opcConhecimentoLinguas, respostas, 50, labelsIdioma, DadosIdioma, 'Outros', 'Conhecimento em outros idiomas');
-
-    // 27. Considere a busca por informação nos seguintes meios de comunicação [Televisores]
-    let Televisores = [];
-    let DadosTelevisores = [];
-    let labelsTelevisores = [];
-
-    GerarGraficoPie(Televisores, opcBuscaInformação, respostas, 51, labelsTelevisores, DadosTelevisores, 'Televisores', 'Busca por informação no seguinte meio de comunicação(Televisores)');
-
-    // 27. Considere a busca por informação nos seguintes meios de comunicação [Internet]
-    let internet = [];
-    let DadosInternet = [];
-    let labelsInternet = [];
-
-    GerarGraficoPie(internet, opcBuscaInformação, respostas, 52, labelsInternet, DadosInternet, 'Internet', 'Busca por informação no seguinte meio de comunicação(Internet)');
-
-    // 27. Considere a busca por informação nos seguintes meios de comunicação [Revistas]
-    let revistas = [];
-    let DadosRevistas = [];
-    let labelsRevistas = [];
-
-    GerarGraficoPie(revistas, opcBuscaInformação, respostas, 53, labelsRevistas, DadosRevistas, 'Revistas', 'Busca por informação no seguinte meio de comunicação(Revistas)');
-
-    // 27. Considere a busca por informação nos seguintes meios de comunicação [Jornais]
-    let jornais = [];
-    let DadosJornais = [];
-    let labelsJornais = [];
-
-    GerarGraficoPie(jornais, opcBuscaInformação, respostas, 54, labelsJornais, DadosJornais, 'Jornais', 'Busca por informação no seguinte meio de comunicação(Jornais)');
-
-    // 27. Considere a busca por informação nos seguintes meios de comunicação [Rádio]
-    let Radio = [];
-    let DadosRadio = [];
-    let labelsRadio = [];
-
-    GerarGraficoPie(Radio, opcBuscaInformação, respostas, 55, labelsRadio, DadosRadio, 'Radio', 'Busca por informação no seguinte meio de comunicação(Rádio)');
-
-
-    // 27. Considere a busca por informação nos seguintes meios de comunicação [Redes socias]
-    let RedesSociais = [];
-    let DadosRedesSociais = [];
-    let labelsRedesSociais = [];
-
-    GerarGraficoPie(RedesSociais, opcBuscaInformação, respostas, 56, labelsRedesSociais, DadosRedesSociais, 'Redes_Sociais', 'Busca por informação no seguinte meio de comunicação(Redes Sociais)');
-
-    // 27. Considere a busca por informação nos seguintes meios de comunicação [Conversas com Amigos]
-    let ConversaComAmigos = [];
-    let DadosConversaComAmigos = [];
-    let labelsConversaComAmigos = [];
-
-    GerarGraficoPie(ConversaComAmigos, opcBuscaInformação, respostas, 57, labelsConversaComAmigos, DadosConversaComAmigos, 'Conversas_com_Amigos', 'Busca por informação no seguinte meio de comunicação(Conversas com Amigos)');
-
-    // 28. Se você lê jornal, qual a frequência?
-    let LeJornal = [];
-    let DadosLeJornal = [];
-    let labelsLeJornal = [];
-
-    GerarGraficoPie(LeJornal, opcLeJornal, respostas, 58, labelsLeJornal, DadosLeJornal, 'Le_Jornal', ' Frequência que leem jornal');
-
-    // 29. Se você lê jornal, quais os assuntos que mais lê?
-    let assuntosQueLeem = [];
-    let DadosAssuntosQueLeem = [];
-    let labelsAssuntosQueLeem = [];
-
-    GerarGraficoBar(assuntosQueLeem, opcAssuntosJornal, respostas, 59, labelsAssuntosQueLeem, DadosAssuntosQueLeem, 'Assuntos_que_Le', 'horizontalBar', 'Geral', 'Assuntos que mais leem');
-
-    // 30. Não considerando os livros escolares, quantos livros você lê por ano (em média)
-    let QtdLivros = [];
-    let DadosQtdLivros = [];
-    let labelsQtdLivros = [];
-
-    GerarGraficoPie(QtdLivros, opcQtdLivros, respostas, 60, labelsQtdLivros, DadosQtdLivros, 'Qtd_Livros', 'Quantos livros cada aluno lê por ano (em média)');
-
-    // 31. Se você lê livros literários, qual/quais o(s) gênero(s) preferido(s)?
-    let leLivros = [];
-    let DadosLeLivros = [];
-    let labelsLeLivros = [];
-
-    GerarGraficoBar(leLivros, opcLeLivros, respostas, 61, labelsLeLivros, DadosLeLivros, 'Le_Livros', 'horizontalBar', 'Geral', "Gêneros de livros preferidos de cada aluno");
-
-    // 32. Você dedica parte do seu tempo para atividades voluntárias?
-    let atividadesVolutaria = [];
-    let DadosAtiviadeVoluntaria = [];
-    let labelsAtividadeVoluntaria = [];
-
-    GerarGraficoPie(atividadesVolutaria, opcAtividadeVolun, respostas, 62, labelsAtividadeVoluntaria, DadosAtiviadeVoluntaria, 'Atividade_Voluntaria', "Dedica parte do tempo para atividades Voluntárias");
-
-    //33. Qual religião você professa?": "Evangélica"
-    let religiao = [];
-    let DadosReligiao = [];
-    let lablesReligiao = [];
-
-    GerarGraficoPie(religiao, opcReligiao, respostas, 63, lablesReligiao, DadosReligiao, 'Religiao', 'Religião');
-
-    // 34. Quais fontes de entretenimento cultural você usa?
-    let FontesEntretenimento = [];
-    let DadosFontesEntretenimento = [];
-    let labelsFontesEntretenimento = [];
-
-    GerarGraficoBar(FontesEntretenimento, opcEntretenimento, respostas, 64, labelsFontesEntretenimento, DadosFontesEntretenimento, "Fontes_Entretenimento", 'horizontalBar', 'Geral', 'Fontes de Entretenimento');
-
-    //35. Estamos quase acabando... Como conheceu a FATEC Franca?
-    let ConheceuFatec = [];
-    let DadosConheceuFatec = [];
-    let labelsConheceuFatec = [];
-
-    GerarGraficoBar(ConheceuFatec, opcConheceuFatec, respostas, 65, labelsConheceuFatec, DadosConheceuFatec, 'Conheceu_Fatec', 'horizontalBar', 'Geral', 'Como conheceu a FATEC Franca?');
-
-    // 36. Porque você escolheu este curso?
-    let EscolheuCurso = [];
-    let DadosEscolheuCurso = [];
-    let labelsEscolheuCurso = [];
-
-    GerarGraficoBar(EscolheuCurso, opcEscolheuCurso, respostas, 66, labelsEscolheuCurso, DadosEscolheuCurso, 'Escolheu_Curso', 'horizontalBar', 'Geral', 'Porque você escolheu este curso?');
-
-    // 37. Qual sua maior expectativa quanto ao curso?
-    let ExpectativaCurso = [];
-    let DadosExpectativaCurso = [];
-    let labelsExpectativaCurso = [];
-
-    GerarGraficoBar(ExpectativaCurso, opcExpectativa, respostas, 67, labelsExpectativaCurso, DadosExpectativaCurso, 'Expectativa_Curso', 'horizontalBar', 'Geral', 'Qual sua maior expectativa quanto ao curso?');
-
-    // 38. Qual sua expectativa após se formar?
-    let ExpectativaFormar = [];
-    let DadosExpectativaFormar = [];
-    let labelsExpectativaFormar = [];
-
-    GerarGraficoBar(ExpectativaFormar, opcFormar, respostas, 68, labelsExpectativaFormar, DadosExpectativaFormar, 'Expectativa_Formar', 'horizontalBar', 'Geral', 'Qual sua expectativa após se formar?');
-
-    //39. Você já estudou nesta escola?
-    let estudouNaFatec = [];
-    let DadosEstudouFatec = [];
-    let labelsEstudouFatec = [];
-
-    GerarGraficoPie(estudouNaFatec, opcEstudoNaEscola, respostas, 69, labelsEstudouFatec, DadosEstudouFatec, 'Estudou_Fatec', 'Você já estudou nesta escola?');
-
-    //40. Você fez algum curso técnico?
-    let cursoTecnico = [];
-    let DadosCursoTecnico = [];
-    let labelsCursoTecnico = [];
-
-    GerarGraficoPie(cursoTecnico, opcCursoTecnico, respostas, 70, labelsCursoTecnico, DadosCursoTecnico, 'Curso_Tecnico', 'Você fez algum curso técnico?');
-
-    // 41. Qual o meio de transporte você usa para vir à escola?
-    let transporte = [];
-    let DadosTransporte = [];
-    let labelsTransporte = [];
-
-    GerarGraficoPie(transporte, opcTransporte, respostas, 71, labelsTransporte, DadosTransporte, 'Transporte', 'Meios de transportes');
-
-    // Mostrar respostas Geral
-    document.getElementById('Geral').style.display = "block";
-    // Esconder respostas do do Matutino
-    document.getElementById('Matutino').style.display = "none";
-    // Esconder respostas do Noturno
-    document.getElementById('Noturno').style.display = "none";
+let i = 0;
+let questoes
+
+var ExcelToJSON = function () {
+    this.parseExcel = function (file) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            var data = e.target.result;
+            var workbook = XLSX.read(data, {
+                type: 'binary',
+            });
+            workbook.SheetNames.forEach(function (sheetName) {
+                // Here is your object
+                var XL_row_object = XLSX.utils.sheet_to_row_object_array(
+                    workbook.Sheets[sheetName]
+                );
+                var json_object = JSON.stringify(XL_row_object);
+                const forms = JSON.parse(json_object);
+
+                // Pegar todas as questões
+                for (quest of forms) {
+                    questoes = Object.getOwnPropertyNames(quest)
+                    i++
+                }
+
+                // Pegas as questões so com respostas do noturno
+                let Noturno = forms.filter(function (periodo) {
+                    return periodo[questoes[3]] === 'Noturno'
+                })
+
+                // Pegas as questões so com respostas do matutino
+                let Matutino = forms.filter(function (periodo) {
+                    return periodo[questoes[3]] === 'Matutino'
+                })
+
+                let respostas = new Array(questoes.length)
+                let respMatutino = new Array(Matutino.length)
+                let respNoturno = new Array(Noturno.length)
+
+                for (let j = 0; j < questoes.length; j++) {
+                    respMatutino[j] = new Array(Matutino.length)
+                    respNoturno[j] = new Array(Noturno.length)
+                    respostas[j] = new Array(forms.length)
+                }
+
+                // Array com todas as questões
+                for (let k = 0; k < forms.length; k++) {
+                    for (let j = 0; j < questoes.length; j++) {
+                        respostas[j][k] = forms[k][questoes[j]]
+                    }
+                }
+
+                // Array com todas as questões Matutino
+                for (let k = 0; k < Matutino.length; k++) {
+                    for (let j = 0; j < questoes.length; j++) {
+                        respMatutino[j][k] = Matutino[k][questoes[j]]
+                    }
+                }
+
+                // Array com todas as questões Noturno
+                for (let k = 0; k < Noturno.length; k++) {
+                    for (let j = 0; j < questoes.length; j++) {
+                        respNoturno[j][k] = Noturno[k][questoes[j]]
+                    }
+                }
+
+                // 1. Qual o seu curso?
+                let curso = [];
+                let MatutinoCurso = [];
+                let NoturnoCurso = [];
+                let DadosCurso = [];
+                let MatutinoDadosCurso = [];
+                let NoturnoDadosCurso = [];
+                let labelsCurso = [];
+                let labelsMatutinoCurso = [];
+                let labelsNoturnoCurso = [];
+
+                GerarGraficoPie(curso, opcCurso, respostas, 2, labelsCurso, DadosCurso, 'curso', 'Cursos')
+                GerarGraficoPie(MatutinoCurso, opcCurso, respMatutino, 2, labelsMatutinoCurso, MatutinoDadosCurso, 'Matutino_curso', 'Cursos')
+                GerarGraficoPie(NoturnoCurso, opcCurso, respNoturno, 2, labelsNoturnoCurso, NoturnoDadosCurso, 'Noturno_curso', 'Cursos')
+
+
+                // 2. Qual o período que cursa?
+                let DadosPeriodo = [];
+                let labelsPeriodo = [];
+
+                if (respMatutino[2].length >= 0) {
+                    DadosPeriodo.push(respMatutino[2].length)
+                }
+                if (respNoturno[2].length >= 0) {
+                    DadosPeriodo.push(respNoturno[2].length)
+                }
+
+                for (j = 0; j < 2; j++) {
+                    if (DadosPeriodo[j] >= 0) {
+                        labelsPeriodo.push(opcPeriodo[j])
+                    }
+                }
+
+                ChartPie('periodo', labelsPeriodo, DadosPeriodo, "Periodo");
+                ChartPie('Matutino_Periodo', labelsPeriodo, DadosPeriodo, "Periodo");
+                ChartPie('Noturno_Periodo', labelsPeriodo, DadosPeriodo, "Periodo");
+
+                // 4. Qual o estado do Brasil que você nasceu?
+                let estado = [];
+                let MatutinoEstado = [];
+                let NoturnoEstado = [];
+                let DadosEstados = [];
+                let MatutinoDadosEstado = [];
+                let NoturnoDadosEstado = [];
+                let labelsEstado = [];
+                let labelsMatutinoEstado = [];
+                let labelsNoturnoEstado = [];
+
+                GerarGraficoBar(estado, opcEstado, respostas, 5, labelsEstado, DadosEstados, 'estado', 'bar', 'Geral', 'Estados');
+                GerarGraficoBar(MatutinoEstado, opcEstado, respMatutino, 5, labelsMatutinoEstado, MatutinoDadosEstado, 'Matutino_Estado', 'bar', 'Matutino', 'Estados');
+                GerarGraficoBar(NoturnoEstado, opcEstado, respNoturno, 5, labelsNoturnoEstado, NoturnoDadosEstado, 'Noturno_Estado', 'bar', 'Noturno', 'Estados');
+
+
+                // 5 - Cidades
+                let cidade = [];
+                let MatutinoCidade = [];
+                let NoturnoCidade = [];
+                let DadosCidade = [];
+                let MatutinoDadosCidade = [];
+                let NoturnoDadosCidade = [];
+                let labelsCidade = [];
+                let labelsMatutinoCidade = [];
+                let labelsNoturnoCidade = [];
+
+                GerarGraficoBar(cidade, opcCidade, respostas, 6, labelsCidade, DadosCidade, 'cidade', 'bar', 'Geral', 'Cidades');
+                GerarGraficoBar(MatutinoCidade, opcCidade, respMatutino, 6, labelsMatutinoCidade, MatutinoDadosCidade, 'Matutino_Cidade', 'bar', 'Matutino', 'Cidades');
+                GerarGraficoBar(NoturnoCidade, opcCidade, respNoturno, 6, labelsNoturnoCidade, NoturnoDadosCidade, 'Noturno_Cidade', 'bar', 'Noturno', 'Cidades');
+
+                // 6 - Genero
+                let genero = [];
+                let MatutinoGenero = [];
+                let NoturnoGenero = [];
+                let DadosGenero = [];
+                let MatutinoDadosGenero = [];
+                let NoturnoDadosGenero = [];
+                let labelsGenero = [];
+                let labelsMatutinoGenero = [];
+                let labelsNoturnoGenero = [];
+
+                GerarGraficoPie(genero, opcGenero, respostas, 7, labelsGenero, DadosGenero, 'genero', 'Gênero');
+                GerarGraficoPie(MatutinoGenero, opcGenero, respMatutino, 7, labelsMatutinoGenero, MatutinoDadosGenero, 'Matutino_Genero', 'Gênero');
+                GerarGraficoPie(NoturnoGenero, opcGenero, respNoturno, 7, labelsNoturnoGenero, NoturnoDadosGenero, 'Noturno_Genero', 'Gênero');
+
+
+                // 7 - Data Nascimento
+                let DataNascimento = [];
+                let DadosDataNascimento = [];
+                let labelsDataNascimento = [];
+                let AnoNascimento = [];
+                let Nascimento = [];
+
+                for (let i = 0; i < respostas[8].length; i++) {
+                    Nascimento[i] = (respostas[8][i].split('/'))
+                    AnoNascimento[i] = Nascimento[i][2]
+                }
+
+                for (let i = 0; i < opcDataNascimento.length; i++) {
+                    DataNascimento[i] = new Array()
+                }
+
+                for (j = 0; j < opcDataNascimento.length; j++) {
+                    for (k = 0; k < Nascimento.length; k++) {
+                        if (AnoNascimento[k] === opcDataNascimento[j]) {
+                            DataNascimento[j].push(AnoNascimento[k])
+                        }
+                    }
+                    if (DataNascimento[j].length > 0) {
+                        DadosDataNascimento.push(DataNascimento[j].length)
+                    }
+                }
+
+                for (j = 0; j < 1; j++) {
+                    for (k = 0; k < opcDataNascimento.length; k++) {
+                        if (DataNascimento[k][j] != undefined) {
+                            if (DataNascimento[k][j] >= 00 && DataNascimento[k][j] <= 40) {
+                                labelsDataNascimento.push('20' + DataNascimento[k][j])
+                            } else if (DataNascimento[k][j] >= 41 && DataNascimento[k][j] <= 99) {
+                                labelsDataNascimento.push('19' + DataNascimento[k][j])
+                            }
+                        }
+                    }
+                }
+
+                ChartBar('DataNascimento', 'bar', 'Geral', labelsDataNascimento, DadosDataNascimento, 'Datas de Nascimento(Em Anos)');
+
+                let MatutinoNascimento = [];
+                let MatutinoDadosDataNascimento = [];
+                let labelsMatutinoDataNascimento = [];
+                let MatutinoDataNascimento = [];
+                let MatutinoAnoNascimento = [];
+
+                for (let i = 0; i < respMatutino[8].length; i++) {
+                    MatutinoDataNascimento[i] = (respMatutino[8][i].split('/'))
+                    MatutinoAnoNascimento[i] = MatutinoDataNascimento[i][2]
+                }
+
+                for (let i = 0; i < opcDataNascimento.length; i++) {
+                    MatutinoNascimento[i] = new Array()
+                }
+
+                for (j = 0; j < opcDataNascimento.length; j++) {
+                    for (k = 0; k < MatutinoDataNascimento.length; k++) {
+                        if (MatutinoAnoNascimento[k] === opcDataNascimento[j]) {
+                            MatutinoNascimento[j].push(MatutinoAnoNascimento[k])
+                        }
+                    }
+                    if (MatutinoNascimento[j].length > 0) {
+                        MatutinoDadosDataNascimento.push(MatutinoNascimento[j].length)
+                    }
+                }
+
+                for (j = 0; j < 1; j++) {
+                    for (k = 0; k < opcDataNascimento.length; k++) {
+                        if (MatutinoNascimento[k][j] != undefined) {
+                            if (MatutinoNascimento[k][j] >= 00 && MatutinoNascimento[k][j] <= 40) {
+                                labelsMatutinoDataNascimento.push('20' + MatutinoNascimento[k][j])
+                            } else if (MatutinoNascimento[k][j] >= 41 && MatutinoNascimento[k][j] <= 99) {
+                                labelsMatutinoDataNascimento.push('19' + MatutinoNascimento[k][j])
+                            }
+                        }
+                    }
+                }
+
+                ChartBar('Matutino_DataNascimento', 'bar', 'Matutino', labelsMatutinoDataNascimento, MatutinoDadosDataNascimento, 'Datas de Nascimento(Em Anos)');
+
+
+                let NoturnoNascimento = [];
+                let NoturnoDadosDataNascimento = [];
+                let labelsNoturnoDataNascimento = [];
+                let NoturnoDataNascimento = [];
+                let NoturnoAnoNascimento = [];
+
+                for (let i = 0; i < respNoturno[8].length; i++) {
+                    NoturnoDataNascimento[i] = (respNoturno[8][i].split('/'))
+                    NoturnoAnoNascimento[i] = NoturnoDataNascimento[i][2]
+                }
+
+                for (let i = 0; i < opcDataNascimento.length; i++) {
+                    NoturnoNascimento[i] = new Array()
+                }
+
+                for (j = 0; j < opcDataNascimento.length; j++) {
+                    for (k = 0; k < NoturnoDataNascimento.length; k++) {
+                        if (NoturnoAnoNascimento[k] === opcDataNascimento[j]) {
+                            NoturnoNascimento[j].push(NoturnoAnoNascimento[k])
+                        }
+                    }
+                    if (NoturnoNascimento[j].length > 0) {
+                        NoturnoDadosDataNascimento.push(NoturnoNascimento[j].length)
+                    }
+                }
+
+                for (j = 0; j < 1; j++) {
+                    for (k = 0; k < opcDataNascimento.length; k++) {
+                        if (NoturnoNascimento[k][j] != undefined) {
+                            if (NoturnoNascimento[k][j] >= 00 && NoturnoNascimento[k][j] <= 40) {
+                                labelsNoturnoDataNascimento.push('20' + NoturnoNascimento[k][j])
+                            } else if (NoturnoNascimento[k][j] >= 41 && NoturnoNascimento[k][j] <= 99) {
+                                labelsNoturnoDataNascimento.push('19' + NoturnoNascimento[k][j])
+                            }
+                        }
+                    }
+                }
+
+                ChartBar('Noturno_DataNascimento', 'bar', 'Noturno', labelsNoturnoDataNascimento, NoturnoDadosDataNascimento, 'Datas de Nascimento(Em Anos)');
+
+
+                // 8 - Estado Civil
+                let estadoCivil = [];
+                let DadosEstadoCivil = [];
+                let labelsEstadoCivil = [];
+                let MatutinoEstadoCivil = [];
+                let MatutinoDadosEstadoCivil = [];
+                let labelsMatutinoEstadoCivil = [];
+                let NoturnoEstadoCivil = [];
+                let NoturnoDadosEstadoCivil = [];
+                let NoturnolabelsEstadoCivil = [];
+
+                GerarGraficoPie(estadoCivil, opcEstadoCivil, respostas, 9, labelsEstadoCivil, DadosEstadoCivil, 'estado_civil', 'Estado Civil');
+                GerarGraficoPie(MatutinoEstadoCivil, opcEstadoCivil, respMatutino, 9, labelsMatutinoEstadoCivil, MatutinoDadosEstadoCivil, 'Matutino_Estado_civil', 'Estado Civil');
+                GerarGraficoPie(NoturnoEstadoCivil, opcEstadoCivil, respNoturno, 9, NoturnolabelsEstadoCivil, NoturnoDadosEstadoCivil, 'Noturno_Estado_civil', 'Estado Civil');
+
+                // 9 - Portadores de Necessidades especiais
+                let portadores = [];
+                let DadosPortadores = [];
+                let labelsPortadores = [];
+                let MatutinoPortadores = [];
+                let MatutinoDadosPortadores = [];
+                let labelsMatutinoPortadores = [];
+                let NoturnoPortadores = [];
+                let NoturnoDadosPortadores = [];
+                let labelsNoturnoPortadores = [];
+
+                GerarGraficoPie(portadores, opcPortador, respostas, 10, labelsPortadores, DadosPortadores, 'Portador_de_Necessidade', 'Portadores de Necessidades Especiais');
+                GerarGraficoPie(MatutinoPortadores, opcPortador, respMatutino, 10, labelsMatutinoPortadores, MatutinoDadosPortadores, 'Matutino_Portador_de_Necessidade', 'Portadores de Necessidades Especiais');
+                GerarGraficoPie(NoturnoPortadores, opcPortador, respNoturno, 10, labelsNoturnoPortadores, NoturnoDadosPortadores, 'Noturno_Portador_de_Necessidade', 'Portadores de Necessidades Especiais');
+
+                // 10 - Convive com Portadores de Necessidades especiais
+                let ConvivePort = [];
+                let DadosConvivePort = [];
+                let labelsConvivePort = [];
+                let MatutinoConvivePort = [];
+                let MatutinoDadosConvivePort = [];
+                let labelsMatutinoConvivePort = [];
+                let NoturnoConvivePort = [];
+                let NoturnoDadosConvivePort = [];
+                let labelsNoturnoConvivePort = [];
+
+                GerarGraficoPie(ConvivePort, opcConvivePort, respostas, 11, labelsConvivePort, DadosConvivePort, 'convive_com_portador', 'Convive com Portadores de Necessidades Especiais');
+                GerarGraficoPie(MatutinoConvivePort, opcConvivePort, respMatutino, 11, labelsMatutinoConvivePort, MatutinoDadosConvivePort, 'Matutino_Convive_com_portador', 'Convive com Portadores de Necessidades Especiais');
+                GerarGraficoPie(NoturnoConvivePort, opcConvivePort, respNoturno, 11, labelsNoturnoConvivePort, NoturnoDadosConvivePort, 'Noturno_Convive_com_portador', 'Convive com Portadores de Necessidades Especiais');
+
+                // 11 - Quantidade de filhos
+                let QtdFilhos = [];
+                let DadosQtdFilhos = [];
+                let labelsQtdFilhos = [];
+                let MatutinoQtdFilhos = [];
+                let MatutinoDadosQtdFilhos = [];
+                let labelsMatutinoQtdFilhos = [];
+                let NoturnoQtdFilhos = [];
+                let NoturnoDadosQtdFilhos = [];
+                let labelsNoturnoQtdFilhos = [];
+
+                GerarGraficoPie(QtdFilhos, opcQtdFilhos, respostas, 12, labelsQtdFilhos, DadosQtdFilhos, 'qtd_de_filhos', "Quantidade de filhos de cada estudante");
+                GerarGraficoPie(MatutinoQtdFilhos, opcQtdFilhos, respMatutino, 12, labelsMatutinoQtdFilhos, MatutinoDadosQtdFilhos, 'Matutino_Qtd_de_filhos', "Quantidade de filhos de cada estudante");
+                GerarGraficoPie(NoturnoQtdFilhos, opcQtdFilhos, respNoturno, 12, labelsNoturnoQtdFilhos, NoturnoDadosQtdFilhos, 'Noturno_Qtd_de_filhos', "Quantidade de filhos de cada estudante");
+
+                // 12. Com quem você mora atualmente?
+                let moraCom = [];
+                let DadosMoraCom = [];
+                let labelsMoraCom = [];
+                let MatutinoMoraCom = [];
+                let MatutinoDadosMoraCom = [];
+                let labelsMatutinoMoraCom = [];
+                let NoturnoMoraCom = [];
+                let NoturnoDadosMoraCom = [];
+                let labelsNoturnoMoraCom = [];
+
+                GerarGraficoPie(moraCom, opcMoraCom, respostas, 13, labelsMoraCom, DadosMoraCom, 'moram_com', "Com quem cada estudante mora");
+                GerarGraficoPie(MatutinoMoraCom, opcMoraCom, respMatutino, 13, labelsMatutinoMoraCom, MatutinoDadosMoraCom, 'Matutino_Moram_com', "Com quem cada estudante mora");
+                GerarGraficoPie(NoturnoMoraCom, opcMoraCom, respNoturno, 13, labelsNoturnoMoraCom, NoturnoDadosMoraCom, 'Noturno_Moram_com', "Com quem cada estudante mora");
+
+                //13. Quantas pessoas, incluindo você, moram no seu domicílio?
+                let QtdMoradores = [];
+                let DadosQtdMoradores = [];
+                let labelsQtdMoradores = [];
+                let MatutinoQtdMoradores = [];
+                let MatutinoDadosQtdMoradores = [];
+                let labelsMatutinoQtdMoradores = [];
+                let NoturnoQtdMoradores = [];
+                let NoturnoDadosQtdMoradores = [];
+                let labelsNoturnoQtdMoradores = [];
+
+                GerarGraficoPie(QtdMoradores, opcQtdMoradores, respostas, 14, labelsQtdMoradores, DadosQtdMoradores, 'QTD_de_pessoas_moram_junto', "Quantidade de pessoas que moram com cada aluno");
+                GerarGraficoPie(MatutinoQtdMoradores, opcQtdMoradores, respMatutino, 14, labelsMatutinoQtdMoradores, MatutinoDadosQtdMoradores, 'Matutino_QTD_de_pessoas_moram_junto', "Quantidade de pessoas que moram com cada aluno");
+                GerarGraficoPie(NoturnoQtdMoradores, opcQtdMoradores, respNoturno, 14, labelsNoturnoQtdMoradores, NoturnoDadosQtdMoradores, 'Noturno_QTD_de_pessoas_moram_junto', "Quantidade de pessoas que moram com cada aluno");
+
+                // 14. Qual a situação do domicílio onde mora?
+                let SituacaoDomicilio = [];
+                let DadosSituacaoDomi = [];
+                let labelsSituacaoDomi = [];
+                let MatutinoSituacaoDomicilio = [];
+                let MatutinoDadosSituacaoDomi = [];
+                let labelsMatutinoSituacaoDomi = [];
+                let NoturnoSituacaoDomicilio = [];
+                let NoturnoDadosSituacaoDomi = [];
+                let labelsNoturnoSituacaoDomi = [];
+
+                GerarGraficoPie(SituacaoDomicilio, opcSituacaoDomi, respostas, 15, labelsSituacaoDomi, DadosSituacaoDomi, 'situacao_domicilio', "Situação do Domicílio")
+                GerarGraficoPie(MatutinoSituacaoDomicilio, opcSituacaoDomi, respMatutino, 15, labelsMatutinoSituacaoDomi, MatutinoDadosSituacaoDomi, 'Matutino_Situacao_domicilio', "Situação do Domicílio")
+                GerarGraficoPie(NoturnoSituacaoDomicilio, opcSituacaoDomi, respNoturno, 15, labelsNoturnoSituacaoDomi, NoturnoDadosSituacaoDomi, 'Noturno_Situacao_domicilio', "Situação do Domicílio")
+
+                // 15. Tempo de moradia neste domicílio (Em anos)
+                let TempoMoradia = [];
+                let DadosTempoMoradia = [];
+                let labelsTempoMoradia = [];
+                let MatutinoTempoMoradia = [];
+                let MatutinoDadosTempoMoradia = [];
+                let labelsMatutinoTempoMoradia = [];
+                let NoturnoTempoMoradia = [];
+                let NoturnoDadosTempoMoradia = [];
+                let labelsNoturnoTempoMoradia = [];
+
+                GerarGraficoBar(TempoMoradia, opcTempoMoradia, respostas, 16, labelsTempoMoradia, DadosTempoMoradia, 'tempo_moradia', 'bar', 'Geral', 'Tempo de moradia no domicílio(Em anos)');
+                GerarGraficoBar(MatutinoTempoMoradia, opcTempoMoradia, respMatutino, 16, labelsMatutinoTempoMoradia, MatutinoDadosTempoMoradia, 'Matutino_Tempo_moradia', 'bar', 'Matutino', 'Tempo de moradia no domicílio(Em anos)');
+                GerarGraficoBar(NoturnoTempoMoradia, opcTempoMoradia, respNoturno, 16, labelsNoturnoTempoMoradia, NoturnoDadosTempoMoradia, 'Noturno_Tempo_moradia', 'bar', 'Noturno', 'Tempo de moradia no domicílio(Em anos)');
+
+                // 16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)
+                let RendaMensal = [];
+                let DadosRendaMensal = [];
+                let labelsRendaMensal = [];
+                let MatutinoRendaMensal = [];
+                let MatutinoDadosRendaMensal = [];
+                let labelsMatutinoRendaMensal = [];
+                let NoturnoRendaMensal = [];
+                let NoturnoDadosRendaMensal = [];
+                let labelsNoturnoRendaMensal = [];
+
+                GerarGraficoPie(RendaMensal, opcRendaMensal, respostas, 17, labelsRendaMensal, DadosRendaMensal, 'salario_min', "Faixa de renda mensal da família do estudante (em Salários Mínimos)");
+                GerarGraficoPie(MatutinoRendaMensal, opcRendaMensal, respMatutino, 17, labelsMatutinoRendaMensal, MatutinoDadosRendaMensal, 'Matutino_Salario_min', "Faixa de renda mensal da família do estudante (em Salários Mínimos)");
+                GerarGraficoPie(NoturnoRendaMensal, opcRendaMensal, respNoturno, 17, labelsNoturnoRendaMensal, NoturnoDadosRendaMensal, 'Noturno_Salario_min', "Faixa de renda mensal da família do estudante (em Salários Mínimos)");
+
+                //17.1. Quantas geladeiras há em seu domicílio
+                let QtdGeladeira = [];
+                let DadosQtdGeladeira = [];
+                let labelsQtdGeladeira = [];
+                let MatutinoQtdGeladeira = [];
+                let MatutinoDadosQtdGeladeira = [];
+                let labelsMatutinoQtdGeladeira = [];
+                let NoturnoQtdGeladeira = [];
+                let NoturnoDadosQtdGeladeira = [];
+                let labelsNoturnoQtdGeladeira = [];
+
+                GerarGraficoPie(QtdGeladeira, opc17QtdeCadaCoisa, respostas, 18, labelsQtdGeladeira, DadosQtdGeladeira, 'qtd_geladeira', "Quantidade de Geladeiras de cada aluno");
+                GerarGraficoPie(MatutinoQtdGeladeira, opc17QtdeCadaCoisa, respMatutino, 18, labelsMatutinoQtdGeladeira, MatutinoDadosQtdGeladeira, 'Matutino_Qtd_geladeira', "Quantidade de Geladeiras de cada aluno");
+                GerarGraficoPie(NoturnoQtdGeladeira, opc17QtdeCadaCoisa, respNoturno, 18, labelsNoturnoQtdGeladeira, NoturnoDadosQtdGeladeira, 'Noturno_Qtd_geladeira', "Quantidade de Geladeiras de cada aluno");
+
+                // 17.2. Quantos celulares comuns há em seu domicílio?
+                let QtdCelular = [];
+                let DadosQtdCelular = [];
+                let labelsQtdCelular = [];
+                let MatutinoQtdCelular = [];
+                let MatutinoDadosQtdCelular = [];
+                let labelsMatutinoQtdCelular = [];
+                let NoturnoQtdCelular = [];
+                let NoturnoDadosQtdCelular = [];
+                let labelsNoturnoQtdCelular = [];
+
+                GerarGraficoPie(QtdCelular, opc17QtdeCadaCoisa, respostas, 19, labelsQtdCelular, DadosQtdCelular, 'qtd_celular_comum', "Quantidade de celulares comuns de cada aluno");
+                GerarGraficoPie(MatutinoQtdCelular, opc17QtdeCadaCoisa, respMatutino, 19, labelsMatutinoQtdCelular, MatutinoDadosQtdCelular, 'Matutino_Qtd_celular_comum', "Quantidade de celulares comuns de cada aluno");
+                GerarGraficoPie(NoturnoQtdCelular, opc17QtdeCadaCoisa, respNoturno, 19, labelsNoturnoQtdCelular, NoturnoDadosQtdCelular, 'Noturno_Qtd_celular_comum', "Quantidade de celulares comuns de cada aluno");
+
+                // 17.3. Quantos micro-ondas há em seu domicílio?
+                let QtdMicroOndas = [];
+                let DadosQtdMicroOndas = [];
+                let labelsQtdMicroOndas = [];
+                let MatutinoQtdMicroOndas = [];
+                let MatutinoDadosQtdMicroOndas = [];
+                let labelsMatutinoQtdMicroOndas = [];
+                let NoturnoQtdMicroOndas = [];
+                let NoturnoDadosQtdMicroOndas = [];
+                let labelsNoturnoQtdMicroOndas = [];
+
+                GerarGraficoPie(QtdMicroOndas, opc17QtdeCadaCoisa, respostas, 20, labelsQtdMicroOndas, DadosQtdMicroOndas, 'qtd_micro_ondas', 'Quantidade de micro-ondas de cada aluno');
+                GerarGraficoPie(MatutinoQtdMicroOndas, opc17QtdeCadaCoisa, respMatutino, 20, labelsMatutinoQtdMicroOndas, MatutinoDadosQtdMicroOndas, 'Matutino_Qtd_micro_ondas', 'Quantidade de micro-ondas de cada aluno');
+                GerarGraficoPie(NoturnoQtdMicroOndas, opc17QtdeCadaCoisa, respNoturno, 20, labelsNoturnoQtdMicroOndas, NoturnoDadosQtdMicroOndas, 'Noturno_Qtd_micro_ondas', 'Quantidade de micro-ondas de cada aluno');
+
+                // 17.4. Quantos notebooks há em seu domicílio?
+                let QtdNotebooks = [];
+                let DadosQtdNotebooks = [];
+                let labelsQtdNotebook = [];
+                let MatutinoQtdNotebooks = [];
+                let MatutinoDadosQtdNotebooks = [];
+                let labelsMatutinoQtdNotebook = [];
+                let NoturnoQtdNotebooks = [];
+                let NoturnoDadosQtdNotebooks = [];
+                let labelsNoturnoQtdNotebook = [];
+
+                GerarGraficoPie(QtdNotebooks, opc17QtdeCadaCoisa, respostas, 21, labelsQtdNotebook, DadosQtdNotebooks, 'qtd_notebooks', 'Quantidade de Notebooks de cada aluno');
+                GerarGraficoPie(MatutinoQtdNotebooks, opc17QtdeCadaCoisa, respMatutino, 21, labelsMatutinoQtdNotebook, MatutinoDadosQtdNotebooks, 'Matutino_Qtd_notebooks', 'Quantidade de Notebooks de cada aluno');
+                GerarGraficoPie(NoturnoQtdNotebooks, opc17QtdeCadaCoisa, respNoturno, 21, labelsNoturnoQtdNotebook, NoturnoDadosQtdNotebooks, 'Noturno_Qtd_notebooks', 'Quantidade de Notebooks de cada aluno');
+
+                // 17.5. Quantas máquinas de lavar roupa e(ou) tanquinho há em seu domicílio?
+                let Qtd_Maquina_de_Lavar = [];
+                let DadosMaquinaLavar = [];
+                let labelsMaquinaLavar = [];
+                let MatutinoQtd_Maquina_de_Lavar = [];
+                let MatutinoDadosMaquinaLavar = [];
+                let labelsMatutinoMaquinaLavar = [];
+                let NoturnoQtd_Maquina_de_Lavar = [];
+                let NoturnoDadosMaquinaLavar = [];
+                let labelsNoturnoMaquinaLavar = [];
+
+                GerarGraficoPie(Qtd_Maquina_de_Lavar, opc17QtdeCadaCoisa, respostas, 22, labelsMaquinaLavar, DadosMaquinaLavar, 'qtd_Maquina_de_Lavar', 'Quantidade de Máquinas de lavar roupa de cada aluno');
+                GerarGraficoPie(MatutinoQtd_Maquina_de_Lavar, opc17QtdeCadaCoisa, respMatutino, 22, labelsMatutinoMaquinaLavar, MatutinoDadosMaquinaLavar, 'Matutino_Qtd_Maquina_de_Lavar', 'Quantidade de Máquinas de lavar roupa de cada aluno');
+                GerarGraficoPie(NoturnoQtd_Maquina_de_Lavar, opc17QtdeCadaCoisa, respNoturno, 22, labelsNoturnoMaquinaLavar, NoturnoDadosMaquinaLavar, 'Noturno_Qtd_Maquina_de_Lavar', 'Quantidade de Máquinas de lavar roupa de cada aluno');
+
+                // 17.6. Quantas motocicletas há em seu domicílio?
+                let Qtd_motoclicletas = [];
+                let DadosMotocicletas = [];
+                let labelsMotocicletas = [];
+                let MatutinoQtd_motoclicletas = [];
+                let MatutinoDadosMotocicletas = [];
+                let labelsMatutinoMotocicletas = [];
+                let NoturnoQtd_motoclicletas = [];
+                let NoturnoDadosMotocicletas = [];
+                let labelsNoturnoMotocicletas = [];
+
+                GerarGraficoPie(Qtd_motoclicletas, opc17QtdeCadaCoisa, respostas, 23, labelsMotocicletas, DadosMotocicletas, 'qtd_motocicletas', 'Quantidade de Motocicletas de cada aluno');
+                GerarGraficoPie(MatutinoQtd_motoclicletas, opc17QtdeCadaCoisa, respMatutino, 23, labelsMatutinoMotocicletas, MatutinoDadosMotocicletas, 'Matutino_Qtd_motocicletas', 'Quantidade de Motocicletas de cada aluno');
+                GerarGraficoPie(NoturnoQtd_motoclicletas, opc17QtdeCadaCoisa, respNoturno, 23, labelsNoturnoMotocicletas, NoturnoDadosMotocicletas, 'Noturno_Qtd_motocicletas', 'Quantidade de Motocicletas de cada aluno');
+
+                // 17.7. Quantos automóveis há em seu domicílio?
+                let QtdAutomoveis = [];
+                let DadosAutomoveis = [];
+                let labelsAutomoveis = [];
+                let MatutinoQtdAutomoveis = [];
+                let MatutinoDadosAutomoveis = [];
+                let labelsMatutinoAutomoveis = [];
+                let NoturnoQtdAutomoveis = [];
+                let NoturnoDadosAutomoveis = [];
+                let labelsNoturnoAutomoveis = [];
+
+                GerarGraficoPie(QtdAutomoveis, opc17QtdeCadaCoisa, respostas, 24, labelsAutomoveis, DadosAutomoveis, 'qtd_Automoveis', 'Quantidade de Automóveis de cada aluno');
+                GerarGraficoPie(MatutinoQtdAutomoveis, opc17QtdeCadaCoisa, respMatutino, 24, labelsMatutinoAutomoveis, MatutinoDadosAutomoveis, 'Matutino_Qtd_Automoveis', 'Quantidade de Automóveis de cada aluno');
+                GerarGraficoPie(NoturnoQtdAutomoveis, opc17QtdeCadaCoisa, respNoturno, 24, labelsNoturnoAutomoveis, NoturnoDadosAutomoveis, 'Noturno_Qtd_Automoveis', 'Quantidade de Automóveis de cada aluno');
+
+                // 17.8. Quantos vídeos cassete e(ou) DVD players há em seu domicílio?
+                let QtdDVD = [];
+                let DadosDVD = [];
+                let labelsDvd = [];
+                let MatutinoQtdDVD = [];
+                let MatutinoDadosDVD = [];
+                let labelsMatutinoDvd = [];
+                let NoturnoQtdDVD = [];
+                let NoturnoDadosDVD = [];
+                let labelsNoturnoDvd = [];
+
+                GerarGraficoPie(QtdDVD, opc17QtdeCadaCoisa, respostas, 25, labelsDvd, DadosDVD, 'qtd_DVD', 'Quantidade de DVD players');
+                GerarGraficoPie(MatutinoQtdDVD, opc17QtdeCadaCoisa, respMatutino, 25, labelsMatutinoDvd, MatutinoDadosDVD, 'Matutino_Qtd_DVD', 'Quantidade de DVD players');
+                GerarGraficoPie(NoturnoQtdDVD, opc17QtdeCadaCoisa, respNoturno, 25, labelsNoturnoDvd, NoturnoDadosDVD, 'Noturno_Qtd_DVD', 'Quantidade de DVD players');
+
+                // 17.9. Quantos televisores há em seu domicílio?
+                let QtdTV = [];
+                let DadosTV = [];
+                let labelsQtdTV = [];
+                let MatutinoQtdTV = [];
+                let MatutinoDadosTV = [];
+                let labelsMatutinoQtdTV = [];
+                let NoturnoQtdTV = [];
+                let NoturnoDadosTV = [];
+                let labelsNoturnoQtdTV = [];
+
+                GerarGraficoPie(QtdTV, opc17QtdeCadaCoisa, respostas, 26, labelsQtdTV, DadosTV, 'qtd_TV', 'Quantidade de TVs de cada aluno');
+                GerarGraficoPie(MatutinoQtdTV, opc17QtdeCadaCoisa, respMatutino, 26, labelsMatutinoQtdTV, MatutinoDadosTV, 'Matutino_Qtd_TV', 'Quantidade de TVs de cada aluno');
+                GerarGraficoPie(NoturnoQtdTV, opc17QtdeCadaCoisa, respNoturno, 26, labelsNoturnoQtdTV, NoturnoDadosTV, 'Noturno_Qtd_TV', 'Quantidade de TVs de cada aluno');
+
+                // 17.10. Quantos smartphones há em seu domicílio?
+                let Qtd_Smartphones = [];
+                let DadosSmatphones = [];
+                let labelsQtdSmartphone = [];
+                let MatutinoQtd_Smartphones = [];
+                let MatutinoDadosSmatphones = [];
+                let labelsMatutinoQtdSmartphone = [];
+                let NoturnoQtd_Smartphones = [];
+                let NoturnoDadosSmatphones = [];
+                let labelsNoturnoQtdSmartphone = [];
+
+                GerarGraficoPie(Qtd_Smartphones, opc17QtdeCadaCoisa, respostas, 27, labelsQtdSmartphone, DadosSmatphones, 'qtd_Smartphones', 'Quantidade de Smartphones de cada aluno');
+                GerarGraficoPie(MatutinoQtd_Smartphones, opc17QtdeCadaCoisa, respMatutino, 27, labelsMatutinoQtdSmartphone, MatutinoDadosSmatphones, 'Matutino_Qtd_Smartphones', 'Quantidade de Smartphones de cada aluno');
+                GerarGraficoPie(NoturnoQtd_Smartphones, opc17QtdeCadaCoisa, respNoturno, 27, labelsNoturnoQtdSmartphone, NoturnoDadosSmatphones, 'Noturno_Qtd_Smartphones', 'Quantidade de Smartphones de cada aluno');
+
+                // 18. No seu domicílio tem? questão com mais de uma alternativa, n esta terminada
+                let DomicilioTem = [];
+                let DadosDomicilioTem = [];
+                let labelsDomicilioTem = [];
+                let MatutinoDomicilioTem = [];
+                let MatutinoDadosDomicilioTem = [];
+                let labelsMatutinoDomicilioTem = [];
+                let NoturnoDomicilioTem = [];
+                let NoturnoDadosDomicilioTem = [];
+                let labelsNoturnoDomicilioTem = [];
+
+                GerarGraficoBar(DomicilioTem, opcTemNoDomicilio, respostas, 28, labelsDomicilioTem, DadosDomicilioTem, 'Oque_tem_No_Domicilio', 'horizontalBar', 'Geral', 'Na casa de cada estudante tem');
+                GerarGraficoBar(MatutinoDomicilioTem, opcTemNoDomicilio, respMatutino, 28, labelsMatutinoDomicilioTem, MatutinoDadosDomicilioTem, 'Matutino_Oque_tem_No_Domicilio', 'horizontalBar', 'Matutino', 'Na casa de cada estudante tem');
+                GerarGraficoBar(NoturnoDomicilioTem, opcTemNoDomicilio, respNoturno, 28, labelsNoturnoDomicilioTem, NoturnoDadosDomicilioTem, 'Noturno_Oque_tem_No_Domicilio', 'horizontalBar', 'Noturno', 'Na casa de cada estudante tem');
+
+                // 19.1. Você trabalha?
+                let trabalha = [];
+                let DadosTrabalho = [];
+                let labelsTrabalho = [];
+                let MatutinoTrabalha = [];
+                let MatutinoDadosTrabalho = [];
+                let labelsMatutinoTrabalho = [];
+                let NoturnoTrabalha = [];
+                let NoturnoDadosTrabalho = [];
+                let labelsNoturnoTrabalho = [];
+
+                GerarGraficoPie(trabalha, opcTrabalha, respostas, 29, labelsTrabalho, DadosTrabalho, 'Trabalho', 'Você trabalha?');
+                GerarGraficoPie(MatutinoTrabalha, opcTrabalha, respMatutino, 29, labelsMatutinoTrabalho, MatutinoDadosTrabalho, 'Matutino_Trabalho', 'Você trabalha?');
+                GerarGraficoPie(NoturnoTrabalha, opcTrabalha, respNoturno, 29, labelsNoturnoTrabalho, NoturnoDadosTrabalho, 'Noturno_Trabalho', 'Você trabalha?');
+
+                //19.2. Qual o seu vínculo com o emprego?
+                let VinculoEmprego = [];
+                let DadosVinculo = [];
+                let labelsVinculo = [];
+                let MatutinoVinculoEmprego = [];
+                let MatutinoDadosVinculo = [];
+                let labelsMatutinoVinculo = [];
+                let NoturnoVinculoEmprego = [];
+                let NoturnoDadosVinculo = [];
+                let labelsNoturnoVinculo = [];
+
+                GerarGraficoPie(VinculoEmprego, opcVinculoEmprego, respostas, 30, labelsVinculo, DadosVinculo, 'Vinculo_Emprego', "Vinculo com o emprego");
+                GerarGraficoPie(MatutinoVinculoEmprego, opcVinculoEmprego, respMatutino, 30, labelsMatutinoVinculo, MatutinoDadosVinculo, 'Matutino_Vinculo_Emprego', "Vinculo com o emprego");
+                GerarGraficoPie(NoturnoVinculoEmprego, opcVinculoEmprego, respNoturno, 30, labelsNoturnoVinculo, NoturnoDadosVinculo, 'Noturno_Vinculo_Emprego', "Vinculo com o emprego");
+
+                // 19.3. Qual a área do seu trabalho?
+                let AreaTrabalho = [];
+                let DadosAreaTrabalho = [];
+                let labelsAreaTrabalho = [];
+                let MatutinoAreaTrabalho = [];
+                let MatutinoDadosAreaTrabalho = [];
+                let labelsMatutinoAreaTrabalho = [];
+                let NoturnoAreaTrabalho = [];
+                let NoturnoDadosAreaTrabalho = [];
+                let labelsNoturnoAreaTrabalho = [];
+
+                GerarGraficoPie(AreaTrabalho, opcAreaTrabalho, respostas, 31, labelsAreaTrabalho, DadosAreaTrabalho, 'Area_trabalho', "Qual a área do seu trabalho?");
+                GerarGraficoPie(MatutinoAreaTrabalho, opcAreaTrabalho, respMatutino, 31, labelsMatutinoAreaTrabalho, MatutinoDadosAreaTrabalho, 'Matutino_Area_trabalho', "Qual a área do seu trabalho?");
+                GerarGraficoPie(NoturnoAreaTrabalho, opcAreaTrabalho, respNoturno, 31, labelsNoturnoAreaTrabalho, NoturnoDadosAreaTrabalho, 'Noturno_Area_trabalho', "Qual a área do seu trabalho?");
+
+                // 19.4. Qual seu horário de trabalho?
+                let HorarioTrabalho = [];
+                let DadosHorario = [];
+                let labelsHorario = [];
+                let MatutinoHorarioTrabalho = [];
+                let MatutinoDadosHorario = [];
+                let labelsMatutinoHorario = [];
+                let NoturnoHorarioTrabalho = [];
+                let NoturnoDadosHorario = [];
+                let labelsNoturnoHorario = [];
+
+                GerarGraficoPie(HorarioTrabalho, opcHorarioTrabalho, respostas, 32, labelsHorario, DadosHorario, 'Horario_Trabalho', "Horários de Trabalho");
+                GerarGraficoPie(MatutinoHorarioTrabalho, opcHorarioTrabalho, respMatutino, 32, labelsMatutinoHorario, MatutinoDadosHorario, 'Matutino_Horario_Trabalho', "Horários de Trabalho");
+                GerarGraficoPie(NoturnoHorarioTrabalho, opcHorarioTrabalho, respNoturno, 32, labelsNoturnoHorario, NoturnoDadosHorario, 'Noturno_Horario_Trabalho', "Horários de Trabalho");
+
+                // 20. Você tem plano de saúde privado?
+                let PlanoSaude = [];
+                let DadosPlanoSaude = [];
+                let labelsPlanoSaude = [];
+                let MatutinoPlanoSaude = [];
+                let MatutinoDadosPlanoSaude = [];
+                let labelsMatutinoPlanoSaude = [];
+                let NoturnoPlanoSaude = [];
+                let NoturnoDadosPlanoSaude = [];
+                let labelsNoturnoPlanoSaude = [];
+
+                GerarGraficoPie(PlanoSaude, opcPlanoDeSaude, respostas, 34, labelsPlanoSaude, DadosPlanoSaude, 'Plano_Saude', 'Planos de Saúde');
+                GerarGraficoPie(MatutinoPlanoSaude, opcPlanoDeSaude, respMatutino, 34, labelsMatutinoPlanoSaude, MatutinoDadosPlanoSaude, 'Matutino_Plano_Saude', 'Planos de Saúde');
+                GerarGraficoPie(NoturnoPlanoSaude, opcPlanoDeSaude, respNoturno, 34, labelsNoturnoPlanoSaude, NoturnoDadosPlanoSaude, 'Noturno_Plano_Saude', 'Planos de Saúde');
+
+                // 21.1. Qual o grau de escolaridade do seu pai?
+                let EscolaridadePai = [];
+                let DadosEscolaridadePai = [];
+                let LabelsEscolaPai = [];
+                let MatutinoEscolaridadePai = [];
+                let MatutinoDadosEscolaridadePai = [];
+                let LabelsMatutinoEscolaPai = [];
+                let NoturnoEscolaridadePai = [];
+                let NoturnoDadosEscolaridadePai = [];
+                let LabelsNoturnoEscolaPai = [];
+
+                GerarGraficoPie(EscolaridadePai, opcEscolaridade, respostas, 35, LabelsEscolaPai, DadosEscolaridadePai, 'Escolaridade_Pai', 'Grau de Escolaridade do Pai dos Alunos');
+                GerarGraficoPie(MatutinoEscolaridadePai, opcEscolaridade, respMatutino, 35, LabelsMatutinoEscolaPai, MatutinoDadosEscolaridadePai, 'Matutino_Escolaridade_Pai', 'Grau de Escolaridade do Pai dos Alunos');
+                GerarGraficoPie(NoturnoEscolaridadePai, opcEscolaridade, respNoturno, 35, LabelsNoturnoEscolaPai, NoturnoDadosEscolaridadePai, 'Noturno_Escolaridade_Pai', 'Grau de Escolaridade do Pai dos Alunos');
+
+                // 21.2. Qual o grau de escolaridade da sua mãe?
+                let EscolaridadeMae = [];
+                let DadosEscolaridadeMae = [];
+                let LabelsEscolaMae = [];
+                let MatutinoEscolaridadeMae = [];
+                let MatutinoDadosEscolaridadeMae = [];
+                let LabelsMatutinoEscolaMae = [];
+                let NoturnoEscolaridadeMae = [];
+                let NoturnoDadosEscolaridadeMae = [];
+                let LabelsNoturnoEscolaMae = [];
+
+                GerarGraficoPie(EscolaridadeMae, opcEscolaridade, respostas, 36, LabelsEscolaMae, DadosEscolaridadeMae, 'Escolaridade_Mae', 'Grau de Escolaridade da Mãe dos Alunos');
+                GerarGraficoPie(MatutinoEscolaridadeMae, opcEscolaridade, respMatutino, 36, LabelsMatutinoEscolaMae, MatutinoDadosEscolaridadeMae, 'Matutino_Escolaridade_Mae', 'Grau de Escolaridade da Mãe dos Alunos');
+                GerarGraficoPie(NoturnoEscolaridadeMae, opcEscolaridade, respNoturno, 36, LabelsNoturnoEscolaMae, NoturnoDadosEscolaridadeMae, 'Noturno_Escolaridade_Mae', 'Grau de Escolaridade da Mãe dos Alunos');
+
+                // 22. Na sua vida escolar você estudou
+                let EstudouEm = [];
+                let DadosEstudouEm = [];
+                let labelsEstudouEm = [];
+                let MatutinoEstudouEm = [];
+                let MatutinoDadosEstudouEm = [];
+                let labelsMatutinoEstudouEm = [];
+                let NoturnoEstudouEm = [];
+                let NoturnoDadosEstudouEm = [];
+                let labelsNoturnoEstudouEm = [];
+
+                GerarGraficoPie(EstudouEm, opcEstudou, respostas, 37, labelsEstudouEm, DadosEstudouEm, 'Estudou_Em', "Na sua vida escolar você estudou");
+                GerarGraficoPie(MatutinoEstudouEm, opcEstudou, respMatutino, 37, labelsMatutinoEstudouEm, MatutinoDadosEstudouEm, 'Matutino_Estudou_Em', "Na sua vida escolar você estudou");
+                GerarGraficoPie(NoturnoEstudouEm, opcEstudou, respNoturno, 37, labelsNoturnoEstudouEm, NoturnoDadosEstudouEm, 'Noturno_Estudou_Em', "Na sua vida escolar você estudou");
+
+                // 23.1. Com que frequência você utiliza microcomputadores?
+                let FrequenciaMicrocomputadores = [];
+                let DadosFrequenciaComp = [];
+                let labelsFrequenciaComp = [];
+                let MatutinoFrequenciaMicrocomputadores = [];
+                let MatutinoDadosFrequenciaComp = [];
+                let labelsMatutinoFrequenciaComp = [];
+                let NoturnoFrequenciaMicrocomputadores = [];
+                let NoturnoDadosFrequenciaComp = [];
+                let labelsNoturnoFrequenciaComp = [];
+
+                GerarGraficoPie(FrequenciaMicrocomputadores, opcUsaMicroComp, respostas, 38, labelsFrequenciaComp, DadosFrequenciaComp, 'Frequencia_Microcomputadores', 'Com que frequência você utiliza microcomputadores?');
+                GerarGraficoPie(MatutinoFrequenciaMicrocomputadores, opcUsaMicroComp, respMatutino, 38, labelsMatutinoFrequenciaComp, MatutinoDadosFrequenciaComp, 'Matutino_Frequencia_Microcomputadores', 'Com que frequência você utiliza microcomputadores?');
+                GerarGraficoPie(NoturnoFrequenciaMicrocomputadores, opcUsaMicroComp, respNoturno, 38, labelsNoturnoFrequenciaComp, NoturnoDadosFrequenciaComp, 'Noturno_Frequencia_Microcomputadores', 'Com que frequência você utiliza microcomputadores?');
+
+                // 23.2. Onde você utiliza microcomputadores?
+                let OndeUtilizaMicro = [];
+                let DadosOndeUtilizaMicro = [];
+                let labelsUtilizaMicro = [];
+                let MatutinoOndeUtilizaMicro = [];
+                let MatutinoDadosOndeUtilizaMicro = [];
+                let labelsMatutinoUtilizaMicro = [];
+                let NoturnoOndeUtilizaMicro = [];
+                let NoturnoDadosOndeUtilizaMicro = [];
+                let labelsNoturnoUtilizaMicro = [];
+
+                GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, respostas, 39, labelsUtilizaMicro, DadosOndeUtilizaMicro, 'Onde_Microcomputadores', 'horizontalBar', 'Geral', 'Onde você utiliza microcomputadores?');
+                GerarGraficoBar(MatutinoOndeUtilizaMicro, opcOndeUsaMicroComp, respMatutino, 39, labelsMatutinoUtilizaMicro, MatutinoDadosOndeUtilizaMicro, 'Matutino_Onde_Microcomputadores', 'horizontalBar', 'Matutino', 'Onde você utiliza microcomputadores?');
+                GerarGraficoBar(NoturnoOndeUtilizaMicro, opcOndeUsaMicroComp, respNoturno, 39, labelsNoturnoUtilizaMicro, NoturnoDadosOndeUtilizaMicro, 'Noturno_Onde_Microcomputadores', 'horizontalBar', 'Noturno', 'Onde você utiliza microcomputadores?');
+
+                // 23.3. Com qual finalidade você utiliza microcomputadores?
+                let FinalidadeUtiliMicro = [];
+                let DadosFinalidadeUtiliMicro = [];
+                let labelsFinalidadeUtiliza = [];
+                let MatutinoFinalidadeUtiliMicro = [];
+                let MatutinoDadosFinalidadeUtiliMicro = [];
+                let labelsMatutinoFinalidadeUtiliza = [];
+                let NoturnoFinalidadeUtiliMicro = [];
+                let NoturnoDadosFinalidadeUtiliMicro = [];
+                let labelsNoturnoFinalidadeUtiliza = [];
+
+                GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respostas, 40, labelsFinalidadeUtiliza, DadosFinalidadeUtiliMicro, 'Finalidade_Microcomputadores', 'horizontalBar', 'Geral', 'Com qual finalidade você utiliza microcomputadores?');
+                GerarGraficoBar(MatutinoFinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respMatutino, 40, labelsMatutinoFinalidadeUtiliza, MatutinoDadosFinalidadeUtiliMicro, 'Matutino_Finalidade_Microcomputadores', 'horizontalBar', 'Matutino', 'Com qual finalidade você utiliza microcomputadores?');
+                GerarGraficoBar(NoturnoFinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respNoturno, 40, labelsNoturnoFinalidadeUtiliza, NoturnoDadosFinalidadeUtiliMicro, 'Noturno_Finalidade_Microcomputadores', 'horizontalBar', 'Noturno', 'Com qual finalidade você utiliza microcomputadores?');
+
+                // 24. Como você classifica seu conhecimento em informática
+                let ConhecimentoInformatica = [];
+                let DadosConhecimentoInformatica = [];
+                let labelsInformatica = [];
+                let MatutinoConhecimentoInformatica = [];
+                let MatutinoDadosConhecimentoInformatica = [];
+                let labelsMatutinoInformatica = [];
+                let NoturnoConhecimentoInformatica = [];
+                let NoturnoDadosConhecimentoInformatica = [];
+                let labelsNoturnoInformatica = [];
+
+                GerarGraficoPie(ConhecimentoInformatica, opcConhecimentoInformatica, respostas, 41, labelsInformatica, DadosConhecimentoInformatica, 'Conhecimento_Informatica', 'Conhecimento em Informática');
+                GerarGraficoPie(MatutinoConhecimentoInformatica, opcConhecimentoInformatica, respMatutino, 41, labelsMatutinoInformatica, MatutinoDadosConhecimentoInformatica, 'Matutino_Conhecimento_Informatica', 'Conhecimento em Informática');
+                GerarGraficoPie(NoturnoConhecimentoInformatica, opcConhecimentoInformatica, respNoturno, 41, labelsNoturnoInformatica, NoturnoDadosConhecimentoInformatica, 'Noturno_Conhecimento_Informatica', 'Conhecimento em Informática');
+
+                // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Windows]
+                let ConhecimentoWindows = [];
+                let DadosWindows = [];
+                let labelsWindows = [];
+                let MatutinoConhecimentoWindows = [];
+                let MatutinoDadosWindows = [];
+                let labelsMatutinoWindows = [];
+                let NoturnoConhecimentoWindows = [];
+                let NoturnoDadosWindows = [];
+                let labelsNoturnoWindows = [];
+
+                GerarGraficoPie(ConhecimentoWindows, opcConhecimentoInformatica, respostas, 42, labelsWindows, DadosWindows, 'Conhecimento_Windows', 'Conhecimento no Windows');
+                GerarGraficoPie(MatutinoConhecimentoWindows, opcConhecimentoInformatica, respMatutino, 42, labelsMatutinoWindows, MatutinoDadosWindows, 'Matutino_Conhecimento_Windows', 'Conhecimento no Windows');
+                GerarGraficoPie(NoturnoConhecimentoWindows, opcConhecimentoInformatica, respNoturno, 42, labelsNoturnoWindows, NoturnoDadosWindows, 'Noturno_Conhecimento_Windows', 'Conhecimento no Windows');
+
+
+                // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Linux]
+                let ConhecimentoLinux = [];
+                let DadosLinux = [];
+                let labelsLinux = [];
+                let MatutinoConhecimentoLinux = [];
+                let MatutinoDadosLinux = [];
+                let labelsMatutinoLinux = [];
+                let NoturnoConhecimentoLinux = [];
+                let NoturnoDadosLinux = [];
+                let labelsNoturnoLinux = [];
+
+                GerarGraficoPie(ConhecimentoLinux, opcConhecimentoInformatica, respostas, 43, labelsLinux, DadosLinux, 'Conhecimento_Linux', 'Conhecimento no Linux');
+                GerarGraficoPie(MatutinoConhecimentoLinux, opcConhecimentoInformatica, respMatutino, 43, labelsMatutinoLinux, MatutinoDadosLinux, 'Matutino_Conhecimento_Linux', 'Conhecimento no Linux');
+                GerarGraficoPie(NoturnoConhecimentoLinux, opcConhecimentoInformatica, respNoturno, 43, labelsNoturnoLinux, NoturnoDadosLinux, 'Noturno_Conhecimento_Linux', 'Conhecimento no Linux');
+
+                // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Editores de textos (Word, Writer, etc.)]
+                let ConhecimentoWord = [];
+                let DadosWord = [];
+                let labelsWord = [];
+                let MatutinoConhecimentoWord = [];
+                let MatutinoDadosWord = [];
+                let labelsMatutinoWord = [];
+                let NoturnoConhecimentoWord = [];
+                let NoturnoDadosWord = [];
+                let labelsNoturnoWord = [];
+
+                GerarGraficoPie(ConhecimentoWord, opcConhecimentoInformatica, respostas, 44, labelsWord, DadosWord, 'Conhecimento_Word', 'Conhecimento em Editores de textos (Word, Writer, etc.)');
+                GerarGraficoPie(MatutinoConhecimentoWord, opcConhecimentoInformatica, respMatutino, 44, labelsMatutinoWord, MatutinoDadosWord, 'Matutino_Conhecimento_Word', 'Conhecimento em Editores de textos (Word, Writer, etc.)');
+                GerarGraficoPie(NoturnoConhecimentoWord, opcConhecimentoInformatica, respNoturno, 44, labelsNoturnoWord, NoturnoDadosWord, 'Noturno_Conhecimento_Word', 'Conhecimento em Editores de textos (Word, Writer, etc.)');
+
+                // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Planilhas eletrônicas (Excel, Calc, etc.)]
+                let ConhecimentoExcel = [];
+                let DadosExcel = [];
+                let labelsExcel = [];
+                let MatutinoConhecimentoExcel = [];
+                let MatutinoDadosExcel = [];
+                let labelsMatutinoExcel = [];
+                let NoturnoConhecimentoExcel = [];
+                let NoturnoDadosExcel = [];
+                let labelsNoturnoExcel = [];
+
+                GerarGraficoPie(ConhecimentoExcel, opcConhecimentoInformatica, respostas, 45, labelsExcel, DadosExcel, 'Conhecimento_Excel', 'Conhecimento em Planilhas eletrônicas (Excel, Calc, etc.)');
+                GerarGraficoPie(MatutinoConhecimentoExcel, opcConhecimentoInformatica, respMatutino, 45, labelsMatutinoExcel, MatutinoDadosExcel, 'Matutino_Conhecimento_Excel', 'Conhecimento em Planilhas eletrônicas (Excel, Calc, etc.)');
+                GerarGraficoPie(NoturnoConhecimentoExcel, opcConhecimentoInformatica, respNoturno, 45, labelsNoturnoExcel, NoturnoDadosExcel, 'Noturno_Conhecimento_Excel', 'Conhecimento em Planilhas eletrônicas (Excel, Calc, etc.)');
+
+                // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Apresentadores (Powerpoint, Impress, Prezzi, etc.)]
+                let ConhecimentoPowerPoint = [];
+                let DadosPowerPoint = [];
+                let labelsPowerPoint = [];
+                let MatutinoConhecimentoPowerPoint = [];
+                let MatutinoDadosPowerPoint = [];
+                let labelsMatutinoPowerPoint = [];
+                let NoturnoConhecimentoPowerPoint = [];
+                let NoturnoDadosPowerPoint = [];
+                let labelsNoturnoPowerPoint = [];
+
+                GerarGraficoPie(ConhecimentoPowerPoint, opcConhecimentoInformatica, respostas, 46, labelsPowerPoint, DadosPowerPoint, 'Conhecimento_PowerPoint', 'Conhecimento em Apresentadores (Powerpoint, Impress, Prezzi, etc.)');
+                GerarGraficoPie(MatutinoConhecimentoPowerPoint, opcConhecimentoInformatica, respMatutino, 46, labelsMatutinoPowerPoint, MatutinoDadosPowerPoint, 'Matutino_Conhecimento_PowerPoint', 'Conhecimento em Apresentadores (Powerpoint, Impress, Prezzi, etc.)');
+                GerarGraficoPie(NoturnoConhecimentoPowerPoint, opcConhecimentoInformatica, respNoturno, 46, labelsNoturnoPowerPoint, NoturnoDadosPowerPoint, 'Noturno_Conhecimento_PowerPoint', 'Conhecimento em Apresentadores (Powerpoint, Impress, Prezzi, etc.)');
+
+                // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Sistemas de Gestão Empresaria]
+                let ConhecimentoGestaoEmpresarial = [];
+                let DadosGestaoEmpresarial = [];
+                let labelsGestaoEmpresarial = [];
+                let MatutinoConhecimentoGestaoEmpresarial = [];
+                let MatutinoDadosGestaoEmpresarial = [];
+                let labelsMatutinoGestaoEmpresarial = [];
+                let NoturnoConhecimentoGestaoEmpresarial = [];
+                let NoturnoDadosGestaoEmpresarial = [];
+                let labelsNoturnoGestaoEmpresarial = [];
+
+                GerarGraficoPie(ConhecimentoGestaoEmpresarial, opcConhecimentoInformatica, respostas, 47, labelsGestaoEmpresarial, DadosGestaoEmpresarial, 'Conhecimento_GestaoEmpresarial', 'Conhecimento em Sistemas de Gestão Empresaria');
+                GerarGraficoPie(MatutinoConhecimentoGestaoEmpresarial, opcConhecimentoInformatica, respMatutino, 47, labelsMatutinoGestaoEmpresarial, MatutinoDadosGestaoEmpresarial, 'Matutino_Conhecimento_GestaoEmpresarial', 'Conhecimento em Sistemas de Gestão Empresaria');
+                GerarGraficoPie(NoturnoConhecimentoGestaoEmpresarial, opcConhecimentoInformatica, respNoturno, 47, labelsNoturnoGestaoEmpresarial, NoturnoDadosGestaoEmpresarial, 'Noturno_Conhecimento_GestaoEmpresarial', 'Conhecimento em Sistemas de Gestão Empresaria');
+
+                //26. Agora, considere seu conhecimento sobre idiomas [Inglês]
+                let conhecimentoIngles = [];
+                let DadosIngles = [];
+                let labelsInlges = [];
+                let MatutinoConhecimentoIngles = [];
+                let MatutinoDadosIngles = [];
+                let labelsMatutinoInlges = [];
+                let NoturnoConhecimentoIngles = [];
+                let NoturnoDadosIngles = [];
+                let labelsNoturnoInlges = [];
+
+                GerarGraficoPie(conhecimentoIngles, opcConhecimentoLinguas, respostas, 48, labelsInlges, DadosIngles, 'Ingles', 'Conhecimento em inglês');
+                GerarGraficoPie(MatutinoConhecimentoIngles, opcConhecimentoLinguas, respMatutino, 48, labelsMatutinoInlges, MatutinoDadosIngles, 'Matutino_Ingles', 'Conhecimento em inglês');
+                GerarGraficoPie(NoturnoConhecimentoIngles, opcConhecimentoLinguas, respNoturno, 48, labelsNoturnoInlges, NoturnoDadosIngles, 'Noturno_Ingles', 'Conhecimento em inglês');
+
+                // 26. Agora, considere seu conhecimento sobre idiomas [Espanhol]
+                let conhecimentoEspanhol = [];
+                let DadosEspanhol = [];
+                let labelsEspanhol = [];
+                let MatutinoConhecimentoEspanhol = [];
+                let MatutinoDadosEspanhol = [];
+                let labelsMatutinoEspanhol = [];
+                let NoturnoConhecimentoEspanhol = [];
+                let NoturnoDadosEspanhol = [];
+                let labelsNoturnoEspanhol = [];
+
+                GerarGraficoPie(conhecimentoEspanhol, opcConhecimentoLinguas, respostas, 49, labelsEspanhol, DadosEspanhol, 'Espanhol', 'Conhecimento em Espanhol');
+                GerarGraficoPie(MatutinoConhecimentoEspanhol, opcConhecimentoLinguas, respMatutino, 49, labelsMatutinoEspanhol, MatutinoDadosEspanhol, 'Matutino_Espanhol', 'Conhecimento em Espanhol');
+                GerarGraficoPie(NoturnoConhecimentoEspanhol, opcConhecimentoLinguas, respNoturno, 49, labelsNoturnoEspanhol, NoturnoDadosEspanhol, 'Noturno_Espanhol', 'Conhecimento em Espanhol');
+
+                // 26. Agora, considere seu conhecimento sobre idiomas [Outros]
+                let conhecimentoIdioma = [];
+                let DadosIdioma = [];
+                let labelsIdioma = [];
+                let MatutinoConhecimentoIdioma = [];
+                let MatutinoDadosIdioma = [];
+                let labelsMatutinoIdioma = [];
+                let NoturnoConhecimentoIdioma = [];
+                let NoturnoDadosIdioma = [];
+                let labelsNoturnoIdioma = [];
+
+                GerarGraficoPie(conhecimentoIdioma, opcConhecimentoLinguas, respostas, 50, labelsIdioma, DadosIdioma, 'Outros', 'Conhecimento em outros idiomas');
+                GerarGraficoPie(MatutinoConhecimentoIdioma, opcConhecimentoLinguas, respMatutino, 50, labelsMatutinoIdioma, MatutinoDadosIdioma, 'Matutino_Outros', 'Conhecimento em outros idiomas');
+                GerarGraficoPie(NoturnoConhecimentoIdioma, opcConhecimentoLinguas, respNoturno, 50, labelsNoturnoIdioma, NoturnoDadosIdioma, 'Noturno_Outros', 'Conhecimento em outros idiomas');
+
+                // 27. Considere a busca por informação nos seguintes meios de comunicação [Televisores]
+                let Televisores = [];
+                let DadosTelevisores = [];
+                let labelsTelevisores = [];
+                let MatutinoTelevisores = [];
+                let MatutinoDadosTelevisores = [];
+                let labelsMatutinoTelevisores = [];
+                let NoturnoTelevisores = [];
+                let NoturnoDadosTelevisores = [];
+                let labelsNoturnoTelevisores = [];
+
+
+                GerarGraficoPie(Televisores, opcBuscaInformação, respostas, 51, labelsTelevisores, DadosTelevisores, 'Televisores', 'Busca por informação no seguinte meio de comunicação(Televisores)');
+                GerarGraficoPie(MatutinoTelevisores, opcBuscaInformação, respMatutino, 51, labelsMatutinoTelevisores, MatutinoDadosTelevisores, 'Matutino_Televisores', 'Busca por informação no seguinte meio de comunicação(Televisores)');
+                GerarGraficoPie(NoturnoTelevisores, opcBuscaInformação, respNoturno, 51, labelsNoturnoTelevisores, NoturnoDadosTelevisores, 'Noturno_Televisores', 'Busca por informação no seguinte meio de comunicação(Televisores)');
+
+                // 27. Considere a busca por informação nos seguintes meios de comunicação [Internet]
+                let internet = [];
+                let DadosInternet = [];
+                let labelsInternet = [];
+                let MatutinoInternet = [];
+                let MatutinoDadosInternet = [];
+                let labelsMatutinoInternet = [];
+                let NoturnoInternet = [];
+                let NoturnoDadosInternet = [];
+                let labelsNoturnoInternet = [];
+
+                GerarGraficoPie(internet, opcBuscaInformação, respostas, 52, labelsInternet, DadosInternet, 'Internet', 'Busca por informação no seguinte meio de comunicação(Internet)');
+                GerarGraficoPie(MatutinoInternet, opcBuscaInformação, respMatutino, 52, labelsMatutinoInternet, MatutinoDadosInternet, 'Matutino_Internet', 'Busca por informação no seguinte meio de comunicação(Internet)');
+                GerarGraficoPie(NoturnoInternet, opcBuscaInformação, respNoturno, 52, labelsNoturnoInternet, NoturnoDadosInternet, 'Noturno_Internet', 'Busca por informação no seguinte meio de comunicação(Internet)');
+
+                // 27. Considere a busca por informação nos seguintes meios de comunicação [Revistas]
+                let revistas = [];
+                let DadosRevistas = [];
+                let labelsRevistas = [];
+                let MatutinoRevistas = [];
+                let MatutinoDadosRevistas = [];
+                let labelsMatutinoRevistas = [];
+                let NoturnoRevistas = [];
+                let NoturnoDadosRevistas = [];
+                let labelsNoturnoRevistas = [];
+
+                GerarGraficoPie(revistas, opcBuscaInformação, respostas, 53, labelsRevistas, DadosRevistas, 'Revistas', 'Busca por informação no seguinte meio de comunicação(Revistas)');
+                GerarGraficoPie(MatutinoRevistas, opcBuscaInformação, respMatutino, 53, labelsMatutinoRevistas, MatutinoDadosRevistas, 'Matutino_Revistas', 'Busca por informação no seguinte meio de comunicação(Revistas)');
+                GerarGraficoPie(NoturnoRevistas, opcBuscaInformação, respNoturno, 53, labelsNoturnoRevistas, NoturnoDadosRevistas, 'Noturno_Revistas', 'Busca por informação no seguinte meio de comunicação(Revistas)');
+
+                // 27. Considere a busca por informação nos seguintes meios de comunicação [Jornais]
+                let jornais = [];
+                let DadosJornais = [];
+                let labelsJornais = [];
+                let MatutinoJornais = [];
+                let MatutinoDadosJornais = [];
+                let labelsMatutinoJornais = [];
+                let NoturnoJornais = [];
+                let NoturnoDadosJornais = [];
+                let labelsNoturnoJornais = [];
+
+                GerarGraficoPie(jornais, opcBuscaInformação, respostas, 54, labelsJornais, DadosJornais, 'Jornais', 'Busca por informação no seguinte meio de comunicação(Jornais)');
+                GerarGraficoPie(MatutinoJornais, opcBuscaInformação, respMatutino, 54, labelsMatutinoJornais, MatutinoDadosJornais, 'Matutino_Jornais', 'Busca por informação no seguinte meio de comunicação(Jornais)');
+                GerarGraficoPie(NoturnoJornais, opcBuscaInformação, respNoturno, 54, labelsNoturnoJornais, NoturnoDadosJornais, 'Noturno_Jornais', 'Busca por informação no seguinte meio de comunicação(Jornais)');
+
+                // 27. Considere a busca por informação nos seguintes meios de comunicação [Rádio]
+                let Radio = [];
+                let DadosRadio = [];
+                let labelsRadio = [];
+                let MatutinoRadio = [];
+                let MatutinoDadosRadio = [];
+                let labelsMatutinoRadio = [];
+                let NoturnoRadio = [];
+                let NoturnoDadosRadio = [];
+                let labelsNoturnoRadio = [];
+
+                GerarGraficoPie(Radio, opcBuscaInformação, respostas, 55, labelsRadio, DadosRadio, 'Radio', 'Busca por informação no seguinte meio de comunicação(Rádio)');
+                GerarGraficoPie(MatutinoRadio, opcBuscaInformação, respMatutino, 55, labelsMatutinoRadio, MatutinoDadosRadio, 'Matutino_Radio', 'Busca por informação no seguinte meio de comunicação(Rádio)');
+                GerarGraficoPie(NoturnoRadio, opcBuscaInformação, respNoturno, 55, labelsNoturnoRadio, NoturnoDadosRadio, 'Noturno_Radio', 'Busca por informação no seguinte meio de comunicação(Rádio)');
+
+                // 27. Considere a busca por informação nos seguintes meios de comunicação [Redes socias]
+                let RedesSociais = [];
+                let DadosRedesSociais = [];
+                let labelsRedesSociais = [];
+                let MatutinoRedesSociais = [];
+                let MatutinoDadosRedesSociais = [];
+                let labelsMatutinoRedesSociais = [];
+                let NoturnoRedesSociais = [];
+                let NoturnoDadosRedesSociais = [];
+                let labelsNoturnoRedesSociais = [];
+
+                GerarGraficoPie(RedesSociais, opcBuscaInformação, respostas, 56, labelsRedesSociais, DadosRedesSociais, 'Redes_Sociais', 'Busca por informação no seguinte meio de comunicação(Redes Sociais)');
+                GerarGraficoPie(MatutinoRedesSociais, opcBuscaInformação, respMatutino, 56, labelsMatutinoRedesSociais, MatutinoDadosRedesSociais, 'Matutino_Redes_Sociais', 'Busca por informação no seguinte meio de comunicação(Redes Sociais)');
+                GerarGraficoPie(NoturnoRedesSociais, opcBuscaInformação, respNoturno, 56, labelsNoturnoRedesSociais, NoturnoDadosRedesSociais, 'Noturno_Redes_Sociais', 'Busca por informação no seguinte meio de comunicação(Redes Sociais)');
+
+                // 27. Considere a busca por informação nos seguintes meios de comunicação [Conversas com Amigos]
+                let ConversaComAmigos = [];
+                let DadosConversaComAmigos = [];
+                let labelsConversaComAmigos = [];
+                let MatutinoConversaComAmigos = [];
+                let MatutinoDadosConversaComAmigos = [];
+                let labelsMatutinoConversaComAmigos = [];
+                let NoturnoConversaComAmigos = [];
+                let NoturnoDadosConversaComAmigos = [];
+                let labelsNoturnoConversaComAmigos = [];
+
+                GerarGraficoPie(ConversaComAmigos, opcBuscaInformação, respostas, 57, labelsConversaComAmigos, DadosConversaComAmigos, 'Conversas_com_Amigos', 'Busca por informação no seguinte meio de comunicação(Conversas com Amigos)');
+                GerarGraficoPie(MatutinoConversaComAmigos, opcBuscaInformação, respMatutino, 57, labelsMatutinoConversaComAmigos, MatutinoDadosConversaComAmigos, 'Matutino_Conversas_com_Amigos', 'Busca por informação no seguinte meio de comunicação(Conversas com Amigos)');
+                GerarGraficoPie(NoturnoConversaComAmigos, opcBuscaInformação, respNoturno, 57, labelsNoturnoConversaComAmigos, NoturnoDadosConversaComAmigos, 'Noturno_Conversas_com_Amigos', 'Busca por informação no seguinte meio de comunicação(Conversas com Amigos)');
+
+                // 28. Se você lê jornal, qual a frequência?
+                let LeJornal = [];
+                let DadosLeJornal = [];
+                let labelsLeJornal = [];
+                let MatutinoLeJornal = [];
+                let MatutinoDadosLeJornal = [];
+                let labelsMatutinoLeJornal = [];
+                let NoturnoLeJornal = [];
+                let NoturnoDadosLeJornal = [];
+                let labelsNoturnoLeJornal = [];
+
+                GerarGraficoPie(LeJornal, opcLeJornal, respostas, 58, labelsLeJornal, DadosLeJornal, 'Le_Jornal', ' Frequência que leem jornal');
+                GerarGraficoPie(MatutinoLeJornal, opcLeJornal, respMatutino, 58, labelsMatutinoLeJornal, MatutinoDadosLeJornal, 'Matutino_Le_Jornal', ' Frequência que leem jornal');
+                GerarGraficoPie(NoturnoLeJornal, opcLeJornal, respNoturno, 58, labelsNoturnoLeJornal, NoturnoDadosLeJornal, 'Noturno_Le_Jornal', ' Frequência que leem jornal');
+
+                // 29. Se você lê jornal, quais os assuntos que mais lê?
+                let assuntosQueLeem = [];
+                let DadosAssuntosQueLeem = [];
+                let labelsAssuntosQueLeem = [];
+                let MatutinoAssuntosQueLeem = [];
+                let MatutinoDadosAssuntosQueLeem = [];
+                let labelsMatutinoAssuntosQueLeem = [];
+                let NoturnoAssuntosQueLeem = [];
+                let NoturnoDadosAssuntosQueLeem = [];
+                let labelsNoturnoAssuntosQueLeem = [];
+
+                GerarGraficoBar(assuntosQueLeem, opcAssuntosJornal, respostas, 59, labelsAssuntosQueLeem, DadosAssuntosQueLeem, 'Assuntos_que_Le', 'horizontalBar', 'Geral', 'Assuntos que mais leem');
+                GerarGraficoBar(MatutinoAssuntosQueLeem, opcAssuntosJornal, respMatutino, 59, labelsMatutinoAssuntosQueLeem, MatutinoDadosAssuntosQueLeem, 'Matutino_Assuntos_que_Le', 'horizontalBar', 'Matutino', 'Assuntos que mais leem');
+                GerarGraficoBar(NoturnoAssuntosQueLeem, opcAssuntosJornal, respNoturno, 59, labelsNoturnoAssuntosQueLeem, NoturnoDadosAssuntosQueLeem, 'Noturno_Assuntos_que_Le', 'horizontalBar', 'Noturno', 'Assuntos que mais leem');
+
+                // 30. Não considerando os livros escolares, quantos livros você lê por ano (em média)
+                let QtdLivros = [];
+                let DadosQtdLivros = [];
+                let labelsQtdLivros = [];
+                let MatutinoQtdLivros = [];
+                let MatutinoDadosQtdLivros = [];
+                let labelsMatutinoQtdLivros = [];
+                let NoturnoQtdLivros = [];
+                let NoturnoDadosQtdLivros = [];
+                let labelsNoturnoQtdLivros = [];
+
+                GerarGraficoPie(QtdLivros, opcQtdLivros, respostas, 60, labelsQtdLivros, DadosQtdLivros, 'Qtd_Livros', 'Quantos livros cada aluno lê por ano (em média)');
+                GerarGraficoPie(MatutinoQtdLivros, opcQtdLivros, respMatutino, 60, labelsMatutinoQtdLivros, MatutinoDadosQtdLivros, 'Matutino_Qtd_Livros', 'Quantos livros cada aluno lê por ano (em média)');
+                GerarGraficoPie(NoturnoQtdLivros, opcQtdLivros, respNoturno, 60, labelsNoturnoQtdLivros, NoturnoDadosQtdLivros, 'Noturno_Qtd_Livros', 'Quantos livros cada aluno lê por ano (em média)');
+
+                // 31. Se você lê livros literários, qual/quais o(s) gênero(s) preferido(s)?
+                let leLivros = [];
+                let DadosLeLivros = [];
+                let labelsLeLivros = [];
+                let MatutinoLeLivros = [];
+                let MatutinoDadosLeLivros = [];
+                let labelsMatutinoLeLivros = [];
+                let NoturnoLeLivros = [];
+                let NoturnoDadosLeLivros = [];
+                let labelsNoturnoLeLivros = [];
+
+                GerarGraficoBar(leLivros, opcLeLivros, respostas, 61, labelsLeLivros, DadosLeLivros, 'Le_Livros', 'horizontalBar', 'Geral', "Gêneros de livros preferidos de cada aluno");
+                GerarGraficoBar(MatutinoLeLivros, opcLeLivros, respMatutino, 61, labelsMatutinoLeLivros, MatutinoDadosLeLivros, 'Matutino_Le_Livros', 'horizontalBar', 'Matutino', "Gêneros de livros preferidos de cada aluno");
+                GerarGraficoBar(NoturnoLeLivros, opcLeLivros, respNoturno, 61, labelsNoturnoLeLivros, NoturnoDadosLeLivros, 'Noturno_Le_Livros', 'horizontalBar', 'Noturno', "Gêneros de livros preferidos de cada aluno");
+
+                // 32. Você dedica parte do seu tempo para atividades voluntárias?
+                let atividadesVolutaria = [];
+                let DadosAtiviadeVoluntaria = [];
+                let labelsAtividadeVoluntaria = [];
+                let MatutinoAtividadesVolutaria = [];
+                let MatutinoDadosAtiviadeVoluntaria = [];
+                let labelsMatutinoAtividadeVoluntaria = [];
+                let NoturnoAtividadesVolutaria = [];
+                let NoturnoDadosAtiviadeVoluntaria = [];
+                let labelsNoturnoAtividadeVoluntaria = [];
+
+                GerarGraficoPie(atividadesVolutaria, opcAtividadeVolun, respostas, 62, labelsAtividadeVoluntaria, DadosAtiviadeVoluntaria, 'Atividade_Voluntaria', "Dedica parte do tempo para atividades Voluntárias");
+                GerarGraficoPie(MatutinoAtividadesVolutaria, opcAtividadeVolun, respMatutino, 62, labelsMatutinoAtividadeVoluntaria, MatutinoDadosAtiviadeVoluntaria, 'Matutino_Atividade_Voluntaria', "Dedica parte do tempo para atividades Voluntárias");
+                GerarGraficoPie(NoturnoAtividadesVolutaria, opcAtividadeVolun, respNoturno, 62, labelsNoturnoAtividadeVoluntaria, NoturnoDadosAtiviadeVoluntaria, 'Noturno_Atividade_Voluntaria', "Dedica parte do tempo para atividades Voluntárias");
+
+                //33. Qual religião você professa?": "Evangélica"
+                let religiao = [];
+                let DadosReligiao = [];
+                let lablesReligiao = [];
+                let MatutinoReligiao = [];
+                let MatutinoDadosReligiao = [];
+                let lablesMatutinoReligiao = [];
+                let NoturnoReligiao = [];
+                let NoturnoDadosReligiao = [];
+                let lablesNoturnoReligiao = [];
+
+                GerarGraficoPie(religiao, opcReligiao, respostas, 63, lablesReligiao, DadosReligiao, 'Religiao', 'Religião');
+                GerarGraficoPie(MatutinoReligiao, opcReligiao, respMatutino, 63, lablesMatutinoReligiao, MatutinoDadosReligiao, 'Matutino_Religiao', 'Religião');
+                GerarGraficoPie(NoturnoReligiao, opcReligiao, respNoturno, 63, lablesNoturnoReligiao, NoturnoDadosReligiao, 'Noturno_Religiao', 'Religião');
+
+                // 34. Quais fontes de entretenimento cultural você usa?
+                let FontesEntretenimento = [];
+                let DadosFontesEntretenimento = [];
+                let labelsFontesEntretenimento = [];
+                let MatutinoFontesEntretenimento = [];
+                let MatutinoDadosFontesEntretenimento = [];
+                let labelsMatutinoFontesEntretenimento = [];
+                let NoturnoFontesEntretenimento = [];
+                let NoturnoDadosFontesEntretenimento = [];
+                let labelsNoturnoFontesEntretenimento = [];
+
+                GerarGraficoBar(FontesEntretenimento, opcEntretenimento, respostas, 64, labelsFontesEntretenimento, DadosFontesEntretenimento, "Fontes_Entretenimento", 'horizontalBar', 'Geral', 'Fontes de Entretenimento');
+                GerarGraficoBar(MatutinoFontesEntretenimento, opcEntretenimento, respMatutino, 64, labelsMatutinoFontesEntretenimento, MatutinoDadosFontesEntretenimento, "Matutino_Fontes_Entretenimento", 'horizontalBar', 'Matutino', 'Fontes de Entretenimento');
+                GerarGraficoBar(NoturnoFontesEntretenimento, opcEntretenimento, respNoturno, 64, labelsNoturnoFontesEntretenimento, NoturnoDadosFontesEntretenimento, "Noturno_Fontes_Entretenimento", 'horizontalBar', 'Noturno', 'Fontes de Entretenimento');
+
+                //35. Estamos quase acabando... Como conheceu a FATEC Franca?
+                let ConheceuFatec = [];
+                let DadosConheceuFatec = [];
+                let labelsConheceuFatec = [];
+                let MatutinoConheceuFatec = [];
+                let MatutinoDadosConheceuFatec = [];
+                let labelsMatutinoConheceuFatec = [];
+                let NoturnoConheceuFatec = [];
+                let NoturnoDadosConheceuFatec = [];
+                let labelsNoturnoConheceuFatec = [];
+
+                GerarGraficoBar(ConheceuFatec, opcConheceuFatec, respostas, 65, labelsConheceuFatec, DadosConheceuFatec, 'Conheceu_Fatec', 'horizontalBar', 'Geral', 'Como conheceu a FATEC Franca?');
+                GerarGraficoBar(MatutinoConheceuFatec, opcConheceuFatec, respMatutino, 65, labelsMatutinoConheceuFatec, MatutinoDadosConheceuFatec, 'Matutino_Conheceu_Fatec', 'horizontalBar', 'Matutino', 'Como conheceu a FATEC Franca?')
+                GerarGraficoBar(NoturnoConheceuFatec, opcConheceuFatec, respNoturno, 65, labelsNoturnoConheceuFatec, NoturnoDadosConheceuFatec, 'Noturno_Conheceu_Fatec', 'horizontalBar', 'Noturno', 'Como conheceu a FATEC Franca?')
+
+                // 36. Porque você escolheu este curso?
+                let EscolheuCurso = [];
+                let DadosEscolheuCurso = [];
+                let labelsEscolheuCurso = [];
+                let MatutinoEscolheuCurso = [];
+                let MatutinoDadosEscolheuCurso = [];
+                let labelsMatutinoEscolheuCurso = [];
+                let NoturnoEscolheuCurso = [];
+                let NoturnoDadosEscolheuCurso = [];
+                let labelsNoturnoEscolheuCurso = [];
+
+                GerarGraficoBar(EscolheuCurso, opcEscolheuCurso, respostas, 66, labelsEscolheuCurso, DadosEscolheuCurso, 'Escolheu_Curso', 'horizontalBar', 'Geral', 'Porque você escolheu este curso?');
+                GerarGraficoBar(MatutinoEscolheuCurso, opcEscolheuCurso, respMatutino, 66, labelsMatutinoEscolheuCurso, MatutinoDadosEscolheuCurso, 'Matutino_Escolheu_Curso', 'horizontalBar', 'Matutino', 'Porque você escolheu este curso?')
+                GerarGraficoBar(NoturnoEscolheuCurso, opcEscolheuCurso, respNoturno, 66, labelsNoturnoEscolheuCurso, NoturnoDadosEscolheuCurso, 'Noturno_Escolheu_Curso', 'horizontalBar', 'Noturno', 'Porque você escolheu este curso?')
+
+                // 37. Qual sua maior expectativa quanto ao curso?
+                let ExpectativaCurso = [];
+                let DadosExpectativaCurso = [];
+                let labelsExpectativaCurso = [];
+                let MatutinoExpectativaCurso = [];
+                let MatutinoDadosExpectativaCurso = [];
+                let labelsMatutinoExpectativaCurso = [];
+                let NoturnoExpectativaCurso = [];
+                let NoturnoDadosExpectativaCurso = [];
+                let labelsNoturnoExpectativaCurso = [];
+
+                GerarGraficoBar(ExpectativaCurso, opcExpectativa, respostas, 67, labelsExpectativaCurso, DadosExpectativaCurso, 'Expectativa_Curso', 'horizontalBar', 'Geral', 'Qual sua maior expectativa quanto ao curso?');
+                GerarGraficoBar(MatutinoExpectativaCurso, opcExpectativa, respMatutino, 67, labelsMatutinoExpectativaCurso, MatutinoDadosExpectativaCurso, 'Matutino_Expectativa_Curso', 'horizontalBar', 'Matutino', 'Qual sua maior expectativa quanto ao curso?')
+                GerarGraficoBar(NoturnoExpectativaCurso, opcExpectativa, respNoturno, 67, labelsNoturnoExpectativaCurso, NoturnoDadosExpectativaCurso, 'Noturno_Expectativa_Curso', 'horizontalBar', 'Noturno', 'Qual sua maior expectativa quanto ao curso?')
+
+                // 38. Qual sua expectativa após se formar?
+                let ExpectativaFormar = [];
+                let DadosExpectativaFormar = [];
+                let labelsExpectativaFormar = [];
+                let MatutinoExpectativaFormar = [];
+                let MatutinoDadosExpectativaFormar = [];
+                let labelsMatutinoExpectativaFormar = [];
+                let NoturnoExpectativaFormar = [];
+                let NoturnoDadosExpectativaFormar = [];
+                let labelsNoturnoExpectativaFormar = [];
+
+                GerarGraficoBar(ExpectativaFormar, opcFormar, respostas, 68, labelsExpectativaFormar, DadosExpectativaFormar, 'Expectativa_Formar', 'horizontalBar', 'Geral', 'Qual sua expectativa após se formar?');
+                GerarGraficoBar(MatutinoExpectativaFormar, opcFormar, respMatutino, 68, labelsMatutinoExpectativaFormar, MatutinoDadosExpectativaFormar, 'Matutino_Expectativa_Formar', 'horizontalBar', 'Matutino', 'Qual sua expectativa após se formar?')
+                GerarGraficoBar(NoturnoExpectativaFormar, opcFormar, respNoturno, 68, labelsNoturnoExpectativaFormar, NoturnoDadosExpectativaFormar, 'Noturno_Expectativa_Formar', 'horizontalBar', 'Noturno', 'Qual sua expectativa após se formar?')
+
+                //39. Você já estudou nesta escola?
+                let estudouNaFatec = [];
+                let DadosEstudouFatec = [];
+                let labelsEstudouFatec = [];
+                let MatutinoEstudouNaFatec = [];
+                let MatutinoDadosEstudouFatec = [];
+                let labelsMatutinoEstudouFatec = [];
+                let NoturnoEstudouNaFatec = [];
+                let NoturnoDadosEstudouFatec = [];
+                let labelsNoturnoEstudouFatec = [];
+
+                GerarGraficoPie(estudouNaFatec, opcEstudoNaEscola, respostas, 69, labelsEstudouFatec, DadosEstudouFatec, 'Estudou_Fatec', 'Você já estudou nesta escola?');
+                GerarGraficoPie(MatutinoEstudouNaFatec, opcEstudoNaEscola, respMatutino, 69, labelsMatutinoEstudouFatec, MatutinoDadosEstudouFatec, 'Matutino_Estudou_Fatec', 'Você já estudou nesta escola?');
+                GerarGraficoPie(NoturnoEstudouNaFatec, opcEstudoNaEscola, respNoturno, 69, labelsNoturnoEstudouFatec, NoturnoDadosEstudouFatec, 'Noturno_Estudou_Fatec', 'Você já estudou nesta escola?');
+
+                //40. Você fez algum curso técnico?
+                let cursoTecnico = [];
+                let DadosCursoTecnico = [];
+                let labelsCursoTecnico = [];
+                let MatutinoCursoTecnico = [];
+                let MatutinoDadosCursoTecnico = [];
+                let labelsMatutinoCursoTecnico = [];
+                let NoturnoCursoTecnico = [];
+                let NoturnoDadosCursoTecnico = [];
+                let labelsNoturnoCursoTecnico = [];
+
+                GerarGraficoPie(cursoTecnico, opcCursoTecnico, respostas, 70, labelsCursoTecnico, DadosCursoTecnico, 'Curso_Tecnico', 'Você fez algum curso técnico?');
+                GerarGraficoPie(MatutinoCursoTecnico, opcCursoTecnico, respMatutino, 70, labelsMatutinoCursoTecnico, MatutinoDadosCursoTecnico, 'Matutino_Curso_Tecnico', 'Você fez algum curso técnico?');
+                GerarGraficoPie(NoturnoCursoTecnico, opcCursoTecnico, respNoturno, 70, labelsNoturnoCursoTecnico, NoturnoDadosCursoTecnico, 'Noturno_Curso_Tecnico', 'Você fez algum curso técnico?');
+
+                // 41. Qual o meio de transporte você usa para vir à escola?
+                let transporte = [];
+                let DadosTransporte = [];
+                let labelsTransporte = [];
+                let MatutinoTransporte = [];
+                let MatutinoDadosTransporte = [];
+                let labelsMatutinoTransporte = [];
+                let NoturnoTransporte = [];
+                let NoturnoDadosTransporte = [];
+                let labelsNoturnoTransporte = [];
+
+                GerarGraficoPie(transporte, opcTransporte, respostas, 71, labelsTransporte, DadosTransporte, 'Transporte', 'Meios de transportes');
+                GerarGraficoPie(MatutinoTransporte, opcTransporte, respMatutino, 71, labelsMatutinoTransporte, MatutinoDadosTransporte, 'Matutino_Transporte', 'Meios de transportes');
+                GerarGraficoPie(NoturnoTransporte, opcTransporte, respNoturno, 71, labelsNoturnoTransporte, NoturnoDadosTransporte, 'Noturno_Transporte', 'Meios de transportes');
+
+                jQuery('#xlx_json').val(json_object);
+            });
+        };
+
+        reader.onerror = function (ex) {
+            console.log(ex);
+        };
+
+        reader.readAsBinaryString(file);
+    };
+};
+
+function handleFileSelect(evt) {
+    var files = evt.target.files;
+    var xl2json = new ExcelToJSON();
+    xl2json.parseExcel(files[0]);
 }
 
-
-generateChart()
-
-function Matutino() {
-    async function generateChart() {
-        const file = await fetch('script/json/forms.json')
-
-        const json = await file.json()
-        const forms = json.forms
-
-        let i = 0;
-        let questoes
-
-        // Pegar todas as questões
-        for (quest of forms) {
-            questoes = Object.getOwnPropertyNames(quest)
-            i++
-        }
-
-        // Pegas as questões so com respostas do noturno
-        let Noturno = forms.filter(function (periodo) {
-            return periodo[questoes[3]] === 'Noturno'
-        })
-
-        // Pegas as questões so com respostas do matutino
-        let Matutino = forms.filter(function (periodo) {
-            return periodo[questoes[3]] === 'Matutino'
-        })
-
-        let respostas = new Array(questoes.length)
-        let respMatutino = new Array(Matutino.length)
-        let respNoturno = new Array(Noturno.length)
-
-        for (let j = 0; j < questoes.length; j++) {
-            respMatutino[j] = new Array(Matutino.length)
-            respNoturno[j] = new Array(Noturno.length)
-            respostas[j] = new Array(forms.length)
-        }
-
-        // Array com todas as questões
-        for (let k = 0; k < forms.length; k++) {
-            for (let j = 0; j < questoes.length; j++) {
-                respostas[j][k] = forms[k][questoes[j]]
-            }
-        }
-
-        // Array com todas as questões Matutino
-        for (let k = 0; k < Matutino.length; k++) {
-            for (let j = 0; j < questoes.length; j++) {
-                respMatutino[j][k] = Matutino[k][questoes[j]]
-            }
-        }
-
-        // Array com todas as questões Noturno
-        for (let k = 0; k < Noturno.length; k++) {
-            for (let j = 0; j < questoes.length; j++) {
-                respNoturno[j][k] = Noturno[k][questoes[j]]
-            }
-        }
-
-
-
-
-        // 1. Qual o seu curso?
-        let curso = [];
-        let DadosCurso = [];
-        let labelsCurso = [];
-
-        GerarGraficoPie(curso, opcCurso, respMatutino, 2, labelsCurso, DadosCurso, 'Matutino_curso', 'Cursos')
-
-
-        // 2. Qual o período que cursa?
-        let DadosPeriodo = [];
-        let labelsPeriodo = [];
-
-        if (respMatutino[2].length >= 0) {
-            DadosPeriodo.push(respMatutino[2].length)
-        }
-
-        for (j = 0; j < 2; j++) {
-            if (DadosPeriodo[j] >= 0) {
-                labelsPeriodo.push(opcPeriodo[j])
-            }
-        }
-
-        ChartPie('Matutino_Periodo', labelsPeriodo, DadosPeriodo, "Periodo");
-
-        // 4. Qual o estado do Brasil que você nasceu?
-        let estado = [];
-        let DadosEstados = [];
-        let labelsEstado = [];
-
-        GerarGraficoBar(estado, opcEstado, respMatutino, 5, labelsEstado, DadosEstados, 'Matutino_Estado', 'bar', 'Matutino', 'Estados');
-
-        // 5 - Cidades
-        let cidade = [];
-        let DadosCidade = [];
-        let labelsCidade = [];
-
-        GerarGraficoBar(cidade, opcCidade, respMatutino, 6, labelsCidade, DadosCidade, 'Matutino_Cidade', 'bar', 'Matutino', 'Cidades');
-
-        // 6 - Genero
-        let genero = [];
-        let DadosGenero = [];
-        let labelsGenero = [];
-
-        GerarGraficoPie(genero, opcGenero, respMatutino, 7, labelsGenero, DadosGenero, 'Matutino_Genero', 'Gênero');
-
-        // 7 - Data Nascimento
-        let DataNascimento = [];
-        let DadosDataNascimento = [];
-        let labelsDataNascimento = [];
-        let MatutinoDataNascimento = [];
-        let MatutinoAnoNascimento = [];
-
-        for (let i = 0; i < respMatutino[8].length; i++) {
-            MatutinoDataNascimento[i] = (respMatutino[8][i].split('/'))
-            MatutinoAnoNascimento[i] = MatutinoDataNascimento[i][2]
-        }
-
-        for (let i = 0; i < opcDataNascimento.length; i++) {
-            DataNascimento[i] = new Array()
-        }
-
-        for (j = 0; j < opcDataNascimento.length; j++) {
-            for (k = 0; k < MatutinoDataNascimento.length; k++) {
-                if (MatutinoAnoNascimento[k] === opcDataNascimento[j]) {
-                    DataNascimento[j].push(MatutinoAnoNascimento[k])
-                }
-            }
-            if (DataNascimento[j].length > 0) {
-                DadosDataNascimento.push(DataNascimento[j].length)
-            }
-        }
-
-        for (j = 0; j < 1; j++) {
-            for (k = 0; k < opcDataNascimento.length; k++) {
-                if (DataNascimento[k][j] != undefined) {
-                    labelsDataNascimento.push(DataNascimento[k][j])
-                }
-                if (labelsDataNascimento[k] >= 00 && labelsDataNascimento[k] <= 40) {
-                    labelsDataNascimento[k] = '20' + labelsDataNascimento[k]
-                } else if (labelsDataNascimento[k] >= 41 && labelsDataNascimento[k] <= 99) {
-                    labelsDataNascimento[k] = '19' + labelsDataNascimento[k]
-                }
-            }
-        }
-
-        ChartBar('Matutino_DataNascimento', 'bar', 'Matutino', labelsDataNascimento, DadosDataNascimento, 'Datas de Nascimento(Em Anos)');
-
-        // 8 - Estado Civil
-        let estadoCivil = [];
-        let DadosEstadoCivil = [];
-        let labelsEstadoCivil = [];
-
-        GerarGraficoPie(estadoCivil, opcEstadoCivil, respMatutino, 9, labelsEstadoCivil, DadosEstadoCivil, 'Matutino_Estado_civil', 'Estado Civil');
-
-        // 9 - Portadores de Necessidades especiais
-        let portadores = [];
-        let DadosPortadores = [];
-        let labelsPortadores = [];
-
-        GerarGraficoPie(portadores, opcPortador, respMatutino, 10, labelsPortadores, DadosPortadores, 'Matutino_Portador_de_Necessidade', 'Portadores de Necessidades Especiais');
-
-        // 10 - Convive com Portadores de Necessidades especiais
-        let ConvivePort = [];
-        let DadosConvivePort = [];
-        let labelsConvivePort = [];
-
-        GerarGraficoPie(ConvivePort, opcConvivePort, respMatutino, 11, labelsConvivePort, DadosConvivePort, 'Matutino_Convive_com_portador', 'Convive com Portadores de Necessidades Especiais');
-
-        // 11 - Quantidade de filhos
-        let QtdFilhos = [];
-        let DadosQtdFilhos = [];
-        let labelsQtdFilhos = [];
-
-        GerarGraficoPie(QtdFilhos, opcQtdFilhos, respMatutino, 12, labelsQtdFilhos, DadosQtdFilhos, 'Matutino_Qtd_de_filhos', "Quantidade de filhos de cada estudante");
-
-        // 12. Com quem você mora atualmente?
-        let moraCom = [];
-        let DadosMoraCom = [];
-        let labelsMoraCom = [];
-
-        GerarGraficoPie(moraCom, opcMoraCom, respMatutino, 13, labelsMoraCom, DadosMoraCom, 'Matutino_Moram_com', "Com quem cada estudante mora");
-
-        //13. Quantas pessoas, incluindo você, moram no seu domicílio?
-        let QtdMoradores = [];
-        let DadosQtdMoradores = [];
-        let labelsQtdMoradores = [];
-
-        GerarGraficoPie(QtdMoradores, opcQtdMoradores, respMatutino, 14, labelsQtdMoradores, DadosQtdMoradores, 'Matutino_QTD_de_pessoas_moram_junto', "Quantidade de pessoas que moram com cada aluno");
-
-        // 14. Qual a situação do domicílio onde mora?
-        let SituacaoDomicilio = [];
-        let DadosSituacaoDomi = [];
-        let labelsSituacaoDomi = [];
-
-        GerarGraficoPie(SituacaoDomicilio, opcSituacaoDomi, respMatutino, 15, labelsSituacaoDomi, DadosSituacaoDomi, 'Matutino_Situacao_domicilio', "Situação do Domicílio")
-
-        // 15. Tempo de moradia neste domicílio (Em anos)
-        let TempoMoradia = [];
-        let DadosTempoMoradia = [];
-        let labelsTempoMoradia = [];
-
-        GerarGraficoBar(TempoMoradia, opcTempoMoradia, respMatutino, 16, labelsTempoMoradia, DadosTempoMoradia, 'Matutino_Tempo_moradia', 'bar', 'Matutino', 'Tempo de moradia no domicílio(Em anos)');
-
-        // 16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)
-        let RendaMensal = [];
-        let DadosRendaMensal = [];
-        let labelsRendaMensal = [];
-
-        GerarGraficoPie(RendaMensal, opcRendaMensal, respMatutino, 17, labelsRendaMensal, DadosRendaMensal, 'Matutino_Salario_min', "Faixa de renda mensal da família do estudante (em Salários Mínimos)");
-
-        //17.1. Quantas geladeiras há em seu domicílio
-        let QtdGeladeira = [];
-        let DadosQtdGeladeira = [];
-        let labelsQtdGeladeira = [];
-
-        GerarGraficoPie(QtdGeladeira, opc17QtdeCadaCoisa, respMatutino, 18, labelsQtdGeladeira, DadosQtdGeladeira, 'Matutino_Qtd_geladeira', "Quantidade de Geladeiras de cada aluno");
-
-        // 17.2. Quantos celulares comuns há em seu domicílio?
-        let QtdCelular = [];
-        let DadosQtdCelular = [];
-        let labelsQtdCelular = [];
-
-        GerarGraficoPie(QtdCelular, opc17QtdeCadaCoisa, respMatutino, 19, labelsQtdCelular, DadosQtdCelular, 'Matutino_Qtd_celular_comum', "Quantidade de celulares comuns de cada aluno");
-
-        // 17.3. Quantos micro-ondas há em seu domicílio?
-        let QtdMicroOndas = [];
-        let DadosQtdMicroOndas = [];
-        let labelsQtdMicroOndas = [];
-
-        GerarGraficoPie(QtdMicroOndas, opc17QtdeCadaCoisa, respMatutino, 20, labelsQtdMicroOndas, DadosQtdMicroOndas, 'Matutino_Qtd_micro_ondas', 'Quantidade de micro-ondas de cada aluno');
-
-        // 17.4. Quantos notebooks há em seu domicílio?
-        let QtdNotebooks = [];
-        let DadosQtdNotebooks = [];
-        let labelsQtdNotebook = [];
-
-        GerarGraficoPie(QtdNotebooks, opc17QtdeCadaCoisa, respMatutino, 21, labelsQtdNotebook, DadosQtdNotebooks, 'Matutino_Qtd_notebooks', 'Quantidade de Notebooks de cada aluno');
-
-        // 17.5. Quantas máquinas de lavar roupa e(ou) tanquinho há em seu domicílio?
-        let Qtd_Maquina_de_Lavar = [];
-        let DadosMaquinaLavar = [];
-        let labelsMaquinaLavar = [];
-
-        GerarGraficoPie(Qtd_Maquina_de_Lavar, opc17QtdeCadaCoisa, respMatutino, 22, labelsMaquinaLavar, DadosMaquinaLavar, 'Matutino_Qtd_Maquina_de_Lavar', 'Quantidade de Máquinas de lavar roupa de cada aluno');
-
-        // 17.6. Quantas motocicletas há em seu domicílio?
-        let Qtd_motoclicletas = [];
-        let DadosMotocicletas = [];
-        let labelsMotocicletas = [];
-
-        GerarGraficoPie(Qtd_motoclicletas, opc17QtdeCadaCoisa, respMatutino, 23, labelsMotocicletas, DadosMotocicletas, 'Matutino_Qtd_motocicletas', 'Quantidade de Motocicletas de cada aluno');
-
-        // 17.7. Quantos automóveis há em seu domicílio?
-        let QtdAutomoveis = [];
-        let DadosAutomoveis = [];
-        let labelsAutomoveis = [];
-
-        GerarGraficoPie(QtdAutomoveis, opc17QtdeCadaCoisa, respMatutino, 24, labelsAutomoveis, DadosAutomoveis, 'Matutino_Qtd_Automoveis', 'Quantidade de Automóveis de cada aluno');
-
-        // 17.8. Quantos vídeos cassete e(ou) DVD players há em seu domicílio?
-        let QtdDVD = [];
-        let DadosDVD = [];
-        let labelsDvd = [];
-
-        GerarGraficoPie(QtdDVD, opc17QtdeCadaCoisa, respMatutino, 25, labelsDvd, DadosDVD, 'Matutino_Qtd_DVD', 'Quantidade de DVD players');
-
-        // 17.9. Quantos televisores há em seu domicílio?
-        let QtdTV = [];
-        let DadosTV = [];
-        let labelsQtdTV = [];
-
-        GerarGraficoPie(QtdTV, opc17QtdeCadaCoisa, respMatutino, 26, labelsQtdTV, DadosTV, 'Matutino_Qtd_TV', 'Quantidade de TVs de cada aluno');
-
-        // 17.10. Quantos smartphones há em seu domicílio?
-        let Qtd_Smartphones = [];
-        let DadosSmatphones = [];
-        let labelsQtdSmartphone = [];
-
-        GerarGraficoPie(Qtd_Smartphones, opc17QtdeCadaCoisa, respMatutino, 27, labelsQtdSmartphone, DadosSmatphones, 'Matutino_Qtd_Smartphones', 'Quantidade de Smartphones de cada aluno');
-
-        // 18. No seu domicílio tem? questão com mais de uma alternativa, n esta terminada
-        let DomicilioTem = [];
-        let DadosDomicilioTem = [];
-        let labelsDomicilioTem = [];
-
-        GerarGraficoBar(DomicilioTem, opcTemNoDomicilio, respMatutino, 28, labelsDomicilioTem, DadosDomicilioTem, 'Matutino_Oque_tem_No_Domicilio', 'horizontalBar', 'Matutino', 'Na casa de cada estudante tem');
-
-        // 19.1. Você trabalha?
-        let trabalha = [];
-        let DadosTrabalho = [];
-        let labelsTrabalho = [];
-
-        GerarGraficoPie(trabalha, opcTrabalha, respMatutino, 29, labelsTrabalho, DadosTrabalho, 'Matutino_Trabalho', 'Você trabalha?');
-
-        //19.2. Qual o seu vínculo com o emprego?
-        let VinculoEmprego = [];
-        let DadosVinculo = [];
-        let labelsVinculo = [];
-
-        GerarGraficoPie(VinculoEmprego, opcVinculoEmprego, respMatutino, 30, labelsVinculo, DadosVinculo, 'Matutino_Vinculo_Emprego', "Vinculo com o emprego");
-
-        // 19.3. Qual a área do seu trabalho?
-        let AreaTrabalho = [];
-        let DadosAreaTrabalho = [];
-        let labelsAreaTrabalho = [];
-
-        GerarGraficoPie(AreaTrabalho, opcAreaTrabalho, respMatutino, 31, labelsAreaTrabalho, DadosAreaTrabalho, 'Matutino_Area_trabalho', "Qual a área do seu trabalho?");
-
-        // 19.4. Qual seu horário de trabalho?
-        let HorarioTrabalho = [];
-        let DadosHorario = [];
-        let labelsHorario = [];
-
-        GerarGraficoPie(HorarioTrabalho, opcHorarioTrabalho, respMatutino, 32, labelsHorario, DadosHorario, 'Matutino_Horario_Trabalho', "Horários de Trabalho");
-
-        // 19.5. Qual a empresa que você está contratado agora
-        let CabecalhoTabela = '';
-        let DadosTabela = '';
-        let Empresa = [];
-
-        CabecalhoTabela = '<tr class = "thead__row"> <td class = "thead__data"> Empresas: </td> </tr>'
-        document.getElementById('thead').innerHTML = CabecalhoTabela;
-
-        for (quest of forms) {
-
-            Empresa[i] = quest["19.5. Qual a empresa que você está contratado agora?"]
-
-            DadosTabela = DadosTabela + `<tr "tbody__row"> <td "tbody__data"> ${Empresa[i]} </td> </tr>`
-
-            i++
-        }
-
-        document.getElementById('tbody').innerHTML = DadosTabela;
-
-
-        // 20. Você tem plano de saúde privado?
-        let PlanoSaude = [];
-        let DadosPlanoSaude = [];
-        let labelsPlanoSaude = [];
-
-        GerarGraficoPie(PlanoSaude, opcPlanoDeSaude, respMatutino, 34, labelsPlanoSaude, DadosPlanoSaude, 'Matutino_Plano_Saude', 'Planos de Saúde');
-
-        // 21.1. Qual o grau de escolaridade do seu pai?
-        let EscolaridadePai = [];
-        let DadosEscolaridadePai = [];
-        let LabelsEscolaPai = [];
-
-        GerarGraficoPie(EscolaridadePai, opcEscolaridade, respMatutino, 35, LabelsEscolaPai, DadosEscolaridadePai, 'Matutino_Escolaridade_Pai', 'Grau de Escolaridade do Pai dos Alunos');
-
-        // 21.2. Qual o grau de escolaridade da sua mãe?
-        let EscolaridadeMae = [];
-        let DadosEscolaridadeMae = [];
-        let LabelsEscolaMae = [];
-
-        GerarGraficoPie(EscolaridadeMae, opcEscolaridade, respMatutino, 36, LabelsEscolaMae, DadosEscolaridadeMae, 'Matutino_Escolaridade_Mae', 'Grau de Escolaridade da Mãe dos Alunos');
-
-        // 22. Na sua vida escolar você estudou
-        let EstudouEm = [];
-        let DadosEstudouEm = [];
-        let labelsEstudouEm = [];
-
-        GerarGraficoPie(EstudouEm, opcEstudou, respMatutino, 37, labelsEstudouEm, DadosEstudouEm, 'Matutino_Estudou_Em', "Na sua vida escolar você estudou");
-
-        // 23.1. Com que frequência você utiliza microcomputadores?
-        let FrequenciaMicrocomputadores = [];
-        let DadosFrequenciaComp = [];
-        let labelsFrequenciaComp = [];
-
-        GerarGraficoPie(FrequenciaMicrocomputadores, opcUsaMicroComp, respMatutino, 38, labelsFrequenciaComp, DadosFrequenciaComp, 'Matutino_Frequencia_Microcomputadores', 'Com que frequência você utiliza microcomputadores?');
-
-
-        // 23.2. Onde você utiliza microcomputadores?
-        let OndeUtilizaMicro = [];
-        let DadosOndeUtilizaMicro = [];
-        let labelsUtilizaMicro = [];
-
-        GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, respMatutino, 39, labelsUtilizaMicro, DadosOndeUtilizaMicro, 'Matutino_Onde_Microcomputadores', 'horizontalBar', 'Matutino', 'Onde você utiliza microcomputadores?');
-
-        // 23.3. Com qual finalidade você utiliza microcomputadores?
-        let FinalidadeUtiliMicro = [];
-        let DadosFinalidadeUtiliMicro = [];
-        let labelsFinalidadeUtiliza = [];
-
-        GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respMatutino, 40, labelsFinalidadeUtiliza, DadosFinalidadeUtiliMicro, 'Matutino_Finalidade_Microcomputadores', 'horizontalBar', 'Matutino', 'Com qual finalidade você utiliza microcomputadores?');
-
-        // 24. Como você classifica seu conhecimento em informática
-        let ConhecimentoInformatica = [];
-        let DadosConhecimentoInformatica = [];
-        let labelsInformatica = [];
-
-        GerarGraficoPie(ConhecimentoInformatica, opcConhecimentoInformatica, respMatutino, 41, labelsInformatica, DadosConhecimentoInformatica, 'Matutino_Conhecimento_Informatica', 'Conhecimento em Informática');
-
-        // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Windows]
-        let ConhecimentoWindows = [];
-        let DadosWindows = [];
-        let labelsWindows = [];
-
-        GerarGraficoPie(ConhecimentoWindows, opcConhecimentoInformatica, respMatutino, 42, labelsWindows, DadosWindows, 'Matutino_Conhecimento_Windows', 'Conhecimento no Windows');
-
-
-        // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Linux]
-        let ConhecimentoLinux = [];
-        let DadosLinux = [];
-        let labelsLinux = [];
-
-        GerarGraficoPie(ConhecimentoLinux, opcConhecimentoInformatica, respMatutino, 43, labelsLinux, DadosLinux, 'Matutino_Conhecimento_Linux', 'Conhecimento no Linux');
-
-        // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Editores de textos (Word, Writer, etc.)]
-        let ConhecimentoWord = [];
-        let DadosWord = [];
-        let labelsWord = [];
-
-        GerarGraficoPie(ConhecimentoWord, opcConhecimentoInformatica, respMatutino, 44, labelsWord, DadosWord, 'Matutino_Conhecimento_Word', 'Conhecimento em Editores de textos (Word, Writer, etc.)');
-
-        // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Planilhas eletrônicas (Excel, Calc, etc.)]
-        let ConhecimentoExcel = [];
-        let DadosExcel = [];
-        let labelsExcel = [];
-
-        GerarGraficoPie(ConhecimentoExcel, opcConhecimentoInformatica, respMatutino, 45, labelsExcel, DadosExcel, 'Matutino_Conhecimento_Excel', 'Conhecimento em Planilhas eletrônicas (Excel, Calc, etc.)');
-
-
-        // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Apresentadores (Powerpoint, Impress, Prezzi, etc.)]
-        let ConhecimentoPowerPoint = [];
-        let DadosPowerPoint = [];
-        let labelsPowerPoint = [];
-
-        GerarGraficoPie(ConhecimentoPowerPoint, opcConhecimentoInformatica, respMatutino, 46, labelsPowerPoint, DadosPowerPoint, 'Matutino_Conhecimento_PowerPoint', 'Conhecimento em Apresentadores (Powerpoint, Impress, Prezzi, etc.)');
-
-
-        // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Sistemas de Gestão Empresaria]
-        let ConhecimentoGestaoEmpresarial = [];
-        let DadosGestaoEmpresarial = [];
-        let labelsGestaoEmpresarial = [];
-
-        GerarGraficoPie(ConhecimentoGestaoEmpresarial, opcConhecimentoInformatica, respMatutino, 47, labelsGestaoEmpresarial, DadosGestaoEmpresarial, 'Matutino_Conhecimento_GestaoEmpresarial', 'Conhecimento em Sistemas de Gestão Empresaria');
-
-        //26. Agora, considere seu conhecimento sobre idiomas [Inglês]
-        let conhecimentoIngles = [];
-        let DadosIngles = [];
-        let labelsInlges = [];
-
-        GerarGraficoPie(conhecimentoIngles, opcConhecimentoLinguas, respMatutino, 48, labelsInlges, DadosIngles, 'Matutino_Ingles', 'Conhecimento em inglês');
-
-        // 26. Agora, considere seu conhecimento sobre idiomas [Espanhol]
-        let conhecimentoEspanhol = [];
-        let DadosEspanhol = [];
-        let labelsEspanhol = [];
-
-        GerarGraficoPie(conhecimentoEspanhol, opcConhecimentoLinguas, respMatutino, 49, labelsEspanhol, DadosEspanhol, 'Matutino_Espanhol', 'Conhecimento em Espanhol');
-
-        // 26. Agora, considere seu conhecimento sobre idiomas [Outros]
-        let conhecimentoIdioma = [];
-        let DadosIdioma = [];
-        let labelsIdioma = [];
-
-        GerarGraficoPie(conhecimentoIdioma, opcConhecimentoLinguas, respMatutino, 50, labelsIdioma, DadosIdioma, 'Matutino_Outros', 'Conhecimento em outros idiomas');
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Televisores]
-        let Televisores = [];
-        let DadosTelevisores = [];
-        let labelsTelevisores = [];
-
-        GerarGraficoPie(Televisores, opcBuscaInformação, respMatutino, 51, labelsTelevisores, DadosTelevisores, 'Matutino_Televisores', 'Busca por informação no seguinte meio de comunicação(Televisores)');
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Internet]
-        let internet = [];
-        let DadosInternet = [];
-        let labelsInternet = [];
-
-        GerarGraficoPie(internet, opcBuscaInformação, respMatutino, 52, labelsInternet, DadosInternet, 'Matutino_Internet', 'Busca por informação no seguinte meio de comunicação(Internet)');
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Revistas]
-        let revistas = [];
-        let DadosRevistas = [];
-        let labelsRevistas = [];
-
-        GerarGraficoPie(revistas, opcBuscaInformação, respMatutino, 53, labelsRevistas, DadosRevistas, 'Matutino_Revistas', 'Busca por informação no seguinte meio de comunicação(Revistas)');
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Jornais]
-        let jornais = [];
-        let DadosJornais = [];
-        let labelsJornais = [];
-
-        GerarGraficoPie(jornais, opcBuscaInformação, respMatutino, 54, labelsJornais, DadosJornais, 'Matutino_Jornais', 'Busca por informação no seguinte meio de comunicação(Jornais)');
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Rádio]
-        let Radio = [];
-        let DadosRadio = [];
-        let labelsRadio = [];
-
-        GerarGraficoPie(Radio, opcBuscaInformação, respMatutino, 55, labelsRadio, DadosRadio, 'Matutino_Radio', 'Busca por informação no seguinte meio de comunicação(Rádio)');
-
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Redes socias]
-        let RedesSociais = [];
-        let DadosRedesSociais = [];
-        let labelsRedesSociais = [];
-
-        GerarGraficoPie(RedesSociais, opcBuscaInformação, respMatutino, 56, labelsRedesSociais, DadosRedesSociais, 'Matutino_Redes_Sociais', 'Busca por informação no seguinte meio de comunicação(Redes Sociais)');
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Conversas com Amigos]
-        let ConversaComAmigos = [];
-        let DadosConversaComAmigos = [];
-        let labelsConversaComAmigos = [];
-
-        GerarGraficoPie(ConversaComAmigos, opcBuscaInformação, respMatutino, 57, labelsConversaComAmigos, DadosConversaComAmigos, 'Matutino_Conversas_com_Amigos', 'Busca por informação no seguinte meio de comunicação(Conversas com Amigos)');
-
-        // 28. Se você lê jornal, qual a frequência?
-        let LeJornal = [];
-        let DadosLeJornal = [];
-        let labelsLeJornal = [];
-
-        GerarGraficoPie(LeJornal, opcLeJornal, respMatutino, 58, labelsLeJornal, DadosLeJornal, 'Matutino_Le_Jornal', ' Frequência que leem jornal');
-
-        // 29. Se você lê jornal, quais os assuntos que mais lê?
-        let assuntosQueLeem = [];
-        let DadosAssuntosQueLeem = [];
-        let labelsAssuntosQueLeem = [];
-
-        GerarGraficoBar(assuntosQueLeem, opcAssuntosJornal, respMatutino, 59, labelsAssuntosQueLeem, DadosAssuntosQueLeem, 'Matutino_Assuntos_que_Le', 'horizontalBar', 'Matutino', 'Assuntos que mais leem');
-
-        // 30. Não considerando os livros escolares, quantos livros você lê por ano (em média)
-        let QtdLivros = [];
-        let DadosQtdLivros = [];
-        let labelsQtdLivros = [];
-
-        GerarGraficoPie(QtdLivros, opcQtdLivros, respMatutino, 60, labelsQtdLivros, DadosQtdLivros, 'Matutino_Qtd_Livros', 'Quantos livros cada aluno lê por ano (em média)');
-
-        // 31. Se você lê livros literários, qual/quais o(s) gênero(s) preferido(s)?
-        let leLivros = [];
-        let DadosLeLivros = [];
-        let labelsLeLivros = [];
-
-        GerarGraficoBar(leLivros, opcLeLivros, respMatutino, 61, labelsLeLivros, DadosLeLivros, 'Matutino_Le_Livros', 'horizontalBar', 'Matutino', "Gêneros de livros preferidos de cada aluno");
-
-        // 32. Você dedica parte do seu tempo para atividades voluntárias?
-        let atividadesVolutaria = [];
-        let DadosAtiviadeVoluntaria = [];
-        let labelsAtividadeVoluntaria = [];
-
-        GerarGraficoPie(atividadesVolutaria, opcAtividadeVolun, respMatutino, 62, labelsAtividadeVoluntaria, DadosAtiviadeVoluntaria, 'Matutino_Atividade_Voluntaria', "Dedica parte do tempo para atividades Voluntárias");
-
-        //33. Qual religião você professa?": "Evangélica"
-        let religiao = [];
-        let DadosReligiao = [];
-        let lablesReligiao = [];
-
-        GerarGraficoPie(religiao, opcReligiao, respMatutino, 63, lablesReligiao, DadosReligiao, 'Matutino_Religiao', 'Religião');
-
-        // 34. Quais fontes de entretenimento cultural você usa?
-        let FontesEntretenimento = [];
-        let DadosFontesEntretenimento = [];
-        let labelsFontesEntretenimento = [];
-
-        GerarGraficoBar(FontesEntretenimento, opcEntretenimento, respMatutino, 64, labelsFontesEntretenimento, DadosFontesEntretenimento, "Matutino_Fontes_Entretenimento", 'horizontalBar', 'Matutino', 'Fontes de Entretenimento');
-
-        //35. Estamos quase acabando... Como conheceu a FATEC Franca?
-        let ConheceuFatec = [];
-        let DadosConheceuFatec = [];
-        let labelsConheceuFatec = [];
-
-        GerarGraficoBar(ConheceuFatec, opcConheceuFatec, respMatutino, 65, labelsConheceuFatec, DadosConheceuFatec, 'Matutino_Conheceu_Fatec', 'horizontalBar', 'Matutino', 'Como conheceu a FATEC Franca?')
-
-        // 36. Porque você escolheu este curso?
-        let EscolheuCurso = [];
-        let DadosEscolheuCurso = [];
-        let labelsEscolheuCurso = [];
-
-        GerarGraficoBar(EscolheuCurso, opcEscolheuCurso, respMatutino, 66, labelsEscolheuCurso, DadosEscolheuCurso, 'Matutino_Escolheu_Curso', 'horizontalBar', 'Matutino', 'Porque você escolheu este curso?')
-
-        // 37. Qual sua maior expectativa quanto ao curso?
-        let ExpectativaCurso = [];
-        let DadosExpectativaCurso = [];
-        let labelsExpectativaCurso = [];
-
-        GerarGraficoBar(ExpectativaCurso, opcExpectativa, respMatutino, 67, labelsExpectativaCurso, DadosExpectativaCurso, 'Matutino_Expectativa_Curso', 'horizontalBar', 'Matutino', 'Qual sua maior expectativa quanto ao curso?')
-
-        // 38. Qual sua expectativa após se formar?
-        let ExpectativaFormar = [];
-        let DadosExpectativaFormar = [];
-        let labelsExpectativaFormar = [];
-
-        GerarGraficoBar(ExpectativaFormar, opcFormar, respMatutino, 68, labelsExpectativaFormar, DadosExpectativaFormar, 'Matutino_Expectativa_Formar', 'horizontalBar', 'Matutino', 'Qual sua expectativa após se formar?')
-
-        //39. Você já estudou nesta escola?
-        let estudouNaFatec = [];
-        let DadosEstudouFatec = [];
-        let labelsEstudouFatec = [];
-
-        GerarGraficoPie(estudouNaFatec, opcEstudoNaEscola, respMatutino, 69, labelsEstudouFatec, DadosEstudouFatec, 'Matutino_Estudou_Fatec', 'Você já estudou nesta escola?');
-
-        //40. Você fez algum curso técnico?
-        let cursoTecnico = [];
-        let DadosCursoTecnico = [];
-        let labelsCursoTecnico = [];
-
-        GerarGraficoPie(cursoTecnico, opcCursoTecnico, respMatutino, 70, labelsCursoTecnico, DadosCursoTecnico, 'Matutino_Curso_Tecnico', 'Você fez algum curso técnico?');
-
-        // 41. Qual o meio de transporte você usa para vir à escola?
-        let transporte = [];
-        let DadosTransporte = [];
-        let labelsTransporte = [];
-
-        GerarGraficoPie(transporte, opcTransporte, respMatutino, 71, labelsTransporte, DadosTransporte, 'Matutino_Transporte', 'Meios de transportes');
-
-    }
-
-    // Esconder respostas Geral
-    document.getElementById('Geral').style.display = "none";
-    // Esconder respostas do do Matutino
-    document.getElementById('Matutino').style.display = "block";
-    // Mostrar respostas do Noturno
-    document.getElementById('Noturno').style.display = "none";
-
-    generateChart()
-
-}
-
-function Noturno() {
-    async function generateChart() {
-        const file = await fetch('script/json/forms.json')
-
-        const json = await file.json()
-        const forms = json.forms
-
-        let i = 0;
-        let questoes
-
-        // Pegar todas as questões
-        for (quest of forms) {
-            questoes = Object.getOwnPropertyNames(quest)
-            i++
-        }
-
-        // Pegas as questões so com respostas do noturno
-        let Noturno = forms.filter(function (periodo) {
-            return periodo[questoes[3]] === 'Noturno'
-        })
-
-        // Pegas as questões so com respostas do matutino
-        let Matutino = forms.filter(function (periodo) {
-            return periodo[questoes[3]] === 'Matutino'
-        })
-
-        let respostas = new Array(questoes.length)
-        let respMatutino = new Array(Matutino.length)
-        let respNoturno = new Array(Noturno.length)
-
-        for (let j = 0; j < questoes.length; j++) {
-            respMatutino[j] = new Array(Matutino.length)
-            respNoturno[j] = new Array(Noturno.length)
-            respostas[j] = new Array(forms.length)
-        }
-
-        // Array com todas as questões
-        for (let k = 0; k < forms.length; k++) {
-            for (let j = 0; j < questoes.length; j++) {
-                respostas[j][k] = forms[k][questoes[j]]
-            }
-        }
-
-        // Array com todas as questões Matutino
-        for (let k = 0; k < Matutino.length; k++) {
-            for (let j = 0; j < questoes.length; j++) {
-                respMatutino[j][k] = Matutino[k][questoes[j]]
-            }
-        }
-
-        // Array com todas as questões Noturno
-        for (let k = 0; k < Noturno.length; k++) {
-            for (let j = 0; j < questoes.length; j++) {
-                respNoturno[j][k] = Noturno[k][questoes[j]]
-            }
-        }
-
-
-
-
-        // 1. Qual o seu curso?
-        let curso = [];
-        let DadosCurso = [];
-        let labelsCurso = [];
-
-        GerarGraficoPie(curso, opcCurso, respNoturno, 2, labelsCurso, DadosCurso, 'Noturno_curso', 'Cursos')
-
-
-        // 2. Qual o período que cursa?
-        let DadosPeriodo = [];
-        let labelsPeriodo = [];
-
-        if (respNoturno[2].length >= 0) {
-            DadosPeriodo.push(respNoturno[2].length)
-        }
-
-        labelsPeriodo.push(opcPeriodo[1])
-
-        ChartPie('Noturno_Periodo', labelsPeriodo, DadosPeriodo, "Periodo");
-
-        // 4. Qual o estado do Brasil que você nasceu?
-        let estado = [];
-        let DadosEstados = [];
-        let labelsEstado = [];
-
-        GerarGraficoBar(estado, opcEstado, respNoturno, 5, labelsEstado, DadosEstados, 'Noturno_Estado', 'bar', 'Noturno', 'Estados');
-
-        // 5 - Cidades
-        let cidade = [];
-        let DadosCidade = [];
-        let labelsCidade = [];
-
-        GerarGraficoBar(cidade, opcCidade, respNoturno, 6, labelsCidade, DadosCidade, 'Noturno_Cidade', 'bar', 'Noturno', 'Cidades');
-
-        // 6 - Genero
-        let genero = [];
-        let DadosGenero = [];
-        let labelsGenero = [];
-
-        GerarGraficoPie(genero, opcGenero, respNoturno, 7, labelsGenero, DadosGenero, 'Noturno_Genero', 'Gênero');
-
-        // 7 - Data Nascimento
-        let DataNascimento = [];
-        let DadosDataNascimento = [];
-        let labelsDataNascimento = [];
-        let NoturnoDataNascimento = [];
-        let NoturnoAnoNascimento = [];
-
-        for (let i = 0; i < respNoturno[8].length; i++) {
-            NoturnoDataNascimento[i] = (respNoturno[8][i].split('/'))
-            NoturnoAnoNascimento[i] = NoturnoDataNascimento[i][2]
-        }
-
-        for (let i = 0; i < opcDataNascimento.length; i++) {
-            DataNascimento[i] = new Array()
-        }
-
-        for (j = 0; j < opcDataNascimento.length; j++) {
-            for (k = 0; k < NoturnoDataNascimento.length; k++) {
-                if (NoturnoAnoNascimento[k] === opcDataNascimento[j]) {
-                    DataNascimento[j].push(NoturnoAnoNascimento[k])
-                }
-            }
-            if (DataNascimento[j].length > 0) {
-                DadosDataNascimento.push(DataNascimento[j].length)
-            }
-        }
-
-        for (j = 0; j < 1; j++) {
-            for (k = 0; k < opcDataNascimento.length; k++) {
-                if (DataNascimento[k][j] != undefined) {
-                    labelsDataNascimento.push(DataNascimento[k][j])
-                }
-                if (labelsDataNascimento[k] >= 00 && labelsDataNascimento[k] <= 40) {
-                    labelsDataNascimento[k] = '20' + labelsDataNascimento[k]
-                } else if (labelsDataNascimento[k] >= 41 && labelsDataNascimento[k] <= 99) {
-                    labelsDataNascimento[k] = '19' + labelsDataNascimento[k]
-                }
-            }
-        }
-
-        ChartBar('Noturno_DataNascimento', 'bar', 'Noturno', labelsDataNascimento, DadosDataNascimento, 'Datas de Nascimento(Em Anos)');
-
-        // 8 - Estado Civil
-        let estadoCivil = [];
-        let DadosEstadoCivil = [];
-        let labelsEstadoCivil = [];
-
-        GerarGraficoPie(estadoCivil, opcEstadoCivil, respNoturno, 9, labelsEstadoCivil, DadosEstadoCivil, 'Noturno_Estado_civil', 'Estado Civil');
-
-        // 9 - Portadores de Necessidades especiais
-        let portadores = [];
-        let DadosPortadores = [];
-        let labelsPortadores = [];
-
-        GerarGraficoPie(portadores, opcPortador, respNoturno, 10, labelsPortadores, DadosPortadores, 'Noturno_Portador_de_Necessidade', 'Portadores de Necessidades Especiais');
-
-        // 10 - Convive com Portadores de Necessidades especiais
-        let ConvivePort = [];
-        let DadosConvivePort = [];
-        let labelsConvivePort = [];
-
-        GerarGraficoPie(ConvivePort, opcConvivePort, respNoturno, 11, labelsConvivePort, DadosConvivePort, 'Noturno_Convive_com_portador', 'Convive com Portadores de Necessidades Especiais');
-
-        // 11 - Quantidade de filhos
-        let QtdFilhos = [];
-        let DadosQtdFilhos = [];
-        let labelsQtdFilhos = [];
-
-        GerarGraficoPie(QtdFilhos, opcQtdFilhos, respNoturno, 12, labelsQtdFilhos, DadosQtdFilhos, 'Noturno_Qtd_de_filhos', "Quantidade de filhos de cada estudante");
-
-        // 12. Com quem você mora atualmente?
-        let moraCom = [];
-        let DadosMoraCom = [];
-        let labelsMoraCom = [];
-
-        GerarGraficoPie(moraCom, opcMoraCom, respNoturno, 13, labelsMoraCom, DadosMoraCom, 'Noturno_Moram_com', "Com quem cada estudante mora");
-
-        //13. Quantas pessoas, incluindo você, moram no seu domicílio?
-        let QtdMoradores = [];
-        let DadosQtdMoradores = [];
-        let labelsQtdMoradores = [];
-
-        GerarGraficoPie(QtdMoradores, opcQtdMoradores, respNoturno, 14, labelsQtdMoradores, DadosQtdMoradores, 'Noturno_QTD_de_pessoas_moram_junto', "Quantidade de pessoas que moram com cada aluno");
-
-        // 14. Qual a situação do domicílio onde mora?
-        let SituacaoDomicilio = [];
-        let DadosSituacaoDomi = [];
-        let labelsSituacaoDomi = [];
-
-        GerarGraficoPie(SituacaoDomicilio, opcSituacaoDomi, respNoturno, 15, labelsSituacaoDomi, DadosSituacaoDomi, 'Noturno_Situacao_domicilio', "Situação do Domicílio")
-
-        // 15. Tempo de moradia neste domicílio (Em anos)
-        let TempoMoradia = [];
-        let DadosTempoMoradia = [];
-        let labelsTempoMoradia = [];
-
-        GerarGraficoBar(TempoMoradia, opcTempoMoradia, respNoturno, 16, labelsTempoMoradia, DadosTempoMoradia, 'Noturno_Tempo_moradia', 'bar', 'Noturno', 'Tempo de moradia no domicílio(Em anos)');
-
-        // 16. Qual a faixa de renda mensal da sua família (em Salários Mínimos)
-        let RendaMensal = [];
-        let DadosRendaMensal = [];
-        let labelsRendaMensal = [];
-
-        GerarGraficoPie(RendaMensal, opcRendaMensal, respNoturno, 17, labelsRendaMensal, DadosRendaMensal, 'Noturno_Salario_min', "Faixa de renda mensal da família do estudante (em Salários Mínimos)");
-
-        //17.1. Quantas geladeiras há em seu domicílio
-        let QtdGeladeira = [];
-        let DadosQtdGeladeira = [];
-        let labelsQtdGeladeira = [];
-
-        GerarGraficoPie(QtdGeladeira, opc17QtdeCadaCoisa, respNoturno, 18, labelsQtdGeladeira, DadosQtdGeladeira, 'Noturno_Qtd_geladeira', "Quantidade de Geladeiras de cada aluno");
-
-        // 17.2. Quantos celulares comuns há em seu domicílio?
-        let QtdCelular = [];
-        let DadosQtdCelular = [];
-        let labelsQtdCelular = [];
-
-        GerarGraficoPie(QtdCelular, opc17QtdeCadaCoisa, respNoturno, 19, labelsQtdCelular, DadosQtdCelular, 'Noturno_Qtd_celular_comum', "Quantidade de celulares comuns de cada aluno");
-
-        // 17.3. Quantos micro-ondas há em seu domicílio?
-        let QtdMicroOndas = [];
-        let DadosQtdMicroOndas = [];
-        let labelsQtdMicroOndas = [];
-
-        GerarGraficoPie(QtdMicroOndas, opc17QtdeCadaCoisa, respNoturno, 20, labelsQtdMicroOndas, DadosQtdMicroOndas, 'Noturno_Qtd_micro_ondas', 'Quantidade de micro-ondas de cada aluno');
-
-        // 17.4. Quantos notebooks há em seu domicílio?
-        let QtdNotebooks = [];
-        let DadosQtdNotebooks = [];
-        let labelsQtdNotebook = [];
-
-        GerarGraficoPie(QtdNotebooks, opc17QtdeCadaCoisa, respNoturno, 21, labelsQtdNotebook, DadosQtdNotebooks, 'Noturno_Qtd_notebooks', 'Quantidade de Notebooks de cada aluno');
-
-        // 17.5. Quantas máquinas de lavar roupa e(ou) tanquinho há em seu domicílio?
-        let Qtd_Maquina_de_Lavar = [];
-        let DadosMaquinaLavar = [];
-        let labelsMaquinaLavar = [];
-
-        GerarGraficoPie(Qtd_Maquina_de_Lavar, opc17QtdeCadaCoisa, respNoturno, 22, labelsMaquinaLavar, DadosMaquinaLavar, 'Noturno_Qtd_Maquina_de_Lavar', 'Quantidade de Máquinas de lavar roupa de cada aluno');
-
-        // 17.6. Quantas motocicletas há em seu domicílio?
-        let Qtd_motoclicletas = [];
-        let DadosMotocicletas = [];
-        let labelsMotocicletas = [];
-
-        GerarGraficoPie(Qtd_motoclicletas, opc17QtdeCadaCoisa, respNoturno, 23, labelsMotocicletas, DadosMotocicletas, 'Noturno_Qtd_motocicletas', 'Quantidade de Motocicletas de cada aluno');
-
-        // 17.7. Quantos automóveis há em seu domicílio?
-        let QtdAutomoveis = [];
-        let DadosAutomoveis = [];
-        let labelsAutomoveis = [];
-
-        GerarGraficoPie(QtdAutomoveis, opc17QtdeCadaCoisa, respNoturno, 24, labelsAutomoveis, DadosAutomoveis, 'Noturno_Qtd_Automoveis', 'Quantidade de Automóveis de cada aluno');
-
-        // 17.8. Quantos vídeos cassete e(ou) DVD players há em seu domicílio?
-        let QtdDVD = [];
-        let DadosDVD = [];
-        let labelsDvd = [];
-
-        GerarGraficoPie(QtdDVD, opc17QtdeCadaCoisa, respNoturno, 25, labelsDvd, DadosDVD, 'Noturno_Qtd_DVD', 'Quantidade de DVD players');
-
-        // 17.9. Quantos televisores há em seu domicílio?
-        let QtdTV = [];
-        let DadosTV = [];
-        let labelsQtdTV = [];
-
-        GerarGraficoPie(QtdTV, opc17QtdeCadaCoisa, respNoturno, 26, labelsQtdTV, DadosTV, 'Noturno_Qtd_TV', 'Quantidade de TVs de cada aluno');
-
-        // 17.10. Quantos smartphones há em seu domicílio?
-        let Qtd_Smartphones = [];
-        let DadosSmatphones = [];
-        let labelsQtdSmartphone = [];
-
-        GerarGraficoPie(Qtd_Smartphones, opc17QtdeCadaCoisa, respNoturno, 27, labelsQtdSmartphone, DadosSmatphones, 'Noturno_Qtd_Smartphones', 'Quantidade de Smartphones de cada aluno');
-
-        // 18. No seu domicílio tem? questão com mais de uma alternativa, n esta terminada
-        let DomicilioTem = [];
-        let DadosDomicilioTem = [];
-        let labelsDomicilioTem = [];
-
-        GerarGraficoBar(DomicilioTem, opcTemNoDomicilio, respNoturno, 28, labelsDomicilioTem, DadosDomicilioTem, 'Noturno_Oque_tem_No_Domicilio', 'horizontalBar', 'Noturno', 'Na casa de cada estudante tem');
-
-        // 19.1. Você trabalha?
-        let trabalha = [];
-        let DadosTrabalho = [];
-        let labelsTrabalho = [];
-
-        GerarGraficoPie(trabalha, opcTrabalha, respNoturno, 29, labelsTrabalho, DadosTrabalho, 'Noturno_Trabalho', 'Você trabalha?');
-
-        //19.2. Qual o seu vínculo com o emprego?
-        let VinculoEmprego = [];
-        let DadosVinculo = [];
-        let labelsVinculo = [];
-
-        GerarGraficoPie(VinculoEmprego, opcVinculoEmprego, respNoturno, 30, labelsVinculo, DadosVinculo, 'Noturno_Vinculo_Emprego', "Vinculo com o emprego");
-
-        // 19.3. Qual a área do seu trabalho?
-        let AreaTrabalho = [];
-        let DadosAreaTrabalho = [];
-        let labelsAreaTrabalho = [];
-
-        GerarGraficoPie(AreaTrabalho, opcAreaTrabalho, respNoturno, 31, labelsAreaTrabalho, DadosAreaTrabalho, 'Noturno_Area_trabalho', "Qual a área do seu trabalho?");
-
-        // 19.4. Qual seu horário de trabalho?
-        let HorarioTrabalho = [];
-        let DadosHorario = [];
-        let labelsHorario = [];
-
-        GerarGraficoPie(HorarioTrabalho, opcHorarioTrabalho, respNoturno, 32, labelsHorario, DadosHorario, 'Noturno_Horario_Trabalho', "Horários de Trabalho");
-
-        // 19.5. Qual a empresa que você está contratado agora
-        let CabecalhoTabela = '';
-        let DadosTabela = '';
-        let Empresa = [];
-
-        CabecalhoTabela = '<tr class = "thead__row"> <td class = "thead__data"> Empresas: </td> </tr>'
-        document.getElementById('thead').innerHTML = CabecalhoTabela;
-
-        for (quest of forms) {
-
-            Empresa[i] = quest["19.5. Qual a empresa que você está contratado agora?"]
-
-            DadosTabela = DadosTabela + `<tr "tbody__row"> <td "tbody__data"> ${Empresa[i]} </td> </tr>`
-
-            i++
-        }
-
-        document.getElementById('tbody').innerHTML = DadosTabela;
-
-
-        // 20. Você tem plano de saúde privado?
-        let PlanoSaude = [];
-        let DadosPlanoSaude = [];
-        let labelsPlanoSaude = [];
-
-        GerarGraficoPie(PlanoSaude, opcPlanoDeSaude, respNoturno, 34, labelsPlanoSaude, DadosPlanoSaude, 'Noturno_Plano_Saude', 'Planos de Saúde');
-
-        // 21.1. Qual o grau de escolaridade do seu pai?
-        let EscolaridadePai = [];
-        let DadosEscolaridadePai = [];
-        let LabelsEscolaPai = [];
-
-        GerarGraficoPie(EscolaridadePai, opcEscolaridade, respNoturno, 35, LabelsEscolaPai, DadosEscolaridadePai, 'Noturno_Escolaridade_Pai', 'Grau de Escolaridade do Pai dos Alunos');
-
-        // 21.2. Qual o grau de escolaridade da sua mãe?
-        let EscolaridadeMae = [];
-        let DadosEscolaridadeMae = [];
-        let LabelsEscolaMae = [];
-
-        GerarGraficoPie(EscolaridadeMae, opcEscolaridade, respNoturno, 36, LabelsEscolaMae, DadosEscolaridadeMae, 'Noturno_Escolaridade_Mae', 'Grau de Escolaridade da Mãe dos Alunos');
-
-        // 22. Na sua vida escolar você estudou
-        let EstudouEm = [];
-        let DadosEstudouEm = [];
-        let labelsEstudouEm = [];
-
-        GerarGraficoPie(EstudouEm, opcEstudou, respNoturno, 37, labelsEstudouEm, DadosEstudouEm, 'Noturno_Estudou_Em', "Na sua vida escolar você estudou");
-
-        // 23.1. Com que frequência você utiliza microcomputadores?
-        let FrequenciaMicrocomputadores = [];
-        let DadosFrequenciaComp = [];
-        let labelsFrequenciaComp = [];
-
-        GerarGraficoPie(FrequenciaMicrocomputadores, opcUsaMicroComp, respNoturno, 38, labelsFrequenciaComp, DadosFrequenciaComp, 'Noturno_Frequencia_Microcomputadores', 'Com que frequência você utiliza microcomputadores?');
-
-
-        // 23.2. Onde você utiliza microcomputadores?
-        let OndeUtilizaMicro = [];
-        let DadosOndeUtilizaMicro = [];
-        let labelsUtilizaMicro = [];
-
-        GerarGraficoBar(OndeUtilizaMicro, opcOndeUsaMicroComp, respNoturno, 39, labelsUtilizaMicro, DadosOndeUtilizaMicro, 'Noturno_Onde_Microcomputadores', 'horizontalBar', 'Noturno', 'Onde você utiliza microcomputadores?');
-
-        // 23.3. Com qual finalidade você utiliza microcomputadores?
-        let FinalidadeUtiliMicro = [];
-        let DadosFinalidadeUtiliMicro = [];
-        let labelsFinalidadeUtiliza = [];
-
-        GerarGraficoBar(FinalidadeUtiliMicro, opcFinalizadeUsaMicroComp, respNoturno, 40, labelsFinalidadeUtiliza, DadosFinalidadeUtiliMicro, 'Noturno_Finalidade_Microcomputadores', 'horizontalBar', 'Noturno', 'Com qual finalidade você utiliza microcomputadores?');
-
-        // 24. Como você classifica seu conhecimento em informática
-        let ConhecimentoInformatica = [];
-        let DadosConhecimentoInformatica = [];
-        let labelsInformatica = [];
-
-        GerarGraficoPie(ConhecimentoInformatica, opcConhecimentoInformatica, respNoturno, 41, labelsInformatica, DadosConhecimentoInformatica, 'Noturno_Conhecimento_Informatica', 'Conhecimento em Informática');
-
-        // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Windows]
-        let ConhecimentoWindows = [];
-        let DadosWindows = [];
-        let labelsWindows = [];
-
-        GerarGraficoPie(ConhecimentoWindows, opcConhecimentoInformatica, respNoturno, 42, labelsWindows, DadosWindows, 'Noturno_Conhecimento_Windows', 'Conhecimento no Windows');
-
-
-        // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Linux]
-        let ConhecimentoLinux = [];
-        let DadosLinux = [];
-        let labelsLinux = [];
-
-        GerarGraficoPie(ConhecimentoLinux, opcConhecimentoInformatica, respNoturno, 43, labelsLinux, DadosLinux, 'Noturno_Conhecimento_Linux', 'Conhecimento no Linux');
-
-        // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Editores de textos (Word, Writer, etc.)]
-        let ConhecimentoWord = [];
-        let DadosWord = [];
-        let labelsWord = [];
-
-        GerarGraficoPie(ConhecimentoWord, opcConhecimentoInformatica, respNoturno, 44, labelsWord, DadosWord, 'Noturno_Conhecimento_Word', 'Conhecimento em Editores de textos (Word, Writer, etc.)');
-
-        // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Planilhas eletrônicas (Excel, Calc, etc.)]
-        let ConhecimentoExcel = [];
-        let DadosExcel = [];
-        let labelsExcel = [];
-
-        GerarGraficoPie(ConhecimentoExcel, opcConhecimentoInformatica, respNoturno, 45, labelsExcel, DadosExcel, 'Noturno_Conhecimento_Excel', 'Conhecimento em Planilhas eletrônicas (Excel, Calc, etc.)');
-
-
-        // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Apresentadores (Powerpoint, Impress, Prezzi, etc.)]
-        let ConhecimentoPowerPoint = [];
-        let DadosPowerPoint = [];
-        let labelsPowerPoint = [];
-
-        GerarGraficoPie(ConhecimentoPowerPoint, opcConhecimentoInformatica, respNoturno, 46, labelsPowerPoint, DadosPowerPoint, 'Noturno_Conhecimento_PowerPoint', 'Conhecimento em Apresentadores (Powerpoint, Impress, Prezzi, etc.)');
-
-
-        // 25. Qual o seu conhecimento em relação aos aplicativos a seguir? [Sistemas de Gestão Empresaria]
-        let ConhecimentoGestaoEmpresarial = [];
-        let DadosGestaoEmpresarial = [];
-        let labelsGestaoEmpresarial = [];
-
-        GerarGraficoPie(ConhecimentoGestaoEmpresarial, opcConhecimentoInformatica, respNoturno, 47, labelsGestaoEmpresarial, DadosGestaoEmpresarial, 'Noturno_Conhecimento_GestaoEmpresarial', 'Conhecimento em Sistemas de Gestão Empresaria');
-
-        //26. Agora, considere seu conhecimento sobre idiomas [Inglês]
-        let conhecimentoIngles = [];
-        let DadosIngles = [];
-        let labelsInlges = [];
-
-        GerarGraficoPie(conhecimentoIngles, opcConhecimentoLinguas, respNoturno, 48, labelsInlges, DadosIngles, 'Noturno_Ingles', 'Conhecimento em inglês');
-
-        // 26. Agora, considere seu conhecimento sobre idiomas [Espanhol]
-        let conhecimentoEspanhol = [];
-        let DadosEspanhol = [];
-        let labelsEspanhol = [];
-
-        GerarGraficoPie(conhecimentoEspanhol, opcConhecimentoLinguas, respNoturno, 49, labelsEspanhol, DadosEspanhol, 'Noturno_Espanhol', 'Conhecimento em Espanhol');
-
-        // 26. Agora, considere seu conhecimento sobre idiomas [Outros]
-        let conhecimentoIdioma = [];
-        let DadosIdioma = [];
-        let labelsIdioma = [];
-
-        GerarGraficoPie(conhecimentoIdioma, opcConhecimentoLinguas, respNoturno, 50, labelsIdioma, DadosIdioma, 'Noturno_Outros', 'Conhecimento em outros idiomas');
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Televisores]
-        let Televisores = [];
-        let DadosTelevisores = [];
-        let labelsTelevisores = [];
-
-        GerarGraficoPie(Televisores, opcBuscaInformação, respNoturno, 51, labelsTelevisores, DadosTelevisores, 'Noturno_Televisores', 'Busca por informação no seguinte meio de comunicação(Televisores)');
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Internet]
-        let internet = [];
-        let DadosInternet = [];
-        let labelsInternet = [];
-
-        GerarGraficoPie(internet, opcBuscaInformação, respNoturno, 52, labelsInternet, DadosInternet, 'Noturno_Internet', 'Busca por informação no seguinte meio de comunicação(Internet)');
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Revistas]
-        let revistas = [];
-        let DadosRevistas = [];
-        let labelsRevistas = [];
-
-        GerarGraficoPie(revistas, opcBuscaInformação, respNoturno, 53, labelsRevistas, DadosRevistas, 'Noturno_Revistas', 'Busca por informação no seguinte meio de comunicação(Revistas)');
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Jornais]
-        let jornais = [];
-        let DadosJornais = [];
-        let labelsJornais = [];
-
-        GerarGraficoPie(jornais, opcBuscaInformação, respNoturno, 54, labelsJornais, DadosJornais, 'Noturno_Jornais', 'Busca por informação no seguinte meio de comunicação(Jornais)');
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Rádio]
-        let Radio = [];
-        let DadosRadio = [];
-        let labelsRadio = [];
-
-        GerarGraficoPie(Radio, opcBuscaInformação, respNoturno, 55, labelsRadio, DadosRadio, 'Noturno_Radio', 'Busca por informação no seguinte meio de comunicação(Rádio)');
-
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Redes socias]
-        let RedesSociais = [];
-        let DadosRedesSociais = [];
-        let labelsRedesSociais = [];
-
-        GerarGraficoPie(RedesSociais, opcBuscaInformação, respNoturno, 56, labelsRedesSociais, DadosRedesSociais, 'Noturno_Redes_Sociais', 'Busca por informação no seguinte meio de comunicação(Redes Sociais)');
-
-        // 27. Considere a busca por informação nos seguintes meios de comunicação [Conversas com Amigos]
-        let ConversaComAmigos = [];
-        let DadosConversaComAmigos = [];
-        let labelsConversaComAmigos = [];
-
-        GerarGraficoPie(ConversaComAmigos, opcBuscaInformação, respNoturno, 57, labelsConversaComAmigos, DadosConversaComAmigos, 'Noturno_Conversas_com_Amigos', 'Busca por informação no seguinte meio de comunicação(Conversas com Amigos)');
-
-        // 28. Se você lê jornal, qual a frequência?
-        let LeJornal = [];
-        let DadosLeJornal = [];
-        let labelsLeJornal = [];
-
-        GerarGraficoPie(LeJornal, opcLeJornal, respNoturno, 58, labelsLeJornal, DadosLeJornal, 'Noturno_Le_Jornal', ' Frequência que leem jornal');
-
-        // 29. Se você lê jornal, quais os assuntos que mais lê?
-        let assuntosQueLeem = [];
-        let DadosAssuntosQueLeem = [];
-        let labelsAssuntosQueLeem = [];
-
-        GerarGraficoBar(assuntosQueLeem, opcAssuntosJornal, respNoturno, 59, labelsAssuntosQueLeem, DadosAssuntosQueLeem, 'Noturno_Assuntos_que_Le', 'horizontalBar', 'Noturno', 'Assuntos que mais leem');
-
-        // 30. Não considerando os livros escolares, quantos livros você lê por ano (em média)
-        let QtdLivros = [];
-        let DadosQtdLivros = [];
-        let labelsQtdLivros = [];
-
-        GerarGraficoPie(QtdLivros, opcQtdLivros, respNoturno, 60, labelsQtdLivros, DadosQtdLivros, 'Noturno_Qtd_Livros', 'Quantos livros cada aluno lê por ano (em média)');
-
-        // 31. Se você lê livros literários, qual/quais o(s) gênero(s) preferido(s)?
-        let leLivros = [];
-        let DadosLeLivros = [];
-        let labelsLeLivros = [];
-
-        GerarGraficoBar(leLivros, opcLeLivros, respNoturno, 61, labelsLeLivros, DadosLeLivros, 'Noturno_Le_Livros', 'horizontalBar', 'Noturno', "Gêneros de livros preferidos de cada aluno");
-
-        // 32. Você dedica parte do seu tempo para atividades voluntárias?
-        let atividadesVolutaria = [];
-        let DadosAtiviadeVoluntaria = [];
-        let labelsAtividadeVoluntaria = [];
-
-        GerarGraficoPie(atividadesVolutaria, opcAtividadeVolun, respNoturno, 62, labelsAtividadeVoluntaria, DadosAtiviadeVoluntaria, 'Noturno_Atividade_Voluntaria', "Dedica parte do tempo para atividades Voluntárias");
-
-        //33. Qual religião você professa?": "Evangélica"
-        let religiao = [];
-        let DadosReligiao = [];
-        let lablesReligiao = [];
-
-        GerarGraficoPie(religiao, opcReligiao, respNoturno, 63, lablesReligiao, DadosReligiao, 'Noturno_Religiao', 'Religião');
-
-        // 34. Quais fontes de entretenimento cultural você usa?
-        let FontesEntretenimento = [];
-        let DadosFontesEntretenimento = [];
-        let labelsFontesEntretenimento = [];
-
-        GerarGraficoBar(FontesEntretenimento, opcEntretenimento, respNoturno, 64, labelsFontesEntretenimento, DadosFontesEntretenimento, "Noturno_Fontes_Entretenimento", 'horizontalBar', 'Noturno', 'Fontes de Entretenimento');
-
-        //35. Estamos quase acabando... Como conheceu a FATEC Franca?
-        let ConheceuFatec = [];
-        let DadosConheceuFatec = [];
-        let labelsConheceuFatec = [];
-
-        GerarGraficoBar(ConheceuFatec, opcConheceuFatec, respNoturno, 65, labelsConheceuFatec, DadosConheceuFatec, 'Noturno_Conheceu_Fatec', 'horizontalBar', 'Noturno', 'Como conheceu a FATEC Franca?')
-
-        // 36. Porque você escolheu este curso?
-        let EscolheuCurso = [];
-        let DadosEscolheuCurso = [];
-        let labelsEscolheuCurso = [];
-
-        GerarGraficoBar(EscolheuCurso, opcEscolheuCurso, respNoturno, 66, labelsEscolheuCurso, DadosEscolheuCurso, 'Noturno_Escolheu_Curso', 'horizontalBar', 'Noturno', 'Porque você escolheu este curso?')
-
-        // 37. Qual sua maior expectativa quanto ao curso?
-        let ExpectativaCurso = [];
-        let DadosExpectativaCurso = [];
-        let labelsExpectativaCurso = [];
-
-        GerarGraficoBar(ExpectativaCurso, opcExpectativa, respNoturno, 67, labelsExpectativaCurso, DadosExpectativaCurso, 'Noturno_Expectativa_Curso', 'horizontalBar', 'Noturno', 'Qual sua maior expectativa quanto ao curso?')
-
-        // 38. Qual sua expectativa após se formar?
-        let ExpectativaFormar = [];
-        let DadosExpectativaFormar = [];
-        let labelsExpectativaFormar = [];
-
-        GerarGraficoBar(ExpectativaFormar, opcFormar, respNoturno, 68, labelsExpectativaFormar, DadosExpectativaFormar, 'Noturno_Expectativa_Formar', 'horizontalBar', 'Noturno', 'Qual sua expectativa após se formar?')
-
-        //39. Você já estudou nesta escola?
-        let estudouNaFatec = [];
-        let DadosEstudouFatec = [];
-        let labelsEstudouFatec = [];
-
-        GerarGraficoPie(estudouNaFatec, opcEstudoNaEscola, respNoturno, 69, labelsEstudouFatec, DadosEstudouFatec, 'Noturno_Estudou_Fatec', 'Você já estudou nesta escola?');
-
-        //40. Você fez algum curso técnico?
-        let cursoTecnico = [];
-        let DadosCursoTecnico = [];
-        let labelsCursoTecnico = [];
-
-        GerarGraficoPie(cursoTecnico, opcCursoTecnico, respNoturno, 70, labelsCursoTecnico, DadosCursoTecnico, 'Noturno_Curso_Tecnico', 'Você fez algum curso técnico?');
-
-        // 41. Qual o meio de transporte você usa para vir à escola?
-        let transporte = [];
-        let DadosTransporte = [];
-        let labelsTransporte = [];
-
-        GerarGraficoPie(transporte, opcTransporte, respNoturno, 71, labelsTransporte, DadosTransporte, 'Noturno_Transporte', 'Meios de transportes');
-
-    }
-    // Esconder respostas Geral
-    document.getElementById('Geral').style.display = "none";
-    // Esconder respostas do do Matutino
-    document.getElementById('Matutino').style.display = "none";
-    // Mostrar respostas do Noturno
-    document.getElementById('Noturno').style.display = "block";
-
-    generateChart()
-}
-
-function Geral() {
-    document.location.reload(true);
-}
+document
+    .getElementById('upload')
+    .addEventListener('change', handleFileSelect, false);
+
+// Mostrar respostas Geral
+document.getElementById('Geral').style.display = "block";
+// Esconder respostas do do Matutino
+document.getElementById('Matutino').style.display = "none";
+// Esconder respostas do Noturno
+document.getElementById('Noturno').style.display = "none";
