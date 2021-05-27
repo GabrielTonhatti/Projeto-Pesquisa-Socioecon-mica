@@ -8,6 +8,10 @@ body {
     font-family: monospace;
 }
 
+a {
+    text-decoration: none;
+}
+
 .header {
     background-color: #0d1118;
     display: flex;
@@ -40,6 +44,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 40px;
 }
  
  .filter__title {
@@ -61,6 +66,18 @@ body {
 
 .filter__item:hover {
     background-color: #34363b;
+}
+
+.download {
+    font-size: 16px;
+    padding: 0.325rem;
+    background-color: #24262D;
+    border: none;
+    outline: none;
+    color: #BFBFBF;
+    border-radius: 0.313rem;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 ::-webkit-file-upload-button {
