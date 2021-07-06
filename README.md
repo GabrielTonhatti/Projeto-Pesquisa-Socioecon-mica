@@ -3,7 +3,11 @@ Projeto-Pesquisa-Socioeconomica
 
 # Trabalho Faculdade em grupo.
 
-Projeto: [Link](https://gabrieltonhatti.github.io/Projeto-Pesquisa-Socioeconomica/)
+Projeto: [Pesquisa Socioeconomica](https://gabrieltonhatti.github.io/Projeto-Pesquisa-Socioeconomica/)
+
+<img src = "img/Image1.png">
+<img src = "img/image2.png">
+<img src = "img/image3.png">
 
 ## Feito em JavaScript, Html e Css por:
 
